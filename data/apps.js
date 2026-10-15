@@ -30,6 +30,28 @@ window.APPS = [
     thumb: "images/science-lab.png",
     author: "AIEDAP 연구모임",
     featured: true
+  },
+  {
+    id: "dna-web",
+    title: "DNA Web",
+    subtitle: "DNA 구조 탐구",
+    area: "life",
+    subject: "생명과학",
+    desc: "AI Studio에서 만든 DNA 탐구 웹앱입니다.",
+    tags: ["생명과학", "AI Studio"],
+    url: "https://ai.studio/apps/666d9a52-2215-4820-977f-20c53161b352",
+    thumb: "images/dna-web.png"
+  },
+  {
+    id: "calculus-web",
+    title: "Calculus Web",
+    subtitle: "미적분 탐구",
+    area: "math",
+    subject: "수학",
+    desc: "AI Studio에서 만든 미적분 탐구 웹앱입니다.",
+    tags: ["미적분", "AI Studio"],
+    url: "https://ai.studio/apps/3967dfec-0f2e-4901-b5e1-8ed1ff8929b2",
+    thumb: "images/calculus-web.png"
   }
 
   /* 예시 — 주석을 풀고 값을 바꿔 쓰세요.
