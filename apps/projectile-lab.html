@@ -1,0 +1,1538 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>포물선 실험실 | 물리학 탐구</title>
+    <style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}.inset-0{inset:0px}.top-0{top:0px}.z-50{z-index:50}.m-4{margin:1rem}.mx-auto{margin-left:auto;margin-right:auto}.mb-1{margin-bottom:0.25rem}.mb-2{margin-bottom:0.5rem}.mb-3{margin-bottom:0.75rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.mt-10{margin-top:2.5rem}.mt-12{margin-top:3rem}.mt-2{margin-top:0.5rem}.mt-4{margin-top:1rem}.block{display:block}.flex{display:flex}.grid{display:grid}.hidden{display:none}.h-24{height:6rem}.h-4{height:1rem}.h-40{height:10rem}.h-64{height:16rem}.h-\[350px\]{height:350px}.h-\[500px\]{height:500px}.h-full{height:100%}.min-h-screen{min-height:100vh}.w-4{width:1rem}.w-full{width:100%}.max-w-7xl{max-width:80rem}.max-w-md{max-width:28rem}.flex-1{flex:1 1 0%}.flex-grow{flex-grow:1}.cursor-move{cursor:move}.cursor-pointer{cursor:pointer}.touch-none{touch-action:none}.list-decimal{list-style-type:decimal}.list-disc{list-style-type:disc}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-center{align-items:center}.justify-end{justify-content:flex-end}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-2{gap:0.5rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.gap-8{gap:2rem}.gap-3{gap:0.75rem}.gap-1{gap:0.25rem}.space-y-1 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.25rem * var(--tw-space-y-reverse))}.space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.overflow-y-auto{overflow-y:auto}.whitespace-pre-wrap{white-space:pre-wrap}.rounded{border-radius:0.25rem}.border{border-width:1px}.border-b{border-bottom-width:1px}.border-t{border-top-width:1px}.border-none{border-style:none}.border-\[\#334155\]{--tw-border-opacity:1;border-color:rgb(51 65 85 / var(--tw-border-opacity, 1))}.border-gray-600{--tw-border-opacity:1;border-color:rgb(75 85 99 / var(--tw-border-opacity, 1))}.border-red-400{--tw-border-opacity:1;border-color:rgb(248 113 113 / var(--tw-border-opacity, 1))}.bg-\[\#0a1128\]{--tw-bg-opacity:1;background-color:rgb(10 17 40 / var(--tw-bg-opacity, 1))}.bg-\[\#0f172a\]{--tw-bg-opacity:1;background-color:rgb(15 23 42 / var(--tw-bg-opacity, 1))}.bg-black{--tw-bg-opacity:1;background-color:rgb(0 0 0 / var(--tw-bg-opacity, 1))}.bg-gray-700{--tw-bg-opacity:1;background-color:rgb(55 65 81 / var(--tw-bg-opacity, 1))}.bg-\[\#1e293b\]{--tw-bg-opacity:1;background-color:rgb(30 41 59 / var(--tw-bg-opacity, 1))}.bg-opacity-10{--tw-bg-opacity:0.1}.bg-opacity-20{--tw-bg-opacity:0.2}.bg-opacity-70{--tw-bg-opacity:0.7}.p-3{padding:0.75rem}.p-4{padding:1rem}.px-4{padding-left:1rem;padding-right:1rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-4{padding-top:1rem;padding-bottom:1rem}.py-6{padding-top:1.5rem;padding-bottom:1.5rem}.px-2{padding-left:0.5rem;padding-right:0.5rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.pl-4{padding-left:1rem}.pl-5{padding-left:1.25rem}.pr-2{padding-right:0.5rem}.pt-2{padding-top:0.5rem}.pt-4{padding-top:1rem}.text-left{text-align:left}.text-center{text-align:center}.font-mono{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}.font-serif{font-family:ui-serif, Georgia, Cambria, "Times New Roman", Times, serif}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.text-base{font-size:1rem;line-height:1.5rem}.font-bold{font-weight:700}.font-light{font-weight:300}.font-semibold{font-weight:600}.leading-loose{line-height:2}.leading-relaxed{line-height:1.625}.tracking-wider{letter-spacing:0.05em}.text-gray-300{--tw-text-opacity:1;color:rgb(209 213 219 / var(--tw-text-opacity, 1))}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175 / var(--tw-text-opacity, 1))}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128 / var(--tw-text-opacity, 1))}.text-red-400{--tw-text-opacity:1;color:rgb(248 113 113 / var(--tw-text-opacity, 1))}.text-yellow-400{--tw-text-opacity:1;color:rgb(250 204 21 / var(--tw-text-opacity, 1))}.transition-colors{transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}@media (min-width: 640px){.sm\:flex-row{flex-direction:row}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}}@media (min-width: 1024px){.lg\:col-span-1{grid-column:span 1 / span 1}.lg\:col-span-2{grid-column:span 2 / span 2}.lg\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.lg\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.lg\:px-8{padding-left:2rem;padding-right:2rem}}</style>
+    <style>
+        
+        
+        :root {
+            --bg-color: #0f172a; /* 짙은 남색 */
+            --text-color: #fdfbf7; /* 크림색 */
+            --accent-color: #2dd4bf; /* 민트 강조 */
+            --accent-hover: #14b8a6;
+            --panel-bg: #1e293b;
+            --border-color: #334155;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Inter', 'Pretendard', sans-serif;
+            font-weight: 300;
+            line-height: 1.6;
+            transition: font-size 0.3s ease;
+            overflow-x: hidden;
+        }
+
+        /* 발표 모드 (큰 글씨) */
+        body.presentation-mode {
+            font-size: 1.25rem;
+        }
+        body.presentation-mode h1 { font-size: 2.5rem; }
+        body.presentation-mode h2 { font-size: 2rem; }
+        body.presentation-mode h3 { font-size: 1.5rem; }
+
+        /* 공통 스타일 클래스 */
+        .text-mint { color: var(--accent-color); }
+        .border-mint { border-color: var(--accent-color); }
+        .bg-mint { background-color: var(--accent-color); color: var(--bg-color); }
+        
+        .panel { background-color: var(--panel-bg); border: 1px solid var(--border-color); border-radius: 0.5rem; padding: 1.5rem; }
+        .thin-border { border: 1px solid var(--border-color); }
+        
+        input, textarea, select { 
+            background-color: #0f172a; color: var(--text-color); border: 1px solid var(--border-color); 
+            padding: 0.75rem; border-radius: 0.25rem; width: 100%; transition: border-color 0.2s;
+        }
+        input:focus, textarea:focus, select:focus { outline: none; border-color: var(--accent-color); }
+        
+        button { font-weight: 400; transition: all 0.2s; }
+        .btn-outline { border: 1px solid var(--accent-color); color: var(--accent-color); padding: 0.5rem 1rem; border-radius: 0.25rem; background: transparent; }
+        .btn-outline:hover { background-color: rgba(45, 212, 191, 0.1); }
+        .btn-solid { background-color: var(--accent-color); color: var(--bg-color); border: 1px solid var(--accent-color); padding: 0.5rem 1rem; border-radius: 0.25rem; font-weight: 600; }
+        .btn-solid:hover { background-color: var(--accent-hover); border-color: var(--accent-hover); }
+        
+        .app-section { display: none; padding: 2rem 0; animation: fadeIn 0.3s ease-in-out; }
+        .app-section.active { display: block; }
+        
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* 국어과 스타일 */
+        .poem-word { cursor: pointer; display: inline-block; padding: 0.1rem 0.2rem; border-radius: 0.2rem; transition: background 0.2s; }
+        .poem-word:hover { background-color: rgba(45, 212, 191, 0.2); }
+        .poem-word.has-memo { border-bottom: 1px dashed var(--accent-color); color: var(--accent-color); }
+        
+        /* 영어과 스타일 */
+        .connector { color: var(--accent-color); font-weight: 600; text-decoration: underline; text-underline-offset: 4px; }
+        
+        /* 캔버스 공통 */
+        canvas { background-color: var(--panel-bg); border: 1px solid var(--border-color); border-radius: 0.5rem; width: 100%; max-width: 100%; }
+
+        /* 교사용 가이드 (접이식) */
+        details > summary { cursor: pointer; font-weight: 600; color: var(--accent-color); outline: none; margin-bottom: 0.5rem; }
+        details > summary::marker { color: var(--accent-color); }
+    input[type="range"]{appearance:auto;accent-color:#2dd4bf;padding:.35rem 0;min-height:32px;cursor:pointer}input[type="radio"],input[type="checkbox"]{width:auto;padding:0;accent-color:#2dd4bf}button,a,summary{touch-action:manipulation}.poem-word:focus-visible{outline:2px solid #2dd4bf}.app-section>header{margin-bottom:1rem}.app-section>details{margin-bottom:1.25rem}.app-section{padding-top:1.5rem}label{cursor:pointer}@media(max-width:600px){.panel{padding:1rem}header.sticky h1{font-size:1.05rem}#math-info{font-size:.7rem}body.presentation-mode{font-size:1.1rem}}
+</style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <header class="border-b border-[#334155] bg-[#0f172a] sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <h1 class="text-xl font-bold tracking-wider">포물선 실험실</h1>
+            <nav><a href="../index.html#gallery" class="btn-outline text-sm">전시관으로</a><span class="text-sm text-gray-400" style="margin-left:12px">물리학 탐구</span></nav>
+            <div class="flex gap-2">
+                <button id="toggle-presentation" class="btn-outline text-xs">발표 모드</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+
+        <section id="app-korean" class="app-section">
+            <header class="mb-8">
+                <h2 class="text-3xl font-semibold mb-2">국어 <span class="text-mint font-light">| 시어의 지도</span></h2>
+                <p class="text-gray-400 mb-4">단어에 숨겨진 의미와 표현법을 스스로 발견하고 근거를 마련합니다.</p>
+                <div class="panel border-mint">
+                    <p class="font-semibold text-mint mb-2">학습 목표</p>
+                    <p>시어를 분석하여 표현법(비유, 심상, 상징)을 파악하고, 타당한 근거를 들어 주체적인 해석을 도출할 수 있다.</p>
+                </div>
+            </header>
+
+            <details class="panel mb-8 border-mint bg-opacity-10 bg-mint">
+                <summary>교사용 5분 가이드</summary>
+                <ul class="list-disc pl-5 mt-2 space-y-2 text-sm text-gray-300">
+                    <li><strong>도입 (1분):</strong> 시는 정답을 찾는 것이 아니라, 근거를 바탕으로 다양한 해석의 지도를 그리는 과정임을 안내합니다.</li>
+                    <li><strong>활동 (3분):</strong> 학생이 직접 시를 읽고, 의미 있다고 생각하는 단어를 클릭하여 표현법과 해석 근거를 메모하게 합니다.</li>
+                    <li><strong>정리 (1분):</strong> 우측 메모 목록을 보며 학생들이 찾은 다양한 해석을 공유하고, JSON 파일로 내보내어 포트폴리오로 활용하게 합니다.</li>
+                    <li class="mt-4 text-mint"><strong>추천 발문 1:</strong> "이 단어에서 특별한 감각(심상)이 느껴진다면, 어떤 근거 때문인가요?"</li>
+                    <li class="text-mint"><strong>추천 발문 2:</strong> "같은 시어라도 친구의 해석과 나의 해석이 어떻게 다른가요?"</li>
+                </ul>
+            </details>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- 왼쪽: 시 텍스트 영역 -->
+                <div class="panel flex flex-col gap-4">
+                    <div class="flex justify-between items-center mb-2">
+                        <h3 class="text-xl font-semibold">시 원문</h3>
+                        <button id="kr-btn-edit" class="btn-outline text-xs">직접 입력하기</button>
+                    </div>
+                    <div id="kr-poem-display" class="whitespace-pre-wrap leading-loose text-lg font-light flex-grow"></div>
+                    <textarea id="kr-poem-input" aria-label="시 원문 입력" class="hidden h-64 font-light text-lg" placeholder="여기에 시를 붙여넣으세요."></textarea>
+                    
+                    <div class="mt-4 border-t border-[#334155] pt-4">
+                        <h4 class="text-mint font-semibold mb-2">탐구 과제</h4>
+                        <ol class="list-decimal pl-5 space-y-1 text-sm text-gray-300">
+                            <li><strong>예측:</strong> 제목이나 첫 줄을 보고 시의 전체 분위기를 상상해 봅니다.</li>
+                            <li><strong>조작:</strong> 인상 깊은 단어를 클릭하여 메모(표현법, 해석 근거)를 추가해 봅니다.</li>
+                            <li><strong>확인:</strong> 메모 목록을 검토하며 시 전체의 주제를 나만의 언어로 정리해 봅니다. (정답은 없으며 논리적 근거가 중요합니다.)</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- 오른쪽: 메모 목록 영역 -->
+                <div class="panel flex flex-col h-full">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-xl font-semibold">나의 해석 지도</h3>
+                        <div class="flex gap-2">
+                            <button id="kr-btn-export" class="btn-outline text-xs">JSON 내보내기</button>
+                            <button id="kr-btn-reset" class="btn-outline text-xs text-red-400 border-red-400">초기화</button>
+                        </div>
+                    </div>
+                    <div id="kr-memo-list" class="flex-grow overflow-y-auto space-y-3 pr-2">
+                        <p class="text-gray-400 text-sm text-center mt-10">시어를 클릭하여 첫 번째 메모를 남겨보세요.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 메모 입력 모달 -->
+            <div id="kr-modal" class="hidden fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
+                <div class="panel max-w-md w-full m-4">
+                    <h4 class="text-xl font-semibold mb-4">시어 메모: <span id="kr-modal-word" class="text-mint"></span></h4>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm text-gray-400 mb-1">표현법 선택</label>
+                            <select id="kr-modal-type" aria-label="표현법 선택">
+                                <option value="비유">비유 (은유, 직유 등)</option>
+                                <option value="심상">심상 (시각, 청각 등 감각적 표현)</option>
+                                <option value="상징">상징 (원관념을 숨기고 보조관념만 제시)</option>
+                                <option value="기타">기타 / 자유 해석</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm text-gray-400 mb-1">해석 및 근거</label>
+                            <textarea id="kr-modal-reason" aria-label="해석 및 근거" class="h-24" placeholder="이 단어가 선택한 표현법으로 쓰였다고 생각하는 이유를 적어주세요."></textarea>
+                        </div>
+                        <div class="flex justify-end gap-2 pt-2">
+                            <button id="kr-modal-cancel" class="btn-outline">취소</button>
+                            <button id="kr-modal-save" class="btn-solid">저장하기</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="app-english" class="app-section">
+            <header class="mb-8">
+                <h2 class="text-3xl font-semibold mb-2">영어 <span class="text-mint font-light">| 문장의 길</span></h2>
+                <p class="text-gray-400 mb-4">문맥과 연결어를 단서로 논리적인 글의 흐름을 파악합니다.</p>
+                <div class="panel border-mint">
+                    <p class="font-semibold text-mint mb-2">학습 목표</p>
+                    <p>주어진 문장들의 논리적 순서를 맞추고, 연결어(However, Therefore 등)가 문맥 형성에 미치는 역할을 이해할 수 있다.</p>
+                </div>
+            </header>
+
+            <details class="panel mb-8 border-mint bg-opacity-10 bg-mint">
+                <summary>교사용 5분 가이드</summary>
+                <ul class="list-disc pl-5 mt-2 space-y-2 text-sm text-gray-300">
+                    <li><strong>도입 (1분):</strong> 영어 지문에서 문장 간의 관계를 알려주는 표지판(연결어)의 중요성을 강조합니다.</li>
+                    <li><strong>활동 (3분):</strong> 학생이 지문을 선택하고 섞은 뒤, 위/아래 버튼을 이용해 논리적 순서를 추론하여 재배열합니다.</li>
+                    <li><strong>정리 (1분):</strong> 정답을 확인하고, 특히 민트색으로 강조된 연결어가 순서 결정에 어떤 단서를 주었는지 논의합니다.</li>
+                    <li class="mt-4 text-mint"><strong>추천 발문 1:</strong> "However 앞에는 주로 어떤 내용의 문장이 와야 할까요?"</li>
+                    <li class="text-mint"><strong>추천 발문 2:</strong> "직접 문장들을 섞어보고, 해석 없이 연결어와 대명사만으로 순서를 유추해 볼 수 있나요?"</li>
+                </ul>
+            </details>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="panel lg:col-span-1 flex flex-col gap-4">
+                    <h3 class="text-xl font-semibold">지문 선택 및 설정</h3>
+                    <select id="en-select-text">
+                        <option value="1">지문 1: 기술 발전과 사생활</option>
+                        <option value="2">지문 2: 수면과 집중력</option>
+                        <option value="3">지문 3: 독서와 어휘력</option>
+                        <option value="custom">직접 입력 (한 줄에 한 문장)</option>
+                    </select>
+                    
+                    <textarea id="en-custom-input" class="hidden h-40" placeholder="한 줄에 한 문장씩 입력하세요."></textarea>
+                    
+                    <div class="flex gap-2">
+                        <button id="en-btn-shuffle" class="btn-outline flex-1">문장 섞기</button>
+                        <button id="en-btn-check" class="btn-solid flex-1">채점하기</button>
+                    </div>
+                    <button id="en-btn-original" class="btn-outline w-full mt-2">원문 보기 / 초기화</button>
+                    
+                    <div id="en-feedback" class="mt-4 p-4 rounded bg-opacity-20 hidden"></div>
+
+                    <div class="mt-4 border-t border-[#334155] pt-4">
+                        <h4 class="text-mint font-semibold mb-2">탐구 과제</h4>
+                        <ol class="list-decimal pl-5 space-y-1 text-sm text-gray-300">
+                            <li><strong>예측:</strong> 강조된 연결어를 먼저 확인하고 문장 간의 관계를 예상합니다.</li>
+                            <li><strong>조작:</strong> 문장 섞기를 한 후, 위/아래 이동 버튼을 눌러 올바른 위치로 문장을 이동시킵니다.</li>
+                            <li><strong>확인:</strong> 채점하기를 눌러 확인하고, 연결어가 단서로 작용했는지 점검합니다.</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="panel lg:col-span-2">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-xl font-semibold">문장 재배열</h3>
+                        <span class="text-sm text-gray-400">우측 화살표 버튼으로 이동</span>
+                    </div>
+                    <div id="en-sentences-container" class="space-y-3">
+                        <!-- 문장 리스트가 동적으로 렌더링됨 -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="app-math" class="app-section">
+            <header class="mb-8">
+                <h2 class="text-3xl font-semibold mb-2">수학 <span class="text-mint font-light">| 포물선 조율사</span></h2>
+                <p class="text-gray-400 mb-4">이차함수 y = ax² + bx + c 의 계수 변화가 그래프에 미치는 영향을 시각적으로 탐구합니다.</p>
+                <div class="panel border-mint">
+                    <p class="font-semibold text-mint mb-2">학습 목표</p>
+                    <p>이차함수 식의 각 계수(a, b, c)가 포물선의 볼록한 방향, 폭, 꼭짓점의 위치, y절편에 미치는 영향을 설명할 수 있다.</p>
+                </div>
+            </header>
+
+            <details class="panel mb-8 border-mint bg-opacity-10 bg-mint">
+                <summary>교사용 5분 가이드</summary>
+                <ul class="list-disc pl-5 mt-2 space-y-2 text-sm text-gray-300">
+                    <li><strong>도입 (1분):</strong> 식의 숫자 하나가 바뀔 때 형태가 어떻게 변할지 상상하도록 유도합니다.</li>
+                    <li><strong>활동 (3분):</strong> a, b, c 슬라이더를 하나씩 조작하며 대칭축과 꼭짓점의 이동 궤적을 관찰하게 합니다.</li>
+                    <li><strong>정리 (1분):</strong> a=0일 때 직선이 되는 것을 확인하고, 이차함수의 조건을 다시 상기시킵니다.</li>
+                    <li class="mt-4 text-mint"><strong>추천 발문 1:</strong> "a의 절댓값이 커지면 그래프의 폭은 어떻게 되나요? 왜 그럴까요?"</li>
+                    <li class="text-mint"><strong>추천 발문 2:</strong> "b의 값만 바꿀 때 꼭짓점은 어떤 궤적을 그리며 이동하나요?"</li>
+                </ul>
+            </details>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="panel lg:col-span-1 flex flex-col gap-6">
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4">함수 설정</h3>
+                        <div class="text-2xl text-center py-2 bg-[#0f172a] rounded border border-[#334155] mb-4 font-serif">
+                            y = <span id="math-val-a" class="text-mint">1</span>x² <span id="math-val-b-sign">+</span> <span id="math-val-b">0</span>x <span id="math-val-c-sign">+</span> <span id="math-val-c">0</span>
+                        </div>
+                        
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between text-sm mb-1"><label>계수 a (모양/폭)</label><span id="math-label-a">1.0</span></div>
+                                <input type="range" id="math-slider-a" aria-label="계수 a" min="-3" max="3" step="0.1" value="1">
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-1"><label>계수 b (대칭축 이동)</label><span id="math-label-b">0.0</span></div>
+                                <input type="range" id="math-slider-b" aria-label="계수 b" min="-6" max="6" step="0.1" value="0">
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-1"><label>계수 c (y절편)</label><span id="math-label-c">0.0</span></div>
+                                <input type="range" id="math-slider-c" aria-label="계수 c" min="-6" max="6" step="0.1" value="0">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <p class="text-sm text-gray-400">프리셋</p>
+                        <div class="grid grid-cols-2 gap-2">
+                            <button class="btn-outline text-xs" onclick="mathApp.setValues(1, 0, 0)">기본형 y=x²</button>
+                            <button class="btn-outline text-xs" onclick="mathApp.setValues(-1, 4, -3)">위로 볼록</button>
+                            <button class="btn-outline text-xs" onclick="mathApp.setValues(0, 2, -1)">일차함수 (a=0)</button>
+                            <button class="btn-outline text-xs text-red-400 border-red-400" onclick="mathApp.setValues(1, 0, 0)">초기화</button>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4 border-t border-[#334155] pt-4">
+                        <h4 class="text-mint font-semibold mb-2">탐구 과제</h4>
+                        <ol class="list-decimal pl-5 space-y-1 text-sm text-gray-300">
+                            <li><strong>예측:</strong> a가 양수에서 음수로 바뀔 때 그래프 형태가 어떨지 예측합니다.</li>
+                            <li><strong>조작:</strong> 슬라이더를 움직여 예측과 실제 궤적(대칭축, 꼭짓점)을 비교합니다.</li>
+                            <li><strong>확인:</strong> 화면에 표시되는 꼭짓점 좌표(-b/2a, c-b²/4a)가 일치하는지 확인합니다.</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="panel lg:col-span-2 relative h-[500px] flex flex-col">
+                    <div class="flex justify-between items-center mb-2">
+                        <h3 class="text-xl font-semibold">그래프 뷰</h3>
+                        <div id="math-info" class="text-sm">꼭짓점: (0, 0) | 대칭축: x=0</div>
+                    </div>
+                    <div class="flex-grow w-full relative">
+                        <canvas id="math-canvas" class="absolute inset-0 w-full h-full"></canvas>
+                    </div>
+                    <p id="math-warning" class="text-yellow-400 text-xs text-center mt-2 hidden">※ 그래프가 화면 범위를 벗어났습니다. 축소를 지원하지 않습니다.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="app-physics" class="app-section">
+            <header class="mb-8">
+                <h2 class="text-3xl font-semibold mb-2">물리 <span class="text-mint font-light">| 포물선 실험실</span></h2>
+                <p class="text-gray-400 mb-4">발사 각도와 초기 속도가 포물선 운동의 궤적과 체공 시간에 미치는 영향을 분석합니다.</p>
+                <div class="panel border-mint">
+                    <p class="font-semibold text-mint mb-2">학습 목표</p>
+                    <p>공기 저항이 없을 때, 포물선 운동에서 수평 도달 거리가 최대가 되는 각도를 이해하고, 중력 가속도가 운동에 미치는 영향을 설명할 수 있다.</p>
+                </div>
+            </header>
+
+            <details class="panel mb-8 border-mint bg-opacity-10 bg-mint">
+                <summary>교사용 5분 가이드</summary>
+                <ul class="list-disc pl-5 mt-2 space-y-2 text-sm text-gray-300">
+                    <li><strong>도입 (1분):</strong> 물체를 던질 때 멀리 날아가게 하려면 어떤 각도가 유리할지 질문합니다.</li>
+                    <li><strong>활동 (3분):</strong> 발사 속도와 각도를 조작하며 애니메이션을 재생하고, 30/45/60도 궤적 비교를 통해 시각적으로 확인합니다.</li>
+                    <li><strong>정리 (1분):</strong> 중력을 '달(1.62)'로 바꾸어보고 궤적의 변화를 통해 중력의 역할을 설명합니다. (질량 무관성 언급)</li>
+                    <li class="mt-4 text-mint"><strong>추천 발문 1:</strong> "30도와 60도로 발사했을 때 도달 거리는 어떻게 되나요? 그 이유는 수식에서 어떻게 설명될까요?"</li>
+                    <li class="text-mint"><strong>추천 발문 2:</strong> "질량이 큰 공과 작은 공을 같은 속도로 쏘면 어떻게 될까요?"</li>
+                </ul>
+            </details>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="panel lg:col-span-1 flex flex-col gap-6">
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4">발사 조건</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between text-sm mb-1"><label>발사 각도 (θ)</label><span id="phys-label-angle">45°</span></div>
+                                <input type="range" id="phys-slider-angle" aria-label="발사 각도" min="5" max="85" step="1" value="45">
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-1"><label>초기 속도 (v)</label><span id="phys-label-vel">20 m/s</span></div>
+                                <input type="range" id="phys-slider-vel" aria-label="초기 속도" min="5" max="30" step="1" value="20">
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-1"><label>중력 환경 (g)</label></div>
+                                <select id="phys-select-g" aria-label="중력 환경">
+                                    <option value="9.8">지구 (9.8 m/s²)</option>
+                                    <option value="1.62">달 (1.62 m/s²)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-[#0f172a] p-3 rounded border border-[#334155] text-sm space-y-1">
+                        <div class="flex justify-between"><span>수평 도달 거리 (R):</span> <span id="phys-res-r" class="text-mint">-- m</span></div>
+                        <div class="flex justify-between"><span>최고 도달 높이 (H):</span> <span id="phys-res-h" class="text-mint">-- m</span></div>
+                        <div class="flex justify-between"><span>체공 시간 (T):</span> <span id="phys-res-t" class="text-mint">-- s</span></div>
+                        <p class="text-xs text-gray-500 mt-2">※ 발사·착지 높이 동일 · 공기 저항 무시 · 질량과 무관한 이상적 모델</p>
+                    </div>
+
+                    <div class="flex flex-col gap-2">
+                        <label class="flex items-center gap-2 text-sm cursor-pointer mb-2">
+                            <input type="checkbox" id="phys-check-compare" checked class="w-4 h-4 text-mint bg-gray-700 border-gray-600 rounded">
+                            <span>30° / 45° / 60° 동시 비교 궤적 보기</span>
+                        </label>
+                        <div class="flex gap-2">
+                            <button id="phys-btn-play" class="btn-solid flex-1">재생 / 일시정지</button>
+                            <button id="phys-btn-reset" class="btn-outline flex-1 border-red-400 text-red-400">초기화</button>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 border-t border-[#334155] pt-4">
+                        <h4 class="text-mint font-semibold mb-2">탐구 과제</h4>
+                        <ol class="list-decimal pl-5 space-y-1 text-sm text-gray-300">
+                            <li><strong>예측:</strong> 같은 속도일 때 도달 거리가 최대가 되는 각도를 예측합니다.</li>
+                            <li><strong>조작:</strong> 30도, 45도, 60도를 비교 옵션으로 켜서 시각적 궤적을 살핍니다.</li>
+                            <li><strong>확인:</strong> 하단 계산값 R=v²sin(2θ)/g 공식을 확인하며 예측이 맞았는지 점검합니다.</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="panel lg:col-span-2 relative h-[500px] flex flex-col">
+                    <div class="flex justify-between items-center mb-2">
+                        <h3 class="text-xl font-semibold">시뮬레이터</h3>
+                        <span id="phys-time-display" class="text-sm font-mono text-mint">t = 0.00s</span>
+                    </div>
+                    <div class="flex-grow w-full relative">
+                        <canvas id="phys-canvas" class="absolute inset-0 w-full h-full"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="app-chemistry" class="app-section">
+            <header class="mb-8">
+                <h2 class="text-3xl font-semibold mb-2">화학 <span class="text-mint font-light">| 분자의 모양</span></h2>
+                <p class="text-gray-400 mb-4">전자쌍 반발 이론(VSEPR)을 기반으로 주요 분자의 기하학적 구조와 결합각을 확인합니다.</p>
+                <div class="panel border-mint">
+                    <p class="font-semibold text-mint mb-2">학습 목표</p>
+                    <p>공유/비공유 전자쌍의 반발력 차이를 바탕으로 중심 원자 주위의 분자 구조(굽은형, 직선형 등)와 결합각을 예측할 수 있다.</p>
+                </div>
+            </header>
+
+            <details class="panel mb-8 border-mint bg-opacity-10 bg-mint">
+                <summary>교사용 5분 가이드</summary>
+                <ul class="list-disc pl-5 mt-2 space-y-2 text-sm text-gray-300">
+                    <li><strong>도입 (1분):</strong> 눈에 보이지 않는 분자가 특정한 입체 모양을 갖는 이유(전자쌍 반발)를 설명합니다.</li>
+                    <li><strong>활동 (3분):</strong> 제공된 4가지 분자 모형을 선택하고 화면을 드래그해 회전시키며 입체 구조를 관찰하게 합니다.</li>
+                    <li><strong>정리 (1분):</strong> 하단 결합각 퀴즈를 풀며 비공유 전자쌍이 공간을 더 많이 차지함을 정리합니다.</li>
+                    <li class="mt-4 text-mint"><strong>추천 발문 1:</strong> "메테인(109.5도)과 암모니아(107도)의 각도가 다른 이유는 무엇일까요?"</li>
+                    <li class="text-mint"><strong>추천 발문 2:</strong> "화면의 2D 투영 이미지가 실제 3D 모델과 어떤 점에서 차이가 날 수 있는지 생각해 볼까요?"</li>
+                </ul>
+            </details>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="panel lg:col-span-1 flex flex-col gap-6">
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4">분자 선택</h3>
+                        <div class="flex flex-col gap-2">
+                            <button class="btn-outline chem-mol-btn active text-left pl-4" data-mol="h2o">물 (H₂O) - 굽은형</button>
+                            <button class="btn-outline chem-mol-btn text-left pl-4" data-mol="co2">이산화탄소 (CO₂) - 직선형</button>
+                            <button class="btn-outline chem-mol-btn text-left pl-4" data-mol="ch4">메테인 (CH₄) - 정사면체</button>
+                            <button class="btn-outline chem-mol-btn text-left pl-4" data-mol="nh3">암모니아 (NH₃) - 삼각뿔형</button>
+                        </div>
+                    </div>
+
+                    <div id="chem-desc" class="bg-[#0f172a] p-4 rounded border border-[#334155] text-sm leading-relaxed">
+                        <!-- 동적 설명 텍스트 -->
+                    </div>
+
+                    <div class="mt-2 border-t border-[#334155] pt-4">
+                        <h4 class="text-mint font-semibold mb-2">탐구 과제</h4>
+                        <ol class="list-decimal pl-5 space-y-1 text-sm text-gray-300">
+                            <li><strong>예측:</strong> 비공유 전자쌍의 유무가 분자의 각도에 미칠 영향을 예측합니다.</li>
+                            <li><strong>조작:</strong> 캔버스를 마우스/터치로 드래그하여 분자의 3D 배열(2D 투영)을 다각도로 관찰합니다.</li>
+                            <li><strong>확인:</strong> 하단의 결합각 비교 퀴즈를 통해 개념을 확인합니다.</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="panel lg:col-span-2 flex flex-col">
+                    <div class="flex justify-between items-center mb-2">
+                        <h3 class="text-xl font-semibold">공-막대 모형 뷰어</h3>
+                        <span class="text-xs text-gray-400">화면을 드래그하여 회전 (2D 투영 방식)</span>
+                    </div>
+                    <div class="flex-grow w-full relative h-[350px] mb-6 border border-[#334155] rounded overflow-hidden cursor-move touch-none bg-[#0a1128]" id="chem-canvas-container">
+                        <canvas id="chem-canvas" class="absolute inset-0 w-full h-full border-none"></canvas>
+                    </div>
+
+                    <div class="border-t border-[#334155] pt-4">
+                        <h3 class="text-lg font-semibold mb-3">개념 확인 퀴즈</h3>
+                        <div id="chem-quiz-container" class="space-y-4">
+                            <!-- 퀴즈 동적 생성 -->
+                        </div>
+                        <div class="mt-4 flex gap-2">
+                            <button id="chem-btn-quiz" class="btn-solid">정답 확인</button>
+                            <button id="chem-btn-reset" class="btn-outline border-red-400 text-red-400">초기화</button>
+                        </div>
+                        <p id="chem-quiz-feedback" class="mt-2 text-sm hidden font-semibold"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="mt-12 border-t border-[#334155] bg-[#0f172a] py-6 text-center text-sm text-gray-500">
+        <p>Gemini Pro Canvas로 제작 · AI 생성 교육용 예시 · Aside에서 동작 보정 · 교과 내용은 교사가 검토 후 활용</p>
+    </footer>
+
+    <script>
+        function escapeHTML(value) { return String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+        // 공통: 라우터 및 UI 설정
+        const sections = ['korean', 'english', 'math', 'physics', 'chemistry'];
+        
+        function handleHashChange() {
+            let hash = window.location.hash.replace('#', '');
+            if (!sections.includes(hash)) {
+                hash = 'physics'; // 이 앱의 기본 과목
+                window.location.hash = hash;
+                return;
+            }
+
+            // 모든 섹션 숨기기
+            document.querySelectorAll('.app-section').forEach(el => el.classList.remove('active'));
+            // 타겟 섹션 보이기
+            document.getElementById(`app-${hash}`).classList.add('active');
+
+            // 네비게이션 버튼 스타일 업데이트
+            document.querySelectorAll('.nav-link').forEach(link => {
+                if (link.getAttribute('href') === `#${hash}`) {
+                    link.classList.remove('btn-outline');
+                    link.classList.add('btn-solid');
+                } else {
+                    link.classList.add('btn-outline');
+                    link.classList.remove('btn-solid');
+                }
+            });
+
+            // 각 앱별 캔버스 크기 재조정 이벤트 트리거 (DOM이 보여질 때 크기 계산이 정확해짐)
+            window.dispatchEvent(new Event('resize'));
+        }
+
+        window.addEventListener('hashchange', handleHashChange);
+        window.addEventListener('load', () => {
+            handleHashChange();
+            initAllApps();
+        });
+
+        // 발표 모드 토글
+        const btnPresentation = document.getElementById('toggle-presentation');
+        btnPresentation.addEventListener('click', () => {
+            document.body.classList.toggle('presentation-mode');
+            if (document.body.classList.contains('presentation-mode')) {
+                btnPresentation.textContent = '일반 모드';
+                btnPresentation.classList.replace('btn-outline', 'btn-solid');
+            } else {
+                btnPresentation.textContent = '발표 모드';
+                btnPresentation.classList.replace('btn-solid', 'btn-outline');
+            }
+            window.dispatchEvent(new Event('resize'));
+        });
+
+        // 앱 초기화 래퍼
+        function initAllApps() {
+            initKoreanApp();
+            initEnglishApp();
+            initMathApp();
+            initPhysicsApp();
+            initChemistryApp();
+        }
+
+        function initKoreanApp() {
+            const defaultPoem = `밤하늘에 부서지는 별빛들\n차가운 바람결에 흩어지고\n작은 등불 하나 켜두고서\n어둠 속 길을 헤매인다\n언젠가 닿을 그곳을 향해\n오늘도 묵묵히 걸어간다`;
+            let currentPoem = defaultPoem;
+            let memos = []; // { id, word, type, reason }
+            
+            const displayEl = document.getElementById('kr-poem-display');
+            const inputEl = document.getElementById('kr-poem-input');
+            const btnEdit = document.getElementById('kr-btn-edit');
+            const listEl = document.getElementById('kr-memo-list');
+            const modal = document.getElementById('kr-modal');
+            
+            let editingState = false;
+            let currentSelectedWordId = null;
+
+            function renderPoem() {
+                displayEl.innerHTML = '';
+                let wordIdCounter = 0;
+                
+                // 공백과 줄바꿈 유지하며 단어 추출
+                const lines = currentPoem.split('\n');
+                lines.forEach(line => {
+                    const lineDiv = document.createElement('div');
+                    // 단어와 비단어(공백 등) 분리
+                    const tokens = line.split(/(\s+)/);
+                    
+                    tokens.forEach(token => {
+                        if (token.trim().length === 0) {
+                            // 공백 처리
+                            lineDiv.appendChild(document.createTextNode(token));
+                        } else {
+                            // 의미 있는 단어
+                            const span = document.createElement('span');
+                            const wid = `w_${wordIdCounter++}`;
+                            span.textContent = token;
+                            span.className = 'poem-word';
+                            span.dataset.id = wid;
+                            span.dataset.word = token; span.tabIndex=0; span.setAttribute('role','button'); span.setAttribute('aria-label',token+' 메모');span.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openModal(wid,token);}});
+                            
+                            // 메모가 있는 단어 시각적 표시
+                            if (memos.find(m => m.id === wid)) {
+                                span.classList.add('has-memo');
+                            }
+                            
+                            span.addEventListener('click', () => openModal(wid, token));
+                            lineDiv.appendChild(span);
+                        }
+                    });
+                    displayEl.appendChild(lineDiv);
+                });
+            }
+
+            function renderMemos() {
+                listEl.innerHTML = '';
+                if (memos.length === 0) {
+                    listEl.innerHTML = '<p class="text-gray-400 text-sm text-center mt-10">시어를 클릭하여 첫 번째 메모를 남겨보세요.</p>';
+                    return;
+                }
+                
+                memos.forEach(memo => {
+                    const div = document.createElement('div');
+                    div.className = 'bg-[#0f172a] border border-[#334155] p-3 rounded flex flex-col gap-1';
+                    div.innerHTML = `
+                        <div class="flex justify-between items-center">
+                            <strong class="text-mint">${escapeHTML(memo.word)}</strong>
+                            <div class="flex items-center gap-2">
+                                <span class="text-xs bg-[#1e293b] px-2 py-1 rounded text-gray-300">${escapeHTML(memo.type)}</span>
+                                <button class="text-red-400 hover:text-red-300 text-xs" data-del="${memo.id}">[삭제]</button>
+                            </div>
+                        </div>
+                        <p class="text-sm mt-1 break-words">${escapeHTML(memo.reason)}</p>
+                    `;
+                    listEl.appendChild(div);
+                });
+                
+                // 삭제 버튼 이벤트 연결
+                listEl.querySelectorAll('button[data-del]').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        const id = e.target.dataset.del;
+                        memos = memos.filter(m => m.id !== id);
+                        renderPoem();
+                        renderMemos();
+                    });
+                });
+            }
+
+            function openModal(id, word) {
+                currentSelectedWordId = id;
+                document.getElementById('kr-modal-word').textContent = word;
+                const existing = memos.find(m => m.id === id);
+                if (existing) {
+                    document.getElementById('kr-modal-type').value = existing.type;
+                    document.getElementById('kr-modal-reason').value = existing.reason;
+                } else {
+                    document.getElementById('kr-modal-type').value = '비유';
+                    document.getElementById('kr-modal-reason').value = '';
+                }
+                modal.classList.remove('hidden');
+            }
+
+            document.getElementById('kr-modal-cancel').addEventListener('click', () => {
+                modal.classList.add('hidden');
+            });
+
+            document.getElementById('kr-modal-save').addEventListener('click', () => {
+                const type = document.getElementById('kr-modal-type').value;
+                const reason = document.getElementById('kr-modal-reason').value;
+                const word = document.getElementById('kr-modal-word').textContent;
+                
+                if (!reason.trim()) {
+                    alert('해석 및 근거를 입력해주세요.'); // 요구사항: alert/confirm 사용 금지 (대화상자 대체)
+                    // 수정: 브라우저 기본 alert 금지. 자체 UI로 대체하거나 무시.
+                    return; 
+                }
+
+                // 삭제 후 추가 (업데이트)
+                memos = memos.filter(m => m.id !== currentSelectedWordId);
+                memos.push({ id: currentSelectedWordId, word, type, reason });
+                
+                modal.classList.add('hidden');
+                renderPoem();
+                renderMemos();
+            });
+
+            btnEdit.addEventListener('click', () => {
+                editingState = !editingState;
+                if (editingState) {
+                    inputEl.value = currentPoem;
+                    displayEl.classList.add('hidden');
+                    inputEl.classList.remove('hidden');
+                    btnEdit.textContent = '완료';
+                    btnEdit.classList.replace('btn-outline', 'btn-solid');
+                } else {
+                    currentPoem = inputEl.value.trim() ? inputEl.value : defaultPoem;
+                    memos = []; // 글이 바뀌면 메모 초기화
+                    displayEl.classList.remove('hidden');
+                    inputEl.classList.add('hidden');
+                    btnEdit.textContent = '직접 입력하기';
+                    btnEdit.classList.replace('btn-solid', 'btn-outline');
+                    renderPoem();
+                    renderMemos();
+                }
+            });
+
+            document.getElementById('kr-btn-reset').addEventListener('click', () => {
+                memos = [];
+                currentPoem = defaultPoem;
+                editingState = false;
+                displayEl.classList.remove('hidden');
+                inputEl.classList.add('hidden');
+                btnEdit.textContent = '직접 입력하기';
+                btnEdit.classList.replace('btn-solid', 'btn-outline');
+                renderPoem();
+                renderMemos();
+            });
+
+            document.getElementById('kr-btn-export').addEventListener('click', () => {
+                if (memos.length === 0) return;
+                const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(memos, null, 2));
+                const downloadAnchorNode = document.createElement('a');
+                downloadAnchorNode.setAttribute("href",     dataStr);
+                downloadAnchorNode.setAttribute("download", "poem_memos.json");
+                document.body.appendChild(downloadAnchorNode); // required for firefox
+                downloadAnchorNode.click();
+                downloadAnchorNode.remove();
+            });
+
+            // 초기 렌더링
+            renderPoem();
+            renderMemos();
+        }
+
+        function initEnglishApp() {
+            const texts = {
+                '1': [
+                    "Technology is advancing rapidly in modern society.",
+                    "However, it brings new challenges to our daily lives.",
+                    "For example, privacy issues are increasing significantly.",
+                    "Therefore, we must be careful when using new tools."
+                ],
+                '2': [
+                    "Sleep is crucial for maintaining good physical health.",
+                    "Many high school students, however, lack enough sleep.",
+                    "This lack of rest leads to poor concentration in class.",
+                    "Therefore, prioritizing rest is essential for learning."
+                ],
+                '3': [
+                    "Reading books consistently improves your vocabulary.",
+                    "For instance, reading novels exposes us to diverse expressions.",
+                    "However, it requires a lot of time and dedication.",
+                    "Therefore, building daily reading habits is very important."
+                ]
+            };
+            const connectors = ["However", "however", "For example", "For instance", "Therefore", "therefore"];
+            
+            let originalSentences = [];
+            let currentSentences = []; // [{id, text}]
+            let isShuffled = false;
+
+            const selectEl = document.getElementById('en-select-text');
+            const customInput = document.getElementById('en-custom-input');
+            const container = document.getElementById('en-sentences-container');
+            const feedback = document.getElementById('en-feedback');
+
+            function highlightConnectors(text) {
+                let highlighted = escapeHTML(text);
+                connectors.forEach(word => {
+                    const regex = new RegExp(`\\b(${word})\\b`, 'g');
+                    highlighted = highlighted.replace(regex, '<span class="connector">$1</span>');
+                });
+                return highlighted;
+            }
+
+            function loadText(type) {
+                if (type === 'custom') {
+                    customInput.classList.remove('hidden');
+                    const val = customInput.value.trim().split('\n').filter(s => s.trim().length > 0);
+                    originalSentences = val.length > 0 ? val : texts['1'];
+                } else {
+                    customInput.classList.add('hidden');
+                    originalSentences = texts[type];
+                }
+                
+                currentSentences = originalSentences.map((text, index) => ({ id: index, text }));
+                isShuffled = false;
+                hideFeedback();
+                renderList();
+            }
+
+            function renderList() {
+                container.innerHTML = '';
+                currentSentences.forEach((item, index) => {
+                    const div = document.createElement('div');
+                    div.className = 'flex items-center gap-3 bg-[#0f172a] p-4 rounded border border-[#334155]';
+                    
+                    const textDiv = document.createElement('div');
+                    textDiv.className = 'flex-grow text-lg font-light';
+                    textDiv.innerHTML = highlightConnectors(item.text);
+                    
+                    const controls = document.createElement('div');
+                    controls.className = 'flex flex-col gap-1';
+                    
+                    const btnUp = document.createElement('button');
+                    btnUp.className = 'bg-[#1e293b] hover:bg-[#334155] border border-[#475569] rounded px-2 py-1 text-xs';
+                    btnUp.innerHTML = '▲';
+                    btnUp.disabled = index === 0;
+                    if(btnUp.disabled) btnUp.style.opacity = '0.3';
+                    btnUp.onclick = () => moveItem(index, -1);
+
+                    const btnDown = document.createElement('button');
+                    btnDown.className = 'bg-[#1e293b] hover:bg-[#334155] border border-[#475569] rounded px-2 py-1 text-xs';
+                    btnDown.innerHTML = '▼';
+                    btnDown.disabled = index === currentSentences.length - 1;
+                    if(btnDown.disabled) btnDown.style.opacity = '0.3';
+                    btnDown.onclick = () => moveItem(index, 1);
+                    
+                    controls.appendChild(btnUp);
+                    controls.appendChild(btnDown);
+                    
+                    div.appendChild(textDiv);
+                    if (isShuffled) div.appendChild(controls); // 섞여있을 때만 이동 컨트롤 표시
+                    
+                    container.appendChild(div);
+                });
+            }
+
+            function moveItem(index, direction) {
+                if (!isShuffled) return;
+                const newIndex = index + direction;
+                if (newIndex < 0 || newIndex >= currentSentences.length) return;
+                
+                const temp = currentSentences[index];
+                currentSentences[index] = currentSentences[newIndex];
+                currentSentences[newIndex] = temp;
+                
+                hideFeedback();
+                renderList();
+            }
+
+            function shuffleArray(array) {
+                let curId = array.length;
+                while (0 !== curId) {
+                    let randId = Math.floor(Math.random() * curId);
+                    curId -= 1;
+                    let tmp = array[curId];
+                    array[curId] = array[randId];
+                    array[randId] = tmp;
+                }
+                return array;
+            }
+
+            function hideFeedback() {
+                feedback.classList.add('hidden');
+                feedback.className = 'mt-4 p-4 rounded hidden';
+            }
+
+            selectEl.addEventListener('change', (e) => loadText(e.target.value));
+            customInput.addEventListener('change', () => loadText('custom'));
+
+            document.getElementById('en-btn-shuffle').addEventListener('click', () => {
+                if (currentSentences.length < 2) return;
+                let shuffled = [...currentSentences];
+                // 원래와 똑같이 섞이는 것 방지
+                let attempts = 0;
+                while (attempts < 10) {
+                    shuffled = shuffleArray(shuffled);
+                    let isSame = true;
+                    for (let i=0; i<shuffled.length; i++) {
+                        if (shuffled[i].id !== i) { isSame = false; break; }
+                    }
+                    if (!isSame) break;
+                    attempts++;
+                }
+                currentSentences = shuffled;
+                isShuffled = true;
+                hideFeedback();
+                renderList();
+            });
+
+            document.getElementById('en-btn-check').addEventListener('click', () => {
+                if (!isShuffled) return;
+                let correct = true;
+                for (let i = 0; i < currentSentences.length; i++) {
+                    if (currentSentences[i].id !== i) {
+                        correct = false;
+                        break;
+                    }
+                }
+                
+                feedback.classList.remove('hidden');
+                if (correct) {
+                    feedback.classList.add('bg-teal-900', 'text-teal-200', 'border', 'border-teal-500');
+                    feedback.classList.remove('bg-red-900', 'text-red-200', 'border-red-500');
+                    feedback.textContent = "정답입니다! 완벽한 논리 흐름을 완성했습니다.";
+                    isShuffled = false; // 맞추면 컨트롤 숨김
+                    renderList();
+                } else {
+                    feedback.classList.add('bg-red-900', 'text-red-200', 'border', 'border-red-500');
+                    feedback.classList.remove('bg-teal-900', 'text-teal-200', 'border-teal-500');
+                    feedback.textContent = "다시 시도해 보세요. 연결어와 대명사가 가리키는 대상을 확인하세요.";
+                }
+            });
+
+            document.getElementById('en-btn-original').addEventListener('click', () => {
+                loadText(selectEl.value);
+            });
+
+            loadText('1');
+        }
+
+        const mathApp = (function() {
+            const canvas = document.getElementById('math-canvas');
+            const ctx = canvas.getContext('2d');
+            const sliderA = document.getElementById('math-slider-a');
+            const sliderB = document.getElementById('math-slider-b');
+            const sliderC = document.getElementById('math-slider-c');
+            const info = document.getElementById('math-info');
+            const warning = document.getElementById('math-warning');
+            
+            let a = 1, b = 0, c = 0;
+            const scale = 25; // 1 단위 = 25px
+            
+            function resizeCanvas() {
+                const parent = canvas.parentElement;
+                canvas.width = parent.clientWidth;
+                canvas.height = parent.clientHeight;
+                draw();
+            }
+
+            window.addEventListener('resize', () => {
+                if (document.getElementById('app-math').classList.contains('active')) {
+                    resizeCanvas();
+                }
+            });
+
+            function updateUI() {
+                a = parseFloat(sliderA.value);
+                b = parseFloat(sliderB.value);
+                c = parseFloat(sliderC.value);
+                
+                document.getElementById('math-label-a').textContent = a.toFixed(1);
+                document.getElementById('math-label-b').textContent = b.toFixed(1);
+                document.getElementById('math-label-c').textContent = c.toFixed(1);
+                
+                document.getElementById('math-val-a').textContent = Math.abs(a) === 1 && a !== 0 ? (a < 0 ? '-' : '') : a;
+                if(a===0) document.getElementById('math-val-a').textContent = '0';
+                
+                document.getElementById('math-val-b-sign').textContent = b < 0 ? '-' : '+';
+                document.getElementById('math-val-b').textContent = Math.abs(b);
+                
+                document.getElementById('math-val-c-sign').textContent = c < 0 ? '-' : '+';
+                document.getElementById('math-val-c').textContent = Math.abs(c);
+                
+                draw();
+            }
+
+            function draw() {
+                if(!ctx) return;
+                const width = canvas.width;
+                const height = canvas.height;
+                const cx = width / 2;
+                const cy = height / 2;
+                
+                ctx.clearRect(0, 0, width, height);
+                
+                // 그리드 및 축
+                ctx.strokeStyle = '#334155';
+                ctx.lineWidth = 1;
+                
+                for (let x = cx % scale; x < width; x += scale) {
+                    const diff = x - cx;
+                    if (Math.abs(diff) < 1) continue;
+                    ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, height); ctx.stroke();
+                }
+                for (let y = cy % scale; y < height; y += scale) {
+                    const diff = y - cy;
+                    if (Math.abs(diff) < 1) continue;
+                    ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(width, y); ctx.stroke();
+                }
+                
+                // x축, y축
+                ctx.strokeStyle = '#94a3b8';
+                ctx.lineWidth = 2;
+                ctx.beginPath(); ctx.moveTo(0, cy); ctx.lineTo(width, cy); ctx.stroke();
+                ctx.beginPath(); ctx.moveTo(cx, 0); ctx.lineTo(cx, height); ctx.stroke();
+                
+                ctx.fillStyle = '#94a3b8'; ctx.font = '11px sans-serif';
+                for(let n=Math.ceil(-cx/scale); n<=(width-cx)/scale; n++) if(n && n%2===0)ctx.fillText(n,cx+n*scale+2,cy+14);
+                for(let n=Math.ceil(-cy/scale); n<=cy/scale; n++)if(n && n%2===0)ctx.fillText(n,cx+6,cy-n*scale-3);
+                ctx.fillText('x',width-13,cy-7);ctx.fillText('y',cx+7,14);
+                // 그래프 그리기
+                ctx.strokeStyle = '#2dd4bf'; // mint
+                ctx.lineWidth = 3;
+                ctx.beginPath();
+                
+                let first = true;
+                let isOut = true;
+
+                for (let px = 0; px <= width; px += 2) {
+                    const x = (px - cx) / scale;
+                    const y = a * x * x + b * x + c;
+                    const py = cy - (y * scale);
+                    
+                    if (py > 0 && py < height) isOut = false; // 하나라도 보이면 false
+
+                    if (first) {
+                        ctx.moveTo(px, py);
+                        first = false;
+                    } else {
+                        ctx.lineTo(px, py);
+                    }
+                }
+                ctx.stroke();
+
+                warning.classList.toggle('hidden', !isOut);
+
+                // 꼭짓점, 대칭축 정보
+                if (a !== 0) {
+                    const vx = -b / (2 * a);
+                    const vy = c - (b * b) / (4 * a);
+                    info.innerHTML = `꼭짓점: (<span class="text-mint">${vx.toFixed(2)}</span>, <span class="text-mint">${vy.toFixed(2)}</span>) | 대칭축: x=<span class="text-mint">${vx.toFixed(2)}</span>`;
+                    
+                    // 꼭짓점 점 그리기
+                    const pvx = cx + vx * scale;
+                    const pvy = cy - vy * scale;
+                    ctx.fillStyle = '#f87171'; // red-400
+                    ctx.beginPath();
+                    ctx.arc(pvx, pvy, 5, 0, Math.PI * 2);
+                    ctx.fill();
+
+                    // 대칭축 점선
+                    ctx.strokeStyle = '#f87171';
+                    ctx.lineWidth = 1;
+                    ctx.setLineDash([5, 5]);
+                    ctx.beginPath();
+                    ctx.moveTo(pvx, 0);
+                    ctx.lineTo(pvx, height);
+                    ctx.stroke();
+                    ctx.setLineDash([]);
+                } else {
+                    info.textContent = b !== 0 ? '일차함수 · 꼭짓점 없음 · 포물선의 대칭축 없음' : '상수함수 y = '+c+' · 꼭짓점 없음';
+                }
+            }
+
+            function setValues(newA, newB, newC) {
+                sliderA.value = newA;
+                sliderB.value = newB;
+                sliderC.value = newC;
+                updateUI();
+            }
+
+            sliderA.addEventListener('input', updateUI);
+            sliderB.addEventListener('input', updateUI);
+            sliderC.addEventListener('input', updateUI);
+
+            return { setValues, resizeCanvas };
+        })();
+
+        function initMathApp() {
+            setTimeout(() => {
+                mathApp.resizeCanvas();
+            }, 100);
+        }
+
+        function initPhysicsApp() {
+            const canvas = document.getElementById('phys-canvas');
+            const ctx = canvas.getContext('2d');
+            const sliderAngle = document.getElementById('phys-slider-angle');
+            const sliderVel = document.getElementById('phys-slider-vel');
+            const selectG = document.getElementById('phys-select-g');
+            const checkCompare = document.getElementById('phys-check-compare');
+            
+            let angle = 45;
+            let vel = 20;
+            let g = 9.8;
+            
+            let t = 0;
+            let isPlaying = false;
+            let animationId;
+            let trail = [];
+
+            function resizeCanvas() {
+                const parent = canvas.parentElement;
+                canvas.width = parent.clientWidth;
+                canvas.height = parent.clientHeight;
+                drawStatic();
+                if(!isPlaying) drawFrame();
+            }
+
+            window.addEventListener('resize', () => {
+                if (document.getElementById('app-physics').classList.contains('active')) {
+                    resizeCanvas();
+                }
+            });
+
+            function updateUI() {
+                angle = parseFloat(sliderAngle.value);
+                vel = parseFloat(sliderVel.value);
+                g = parseFloat(selectG.value);
+                
+                document.getElementById('phys-label-angle').textContent = angle + '°';
+                document.getElementById('phys-label-vel').textContent = vel + ' m/s';
+                
+                const rad = angle * Math.PI / 180;
+                const R = (vel * vel * Math.sin(2 * rad)) / g;
+                const H = (vel * Math.sin(rad)) * (vel * Math.sin(rad)) / (2 * g);
+                const T = (2 * vel * Math.sin(rad)) / g;
+                
+                document.getElementById('phys-res-r').textContent = R.toFixed(2) + ' m';
+                document.getElementById('phys-res-h').textContent = H.toFixed(2) + ' m';
+                document.getElementById('phys-res-t').textContent = T.toFixed(2) + ' s';
+                
+                resetSim();
+            }
+
+            function resetSim() {
+                isPlaying = false;
+                cancelAnimationFrame(animationId);
+                t = 0;
+                trail = [];
+                document.getElementById('phys-time-display').textContent = 't = 0.00s';
+                drawStatic();
+                drawFrame();
+            }
+
+            function togglePlay() {
+                isPlaying = !isPlaying;
+                if (isPlaying) {
+                    if (t === 0) trail = [];
+                    // 이미 끝났으면 다시 시작
+                    const rad = angle * Math.PI / 180;
+                    const T = (2 * vel * Math.sin(rad)) / g;
+                    if (t >= T) {
+                        t = 0;
+                        trail = [];
+                    }
+                    animate();
+                } else {
+                    cancelAnimationFrame(animationId);
+                }
+            }
+
+            function physicsView(w,h) {
+                const rad=angle*Math.PI/180;
+                const maxR=(vel*vel/g)*(checkCompare.checked?1:Math.sin(2*rad));
+                const maxH=vel*vel*Math.max(Math.sin(rad)**2,checkCompare.checked?.75:0)/(2*g);
+                const scale=Math.max(.01,Math.min((w-70)/Math.max(1,maxR),(h-70)/Math.max(1,maxH)));
+                return {maxR,scale,originX:35,originY:h-30};
+            }
+            function drawStatic() {
+                if(!ctx) return;
+                const w = canvas.width;
+                const h = canvas.height;
+                ctx.clearRect(0, 0, w, h);
+                
+                // Scale 결정 (최대 거리가 한 화면에 들어오도록)
+                // 최대 속도 30, g 달 1.62 일때 R_max = 900/1.62 약 555m
+                const {maxR,scale,originX,originY} = physicsView(w,h);
+
+                // 바닥선 그리기
+                ctx.strokeStyle = '#475569';
+                ctx.lineWidth = 2;
+                ctx.beginPath(); ctx.moveTo(0, originY); ctx.lineTo(w, originY); ctx.stroke();
+
+                // 100m 마다 눈금
+                ctx.fillStyle = '#94a3b8';
+                ctx.font = '10px Inter';
+                const tick = Math.max(1,Math.pow(10,Math.floor(Math.log10(Math.max(1,maxR))))/2);
+                for(let d=0; d<=maxR; d+=tick) {
+                    const px = originX + d * scale;
+                    ctx.beginPath(); ctx.moveTo(px, originY); ctx.lineTo(px, originY+5); ctx.stroke();
+                    ctx.fillText(`${d}m`, px-10, originY+15);
+                }
+
+                // 비교 궤적 그리기 (30, 45, 60)
+                if (checkCompare.checked) {
+                    [30, 45, 60].forEach(deg => {
+                        const rad = deg * Math.PI / 180;
+                        const tTotal = (2 * vel * Math.sin(rad)) / g;
+                        
+                        ctx.beginPath();
+                        ctx.strokeStyle = 'rgba(255, 255, 255, 0.2)';
+                        ctx.setLineDash([5, 5]);
+                        ctx.lineWidth = 1;
+                        
+                        let first = true;
+                        for(let step=0; step<=tTotal; step+=0.05) {
+                            const x = vel * Math.cos(rad) * step;
+                            const y = vel * Math.sin(rad) * step - 0.5 * g * step * step;
+                            const px = originX + x * scale;
+                            const py = originY - y * scale;
+                            if(first) { ctx.moveTo(px, py); first=false; }
+                            else { ctx.lineTo(px, py); }
+                        }
+                        ctx.stroke();
+                        ctx.setLineDash([]);
+                        
+                        // 끝점에 각도 표시
+                        const endX = vel * Math.cos(rad) * tTotal;
+                        ctx.fillStyle = 'rgba(255, 255, 255, 0.4)';
+                        ctx.fillText(`${deg}°`, originX + endX * scale - 10, originY - 5);
+                    });
+                }
+            }
+
+            function drawFrame() {
+                if(!ctx) return;
+                drawStatic(); // 배경 다시 그리기
+
+                const w = canvas.width;
+                const h = canvas.height;
+                const {maxR,scale,originX,originY} = physicsView(w,h);
+                
+                const rad = angle * Math.PI / 180;
+                const curX = vel * Math.cos(rad) * t;
+                const curY = vel * Math.sin(rad) * t - 0.5 * g * t * t;
+                
+                const px = originX + curX * scale;
+                const py = originY - curY * scale;
+
+                if (curY >= 0) {
+                    trail.push({x: px, y: py});
+                }
+
+                // 궤적 그리기
+                ctx.beginPath();
+                ctx.strokeStyle = '#2dd4bf'; // mint
+                ctx.lineWidth = 2;
+                if(trail.length > 0) {
+                    ctx.moveTo(trail[0].x, trail[0].y);
+                    for(let i=1; i<trail.length; i++) {
+                        ctx.lineTo(trail[i].x, trail[i].y);
+                    }
+                }
+                ctx.stroke();
+
+                // 공 그리기
+                if (curY >= 0) {
+                    ctx.beginPath();
+                    ctx.arc(px, py, 6, 0, Math.PI*2);
+                    ctx.fillStyle = '#f87171'; // red
+                    ctx.fill();
+                    ctx.strokeStyle = '#fff';
+                    ctx.lineWidth = 1;
+                    ctx.stroke();
+                }
+                
+                document.getElementById('phys-time-display').textContent = `t = ${t.toFixed(2)}s`;
+            }
+
+            function animate() {
+                if (!isPlaying) return;
+                
+                // dt는 실제 시간 기반이 아닌 고정 스텝으로 단순화 (시뮬레이션 속도 조절 가능)
+                t += 0.05; 
+                
+                const rad = angle * Math.PI / 180;
+                const T = (2 * vel * Math.sin(rad)) / g;
+
+                if (t >= T) {
+                    t = T;
+                    drawFrame();
+                    isPlaying = false;
+                    return;
+                }
+
+                drawFrame();
+                animationId = requestAnimationFrame(animate);
+            }
+
+            sliderAngle.addEventListener('input', updateUI);
+            sliderVel.addEventListener('input', updateUI);
+            selectG.addEventListener('change', updateUI);
+            checkCompare.addEventListener('change', () => { resetSim(); });
+            
+            document.getElementById('phys-btn-play').addEventListener('click', togglePlay);
+            document.getElementById('phys-btn-reset').addEventListener('click', resetSim);
+
+            setTimeout(() => { resizeCanvas(); updateUI(); }, 100);
+        }
+
+        function initChemistryApp() {
+            const canvas = document.getElementById('chem-canvas');
+            const container = document.getElementById('chem-canvas-container');
+            const ctx = canvas.getContext('2d');
+            
+            const molecules = {
+                'h2o': {
+                    name: '물 (H₂O)', shape: '굽은형', angle: '104.5°',
+                    desc: '산소 원자에 공유 전자쌍 2개와 비공유 전자쌍 2개가 있습니다. 비공유 전자쌍의 강한 반발력으로 인해 결합각이 109.5°보다 작아진 104.5°의 굽은형 구조를 가집니다.',
+                    atoms: [ {x:0, y:0, z:0, c:'#f43f5e', r:15, label:'O'}, {x:-1.58138, y:-1.22443, z:0, c:'#e2e8f0', r:10, label:'H'}, {x:1.58138, y:-1.22443, z:0, c:'#e2e8f0', r:10, label:'H'} ],
+                    bonds: [[0,1], [0,2]]
+                },
+                'co2': {
+                    name: '이산화탄소 (CO₂)', shape: '직선형', angle: '180°',
+                    desc: '탄소 원자에 이중 결합 2개가 있으며, 비공유 전자쌍이 없습니다. 두 전자 구역이 최대한 멀리 떨어져 180°의 직선형 구조를 이룹니다.',
+                    atoms: [ {x:0, y:0, z:0, c:'#334155', r:15, label:'C'}, {x:-2, y:0, z:0, c:'#f43f5e', r:12, label:'O'}, {x:2, y:0, z:0, c:'#f43f5e', r:12, label:'O'} ],
+                    bonds: [[0,1], [0,2]]
+                },
+                'ch4': {
+                    name: '메테인 (CH₄)', shape: '정사면체', angle: '109.5°',
+                    desc: '탄소 주위에 4개의 공유 전자쌍만 있습니다. 4개의 전자쌍이 서로 가장 멀리 배치되어 109.5°의 결합각을 갖는 정사면체 구조를 이룹니다.',
+                    atoms: [ {x:0, y:0, z:0, c:'#334155', r:15, label:'C'}, {x:1, y:1, z:1, c:'#e2e8f0', r:10, label:'H'}, {x:-1, y:-1, z:1, c:'#e2e8f0', r:10, label:'H'}, {x:1, y:-1, z:-1, c:'#e2e8f0', r:10, label:'H'}, {x:-1, y:1, z:-1, c:'#e2e8f0', r:10, label:'H'} ],
+                    bonds: [[0,1], [0,2], [0,3], [0,4]]
+                },
+                'nh3': {
+                    name: '암모니아 (NH₃)', shape: '삼각뿔형', angle: '107°',
+                    desc: '질소 주위에 공유 전자쌍 3개와 비공유 전자쌍 1개가 있습니다. 비공유 전자쌍의 반발력 때문에 결합각이 109.5°에서 약간 줄어든 약 107°의 삼각뿔형 구조가 됩니다.',
+                    atoms: [ {x:0, y:0, z:0, c:'#3b82f6', r:15, label:'N'}, {x:0, y:-.74436, z:1.85632, c:'#e2e8f0', r:10, label:'H'}, {x:1.60761, y:-.74436, z:-.92816, c:'#e2e8f0', r:10, label:'H'}, {x:-1.60761, y:-.74436, z:-.92816, c:'#e2e8f0', r:10, label:'H'} ],
+                    bonds: [[0,1], [0,2], [0,3]]
+                }
+            };
+            
+            const quizzes = [
+                { q: "중심 원자에 비공유 전자쌍이 가장 많은 분자는?", options: ["물", "암모니아", "메테인"], answer: 0 },
+                { q: "전자쌍 반발력의 크기 순서에서 가장 큰 조합은?", options: ["공유-공유", "비공유-공유", "비공유-비공유"], answer: 2 },
+                { q: "결합각이 가장 큰 분자의 구조는?", options: ["직선형(CO2)", "정사면체(CH4)", "삼각뿔형(NH3)"], answer: 0 }
+            ];
+
+            let currentMolId = 'h2o';
+            let rotX = 0, rotY = 0;
+            let isDragging = false;
+            let lastMouseX = 0, lastMouseY = 0;
+            let currentMolData = null;
+
+            function resizeCanvas() {
+                canvas.width = container.clientWidth;
+                canvas.height = container.clientHeight;
+                drawMolecule();
+            }
+
+            window.addEventListener('resize', () => {
+                if (document.getElementById('app-chemistry').classList.contains('active')) {
+                    resizeCanvas();
+                }
+            });
+
+            function loadMolecule(id) {
+                currentMolId = id;
+                currentMolData = JSON.parse(JSON.stringify(molecules[id])); // 깊은 복사
+                rotX = -.25; rotY = .45;
+                
+                document.getElementById('chem-desc').innerHTML = `
+                    <p class="font-bold text-mint text-base mb-1">${molecules[id].name}</p>
+                    <p class="mb-2"><span class="text-gray-400">구조:</span> ${molecules[id].shape} | <span class="text-gray-400">결합각:</span> ${molecules[id].angle}</p>
+                    <p>${molecules[id].desc}</p>
+                `;
+                
+                document.querySelectorAll('.chem-mol-btn').forEach(btn => {
+                    if(btn.dataset.mol === id) {
+                        btn.classList.add('bg-mint', 'font-semibold');
+                        btn.classList.remove('btn-outline');
+                    } else {
+                        btn.classList.remove('bg-mint', 'font-semibold');
+                        btn.classList.add('btn-outline');
+                    }
+                });
+                drawMolecule();
+            }
+
+            function rotate3D(point, rx, ry) {
+                // Rotate around Y axis
+                let x1 = point.x * Math.cos(ry) - point.z * Math.sin(ry);
+                let z1 = point.x * Math.sin(ry) + point.z * Math.cos(ry);
+                // Rotate around X axis
+                let y2 = point.y * Math.cos(rx) - z1 * Math.sin(rx);
+                let z2 = point.y * Math.sin(rx) + z1 * Math.cos(rx);
+                return { x: x1, y: y2, z: z2 };
+            }
+
+            function drawMolecule() {
+                if(!ctx || !currentMolData) return;
+                const w = canvas.width;
+                const h = canvas.height;
+                const cx = w / 2;
+                const cy = h / 2;
+                const scale = 50;
+                
+                ctx.clearRect(0, 0, w, h);
+                
+                // Calculate 3D positions
+                let projectedAtoms = currentMolData.atoms.map((atom, i) => {
+                    let rotated = rotate3D(atom, rotX, rotY);
+                    return {
+                        id: i,
+                        orig: atom,
+                        rx: rotated.x, ry: rotated.y, rz: rotated.z,
+                        px: cx + rotated.x * scale,
+                        py: cy - rotated.y * scale, // y axis inverted for canvas
+                        z: rotated.z // for z-sorting
+                    };
+                });
+                
+                // Z-sort (painter's algorithm)
+                projectedAtoms.sort((a, b) => a.z - b.z);
+                
+                // Draw bonds first (behind atoms)
+                ctx.lineWidth = 4;
+                ctx.lineCap = 'round';
+                currentMolData.bonds.forEach(bond => {
+                    const a1 = projectedAtoms.find(a => a.id === bond[0]);
+                    const a2 = projectedAtoms.find(a => a.id === bond[1]);
+                    
+                    // Simple depth shading for bonds
+                    const zAvg = (a1.z + a2.z) / 2;
+                    let opacity = 0.5 + (zAvg + 2) / 8; // normalize loosely
+                    if(opacity < 0.2) opacity = 0.2; if(opacity > 1) opacity = 1;
+                    
+                    ctx.strokeStyle = `rgba(148, 163, 184, ${opacity})`; // slate-400
+                    ctx.beginPath();
+                    ctx.moveTo(a1.px, a1.py);
+                    ctx.lineTo(a2.px, a2.py);
+                    ctx.stroke();
+                });
+                
+                // Draw atoms
+                projectedAtoms.forEach(atom => {
+                    let rad = atom.orig.r;
+                    // Scale radius slightly by Z for pseudo-3D effect
+                    let scaleFactor = 1 + (atom.z * 0.15);
+                    let finalRad = rad * scaleFactor;
+                    if(finalRad < 2) finalRad = 2;
+
+                    // Shadow/gradient effect
+                    let gradient = ctx.createRadialGradient(
+                        atom.px - finalRad*0.3, atom.py - finalRad*0.3, finalRad*0.1,
+                        atom.px, atom.py, finalRad
+                    );
+                    gradient.addColorStop(0, '#ffffff');
+                    gradient.addColorStop(0.3, atom.orig.c);
+                    gradient.addColorStop(1, '#000000');
+
+                    ctx.beginPath();
+                    ctx.arc(atom.px, atom.py, finalRad, 0, Math.PI*2);
+                    ctx.fillStyle = gradient;
+                    ctx.fill();
+                    
+                    // Label
+                    ctx.fillStyle = '#ffffff';
+                    ctx.font = 'bold 12px Inter';
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'middle';
+                    ctx.fillText(atom.orig.label, atom.px, atom.py);
+                });
+            }
+
+            // Mouse / Touch events for rotation
+            function handleStart(e) {
+                isDragging = true;
+                if(e.touches) {
+                    lastMouseX = e.touches[0].clientX;
+                    lastMouseY = e.touches[0].clientY;
+                } else {
+                    lastMouseX = e.clientX;
+                    lastMouseY = e.clientY;
+                }
+            }
+            function handleMove(e) {
+                if(!isDragging) return;
+                e.preventDefault(); // prevent scroll
+                let currentX, currentY;
+                if(e.touches) {
+                    currentX = e.touches[0].clientX;
+                    currentY = e.touches[0].clientY;
+                } else {
+                    currentX = e.clientX;
+                    currentY = e.clientY;
+                }
+                
+                let dx = currentX - lastMouseX;
+                let dy = currentY - lastMouseY;
+                
+                rotY += dx * 0.01;
+                rotX += dy * 0.01;
+                
+                lastMouseX = currentX;
+                lastMouseY = currentY;
+                
+                requestAnimationFrame(drawMolecule);
+            }
+            function handleEnd() {
+                isDragging = false;
+            }
+
+            container.addEventListener('mousedown', handleStart);
+            window.addEventListener('mousemove', handleMove);
+            window.addEventListener('mouseup', handleEnd);
+            
+            container.addEventListener('touchstart', handleStart, {passive: false});
+            window.addEventListener('touchmove', handleMove, {passive: false});
+            window.addEventListener('touchend', handleEnd);
+
+            // Quiz Logic
+            const quizContainer = document.getElementById('chem-quiz-container');
+            function renderQuizzes() {
+                quizContainer.innerHTML = '';
+                quizzes.forEach((q, i) => {
+                    let html = `<div class="mb-2"><p class="text-sm font-semibold mb-1">${i+1}. ${q.q}</p><div class="flex flex-wrap gap-2">`;
+                    q.options.forEach((opt, j) => {
+                        html += `
+                            <label class="flex items-center gap-1 text-sm bg-[#1e293b] px-2 py-1 rounded cursor-pointer border border-[#334155] hover:border-mint transition-colors">
+                                <input type="radio" name="quiz${i}" value="${j}" class="accent-mint"> ${opt}
+                            </label>
+                        `;
+                    });
+                    html += `</div></div>`;
+                    quizContainer.innerHTML += html;
+                });
+            }
+
+            document.getElementById('chem-btn-quiz').addEventListener('click', () => {
+                let score = 0;
+                let allAnswered = true;
+                quizzes.forEach((q, i) => {
+                    const selected = document.querySelector(`input[name="quiz${i}"]:checked`);
+                    if(!selected) {
+                        allAnswered = false;
+                    } else if(parseInt(selected.value) === q.answer) {
+                        score++;
+                    }
+                });
+                
+                const feedback = document.getElementById('chem-quiz-feedback');
+                feedback.classList.remove('hidden');
+                
+                if(!allAnswered) {
+                    feedback.textContent = "모든 퀴즈에 답을 선택해주세요.";
+                    feedback.className = "mt-2 text-sm font-semibold text-yellow-400";
+                } else if(score === quizzes.length) {
+                    feedback.textContent = "정답입니다! 결합각과 전자쌍 반발을 근거로 설명해 보세요.";
+                    feedback.className = "mt-2 text-sm font-semibold text-mint";
+                } else {
+                    feedback.textContent = `${score}/${quizzes.length} 정답입니다. 개념을 다시 확인해 보세요.`;
+                    feedback.className = "mt-2 text-sm font-semibold text-red-400";
+                }
+            });
+
+            document.getElementById('chem-btn-reset').addEventListener('click', () => {
+                renderQuizzes();
+                document.getElementById('chem-quiz-feedback').classList.add('hidden');
+                rotX = -.25; rotY = .45;
+                drawMolecule();
+            });
+
+            document.querySelectorAll('.chem-mol-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    loadMolecule(e.target.dataset.mol);
+                });
+            });
+
+            setTimeout(() => {
+                resizeCanvas();
+                loadMolecule('h2o');
+                renderQuizzes();
+            }, 100);
+        }
+    </script>
+</body>
+</html>
