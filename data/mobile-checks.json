@@ -1,0 +1,72 @@
+[
+  {
+    "id": "meiosis",
+    "ready": "complete",
+    "viewport": 390,
+    "width": 375,
+    "pass": true
+  },
+  {
+    "id": "induction",
+    "ready": "complete",
+    "viewport": 390,
+    "width": 375,
+    "pass": true
+  },
+  {
+    "id": "accumulation",
+    "ready": "complete",
+    "viewport": 390,
+    "width": 375,
+    "pass": true
+  },
+  {
+    "id": "equilibrium",
+    "ready": "complete",
+    "viewport": 390,
+    "width": 375,
+    "pass": true
+  },
+  {
+    "id": "projection",
+    "ready": "complete",
+    "viewport": 390,
+    "width": 375,
+    "pass": true
+  },
+  {
+    "id": "algorithm",
+    "ready": "complete",
+    "viewport": 390,
+    "width": 375,
+    "pass": true
+  },
+  {
+    "id": "timbre",
+    "ready": "complete",
+    "viewport": 390,
+    "width": 375,
+    "pass": true
+  },
+  {
+    "id": "narrative",
+    "ready": "complete",
+    "viewport": 390,
+    "width": 375,
+    "pass": true
+  },
+  {
+    "id": "discourse",
+    "ready": "complete",
+    "viewport": 390,
+    "width": 375,
+    "pass": true
+  },
+  {
+    "id": "history-evidence",
+    "ready": "complete",
+    "viewport": 390,
+    "width": 375,
+    "pass": true
+  }
+]
