@@ -1,0 +1,63 @@
+{
+  "author": "금평초 김상흠",
+  "comparison": "동일한 기능 요구 프롬프트 A/B로 생성한 도구별 결과 비교. 모델·런타임·생성 시점·배포 보정이 달라 성능 순위를 뜻하지 않음.",
+  "prompts": {
+    "a": "prompt-a.txt",
+    "b": "prompt-b.txt"
+  },
+  "promptParity": "Canvas 대화의 원문을 AI Studio에 그대로 제출. 원문 내 Canvas 명칭·푸터 요구는 입력 동일성을 위해 보존하고, 실제 배포본 푸터는 제작 도구와 제작자에 맞게 수정.",
+  "canvas": {
+    "mode": "Pro",
+    "raw": "기존 Gemini Canvas A/B 생성본",
+    "deploymentFixes": [
+      "외부 Tailwind 스크립트 대신 생성 CSS 내장",
+      "사용자 입력 HTML 이스케이프와 원문 공백 보존",
+      "수학 눈금 정렬",
+      "물리 가로·세로 동비율 맞춤 및 화면 맞춤",
+      "물/암모니아 분자 좌표 보정",
+      "배음 정규화·기후 입력 범위·정렬 입력 검증",
+      "정렬 완료 재귀 오류 수정 및 막대 높이 지정",
+      "과목별 기본 진입·제작자 표기"
+    ]
+  },
+  "studio": {
+    "model": "Gemini 3.8 Flash",
+    "status": "생성·링크 공개·GitHub 정적 실행본 준비 완료",
+    "projects": {
+      "a": "https://aistudio.google.com/apps/db3a4905-9217-4017-afbf-31fe72a07632",
+      "b": "https://aistudio.google.com/apps/aa66b4cc-2019-42e9-a650-75e86f128aa5"
+    },
+    "sharing": "A/B 모두 Anyone with the link, 보기 권한. AI Studio 로그인 필요 가능.",
+    "deploymentFixes": [
+      "AI Studio의 제작자·제작 도구 표기 정정. GitHub 실행본도 금평초 김상흠으로 정리.",
+      "A: 물·메테인·암모니아 입체 좌표를 표시 결합각에 맞게 보정.",
+      "B: 동형접합 배우자 설명, 조선 건국·한양 천도 및 훈민정음 창제 설명, 쾨펜 분류 안내 문구 보정.",
+      "B: 정렬 소수·부분 숫자 입력 거부, 배음 합의 진폭 정규화 및 스펙트럼 진폭/에너지 설명 보정.",
+      "React/TypeScript를 정적 ES 모듈로 변환, 미리보기 CSS 내장, 과목별 기본 진입 지정.",
+      "정적 모듈 문자열 삽입 시 $& 치환으로 발생한 DNA 문법 오류를 콜백 삽입으로 해결."
+    ],
+    "scope": "표기 정정 외 교과·실행 보정은 GitHub 배포본에 적용됨. AI Studio 리믹스 원본과 GitHub 실행본은 완전히 같은 소스가 아니며, 생성 결과의 우열 평가로 사용하지 않음.",
+    "runtime": "생성형 AI API·서버 호출 없이 실행. React/Three 등 일부 라이브러리와 글꼴은 외부 CDN을 사용하므로 완전 오프라인을 보장하지 않음."
+  },
+  "legacy": {
+    "ids": [
+      "dna-web",
+      "calculus-web"
+    ],
+    "comparison": false,
+    "sourcePreserved": true,
+    "excludedFromPairedComparison": true
+  },
+  "removedFromExhibit": [
+    "science-lab"
+  ],
+  "updatedAt": "2026-10-18T09:24:39.193Z",
+  "counts": {
+    "canvas": 10,
+    "studioPaired": 10,
+    "studioLegacy": 2,
+    "totalVersions": 22,
+    "pairedTopics": 10
+  },
+  "excludedAppPreserved": []
+}

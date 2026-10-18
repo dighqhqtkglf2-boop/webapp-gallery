@@ -1,0 +1,1814 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>배음 공방 · AI Studio | 금평초 김상흠</title>
+    <meta name="description" content="고등학교 교사 연수 전시용 디지털 탐구 스튜디오: 생명과학, 한국사, 지리, 음악, 정보 5개 교과 인터랙티브 시각화 및 탐구 모델" />
+    <meta property="og:title" content="교과 탐구 스튜디오 B" />
+    <meta property="og:description" content="고등학교 교사 연수 전시용 디지털 탐구 스튜디오: 생명과학, 한국사, 지리, 음악, 정보 5개 교과 인터랙티브 시각화 및 탐구 모델" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>.aistudio-hover-highlight { box-shadow: inset 0 0 0 0.5px white, inset 0 0 0 1.5px rgba(128,128,128,0.6) !important; }.aistudio-active-highlight { outline: 2px solid #87a9ff !important; outline-offset: -2px !important; box-shadow: 0 0 0 0.5px rgba(0,0,0,0.3), inset 0 0 0 0.5px rgba(0,0,0,0.3) !important; }.aistudio-generating-blur { filter: blur(5px) grayscale(100%) brightness(28%) !important; transition: filter 0.3s ease; }#aistudio-focus-mode-tag { position: absolute; display: none; align-items: center; gap: 4px; background: #87a9ff; border-radius: 12px; z-index: 10000; padding: 8px; color: #32302c; font-family: Inter, sans-serif; font-size: 14px; font-style: normal; font-weight: 500; line-height: 21px; pointer-events: none; }#aistudio-hover-mode-tag { position: absolute; display: none; align-items: center; gap: 4px; background: rgba(128,128,128,0.6); border-radius: 12px; z-index: 10000; padding: 8px; color: white; font-family: Inter, sans-serif; font-size: 14px; font-style: normal; font-weight: 500; line-height: 21px; pointer-events: none; }.aistudio-img-icon { display: none; vertical-align: middle; pointer-events: auto; cursor: pointer; }.aistudio-img-icon.visible { display: inline-flex; }#aistudio-focus-mode-tag .aistudio-img-icon { position: relative; width: 26px; height: 26px; background: #32302c; border-radius: 6px; margin: -4px -4px -4px 0; }#aistudio-focus-mode-tag .aistudio-img-icon::before { content: ""; position: absolute; top: 4px; left: 4px; width: 18px; height: 18px; background-color: white; -webkit-mask-image: url("https://fonts.gstatic.com/s/i/short-term/release/googlesymbols/edit_fix_auto/default/24px.svg"); -webkit-mask-size: contain; -webkit-mask-repeat: no-repeat; mask-image: url("https://fonts.gstatic.com/s/i/short-term/release/googlesymbols/edit_fix_auto/default/24px.svg"); mask-size: contain; mask-repeat: no-repeat; }#aistudio-hover-mode-tag .aistudio-img-icon { position: relative; width: 18px; height: 18px; margin-left: 4px; }#aistudio-hover-mode-tag .aistudio-img-icon::before { content: ""; position: absolute; top: 0; left: 0; width: 18px; height: 18px; background-color: white; -webkit-mask-image: url("https://fonts.gstatic.com/s/i/short-term/release/googlesymbols/edit_fix_auto/default/24px.svg"); -webkit-mask-size: contain; -webkit-mask-repeat: no-repeat; mask-image: url("https://fonts.gstatic.com/s/i/short-term/release/googlesymbols/edit_fix_auto/default/24px.svg"); mask-size: contain; mask-repeat: no-repeat; }#aistudio-focus-mode-tag .aistudio-img-icon:hover, #aistudio-hover-mode-tag .aistudio-img-icon:hover { background: #424242 !important; }#aistudio-focus-mode-tag .aistudio-img-icon:active, #aistudio-hover-mode-tag .aistudio-img-icon:active { background: #393f51 !important; }
+/*! tailwindcss v4.3.3 | MIT License | https://tailwindcss.com */
+@layer properties;
+@layer theme, base, components, utilities;
+@layer theme {
+  :root, :host {
+    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+      "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+      "Segoe UI Symbol", "Noto Color Emoji";
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+      "Courier New", monospace;
+    --color-amber-50: oklch(98.7% 0.022 95.277);
+    --color-amber-200: oklch(92.4% 0.12 95.746);
+    --color-amber-300: oklch(87.9% 0.169 91.605);
+    --color-amber-400: oklch(82.8% 0.189 84.429);
+    --color-amber-500: oklch(76.9% 0.188 70.08);
+    --color-amber-600: oklch(66.6% 0.179 58.318);
+    --color-amber-700: oklch(55.5% 0.163 48.998);
+    --color-amber-950: oklch(27.9% 0.077 45.635);
+    --color-emerald-200: oklch(90.5% 0.093 164.15);
+    --color-emerald-300: oklch(84.5% 0.143 164.978);
+    --color-emerald-400: oklch(76.5% 0.177 163.223);
+    --color-emerald-500: oklch(69.6% 0.17 162.48);
+    --color-emerald-600: oklch(59.6% 0.145 163.225);
+    --color-emerald-700: oklch(50.8% 0.118 165.612);
+    --color-emerald-950: oklch(26.2% 0.051 172.552);
+    --color-teal-100: oklch(95.3% 0.051 180.801);
+    --color-teal-300: oklch(85.5% 0.138 181.071);
+    --color-teal-400: oklch(77.7% 0.152 181.912);
+    --color-teal-500: oklch(70.4% 0.14 182.503);
+    --color-teal-700: oklch(51.1% 0.096 186.391);
+    --color-cyan-400: oklch(78.9% 0.154 211.53);
+    --color-cyan-500: oklch(71.5% 0.143 215.221);
+    --color-rose-300: oklch(81% 0.117 11.638);
+    --color-rose-400: oklch(71.2% 0.194 13.428);
+    --color-rose-500: oklch(64.5% 0.246 16.439);
+    --color-rose-600: oklch(58.6% 0.253 17.585);
+    --color-slate-100: oklch(96.8% 0.007 247.896);
+    --color-slate-200: oklch(92.9% 0.013 255.508);
+    --color-slate-300: oklch(86.9% 0.022 252.894);
+    --color-slate-400: oklch(70.4% 0.04 256.788);
+    --color-slate-500: oklch(55.4% 0.046 257.417);
+    --color-slate-600: oklch(44.6% 0.043 257.281);
+    --color-slate-700: oklch(37.2% 0.044 257.287);
+    --color-slate-800: oklch(27.9% 0.041 260.031);
+    --color-slate-900: oklch(20.8% 0.042 265.755);
+    --color-slate-950: oklch(12.9% 0.042 264.695);
+    --color-white: #fff;
+    --spacing: 0.25rem;
+    --container-sm: 24rem;
+    --container-3xl: 48rem;
+    --container-7xl: 80rem;
+    --text-xs: 0.75rem;
+    --text-xs--line-height: calc(1 / 0.75);
+    --text-sm: 0.875rem;
+    --text-sm--line-height: calc(1.25 / 0.875);
+    --text-base: 1rem;
+    --text-base--line-height: calc(1.5 / 1);
+    --text-lg: 1.125rem;
+    --text-lg--line-height: calc(1.75 / 1.125);
+    --text-2xl: 1.5rem;
+    --text-2xl--line-height: calc(2 / 1.5);
+    --text-3xl: 1.875rem;
+    --text-3xl--line-height: calc(2.25 / 1.875);
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    --tracking-tight: -0.025em;
+    --tracking-wider: 0.05em;
+    --leading-relaxed: 1.625;
+    --radius-sm: 0.25rem;
+    --radius-md: 0.375rem;
+    --radius-lg: 0.5rem;
+    --radius-xl: 0.75rem;
+    --animate-pulse: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    --blur-sm: 8px;
+    --blur-md: 12px;
+    --default-transition-duration: 150ms;
+    --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    --default-font-family: var(--font-sans);
+    --default-mono-font-family: var(--font-mono);
+  }
+}
+@layer base {
+  *, ::after, ::before, ::backdrop, ::file-selector-button {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0 solid;
+  }
+  html, :host {
+    line-height: 1.5;
+    -webkit-text-size-adjust: 100%;
+    tab-size: 4;
+    font-family: var(--default-font-family, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji");
+    font-feature-settings: var(--default-font-feature-settings, normal);
+    font-variation-settings: var(--default-font-variation-settings, normal);
+    -webkit-tap-highlight-color: transparent;
+  }
+  hr {
+    height: 0;
+    color: inherit;
+    border-top-width: 1px;
+  }
+  abbr:where([title]) {
+    -webkit-text-decoration: underline dotted;
+    text-decoration: underline dotted;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-size: inherit;
+    font-weight: inherit;
+  }
+  a {
+    color: inherit;
+    -webkit-text-decoration: inherit;
+    text-decoration: inherit;
+  }
+  b, strong {
+    font-weight: bolder;
+  }
+  code, kbd, samp, pre {
+    font-family: var(--default-mono-font-family, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace);
+    font-feature-settings: var(--default-mono-font-feature-settings, normal);
+    font-variation-settings: var(--default-mono-font-variation-settings, normal);
+    font-size: 1em;
+  }
+  small {
+    font-size: 80%;
+  }
+  sub, sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+  }
+  sub {
+    bottom: -0.25em;
+  }
+  sup {
+    top: -0.5em;
+  }
+  table {
+    text-indent: 0;
+    border-color: inherit;
+    border-collapse: collapse;
+  }
+  :-moz-focusring:where(:not(iframe)) {
+    outline: auto;
+  }
+  progress {
+    vertical-align: baseline;
+  }
+  summary {
+    display: list-item;
+  }
+  ol, ul, menu {
+    list-style: none;
+  }
+  img, svg, video, canvas, audio, iframe, embed, object {
+    display: block;
+    vertical-align: middle;
+  }
+  img, video {
+    max-width: 100%;
+    height: auto;
+  }
+  button, input, select, optgroup, textarea, ::file-selector-button {
+    font: inherit;
+    font-feature-settings: inherit;
+    font-variation-settings: inherit;
+    letter-spacing: inherit;
+    color: inherit;
+    border-radius: 0;
+    background-color: transparent;
+    opacity: 1;
+  }
+  :where(select:is([multiple], [size])) optgroup {
+    font-weight: bolder;
+  }
+  :where(select:is([multiple], [size])) optgroup option {
+    padding-inline-start: 20px;
+  }
+  ::file-selector-button {
+    margin-inline-end: 4px;
+  }
+  ::placeholder {
+    opacity: 1;
+  }
+  @supports (not (-webkit-appearance: -apple-pay-button))  or (contain-intrinsic-size: 1px) {
+    ::placeholder {
+      color: currentcolor;
+      @supports (color: color-mix(in lab, red, red)) {
+        color: color-mix(in oklab, currentcolor 50%, transparent);
+      }
+    }
+  }
+  textarea {
+    resize: vertical;
+  }
+  ::-webkit-search-decoration {
+    -webkit-appearance: none;
+  }
+  ::-webkit-date-and-time-value {
+    min-height: 1lh;
+    text-align: inherit;
+  }
+  ::-webkit-datetime-edit {
+    display: inline-flex;
+  }
+  ::-webkit-datetime-edit-fields-wrapper {
+    padding: 0;
+  }
+  ::-webkit-datetime-edit, ::-webkit-datetime-edit-year-field, ::-webkit-datetime-edit-month-field, ::-webkit-datetime-edit-day-field, ::-webkit-datetime-edit-hour-field, ::-webkit-datetime-edit-minute-field, ::-webkit-datetime-edit-second-field, ::-webkit-datetime-edit-millisecond-field, ::-webkit-datetime-edit-meridiem-field {
+    padding-block: 0;
+  }
+  ::-webkit-calendar-picker-indicator {
+    line-height: 1;
+  }
+  :-moz-ui-invalid {
+    box-shadow: none;
+  }
+  button, input:where([type="button"], [type="reset"], [type="submit"]), ::file-selector-button {
+    appearance: button;
+  }
+  ::-webkit-inner-spin-button, ::-webkit-outer-spin-button {
+    height: auto;
+  }
+  [hidden]:where(:not([hidden="until-found"])) {
+    display: none !important;
+  }
+}
+@layer utilities {
+  .pointer-events-none {
+    pointer-events: none;
+  }
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border-width: 0;
+  }
+  .absolute {
+    position: absolute;
+  }
+  .fixed {
+    position: fixed;
+  }
+  .relative {
+    position: relative;
+  }
+  .sticky {
+    position: sticky;
+  }
+  .top-0 {
+    top: 0px;
+  }
+  .top-1 {
+    top: var(--spacing);
+  }
+  .bottom-full {
+    bottom: 100%;
+  }
+  .-left-\[31px\] {
+    left: calc(31px * -1);
+  }
+  .left-1\/2 {
+    left: calc(1 / 2 * 100%);
+  }
+  .z-20 {
+    z-index: 20;
+  }
+  .z-50 {
+    z-index: 50;
+  }
+  .mx-1\.5 {
+    margin-inline: calc(var(--spacing) * 1.5);
+  }
+  .mx-auto {
+    margin-inline: auto;
+  }
+  .my-3 {
+    margin-block: calc(var(--spacing) * 3);
+  }
+  .mt-0\.5 {
+    margin-top: calc(var(--spacing) * 0.5);
+  }
+  .mt-1 {
+    margin-top: var(--spacing);
+  }
+  .mt-1\.5 {
+    margin-top: calc(var(--spacing) * 1.5);
+  }
+  .mt-2 {
+    margin-top: calc(var(--spacing) * 2);
+  }
+  .mt-2\.5 {
+    margin-top: calc(var(--spacing) * 2.5);
+  }
+  .mt-3 {
+    margin-top: calc(var(--spacing) * 3);
+  }
+  .mt-3\.5 {
+    margin-top: calc(var(--spacing) * 3.5);
+  }
+  .mt-4 {
+    margin-top: calc(var(--spacing) * 4);
+  }
+  .mt-16 {
+    margin-top: calc(var(--spacing) * 16);
+  }
+  .mr-1 {
+    margin-right: var(--spacing);
+  }
+  .mb-1 {
+    margin-bottom: var(--spacing);
+  }
+  .mb-1\.5 {
+    margin-bottom: calc(var(--spacing) * 1.5);
+  }
+  .mb-2 {
+    margin-bottom: calc(var(--spacing) * 2);
+  }
+  .mb-2\.5 {
+    margin-bottom: calc(var(--spacing) * 2.5);
+  }
+  .mb-3 {
+    margin-bottom: calc(var(--spacing) * 3);
+  }
+  .mb-4 {
+    margin-bottom: calc(var(--spacing) * 4);
+  }
+  .mb-8 {
+    margin-bottom: calc(var(--spacing) * 8);
+  }
+  .ml-1 {
+    margin-left: var(--spacing);
+  }
+  .ml-2 {
+    margin-left: calc(var(--spacing) * 2);
+  }
+  .block {
+    display: block;
+  }
+  .flex {
+    display: flex;
+  }
+  .grid {
+    display: grid;
+  }
+  .hidden {
+    display: none;
+  }
+  .inline-block {
+    display: inline-block;
+  }
+  .inline-flex {
+    display: inline-flex;
+  }
+  .h-0\.5 {
+    height: calc(var(--spacing) * 0.5);
+  }
+  .h-1\.5 {
+    height: calc(var(--spacing) * 1.5);
+  }
+  .h-3 {
+    height: calc(var(--spacing) * 3);
+  }
+  .h-3\.5 {
+    height: calc(var(--spacing) * 3.5);
+  }
+  .h-4 {
+    height: calc(var(--spacing) * 4);
+  }
+  .h-5 {
+    height: calc(var(--spacing) * 5);
+  }
+  .h-6 {
+    height: calc(var(--spacing) * 6);
+  }
+  .h-8 {
+    height: calc(var(--spacing) * 8);
+  }
+  .h-16 {
+    height: calc(var(--spacing) * 16);
+  }
+  .h-40 {
+    height: calc(var(--spacing) * 40);
+  }
+  .h-64 {
+    height: calc(var(--spacing) * 64);
+  }
+  .h-auto {
+    height: auto;
+  }
+  .h-full {
+    height: 100%;
+  }
+  .min-h-screen {
+    min-height: 100vh;
+  }
+  .w-3 {
+    width: calc(var(--spacing) * 3);
+  }
+  .w-3\.5 {
+    width: calc(var(--spacing) * 3.5);
+  }
+  .w-4 {
+    width: calc(var(--spacing) * 4);
+  }
+  .w-5 {
+    width: calc(var(--spacing) * 5);
+  }
+  .w-6 {
+    width: calc(var(--spacing) * 6);
+  }
+  .w-8 {
+    width: calc(var(--spacing) * 8);
+  }
+  .w-9 {
+    width: calc(var(--spacing) * 9);
+  }
+  .w-14 {
+    width: calc(var(--spacing) * 14);
+  }
+  .w-16 {
+    width: calc(var(--spacing) * 16);
+  }
+  .w-full {
+    width: 100%;
+  }
+  .max-w-3xl {
+    max-width: var(--container-3xl);
+  }
+  .max-w-7xl {
+    max-width: var(--container-7xl);
+  }
+  .max-w-\[56px\] {
+    max-width: 56px;
+  }
+  .max-w-full {
+    max-width: 100%;
+  }
+  .max-w-sm {
+    max-width: var(--container-sm);
+  }
+  .min-w-\[280px\] {
+    min-width: 280px;
+  }
+  .flex-1 {
+    flex: 1;
+  }
+  .shrink-0 {
+    flex-shrink: 0;
+  }
+  .-translate-x-1\/2 {
+    --tw-translate-x: calc(calc(1 / 2 * 100%) * -1);
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
+  .animate-pulse {
+    animation: var(--animate-pulse);
+  }
+  .cursor-default {
+    cursor: default;
+  }
+  .cursor-pointer {
+    cursor: pointer;
+  }
+  .list-inside {
+    list-style-position: inside;
+  }
+  .list-decimal {
+    list-style-type: decimal;
+  }
+  .grid-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+  .grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .grid-cols-8 {
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+  }
+  .grid-cols-10 {
+    grid-template-columns: repeat(10, minmax(0, 1fr));
+  }
+  .flex-col {
+    flex-direction: column;
+  }
+  .flex-wrap {
+    flex-wrap: wrap;
+  }
+  .items-center {
+    align-items: center;
+  }
+  .items-end {
+    align-items: flex-end;
+  }
+  .items-start {
+    align-items: flex-start;
+  }
+  .items-stretch {
+    align-items: stretch;
+  }
+  .justify-between {
+    justify-content: space-between;
+  }
+  .justify-center {
+    justify-content: center;
+  }
+  .justify-end {
+    justify-content: flex-end;
+  }
+  .gap-1 {
+    gap: var(--spacing);
+  }
+  .gap-1\.5 {
+    gap: calc(var(--spacing) * 1.5);
+  }
+  .gap-2 {
+    gap: calc(var(--spacing) * 2);
+  }
+  .gap-2\.5 {
+    gap: calc(var(--spacing) * 2.5);
+  }
+  .gap-3 {
+    gap: calc(var(--spacing) * 3);
+  }
+  .gap-3\.5 {
+    gap: calc(var(--spacing) * 3.5);
+  }
+  .gap-4 {
+    gap: calc(var(--spacing) * 4);
+  }
+  .gap-6 {
+    gap: calc(var(--spacing) * 6);
+  }
+  .gap-8 {
+    gap: calc(var(--spacing) * 8);
+  }
+  :where(.space-y-0\.5 > :not(:last-child)) {
+    --tw-space-y-reverse: 0;
+    margin-block-start: calc(calc(var(--spacing) * 0.5) * var(--tw-space-y-reverse));
+    margin-block-end: calc(calc(var(--spacing) * 0.5) * calc(1 - var(--tw-space-y-reverse)));
+  }
+  :where(.space-y-1 > :not(:last-child)) {
+    --tw-space-y-reverse: 0;
+    margin-block-start: calc(var(--spacing) * var(--tw-space-y-reverse));
+    margin-block-end: calc(var(--spacing) * calc(1 - var(--tw-space-y-reverse)));
+  }
+  :where(.space-y-1\.5 > :not(:last-child)) {
+    --tw-space-y-reverse: 0;
+    margin-block-start: calc(calc(var(--spacing) * 1.5) * var(--tw-space-y-reverse));
+    margin-block-end: calc(calc(var(--spacing) * 1.5) * calc(1 - var(--tw-space-y-reverse)));
+  }
+  :where(.space-y-2 > :not(:last-child)) {
+    --tw-space-y-reverse: 0;
+    margin-block-start: calc(calc(var(--spacing) * 2) * var(--tw-space-y-reverse));
+    margin-block-end: calc(calc(var(--spacing) * 2) * calc(1 - var(--tw-space-y-reverse)));
+  }
+  :where(.space-y-3 > :not(:last-child)) {
+    --tw-space-y-reverse: 0;
+    margin-block-start: calc(calc(var(--spacing) * 3) * var(--tw-space-y-reverse));
+    margin-block-end: calc(calc(var(--spacing) * 3) * calc(1 - var(--tw-space-y-reverse)));
+  }
+  :where(.space-y-4 > :not(:last-child)) {
+    --tw-space-y-reverse: 0;
+    margin-block-start: calc(calc(var(--spacing) * 4) * var(--tw-space-y-reverse));
+    margin-block-end: calc(calc(var(--spacing) * 4) * calc(1 - var(--tw-space-y-reverse)));
+  }
+  :where(.space-y-6 > :not(:last-child)) {
+    --tw-space-y-reverse: 0;
+    margin-block-start: calc(calc(var(--spacing) * 6) * var(--tw-space-y-reverse));
+    margin-block-end: calc(calc(var(--spacing) * 6) * calc(1 - var(--tw-space-y-reverse)));
+  }
+  :where(.divide-x > :not(:last-child)) {
+    --tw-divide-x-reverse: 0;
+    border-inline-style: var(--tw-border-style);
+    border-inline-start-width: calc(1px * var(--tw-divide-x-reverse));
+    border-inline-end-width: calc(1px * calc(1 - var(--tw-divide-x-reverse)));
+  }
+  :where(.divide-y > :not(:last-child)) {
+    --tw-divide-y-reverse: 0;
+    border-bottom-style: var(--tw-border-style);
+    border-top-style: var(--tw-border-style);
+    border-top-width: calc(1px * var(--tw-divide-y-reverse));
+    border-bottom-width: calc(1px * calc(1 - var(--tw-divide-y-reverse)));
+  }
+  :where(.divide-slate-700 > :not(:last-child)) {
+    border-color: var(--color-slate-700);
+  }
+  :where(.divide-slate-800\/80 > :not(:last-child)) {
+    border-color: color-mix(in srgb, oklch(27.9% 0.041 260.031) 80%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-slate-800) 80%, transparent);
+    }
+  }
+  .overflow-hidden {
+    overflow: hidden;
+  }
+  .overflow-x-auto {
+    overflow-x: auto;
+  }
+  .rounded {
+    border-radius: 0.25rem;
+  }
+  .rounded-full {
+    border-radius: calc(infinity * 1px);
+  }
+  .rounded-lg {
+    border-radius: var(--radius-lg);
+  }
+  .rounded-md {
+    border-radius: var(--radius-md);
+  }
+  .rounded-sm {
+    border-radius: var(--radius-sm);
+  }
+  .rounded-xl {
+    border-radius: var(--radius-xl);
+  }
+  .rounded-t {
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+  }
+  .rounded-t-md {
+    border-top-left-radius: var(--radius-md);
+    border-top-right-radius: var(--radius-md);
+  }
+  .border {
+    border-style: var(--tw-border-style);
+    border-width: 1px;
+  }
+  .border-2 {
+    border-style: var(--tw-border-style);
+    border-width: 2px;
+  }
+  .border-t {
+    border-top-style: var(--tw-border-style);
+    border-top-width: 1px;
+  }
+  .border-b {
+    border-bottom-style: var(--tw-border-style);
+    border-bottom-width: 1px;
+  }
+  .border-l {
+    border-left-style: var(--tw-border-style);
+    border-left-width: 1px;
+  }
+  .border-l-2 {
+    border-left-style: var(--tw-border-style);
+    border-left-width: 2px;
+  }
+  .border-amber-300 {
+    border-color: var(--color-amber-300);
+  }
+  .border-amber-400\/60 {
+    border-color: color-mix(in srgb, oklch(82.8% 0.189 84.429) 60%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-amber-400) 60%, transparent);
+    }
+  }
+  .border-amber-500\/20 {
+    border-color: color-mix(in srgb, oklch(76.9% 0.188 70.08) 20%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-amber-500) 20%, transparent);
+    }
+  }
+  .border-amber-500\/40 {
+    border-color: color-mix(in srgb, oklch(76.9% 0.188 70.08) 40%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-amber-500) 40%, transparent);
+    }
+  }
+  .border-emerald-400 {
+    border-color: var(--color-emerald-400);
+  }
+  .border-emerald-400\/50 {
+    border-color: color-mix(in srgb, oklch(76.5% 0.177 163.223) 50%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-emerald-400) 50%, transparent);
+    }
+  }
+  .border-emerald-500\/20 {
+    border-color: color-mix(in srgb, oklch(69.6% 0.17 162.48) 20%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-emerald-500) 20%, transparent);
+    }
+  }
+  .border-emerald-500\/30 {
+    border-color: color-mix(in srgb, oklch(69.6% 0.17 162.48) 30%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-emerald-500) 30%, transparent);
+    }
+  }
+  .border-emerald-500\/40 {
+    border-color: color-mix(in srgb, oklch(69.6% 0.17 162.48) 40%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-emerald-500) 40%, transparent);
+    }
+  }
+  .border-emerald-500\/50 {
+    border-color: color-mix(in srgb, oklch(69.6% 0.17 162.48) 50%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-emerald-500) 50%, transparent);
+    }
+  }
+  .border-rose-300 {
+    border-color: var(--color-rose-300);
+  }
+  .border-slate-600 {
+    border-color: var(--color-slate-600);
+  }
+  .border-slate-700 {
+    border-color: var(--color-slate-700);
+  }
+  .border-slate-700\/40 {
+    border-color: color-mix(in srgb, oklch(37.2% 0.044 257.287) 40%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-slate-700) 40%, transparent);
+    }
+  }
+  .border-slate-700\/50 {
+    border-color: color-mix(in srgb, oklch(37.2% 0.044 257.287) 50%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-slate-700) 50%, transparent);
+    }
+  }
+  .border-slate-700\/60 {
+    border-color: color-mix(in srgb, oklch(37.2% 0.044 257.287) 60%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-slate-700) 60%, transparent);
+    }
+  }
+  .border-slate-700\/80 {
+    border-color: color-mix(in srgb, oklch(37.2% 0.044 257.287) 80%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-slate-700) 80%, transparent);
+    }
+  }
+  .border-slate-800 {
+    border-color: var(--color-slate-800);
+  }
+  .border-slate-800\/80 {
+    border-color: color-mix(in srgb, oklch(27.9% 0.041 260.031) 80%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-slate-800) 80%, transparent);
+    }
+  }
+  .border-slate-950 {
+    border-color: var(--color-slate-950);
+  }
+  .border-teal-400\/40 {
+    border-color: color-mix(in srgb, oklch(77.7% 0.152 181.912) 40%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-teal-400) 40%, transparent);
+    }
+  }
+  .border-teal-500\/30 {
+    border-color: color-mix(in srgb, oklch(70.4% 0.14 182.503) 30%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-teal-500) 30%, transparent);
+    }
+  }
+  .bg-\[\#070A12\] {
+    background-color: #070A12;
+  }
+  .bg-\[\#090D16\] {
+    background-color: #090D16;
+  }
+  .bg-\[\#090D16\]\/90 {
+    background-color: color-mix(in oklab, #090D16 90%, transparent);
+  }
+  .bg-amber-400 {
+    background-color: var(--color-amber-400);
+  }
+  .bg-amber-500 {
+    background-color: var(--color-amber-500);
+  }
+  .bg-amber-600 {
+    background-color: var(--color-amber-600);
+  }
+  .bg-amber-600\/80 {
+    background-color: color-mix(in srgb, oklch(66.6% 0.179 58.318) 80%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-amber-600) 80%, transparent);
+    }
+  }
+  .bg-amber-700 {
+    background-color: var(--color-amber-700);
+  }
+  .bg-amber-950 {
+    background-color: var(--color-amber-950);
+  }
+  .bg-cyan-500\/70 {
+    background-color: color-mix(in srgb, oklch(71.5% 0.143 215.221) 70%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-cyan-500) 70%, transparent);
+    }
+  }
+  .bg-emerald-400 {
+    background-color: var(--color-emerald-400);
+  }
+  .bg-emerald-500 {
+    background-color: var(--color-emerald-500);
+  }
+  .bg-emerald-500\/20 {
+    background-color: color-mix(in srgb, oklch(69.6% 0.17 162.48) 20%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-emerald-500) 20%, transparent);
+    }
+  }
+  .bg-emerald-500\/90 {
+    background-color: color-mix(in srgb, oklch(69.6% 0.17 162.48) 90%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-emerald-500) 90%, transparent);
+    }
+  }
+  .bg-emerald-600 {
+    background-color: var(--color-emerald-600);
+  }
+  .bg-emerald-600\/80 {
+    background-color: color-mix(in srgb, oklch(59.6% 0.145 163.225) 80%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-emerald-600) 80%, transparent);
+    }
+  }
+  .bg-emerald-700 {
+    background-color: var(--color-emerald-700);
+  }
+  .bg-emerald-950 {
+    background-color: var(--color-emerald-950);
+  }
+  .bg-emerald-950\/20 {
+    background-color: color-mix(in srgb, oklch(26.2% 0.051 172.552) 20%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-emerald-950) 20%, transparent);
+    }
+  }
+  .bg-emerald-950\/30 {
+    background-color: color-mix(in srgb, oklch(26.2% 0.051 172.552) 30%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-emerald-950) 30%, transparent);
+    }
+  }
+  .bg-emerald-950\/70 {
+    background-color: color-mix(in srgb, oklch(26.2% 0.051 172.552) 70%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-emerald-950) 70%, transparent);
+    }
+  }
+  .bg-rose-500 {
+    background-color: var(--color-rose-500);
+  }
+  .bg-slate-700 {
+    background-color: var(--color-slate-700);
+  }
+  .bg-slate-700\/80 {
+    background-color: color-mix(in srgb, oklch(37.2% 0.044 257.287) 80%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-slate-700) 80%, transparent);
+    }
+  }
+  .bg-slate-800 {
+    background-color: var(--color-slate-800);
+  }
+  .bg-slate-800\/60 {
+    background-color: color-mix(in srgb, oklch(27.9% 0.041 260.031) 60%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-slate-800) 60%, transparent);
+    }
+  }
+  .bg-slate-800\/80 {
+    background-color: color-mix(in srgb, oklch(27.9% 0.041 260.031) 80%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-slate-800) 80%, transparent);
+    }
+  }
+  .bg-slate-900 {
+    background-color: var(--color-slate-900);
+  }
+  .bg-slate-900\/30 {
+    background-color: color-mix(in srgb, oklch(20.8% 0.042 265.755) 30%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-slate-900) 30%, transparent);
+    }
+  }
+  .bg-slate-900\/40 {
+    background-color: color-mix(in srgb, oklch(20.8% 0.042 265.755) 40%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-slate-900) 40%, transparent);
+    }
+  }
+  .bg-slate-900\/60 {
+    background-color: color-mix(in srgb, oklch(20.8% 0.042 265.755) 60%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-slate-900) 60%, transparent);
+    }
+  }
+  .bg-slate-900\/80 {
+    background-color: color-mix(in srgb, oklch(20.8% 0.042 265.755) 80%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-slate-900) 80%, transparent);
+    }
+  }
+  .bg-slate-900\/90 {
+    background-color: color-mix(in srgb, oklch(20.8% 0.042 265.755) 90%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-slate-900) 90%, transparent);
+    }
+  }
+  .bg-slate-950 {
+    background-color: var(--color-slate-950);
+  }
+  .bg-slate-950\/40 {
+    background-color: color-mix(in srgb, oklch(12.9% 0.042 264.695) 40%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-slate-950) 40%, transparent);
+    }
+  }
+  .bg-slate-950\/50 {
+    background-color: color-mix(in srgb, oklch(12.9% 0.042 264.695) 50%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-slate-950) 50%, transparent);
+    }
+  }
+  .bg-slate-950\/60 {
+    background-color: color-mix(in srgb, oklch(12.9% 0.042 264.695) 60%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-slate-950) 60%, transparent);
+    }
+  }
+  .bg-slate-950\/70 {
+    background-color: color-mix(in srgb, oklch(12.9% 0.042 264.695) 70%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-slate-950) 70%, transparent);
+    }
+  }
+  .bg-slate-950\/80 {
+    background-color: color-mix(in srgb, oklch(12.9% 0.042 264.695) 80%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-slate-950) 80%, transparent);
+    }
+  }
+  .bg-teal-700 {
+    background-color: var(--color-teal-700);
+  }
+  .bg-teal-700\/80 {
+    background-color: color-mix(in srgb, oklch(51.1% 0.096 186.391) 80%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-teal-700) 80%, transparent);
+    }
+  }
+  .bg-gradient-to-t {
+    --tw-gradient-position: to top in oklab;
+    background-image: linear-gradient(var(--tw-gradient-stops));
+  }
+  .from-emerald-700 {
+    --tw-gradient-from: var(--color-emerald-700);
+    --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
+  }
+  .to-teal-400 {
+    --tw-gradient-to: var(--color-teal-400);
+    --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
+  }
+  .fill-current {
+    fill: currentcolor;
+  }
+  .p-1 {
+    padding: var(--spacing);
+  }
+  .p-1\.5 {
+    padding: calc(var(--spacing) * 1.5);
+  }
+  .p-2 {
+    padding: calc(var(--spacing) * 2);
+  }
+  .p-2\.5 {
+    padding: calc(var(--spacing) * 2.5);
+  }
+  .p-3 {
+    padding: calc(var(--spacing) * 3);
+  }
+  .p-3\.5 {
+    padding: calc(var(--spacing) * 3.5);
+  }
+  .p-4 {
+    padding: calc(var(--spacing) * 4);
+  }
+  .p-5 {
+    padding: calc(var(--spacing) * 5);
+  }
+  .p-6 {
+    padding: calc(var(--spacing) * 6);
+  }
+  .px-1\.5 {
+    padding-inline: calc(var(--spacing) * 1.5);
+  }
+  .px-2 {
+    padding-inline: calc(var(--spacing) * 2);
+  }
+  .px-2\.5 {
+    padding-inline: calc(var(--spacing) * 2.5);
+  }
+  .px-3 {
+    padding-inline: calc(var(--spacing) * 3);
+  }
+  .px-3\.5 {
+    padding-inline: calc(var(--spacing) * 3.5);
+  }
+  .px-4 {
+    padding-inline: calc(var(--spacing) * 4);
+  }
+  .px-5 {
+    padding-inline: calc(var(--spacing) * 5);
+  }
+  .py-0\.5 {
+    padding-block: calc(var(--spacing) * 0.5);
+  }
+  .py-1 {
+    padding-block: var(--spacing);
+  }
+  .py-1\.5 {
+    padding-block: calc(var(--spacing) * 1.5);
+  }
+  .py-2 {
+    padding-block: calc(var(--spacing) * 2);
+  }
+  .py-2\.5 {
+    padding-block: calc(var(--spacing) * 2.5);
+  }
+  .py-4 {
+    padding-block: calc(var(--spacing) * 4);
+  }
+  .py-6 {
+    padding-block: calc(var(--spacing) * 6);
+  }
+  .py-8 {
+    padding-block: calc(var(--spacing) * 8);
+  }
+  .pt-2 {
+    padding-top: calc(var(--spacing) * 2);
+  }
+  .pt-3 {
+    padding-top: calc(var(--spacing) * 3);
+  }
+  .pt-6 {
+    padding-top: calc(var(--spacing) * 6);
+  }
+  .pb-4 {
+    padding-bottom: calc(var(--spacing) * 4);
+  }
+  .pb-5 {
+    padding-bottom: calc(var(--spacing) * 5);
+  }
+  .pl-2 {
+    padding-left: calc(var(--spacing) * 2);
+  }
+  .pl-4 {
+    padding-left: calc(var(--spacing) * 4);
+  }
+  .pl-6 {
+    padding-left: calc(var(--spacing) * 6);
+  }
+  .text-center {
+    text-align: center;
+  }
+  .text-left {
+    text-align: left;
+  }
+  .font-mono {
+    font-family: var(--font-mono);
+  }
+  .font-sans {
+    font-family: var(--font-sans);
+  }
+  .text-2xl {
+    font-size: var(--text-2xl);
+    line-height: var(--tw-leading, var(--text-2xl--line-height));
+  }
+  .text-3xl {
+    font-size: var(--text-3xl);
+    line-height: var(--tw-leading, var(--text-3xl--line-height));
+  }
+  .text-base {
+    font-size: var(--text-base);
+    line-height: var(--tw-leading, var(--text-base--line-height));
+  }
+  .text-lg {
+    font-size: var(--text-lg);
+    line-height: var(--tw-leading, var(--text-lg--line-height));
+  }
+  .text-sm {
+    font-size: var(--text-sm);
+    line-height: var(--tw-leading, var(--text-sm--line-height));
+  }
+  .text-xs {
+    font-size: var(--text-xs);
+    line-height: var(--tw-leading, var(--text-xs--line-height));
+  }
+  .text-\[9px\] {
+    font-size: 9px;
+  }
+  .text-\[10px\] {
+    font-size: 10px;
+  }
+  .text-\[11px\] {
+    font-size: 11px;
+  }
+  .leading-relaxed {
+    --tw-leading: var(--leading-relaxed);
+    line-height: var(--leading-relaxed);
+  }
+  .font-bold {
+    --tw-font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-bold);
+  }
+  .font-medium {
+    --tw-font-weight: var(--font-weight-medium);
+    font-weight: var(--font-weight-medium);
+  }
+  .font-normal {
+    --tw-font-weight: var(--font-weight-normal);
+    font-weight: var(--font-weight-normal);
+  }
+  .font-semibold {
+    --tw-font-weight: var(--font-weight-semibold);
+    font-weight: var(--font-weight-semibold);
+  }
+  .tracking-tight {
+    --tw-tracking: var(--tracking-tight);
+    letter-spacing: var(--tracking-tight);
+  }
+  .tracking-wider {
+    --tw-tracking: var(--tracking-wider);
+    letter-spacing: var(--tracking-wider);
+  }
+  .whitespace-nowrap {
+    white-space: nowrap;
+  }
+  .text-\[\#F3F4F6\] {
+    color: #F3F4F6;
+  }
+  .text-amber-50 {
+    color: var(--color-amber-50);
+  }
+  .text-amber-200\/90 {
+    color: color-mix(in srgb, oklch(92.4% 0.12 95.746) 90%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      color: color-mix(in oklab, var(--color-amber-200) 90%, transparent);
+    }
+  }
+  .text-amber-300 {
+    color: var(--color-amber-300);
+  }
+  .text-amber-300\/90 {
+    color: color-mix(in srgb, oklch(87.9% 0.169 91.605) 90%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      color: color-mix(in oklab, var(--color-amber-300) 90%, transparent);
+    }
+  }
+  .text-amber-400 {
+    color: var(--color-amber-400);
+  }
+  .text-cyan-400 {
+    color: var(--color-cyan-400);
+  }
+  .text-emerald-200 {
+    color: var(--color-emerald-200);
+  }
+  .text-emerald-200\/90 {
+    color: color-mix(in srgb, oklch(90.5% 0.093 164.15) 90%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      color: color-mix(in oklab, var(--color-emerald-200) 90%, transparent);
+    }
+  }
+  .text-emerald-300 {
+    color: var(--color-emerald-300);
+  }
+  .text-emerald-400 {
+    color: var(--color-emerald-400);
+  }
+  .text-emerald-950 {
+    color: var(--color-emerald-950);
+  }
+  .text-rose-300 {
+    color: var(--color-rose-300);
+  }
+  .text-rose-400 {
+    color: var(--color-rose-400);
+  }
+  .text-slate-100 {
+    color: var(--color-slate-100);
+  }
+  .text-slate-200 {
+    color: var(--color-slate-200);
+  }
+  .text-slate-300 {
+    color: var(--color-slate-300);
+  }
+  .text-slate-400 {
+    color: var(--color-slate-400);
+  }
+  .text-slate-500 {
+    color: var(--color-slate-500);
+  }
+  .text-slate-600 {
+    color: var(--color-slate-600);
+  }
+  .text-slate-950 {
+    color: var(--color-slate-950);
+  }
+  .text-teal-100 {
+    color: var(--color-teal-100);
+  }
+  .text-teal-300 {
+    color: var(--color-teal-300);
+  }
+  .text-teal-400 {
+    color: var(--color-teal-400);
+  }
+  .text-white {
+    color: var(--color-white);
+  }
+  .uppercase {
+    text-transform: uppercase;
+  }
+  .antialiased {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  .accent-emerald-500 {
+    accent-color: var(--color-emerald-500);
+  }
+  .opacity-70 {
+    opacity: 70%;
+  }
+  .opacity-80 {
+    opacity: 80%;
+  }
+  .shadow-sm {
+    --tw-shadow: 0 1px 3px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 1px 2px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .shadow-xl {
+    --tw-shadow: 0 20px 25px -5px var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 8px 10px -6px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .ring-2 {
+    --tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color, currentcolor);
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .ring-amber-400\/40 {
+    --tw-ring-color: color-mix(in srgb, oklch(82.8% 0.189 84.429) 40%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      --tw-ring-color: color-mix(in oklab, var(--color-amber-400) 40%, transparent);
+    }
+  }
+  .ring-rose-400\/40 {
+    --tw-ring-color: color-mix(in srgb, oklch(71.2% 0.194 13.428) 40%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      --tw-ring-color: color-mix(in oklab, var(--color-rose-400) 40%, transparent);
+    }
+  }
+  .backdrop-blur-md {
+    --tw-backdrop-blur: blur(var(--blur-md));
+    -webkit-backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
+    backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
+  }
+  .backdrop-blur-sm {
+    --tw-backdrop-blur: blur(var(--blur-sm));
+    -webkit-backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
+    backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
+  }
+  .transition-all {
+    transition-property: all;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
+  }
+  .transition-colors {
+    transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
+  }
+  .transition-transform {
+    transition-property: transform, translate, scale, rotate;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
+  }
+  .duration-150 {
+    --tw-duration: 150ms;
+    transition-duration: 150ms;
+  }
+  .duration-300 {
+    --tw-duration: 300ms;
+    transition-duration: 300ms;
+  }
+  @media (hover: hover) {
+    .group-hover\:block:is(:where(.group):hover *) {
+      display: block;
+    }
+    .group-hover\:scale-125:is(:where(.group):hover *) {
+      --tw-scale-x: 125%;
+      --tw-scale-y: 125%;
+      --tw-scale-z: 125%;
+      scale: var(--tw-scale-x) var(--tw-scale-y);
+    }
+  }
+  .selection\:bg-\[\#10B981\] ::selection {
+    background-color: #10B981;
+  }
+  .selection\:bg-\[\#10B981\]::selection {
+    background-color: #10B981;
+  }
+  .selection\:text-\[\#090D16\] ::selection {
+    color: #090D16;
+  }
+  .selection\:text-\[\#090D16\]::selection {
+    color: #090D16;
+  }
+  @media (hover: hover) {
+    .hover\:border-slate-700:hover {
+      border-color: var(--color-slate-700);
+    }
+    .hover\:bg-amber-400:hover {
+      background-color: var(--color-amber-400);
+    }
+    .hover\:bg-emerald-300:hover {
+      background-color: var(--color-emerald-300);
+    }
+    .hover\:bg-rose-600:hover {
+      background-color: var(--color-rose-600);
+    }
+    .hover\:bg-slate-700:hover {
+      background-color: var(--color-slate-700);
+    }
+    .hover\:bg-slate-700\/80:hover {
+      background-color: color-mix(in srgb, oklch(37.2% 0.044 257.287) 80%, transparent);
+    }
+    @supports (color: color-mix(in lab, red, red)) {
+      .hover\:bg-slate-700\/80:hover {
+        background-color: color-mix(in oklab, var(--color-slate-700) 80%, transparent);
+      }
+    }
+    .hover\:bg-slate-800\/40:hover {
+      background-color: color-mix(in srgb, oklch(27.9% 0.041 260.031) 40%, transparent);
+    }
+    @supports (color: color-mix(in lab, red, red)) {
+      .hover\:bg-slate-800\/40:hover {
+        background-color: color-mix(in oklab, var(--color-slate-800) 40%, transparent);
+      }
+    }
+    .hover\:bg-slate-800\/50:hover {
+      background-color: color-mix(in srgb, oklch(27.9% 0.041 260.031) 50%, transparent);
+    }
+    @supports (color: color-mix(in lab, red, red)) {
+      .hover\:bg-slate-800\/50:hover {
+        background-color: color-mix(in oklab, var(--color-slate-800) 50%, transparent);
+      }
+    }
+    .hover\:text-emerald-300:hover {
+      color: var(--color-emerald-300);
+    }
+    .hover\:text-emerald-400:hover {
+      color: var(--color-emerald-400);
+    }
+    .hover\:text-slate-200:hover {
+      color: var(--color-slate-200);
+    }
+    .hover\:text-slate-300:hover {
+      color: var(--color-slate-300);
+    }
+  }
+  .focus\:border-amber-500:focus {
+    border-color: var(--color-amber-500);
+  }
+  .focus\:border-cyan-500:focus {
+    border-color: var(--color-cyan-500);
+  }
+  .focus\:border-emerald-500:focus {
+    border-color: var(--color-emerald-500);
+  }
+  .focus\:outline-none:focus {
+    --tw-outline-style: none;
+    outline-style: none;
+  }
+  .focus-visible\:underline:focus-visible {
+    text-decoration-line: underline;
+  }
+  .focus-visible\:ring-1:focus-visible {
+    --tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color, currentcolor);
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .focus-visible\:ring-2:focus-visible {
+    --tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color, currentcolor);
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .focus-visible\:ring-emerald-500:focus-visible {
+    --tw-ring-color: var(--color-emerald-500);
+  }
+  .disabled\:opacity-30:disabled {
+    opacity: 30%;
+  }
+  .disabled\:opacity-40:disabled {
+    opacity: 40%;
+  }
+  @media (hover: hover) {
+    .disabled\:hover\:bg-slate-800:disabled:hover {
+      background-color: var(--color-slate-800);
+    }
+  }
+  @media (width >= 40rem) {
+    .sm\:inline {
+      display: inline;
+    }
+    .sm\:grid-cols-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .sm\:flex-row {
+      flex-direction: row;
+    }
+    .sm\:items-baseline {
+      align-items: baseline;
+    }
+    .sm\:items-center {
+      align-items: center;
+    }
+    .sm\:gap-2 {
+      gap: calc(var(--spacing) * 2);
+    }
+    .sm\:gap-3 {
+      gap: calc(var(--spacing) * 3);
+    }
+    .sm\:px-6 {
+      padding-inline: calc(var(--spacing) * 6);
+    }
+    .sm\:py-8 {
+      padding-block: calc(var(--spacing) * 8);
+    }
+    .sm\:text-left {
+      text-align: left;
+    }
+    .sm\:text-right {
+      text-align: right;
+    }
+    .sm\:text-lg {
+      font-size: var(--text-lg);
+      line-height: var(--tw-leading, var(--text-lg--line-height));
+    }
+    .sm\:text-sm {
+      font-size: var(--text-sm);
+      line-height: var(--tw-leading, var(--text-sm--line-height));
+    }
+  }
+  @media (width >= 48rem) {
+    .md\:w-64 {
+      width: calc(var(--spacing) * 64);
+    }
+    .md\:grid-cols-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .md\:grid-cols-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .md\:flex-row {
+      flex-direction: row;
+    }
+    .md\:items-center {
+      align-items: center;
+    }
+    .md\:items-end {
+      align-items: flex-end;
+    }
+  }
+  @media (width >= 64rem) {
+    .lg\:col-span-4 {
+      grid-column: span 4 / span 4;
+    }
+    .lg\:col-span-5 {
+      grid-column: span 5 / span 5;
+    }
+    .lg\:col-span-6 {
+      grid-column: span 6 / span 6;
+    }
+    .lg\:col-span-7 {
+      grid-column: span 7 / span 7;
+    }
+    .lg\:col-span-8 {
+      grid-column: span 8 / span 8;
+    }
+    .lg\:grid-cols-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .lg\:grid-cols-4 {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+    .lg\:grid-cols-12 {
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+    }
+    .lg\:flex-row {
+      flex-direction: row;
+    }
+    .lg\:items-center {
+      align-items: center;
+    }
+    .lg\:px-8 {
+      padding-inline: calc(var(--spacing) * 8);
+    }
+  }
+}
+@property --tw-translate-x {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-translate-y {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-translate-z {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-space-y-reverse {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-divide-x-reverse {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-border-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+@property --tw-divide-y-reverse {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-gradient-position {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-gradient-from {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #0000;
+}
+@property --tw-gradient-via {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #0000;
+}
+@property --tw-gradient-to {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #0000;
+}
+@property --tw-gradient-stops {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-gradient-via-stops {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-gradient-from-position {
+  syntax: "<length-percentage>";
+  inherits: false;
+  initial-value: 0%;
+}
+@property --tw-gradient-via-position {
+  syntax: "<length-percentage>";
+  inherits: false;
+  initial-value: 50%;
+}
+@property --tw-gradient-to-position {
+  syntax: "<length-percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
+@property --tw-leading {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-font-weight {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-tracking {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-shadow-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-shadow-alpha {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
+@property --tw-inset-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-inset-shadow-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-inset-shadow-alpha {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
+@property --tw-ring-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-ring-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-inset-ring-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-inset-ring-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-ring-inset {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-ring-offset-width {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0px;
+}
+@property --tw-ring-offset-color {
+  syntax: "*";
+  inherits: false;
+  initial-value: #fff;
+}
+@property --tw-ring-offset-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-backdrop-blur {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-backdrop-brightness {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-backdrop-contrast {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-backdrop-grayscale {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-backdrop-hue-rotate {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-backdrop-invert {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-backdrop-opacity {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-backdrop-saturate {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-backdrop-sepia {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-duration {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-scale-x {
+  syntax: "*";
+  inherits: false;
+  initial-value: 1;
+}
+@property --tw-scale-y {
+  syntax: "*";
+  inherits: false;
+  initial-value: 1;
+}
+@property --tw-scale-z {
+  syntax: "*";
+  inherits: false;
+  initial-value: 1;
+}
+@keyframes pulse {
+  50% {
+    opacity: 0.5;
+  }
+}
+@layer properties {
+  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
+    *, ::before, ::after, ::backdrop {
+      --tw-translate-x: 0;
+      --tw-translate-y: 0;
+      --tw-translate-z: 0;
+      --tw-space-y-reverse: 0;
+      --tw-divide-x-reverse: 0;
+      --tw-border-style: solid;
+      --tw-divide-y-reverse: 0;
+      --tw-gradient-position: initial;
+      --tw-gradient-from: #0000;
+      --tw-gradient-via: #0000;
+      --tw-gradient-to: #0000;
+      --tw-gradient-stops: initial;
+      --tw-gradient-via-stops: initial;
+      --tw-gradient-from-position: 0%;
+      --tw-gradient-via-position: 50%;
+      --tw-gradient-to-position: 100%;
+      --tw-leading: initial;
+      --tw-font-weight: initial;
+      --tw-tracking: initial;
+      --tw-shadow: 0 0 #0000;
+      --tw-shadow-color: initial;
+      --tw-shadow-alpha: 100%;
+      --tw-inset-shadow: 0 0 #0000;
+      --tw-inset-shadow-color: initial;
+      --tw-inset-shadow-alpha: 100%;
+      --tw-ring-color: initial;
+      --tw-ring-shadow: 0 0 #0000;
+      --tw-inset-ring-color: initial;
+      --tw-inset-ring-shadow: 0 0 #0000;
+      --tw-ring-inset: initial;
+      --tw-ring-offset-width: 0px;
+      --tw-ring-offset-color: #fff;
+      --tw-ring-offset-shadow: 0 0 #0000;
+      --tw-backdrop-blur: initial;
+      --tw-backdrop-brightness: initial;
+      --tw-backdrop-contrast: initial;
+      --tw-backdrop-grayscale: initial;
+      --tw-backdrop-hue-rotate: initial;
+      --tw-backdrop-invert: initial;
+      --tw-backdrop-opacity: initial;
+      --tw-backdrop-saturate: initial;
+      --tw-backdrop-sepia: initial;
+      --tw-duration: initial;
+      --tw-scale-x: 1;
+      --tw-scale-y: 1;
+      --tw-scale-z: 1;
+    }
+  }
+}
+
+</style><script type="importmap">{"imports":{"react":"https://esm.sh/react@19.0.1","react/jsx-runtime":"https://esm.sh/react@19.0.1/jsx-runtime","react/jsx-dev-runtime":"https://esm.sh/react@19.0.1/jsx-dev-runtime","react-dom":"https://esm.sh/react-dom@19.0.1?external=react","react-dom/client":"https://esm.sh/react-dom@19.0.1/client?external=react","three":"https://esm.sh/three@0.186.1","three/":"https://esm.sh/three@0.186.1/","lucide-react":"https://esm.sh/lucide-react@0.546.0?external=react","motion/react":"https://esm.sh/motion@12.23.24/react?external=react,react-dom"}}</script><script>if(!location.hash)location.hash="music";</script></head>
+  <body class="bg-[#090D16] text-[#F3F4F6] antialiased selection:bg-[#10B981] selection:text-[#090D16]">
+    <div id="root"></div>
+    
+  <footer aria-label="제작자" style="position:fixed;bottom:4px;right:8px;z-index:9999;font:11px sans-serif;padding:4px 8px;border-radius:4px;background:#0f172ade;color:#e2e8f0;pointer-events:none">금평초 김상흠 · AI Studio · 교과 검토 후 활용</footer><script type="module">import{createRoot as _t}from"react-dom/client";import{useState as Ge,useEffect as Vt}from"react";import{Maximize2 as He,Minimize2 as Ee}from"lucide-react";import{Fragment as he,jsx as K,jsxs as de}from"react/jsx-runtime";var qe=[{id:"biology",label:"\uC0DD\uBA85\uACFC\uD559 (\uC720\uC804)",hash:"#biology"},{id:"history",label:"\uD55C\uAD6D\uC0AC (\uC2DC\uAC04\uC120)",hash:"#history"},{id:"geography",label:"\uC9C0\uB9AC (\uAE30\uD6C4)",hash:"#geography"},{id:"music",label:"\uC74C\uC545 (\uBC30\uC74C)",hash:"#music"},{id:"informatics",label:"\uC815\uBCF4 (\uC815\uB82C)",hash:"#informatics"}],ve=({activeSubject:A,onSelectSubject:c,isPresentationMode:I,onTogglePresentationMode:l})=>K("header",{className:"sticky top-0 z-50 bg-[#090D16]/90 backdrop-blur-md border-b border-slate-800",children:K("div",{className:"max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",children:de("div",{className:"flex items-center justify-between gap-8 h-16",children:[K("a",{href:`#${A}`,className:"text-base sm:text-lg font-bold tracking-tight text-slate-100 whitespace-nowrap shrink-0 hover:text-emerald-400 transition-colors",children:"\uAD50\uACFC \uD0D0\uAD6C \uC2A4\uD29C\uB514\uC624 B"}),K("nav",{className:"flex items-center gap-1 sm:gap-2 overflow-x-auto no-scrollbar py-1",children:qe.map(E=>{let P=A===E.id;return K("a",{href:E.hash,onClick:R=>{R.preventDefault(),window.location.hash=E.hash,c(E.id)},className:`px-3 py-1.5 text-xs font-medium rounded-lg transition-colors whitespace-nowrap shrink-0 ${P?"bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 font-semibold":"text-slate-400 hover:text-slate-200 hover:bg-slate-800/50"}`,"aria-current":P?"page":void 0,children:E.label},E.id)})}),K("div",{className:"flex items-center shrink-0",children:K("button",{type:"button",onClick:l,className:`inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg transition-colors whitespace-nowrap shrink-0 border ${I?"bg-emerald-400 text-slate-950 border-emerald-400 font-semibold":"bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700"}`,title:"\uAD50\uC2E4 \uD504\uB85C\uC81D\uD130 \uBC0F \uB300\uD615 \uD654\uBA74\uC744 \uC704\uD55C \uBC1C\uD45C \uBAA8\uB4DC \uD1A0\uAE00",children:I?de(he,{children:[K(Ee,{className:"w-3.5 h-3.5","aria-hidden":"true"}),K("span",{children:"\uD45C\uC900 \uBAA8\uB4DC"})]}):de(he,{children:[K(He,{className:"w-3.5 h-3.5","aria-hidden":"true"}),K("span",{children:"\uBC1C\uD45C \uBAA8\uB4DC"})]})})})]})})});import{jsx as te,jsxs as le}from"react/jsx-runtime";var Ne=()=>te("footer",{className:"mt-16 border-t border-slate-800 bg-[#070A12] py-8 text-xs text-slate-400",children:le("div",{className:"max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-3",children:[le("div",{className:"flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left",children:[le("div",{children:[te("p",{className:"font-medium text-slate-300",children:"\uAD50\uACFC \uD0D0\uAD6C \uC2A4\uD29C\uB514\uC624 B \xB7 \uACE0\uB4F1\uD559\uAD50 \uAD50\uC0AC \uC5F0\uC218 \uC804\uC2DC\uC6A9 \uB514\uC9C0\uD138 \uD0D0\uAD6C \uC2A4\uD29C\uB514\uC624"}),te("p",{className:"text-[11px] text-slate-400 mt-0.5",children:"\uC0DD\uBA85\uACFC\uD559 \xB7 \uD55C\uAD6D\uC0AC \xB7 \uC9C0\uB9AC \xB7 \uC74C\uC545 \xB7 \uC815\uBCF4 5\uAC1C \uB3C5\uB9BD \uAD50\uACFC \uC2DC\uAC01\uD654 \uBAA8\uB378"})]}),te("div",{className:"text-center sm:text-right text-[11px] text-slate-400",children:te("p",{children:"\uAC1C\uC778\uC815\uBCF4\uB97C \uC218\uC9D1\uD558\uAC70\uB098 \uC800\uC7A5\uD558\uC9C0 \uC54A\uB294 \uB3C5\uB9BD\uD615 \uD074\uB77C\uC774\uC5B8\uD2B8 \uC6F9 \uC560\uD50C\uB9AC\uCF00\uC774\uC158\uC785\uB2C8\uB2E4."})})]}),le("div",{className:"pt-3 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-2 text-[11px] text-slate-400",children:[te("p",{children:"\uAE08\uD3C9\uCD08 \uAE40\uC0C1\uD760 \xB7 Google AI Studio \uC81C\uC791 \xB7 AI \uC0DD\uC131 \uAD50\uC721\uC6A9 \uC608\uC2DC, \uAD50\uACFC \uB0B4\uC6A9\uC740 \uAD50\uC0AC\uAC00 \uAC80\uD1A0 \uD6C4 \uD65C\uC6A9"}),te("p",{children:"\uC2DC\uAC01\uD654 \uB370\uC774\uD130\uB294 \uAD50\uC721 \uBAA9\uC801\uC758 \uC2DC\uBBAC\uB808\uC774\uC158 \uBAA8\uB378\uC774\uBA70, \uD604\uC7A5 \uC5F0\uAD6C \uC131\uACFC\uB098 \uAC80\uC99D\uB41C \uD559\uC220 \uACB0\uACFC\uB97C \uC8FC\uC7A5\uD558\uC9C0 \uC54A\uC2B5\uB2C8\uB2E4."})]})]})});import{useState as pe,useMemo as ne}from"react";import{RotateCcw as Ue,Dna as Ye,Shuffle as Je,Sparkles as Xe,AlertCircle as Ke}from"lucide-react";import{useState as Le}from"react";import{ChevronDown as ze,ChevronUp as Oe,BookOpen as Ve,Clock as me,HelpCircle as _e}from"lucide-react";import{jsx as B,jsxs as U}from"react/jsx-runtime";var Q=({guide:A,isPresentationMode:c})=>{let[I,l]=Le(!1);return U("section",{className:"border border-slate-700/60 rounded-xl bg-slate-900/40 backdrop-blur-sm overflow-hidden mb-8 transition-colors",children:[U("button",{type:"button",onClick:()=>l(!I),className:"w-full px-5 py-4 flex items-center justify-between text-left hover:bg-slate-800/40 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500","aria-expanded":I,children:[U("div",{className:"flex items-center gap-3",children:[B(Ve,{className:"w-5 h-5 text-emerald-400 shrink-0","aria-hidden":"true"}),U("div",{children:[B("h3",{className:`font-semibold text-slate-100 ${c?"text-lg":"text-base"}`,children:"\uAD50\uC0AC\uC6A9 5\uBD84 \uC218\uC5C5 \uAC00\uC774\uB4DC"}),B("p",{className:"text-xs text-slate-400 mt-0.5",children:"\uB3C4\uC785 1\uBD84 \xB7 \uD65C\uB3D9 3\uBD84 \xB7 \uC815\uB9AC 1\uBD84 \uBC0F \uD575\uC2EC \uBC1C\uBB38 2\uAC1C"})]})]}),U("div",{className:"flex items-center gap-2 text-xs font-medium text-emerald-400 shrink-0",children:[B("span",{children:I?"\uC811\uAE30":"\uC5F4\uAE30"}),I?B(Oe,{className:"w-4 h-4 text-emerald-400","aria-hidden":"true"}):B(ze,{className:"w-4 h-4 text-emerald-400","aria-hidden":"true"})]})]}),I&&U("div",{className:`px-5 pb-5 pt-2 border-t border-slate-800/80 space-y-4 ${c?"text-base":"text-sm"} text-slate-300`,children:[U("div",{className:"grid grid-cols-1 md:grid-cols-3 gap-3",children:[U("div",{className:"p-3.5 rounded-lg bg-slate-800/60 border border-slate-700/40",children:[U("div",{className:"flex items-center gap-1.5 text-xs font-semibold text-emerald-400 mb-1.5",children:[B(me,{className:"w-3.5 h-3.5","aria-hidden":"true"}),B("span",{children:"\uB3C4\uC785 1\uBD84 (\uC0C1\uD669 \uD658\uAE30)"})]}),B("p",{className:"leading-relaxed text-slate-200",children:A.intro})]}),U("div",{className:"p-3.5 rounded-lg bg-slate-800/60 border border-slate-700/40",children:[U("div",{className:"flex items-center gap-1.5 text-xs font-semibold text-emerald-400 mb-1.5",children:[B(me,{className:"w-3.5 h-3.5","aria-hidden":"true"}),B("span",{children:"\uD65C\uB3D9 3\uBD84 (\uD0D0\uAD6C \uC870\uC791)"})]}),B("p",{className:"leading-relaxed text-slate-200",children:A.activity})]}),U("div",{className:"p-3.5 rounded-lg bg-slate-800/60 border border-slate-700/40",children:[U("div",{className:"flex items-center gap-1.5 text-xs font-semibold text-emerald-400 mb-1.5",children:[B(me,{className:"w-3.5 h-3.5","aria-hidden":"true"}),B("span",{children:"\uC815\uB9AC 1\uBD84 (\uAC1C\uB150 \uD1B5\uD569)"})]}),B("p",{className:"leading-relaxed text-slate-200",children:A.summary})]})]}),U("div",{className:"p-4 rounded-lg bg-slate-900/80 border border-slate-700/50",children:[U("div",{className:"flex items-center gap-2 text-xs font-semibold text-teal-300 mb-2.5",children:[B(_e,{className:"w-4 h-4","aria-hidden":"true"}),B("span",{children:"\uC218\uC5C5 \uC911 \uAD50\uC0AC\uC6A9 \uD575\uC2EC \uBC1C\uBB38 (\uC9C8\uBB38 \uB358\uC9C0\uAE30)"})]}),U("ol",{className:"space-y-2 list-decimal list-inside text-slate-200",children:[U("li",{className:"leading-relaxed",children:[B("span",{className:"font-medium text-emerald-300 mr-1",children:"[\uBC1C\uBB38 1]"}),A.prompts[0]]}),U("li",{className:"leading-relaxed",children:[B("span",{className:"font-medium text-emerald-300 mr-1",children:"[\uBC1C\uBB38 2]"}),A.prompts[1]]})]})]})]})]})};import{Compass as Be,ArrowRight as We}from"lucide-react";import{jsx as Y,jsxs as X}from"react/jsx-runtime";var Z=({tasks:A,isPresentationMode:c,onApplyTaskPreset:I})=>X("section",{className:"mb-8",children:[X("div",{className:"flex items-center justify-between mb-3",children:[X("div",{className:"flex items-center gap-2",children:[Y(Be,{className:"w-4 h-4 text-emerald-400","aria-hidden":"true"}),Y("h3",{className:`font-semibold text-slate-100 ${c?"text-lg":"text-base"}`,children:"\uD559\uC2B5\uC790 \uD0D0\uAD6C \uACFC\uC81C (\uC608\uCE21 \u2192 \uC870\uC791 \u2192 \uD655\uC778)"})]}),Y("span",{className:"text-xs text-slate-400",children:"\uAD50\uACFC \uC5ED\uB7C9 \uC911\uC2EC \uD0D0\uAD6C \uD65C\uB3D9 3\uC81C"})]}),Y("div",{className:"grid grid-cols-1 lg:grid-cols-3 gap-4",children:A.map(l=>X("div",{className:"p-4 rounded-xl bg-slate-900/60 border border-slate-800 flex flex-col justify-between hover:border-slate-700 transition-colors",children:[X("div",{children:[X("div",{className:"flex items-center justify-between gap-2 mb-3",children:[X("span",{className:"text-xs font-semibold px-2 py-0.5 rounded bg-emerald-950/70 border border-emerald-500/30 text-emerald-300",children:["\uD0D0\uAD6C \uACFC\uC81C ",l.id]}),I&&Y("button",{type:"button",onClick:()=>I(l.id),className:"text-xs text-emerald-400 hover:text-emerald-300 transition-colors font-medium focus:outline-none focus-visible:underline",children:"\uD658\uACBD \uC989\uC2DC \uC124\uC815"})]}),Y("h4",{className:`font-medium text-slate-200 mb-2.5 ${c?"text-base":"text-sm"}`,children:l.title}),X("div",{className:`space-y-2 text-slate-300 ${c?"text-sm":"text-xs"}`,children:[X("div",{className:"flex gap-2",children:[Y("span",{className:"shrink-0 font-semibold text-teal-400 w-9",children:"\uC608\uCE21"}),Y("p",{className:"leading-relaxed text-slate-300",children:l.predict})]}),X("div",{className:"flex gap-2",children:[Y("span",{className:"shrink-0 font-semibold text-emerald-400 w-9",children:"\uC870\uC791"}),Y("p",{className:"leading-relaxed text-slate-300",children:l.operate})]}),X("div",{className:"flex gap-2",children:[Y("span",{className:"shrink-0 font-semibold text-cyan-400 w-9",children:"\uD655\uC778"}),Y("p",{className:"leading-relaxed text-slate-300",children:l.confirm})]})]})]}),I&&Y("div",{className:"mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-end",children:X("button",{type:"button",onClick:()=>I(l.id),className:"inline-flex items-center gap-1.5 text-xs text-emerald-400 hover:text-emerald-300 font-medium",children:[Y("span",{children:"\uACFC\uC81C \uC870\uAC74 \uC801\uC6A9\uD558\uAE30"}),Y(We,{className:"w-3.5 h-3.5","aria-hidden":"true"})]})})]},l.id))})]});import{jsx as n,jsxs as e}from"react/jsx-runtime";var Qe={intro:"\uB3D9\uC804\uC744 100\uBC88 \uB358\uC84C\uC744 \uB54C \uC55E\uBA74\uC774 \uC815\uD655\uD788 50\uBC88 \uB098\uC624\uC9C0 \uC54A\uB294 \uD655\uB960\uC801 \uBCC0\uB3D9\uC758 \uC6D0\uB9AC\uB97C \uC720\uC804 \uD604\uC0C1\uACFC \uC5F0\uACB0\uD558\uC5EC \uD559\uC2B5 \uB3D9\uAE30\uB97C \uC720\uBC1C\uD569\uB2C8\uB2E4.",activity:"\uD559\uC0DD\uB4E4\uC774 \uC138 \uAC00\uC9C0 \uAD50\uBC30 \uD504\uB9AC\uC14B(Aa\xD7Aa, AA\xD7aa, Aa\xD7aa)\uC744 \uC120\uD0DD\uD558\uACE0 100\uAC1C\uCCB4 \uD45C\uBCF8\uC744 \uC5EC\uB7EC \uBC88 \uC0DD\uC131\uD558\uBA70 \uC774\uB860\uAC12\uACFC \uAD00\uCE21\uAC12\uC758 \uD3B8\uCC28\uB97C \uAE30\uB85D\uD558\uAC8C \uD569\uB2C8\uB2E4.",summary:"\uB300\uC218\uC758 \uBC95\uCE59\uC5D0 \uB530\uB77C \uD45C\uBCF8 \uD06C\uAE30\uAC00 \uBB34\uD55C\uD788 \uCEE4\uC9C0\uBA74 \uC774\uB860\uAC12\uC5D0 \uC218\uB834\uD558\uC9C0\uB9CC, \uC720\uD55C\uD55C \uD45C\uBCF8(100\uAC1C\uCCB4)\uC5D0\uC11C\uB294 \uC6B0\uC5F0\uC5D0 \uC758\uD55C \uD655\uB960\uC801 \uD3B8\uCC28\uAC00 \uD544\uC5F0\uC801\uC784\uC744 \uC815\uB9AC\uD569\uB2C8\uB2E4.",prompts:["Aa \xD7 Aa \uAD50\uBC30 \uC2DC\uBBAC\uB808\uC774\uC158\uC5D0\uC11C 100\uAC1C\uCCB4 \uC911 \uC5F4\uC131\uC774 23\uAC1C\uB098 27\uAC1C\uAC00 \uB098\uC654\uB2E4\uBA74, \uBA58\uB378\uC758 \uBD84\uB9AC \uBC95\uCE59(3:1)\uC774 \uC798\uBABB\uB41C \uAC83\uC77C\uAE4C\uC694?","\uC6B0\uC131 \uD45C\uD604\uD615\uC744 \uBCF4\uC774\uB294 \uC815\uCCB4\uBD88\uBA85\uC758 \uC644\uB450\uAC00 \uC21C\uC885(AA)\uC778\uC9C0 \uC7A1\uC885(Aa)\uC778\uC9C0 \uD310\uBCC4\uD558\uB824\uBA74 \uC5B4\uB5A4 \uC720\uC804\uC790\uD615\uC758 \uAC1C\uCCB4\uC640 \uAD50\uBC30(\uAC80\uC815\uAD50\uBC30)\uD574\uC57C \uD560\uAE4C\uC694?"]},Ze=[{id:1,title:"\uC7A1\uC885 \uAC04 \uAD50\uBC30(Aa \xD7 Aa)\uC640 \uBD84\uB9AC\uBE44 \uD3B8\uCC28 \uAD00\uCC30",predict:"\uC6B0\uC131\uACFC \uC5F4\uC131\uC758 \uD45C\uD604\uD615 \uBE44\uC728\uC740 \uC774\uB860\uC801\uC73C\uB85C 3:1(75%:25%)\uB85C \uB098\uD0C0\uB0A0 \uAC83\uC774\uB2E4.",operate:"\uC591\uCE5C \uC720\uC804\uC790\uD615\uC744 \uBAA8\uB450 Aa\uB85C \uC124\uC815\uD55C \uD6C4 [100\uAC1C\uCCB4 \uD45C\uBCF8 \uC0DD\uC131] \uBC0F [\uC0C8\uB85C\uBF51\uAE30]\uB97C 3\uD68C \uC2E4\uD589\uD55C\uB2E4.",confirm:"\uC6B0\uC131 \uAC1C\uCCB4 \uC218\uAC00 \uB9E4\uBC88 \uC815\uD655\uD788 75\uAC1C\uC778\uC9C0, \uD45C\uBCF8 \uC624\uCC28 \uBC94\uC704\uAC00 \uC5B4\uB5BB\uAC8C \uC694\uB3D9\uCE58\uB294\uC9C0 \uAE30\uB85D\uD55C\uB2E4."},{id:2,title:"\uC6B0\uC5F4\uC758 \uC6D0\uB9AC(AA \xD7 aa)\uC640 100% \uADE0\uC77C\uC131 \uAC80\uC99D",predict:"\uC21C\uC885 \uC6B0\uC131\uACFC \uC21C\uC885 \uC5F4\uC131\uC744 \uAD50\uBC30\uD558\uBA74 \uC790\uC190 \uC804\uC218\uC5D0\uC11C \uC6B0\uC131 \uD45C\uD604\uD615\uB9CC \uB098\uD0C0\uB0A0 \uAC83\uC774\uB2E4.",operate:"\uBD80\uBAA8 1\uC744 AA, \uBD80\uBAA8 2\uB97C aa\uB85C \uC124\uC815\uD558\uACE0 100\uAC1C\uCCB4 \uD45C\uBCF8\uC744 \uC0DD\uC131\uD55C\uB2E4.",confirm:"100\uAC1C\uCCB4 \uC810 \uC2DC\uAC01\uD654\uC5D0\uC11C \uC5F4\uC131 \uAC1C\uCCB4\uAC00 \uB2E8 1\uAC1C\uB77C\uB3C4 \uC874\uC7AC\uD558\uB294\uC9C0, \uC774\uB860\uAC12 100%:0%\uC640 \uBE44\uAD50\uD55C\uB2E4."},{id:3,title:"\uAC80\uC815\uAD50\uBC30(Aa \xD7 aa)\uC640 1:1 \uBD84\uB9AC\uBE44 \uD0D0\uAD6C",predict:"\uC774\uD615\uC811\uD569\uC790\uC640 \uC5F4\uC131 \uB3D9\uD615\uC811\uD569\uC790\uB97C \uAD50\uBC30\uD558\uBA74 \uC6B0\uC131\uACFC \uC5F4\uC131\uC774 1:1(50%:50%)\uB85C \uBD84\uB9AC\uB420 \uAC83\uC774\uB2E4.",operate:"\uBD80\uBAA8 1\uC744 Aa, \uBD80\uBAA8 2\uB97C aa\uB85C \uC124\uC815\uD558\uACE0 \uD45C\uBCF8\uC744 \uCD94\uCD9C\uD558\uC5EC \uAD00\uCE21 \uBE44\uC728\uC744 \uD655\uC778\uD55C\uB2E4.",confirm:"\uC6B0\uC131\uACFC \uC5F4\uC131 \uAD00\uCE21 \uBE44\uC728\uC774 50%\uB97C \uC911\uC2EC\uC73C\uB85C \uC5B4\uB5BB\uAC8C \uC218\uB834\uD558\uB294\uC9C0 \uD655\uC778\uD558\uACE0 \uAC80\uC815\uAD50\uBC30\uC758 \uC6D0\uB9AC\uB97C \uB3C4\uCD9C\uD55C\uB2E4."}],ye=({isPresentationMode:A})=>{let[c,I]=pe("Aa"),[l,E]=pe("Aa"),[P,R]=pe(()=>F("Aa","Aa"));function W(r){return r==="AA"?["A","A"]:r==="aa"?["a","a"]:["A","a"]}let _=ne(()=>W(c),[c]),G=ne(()=>W(l),[l]),N=ne(()=>[{r:0,c:0,a1:_[0],a2:G[0]},{r:0,c:1,a1:_[0],a2:G[1]},{r:1,c:0,a1:_[1],a2:G[0]},{r:1,c:1,a1:_[1],a2:G[1]}].map(r=>{let t=r.a1+r.a2,d="Aa";return t==="AA"?d="AA":t==="aa"?d="aa":d="Aa",{...r,genotype:d,phenotype:d==="aa"?"recessive":"dominant"}}),[_,G]),f=ne(()=>{let r=0,t=0,d=0;N.forEach(H=>{H.genotype==="AA"?r++:H.genotype==="Aa"?t++:H.genotype==="aa"&&d++});let w=4;return{AA:r/w*100,Aa:t/w*100,aa:d/w*100,dominant:(r+t)/w*100,recessive:d/w*100}},[N]);function F(r,t){let d=W(r),w=W(t),H=[];for(let q=0;q<100;q++){let a=d[Math.random()<.5?0:1],$=w[Math.random()<.5?0:1],h="Aa";a==="A"&&$==="A"?h="AA":a==="a"&&$==="a"?h="aa":h="Aa",H.push({id:q+1,p1Allele:a,p2Allele:$,genotype:h,phenotype:h==="aa"?"recessive":"dominant"})}return H}let J=()=>{R(F(c,l))},L=()=>{I("Aa"),E("Aa"),R(F("Aa","Aa"))},V=(r,t)=>{I(r),E(t),R(F(r,t))},z=r=>{r===1?V("Aa","Aa"):r===2?V("AA","aa"):r===3&&V("Aa","aa")},s=ne(()=>{let r=0,t=0,d=0,w=0,H=0;return P.forEach(q=>{q.phenotype==="dominant"?r++:t++,q.genotype==="AA"?d++:q.genotype==="Aa"?w++:q.genotype==="aa"&&H++}),{dominant:r,recessive:t,AA:d,Aa:w,aa:H,total:P.length}},[P]);return e("div",{className:"space-y-6",children:[e("div",{className:"flex flex-col md:flex-row md:items-end justify-between gap-4 pb-4 border-b border-slate-800",children:[e("div",{children:[e("div",{className:"flex items-center gap-2 text-xs font-semibold text-emerald-400 mb-1",children:[n(Ye,{className:"w-4 h-4","aria-hidden":"true"}),n("span",{children:"\uC0DD\uBA85\uACFC\uD559 \uD0D0\uAD6C \uBAA8\uB4C8"}),n("span",{className:"text-slate-500",children:"\xB7"}),n("span",{children:"\uB2E8\uC77C \uC778\uC790 \uBA58\uB378 \uC720\uC804"})]}),n("h2",{className:`font-bold text-slate-100 ${A?"text-3xl":"text-2xl"}`,children:"\uC720\uC804\uC758 \uC8FC\uC0AC\uC704: \uBA58\uB378 \uC720\uC804\uACFC \uD45C\uBCF8 \uD655\uB960"}),n("p",{className:"text-slate-400 text-sm mt-1 max-w-3xl leading-relaxed",children:"\uB2E8\uC77C \uC720\uC804\uC790 \uC644\uC804\uC6B0\uC131 \uBAA8\uB378(\uC5F0\uAD00/\uBD88\uC644\uC804\uC6B0\uC131 \uBC30\uC81C)\uC5D0\uC11C \uC591\uCE5C\uC758 \uBC30\uC6B0\uC790 \uBD84\uB9AC\uC640 2\xD72 \uD37C\uB137 \uC0AC\uAC01\uD615\uC744 \uAD00\uCC30\uD558\uACE0, \uC774\uB860\uC801 \uD655\uB960\uACFC 100\uAC1C\uCCB4 \uBB34\uC791\uC704 \uCD94\uCD9C \uD45C\uBCF8\uC758 \uD1B5\uACC4\uC801 \uD3B8\uCC28\uB97C \uBE44\uAD50\uD569\uB2C8\uB2E4."})]}),n("div",{className:"flex items-center gap-2 shrink-0",children:e("button",{type:"button",onClick:L,className:"inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-medium text-slate-300 bg-slate-800/80 hover:bg-slate-700/80 border border-slate-700 rounded-lg transition-colors",children:[n(Ue,{className:"w-3.5 h-3.5","aria-hidden":"true"}),n("span",{children:"\uCD08\uAE30\uD654"})]})})]}),e("div",{className:"p-3.5 rounded-lg bg-emerald-950/20 border border-emerald-500/20 text-xs text-emerald-200/90 flex items-start gap-2.5",children:[n("span",{className:"font-semibold text-emerald-400 shrink-0",children:"\uD559\uC2B5 \uBAA9\uD45C"}),e("div",{className:"space-y-0.5",children:[n("p",{children:"1. \uAC10\uC218 \uBD84\uC5F4 \uC2DC \uB300\uB9BD\uC720\uC804\uC790\uC758 \uBD84\uB9AC \uBC95\uCE59\uACFC 2\xD72 \uD37C\uB137 \uC0AC\uAC01\uD615\uC758 \uC870\uD569 \uC6D0\uB9AC(\uAC01 \uCE78 1/4 \uD655\uB960)\uB97C \uC124\uBA85\uD560 \uC218 \uC788\uB2E4."}),n("p",{children:"2. \uC774\uB860\uC801 \uAE30\uB313\uAC12(\uD655\uB960)\uACFC \uC2E4\uC81C 100\uAC1C\uCCB4 \uB09C\uC218 \uD45C\uBCF8\uC758 \uAD00\uCE21\uAC12 \uC0AC\uC774\uC758 \uD1B5\uACC4\uC801 \uCC28\uC774\uB97C \uBE44\uAD50\xB7\uBD84\uC11D\uD560 \uC218 \uC788\uB2E4."})]})]}),n("div",{className:"p-4 rounded-xl bg-slate-900/60 border border-slate-800",children:e("div",{className:"flex flex-wrap items-center justify-between gap-3",children:[e("div",{className:"flex items-center gap-2",children:[n("span",{className:"text-xs font-semibold text-slate-300",children:"\uB300\uD45C \uAD50\uBC30 \uD504\uB9AC\uC14B:"}),e("div",{className:"inline-flex rounded-lg border border-slate-700 p-1 bg-slate-950/40",children:[n("button",{type:"button",onClick:()=>V("Aa","Aa"),className:`px-3 py-1 text-xs font-medium rounded-md transition-colors ${c==="Aa"&&l==="Aa"?"bg-emerald-600 text-white":"text-slate-400 hover:text-slate-200"}`,children:"Aa \xD7 Aa (\uC7A1\uC885 \uAD50\uBC30 3:1)"}),n("button",{type:"button",onClick:()=>V("AA","aa"),className:`px-3 py-1 text-xs font-medium rounded-md transition-colors ${c==="AA"&&l==="aa"||c==="aa"&&l==="AA"?"bg-emerald-600 text-white":"text-slate-400 hover:text-slate-200"}`,children:"AA \xD7 aa (\uC6B0\uC5F4\uC758 \uC6D0\uB9AC 100%)"}),n("button",{type:"button",onClick:()=>V("Aa","aa"),className:`px-3 py-1 text-xs font-medium rounded-md transition-colors ${c==="Aa"&&l==="aa"||c==="aa"&&l==="Aa"?"bg-emerald-600 text-white":"text-slate-400 hover:text-slate-200"}`,children:"Aa \xD7 aa (\uAC80\uC815\uAD50\uBC30 1:1)"})]})]}),e("div",{className:"flex items-center gap-4",children:[e("div",{className:"flex items-center gap-2",children:[n("label",{htmlFor:"p1-select",className:"text-xs text-slate-300",children:"\uBD80\uBAA8 1 \uC720\uC804\uC790\uD615:"}),e("select",{id:"p1-select",value:c,onChange:r=>{let t=r.target.value;I(t),R(F(t,l))},className:"bg-slate-950 border border-slate-700 rounded-md px-2.5 py-1 text-xs text-slate-200 font-mono focus:border-emerald-500 focus:outline-none",children:[n("option",{value:"AA",children:"AA (\uB3D9\uD615 \uC6B0\uC131)"}),n("option",{value:"Aa",children:"Aa (\uC774\uD615 \uC811\uD569)"}),n("option",{value:"aa",children:"aa (\uB3D9\uD615 \uC5F4\uC131)"})]})]}),e("div",{className:"flex items-center gap-2",children:[n("label",{htmlFor:"p2-select",className:"text-xs text-slate-300",children:"\uBD80\uBAA8 2 \uC720\uC804\uC790\uD615:"}),e("select",{id:"p2-select",value:l,onChange:r=>{let t=r.target.value;E(t),R(F(c,t))},className:"bg-slate-950 border border-slate-700 rounded-md px-2.5 py-1 text-xs text-slate-200 font-mono focus:border-emerald-500 focus:outline-none",children:[n("option",{value:"AA",children:"AA (\uB3D9\uD615 \uC6B0\uC131)"}),n("option",{value:"Aa",children:"Aa (\uC774\uD615 \uC811\uD569)"}),n("option",{value:"aa",children:"aa (\uB3D9\uD615 \uC5F4\uC131)"})]})]})]})]})}),e("div",{className:"grid grid-cols-1 lg:grid-cols-12 gap-6 items-start",children:[e("div",{className:"lg:col-span-5 space-y-4",children:[e("div",{className:"p-5 rounded-xl bg-slate-900/60 border border-slate-800",children:[e("h3",{className:"text-sm font-semibold text-slate-200 mb-3 flex items-center justify-between",children:[n("span",{children:"2\xD72 \uBA58\uB378 \uD37C\uB137 \uC0AC\uAC01\uD615 (Punnett Square)"}),n("span",{className:"text-xs font-normal text-slate-400",children:"\uAC01 \uC870\uD569 \uD655\uB960 1/4 (25%)"})]}),n("div",{className:"overflow-x-auto",children:e("div",{className:"min-w-[280px] border border-slate-700 rounded-lg overflow-hidden bg-slate-950/60",children:[e("div",{className:"grid grid-cols-3 text-center text-xs divide-x divide-slate-700 border-b border-slate-700",children:[n("div",{className:"p-2.5 bg-slate-900/90 text-slate-400 font-medium",children:"\uBC30\uC6B0\uC790 (P1 \\ P2)"}),e("div",{className:"p-2.5 bg-slate-900/90 text-emerald-400 font-bold font-mono",children:["P2 \uBC30\uC6B0\uC790 1 (",G[0],")"]}),e("div",{className:"p-2.5 bg-slate-900/90 text-emerald-400 font-bold font-mono",children:["P2 \uBC30\uC6B0\uC790 2 (",G[1],")"]})]}),e("div",{className:"grid grid-cols-3 text-center text-xs divide-x divide-slate-700 border-b border-slate-700",children:[e("div",{className:"p-3 bg-slate-900/90 text-teal-400 font-bold font-mono flex items-center justify-center",children:["P1 \uBC30\uC6B0\uC790 1 (",_[0],")"]}),e("div",{className:"p-3 bg-slate-900/30 flex flex-col items-center justify-center",children:[n("span",{className:"font-mono text-base font-bold text-slate-100",children:N[0].genotype}),n("span",{className:`text-[11px] mt-0.5 ${N[0].phenotype==="dominant"?"text-emerald-400 font-medium":"text-amber-400 font-medium"}`,children:N[0].phenotype==="dominant"?"\uC6B0\uC131 [A_]":"\uC5F4\uC131 [aa]"}),n("span",{className:"text-[10px] text-slate-500 mt-0.5",children:"25% (1/4)"})]}),e("div",{className:"p-3 bg-slate-900/30 flex flex-col items-center justify-center",children:[n("span",{className:"font-mono text-base font-bold text-slate-100",children:N[1].genotype}),n("span",{className:`text-[11px] mt-0.5 ${N[1].phenotype==="dominant"?"text-emerald-400 font-medium":"text-amber-400 font-medium"}`,children:N[1].phenotype==="dominant"?"\uC6B0\uC131 [A_]":"\uC5F4\uC131 [aa]"}),n("span",{className:"text-[10px] text-slate-500 mt-0.5",children:"25% (1/4)"})]})]}),e("div",{className:"grid grid-cols-3 text-center text-xs divide-x divide-slate-700",children:[e("div",{className:"p-3 bg-slate-900/90 text-teal-400 font-bold font-mono flex items-center justify-center",children:["P1 \uBC30\uC6B0\uC790 2 (",_[1],")"]}),e("div",{className:"p-3 bg-slate-900/30 flex flex-col items-center justify-center",children:[n("span",{className:"font-mono text-base font-bold text-slate-100",children:N[2].genotype}),n("span",{className:`text-[11px] mt-0.5 ${N[2].phenotype==="dominant"?"text-emerald-400 font-medium":"text-amber-400 font-medium"}`,children:N[2].phenotype==="dominant"?"\uC6B0\uC131 [A_]":"\uC5F4\uC131 [aa]"}),n("span",{className:"text-[10px] text-slate-500 mt-0.5",children:"25% (1/4)"})]}),e("div",{className:"p-3 bg-slate-900/30 flex flex-col items-center justify-center",children:[n("span",{className:"font-mono text-base font-bold text-slate-100",children:N[3].genotype}),n("span",{className:`text-[11px] mt-0.5 ${N[3].phenotype==="dominant"?"text-emerald-400 font-medium":"text-amber-400 font-medium"}`,children:N[3].phenotype==="dominant"?"\uC6B0\uC131 [A_]":"\uC5F4\uC131 [aa]"}),n("span",{className:"text-[10px] text-slate-500 mt-0.5",children:"25% (1/4)"})]})]})]})}),n("p",{className:"text-[11px] text-slate-400 mt-2.5",children:"* \uB3D9\uD615\uC811\uD569 \uBD80\uBAA8(AA \uB610\uB294 aa)\uB294 \uD574\uB2F9 \uC720\uC804\uC790\uC5D0 \uB300\uD574 \uD55C \uC885\uB958\uC758 \uBC30\uC6B0\uC790\uB9CC \uB9CC\uB4ED\uB2C8\uB2E4. A, A (\uB610\uB294 a, a)\uB97C \uB450 \uCE78\uC5D0 \uBC18\uBCF5\uD55C \uAC83\uC740 \uAC19\uC740 \uBC30\uC6B0\uC790 \uC720\uD615\uC744 \uB3D9\uB4F1\uD55C \uD655\uB960 \uCE78\uC73C\uB85C \uB098\uD0C0\uB0B4\uAE30 \uC704\uD55C \uD45C\uC758 \uD45C\uD604\uC774\uBA70, \uC11C\uB85C \uB2E4\uB978 \uB450 \uC720\uD615\uC744 \uB73B\uD558\uC9C0 \uC54A\uC2B5\uB2C8\uB2E4."})]}),e("div",{className:"p-4 rounded-xl bg-slate-900/60 border border-slate-800 space-y-3",children:[n("h4",{className:"text-xs font-semibold text-slate-300",children:"\uC774\uB860\uC801 \uAE30\uB313\uAC12 (\uC218\uD559\uC801 \uD655\uB960)"}),e("div",{className:"space-y-2 text-xs",children:[e("div",{children:[e("div",{className:"flex justify-between text-slate-300 mb-1",children:[n("span",{children:"\uD45C\uD604\uD615 \uAE30\uB313\uAC12"}),e("span",{className:"font-mono text-emerald-400 font-semibold",children:["\uC6B0\uC131 ",f.dominant.toFixed(0),"% : \uC5F4\uC131 ",f.recessive.toFixed(0),"%"]})]}),e("div",{className:"w-full h-3 rounded-full bg-slate-800 overflow-hidden flex",children:[n("div",{style:{width:`${f.dominant}%`},className:"bg-emerald-500 transition-all duration-300",title:`\uC6B0\uC131 \uC774\uB860\uBE44 ${f.dominant}%`}),n("div",{style:{width:`${f.recessive}%`},className:"bg-amber-500 transition-all duration-300",title:`\uC5F4\uC131 \uC774\uB860\uBE44 ${f.recessive}%`})]})]}),e("div",{className:"pt-2 border-t border-slate-800",children:[n("div",{className:"text-slate-400 text-[11px] mb-1.5",children:"\uC720\uC804\uC790\uD615 \uAE30\uB313\uAC12 \uBE44\uC728:"}),e("div",{className:"grid grid-cols-3 gap-2 text-center",children:[e("div",{className:"p-2 rounded bg-slate-950/60 border border-slate-800",children:[n("span",{className:"text-slate-400 block font-mono text-[10px]",children:"AA"}),e("span",{className:"text-slate-200 font-mono font-bold",children:[f.AA.toFixed(0),"%"]})]}),e("div",{className:"p-2 rounded bg-slate-950/60 border border-slate-800",children:[n("span",{className:"text-slate-400 block font-mono text-[10px]",children:"Aa"}),e("span",{className:"text-slate-200 font-mono font-bold",children:[f.Aa.toFixed(0),"%"]})]}),e("div",{className:"p-2 rounded bg-slate-950/60 border border-slate-800",children:[n("span",{className:"text-slate-400 block font-mono text-[10px]",children:"aa"}),e("span",{className:"text-slate-200 font-mono font-bold",children:[f.aa.toFixed(0),"%"]})]})]})]})]})]})]}),e("div",{className:"lg:col-span-7 space-y-4",children:[e("div",{className:"p-5 rounded-xl bg-slate-900/60 border border-slate-800",children:[e("div",{className:"flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4",children:[e("div",{children:[e("h3",{className:"text-sm font-semibold text-slate-100 flex items-center gap-1.5",children:[n(Xe,{className:"w-4 h-4 text-emerald-400","aria-hidden":"true"}),n("span",{children:"100\uAC1C\uCCB4 \uBB34\uC791\uC704 \uCD94\uCD9C \uD45C\uBCF8 \uAD00\uCE21 (Random Sampling)"})]}),n("span",{className:"text-xs text-slate-400",children:"10\xD710 \uC810 \uACA9\uC790 (\uCD08\uB85D: \uC6B0\uC131, \uB178\uB791: \uC5F4\uC131)"})]}),n("div",{className:"flex items-center gap-2",children:e("button",{type:"button",onClick:J,className:"inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-emerald-950 bg-emerald-400 hover:bg-emerald-300 rounded-lg transition-colors shadow-sm",children:[n(Je,{className:"w-3.5 h-3.5","aria-hidden":"true"}),n("span",{children:"100\uAC1C\uCCB4 \uC0C8\uB85C\uBF51\uAE30"})]})})]}),e("div",{className:"p-4 rounded-xl bg-slate-950/80 border border-slate-800/80",children:[n("div",{className:"grid grid-cols-10 gap-2 max-w-sm mx-auto",children:P.map(r=>{let t=r.phenotype==="dominant";return e("div",{className:"group relative flex items-center justify-center",children:[n("div",{className:`w-6 h-6 rounded-md flex items-center justify-center font-mono text-[10px] font-bold transition-transform group-hover:scale-125 cursor-default ${t?r.genotype==="AA"?"bg-emerald-600/80 text-white border border-emerald-400/50":"bg-teal-700/80 text-teal-100 border border-teal-400/40":"bg-amber-600/80 text-amber-50 border border-amber-400/60"}`,"aria-label":`\uAC1C\uCCB4 ${r.id}: ${r.genotype} (${t?"\uC6B0\uC131":"\uC5F4\uC131"})`,children:r.genotype}),e("div",{className:"absolute bottom-full left-1/2 -translate-x-1/2 mb-1 hidden group-hover:block z-20 pointer-events-none whitespace-nowrap px-2 py-1 bg-slate-900 border border-slate-700 rounded text-[10px] text-slate-200 shadow-xl",children:["#",r.id," ",r.genotype," (",t?"\uC6B0\uC131 \uD45C\uD604\uD615":"\uC5F4\uC131 \uD45C\uD604\uD615",")"]})]},r.id)})}),e("div",{className:"flex flex-wrap items-center justify-center gap-4 mt-3 pt-3 border-t border-slate-800/80 text-xs",children:[e("div",{className:"flex items-center gap-1.5",children:[n("span",{className:"w-3 h-3 rounded bg-emerald-600 border border-emerald-400/50"}),e("span",{className:"text-slate-300",children:["\uC6B0\uC131 AA (",s.AA,"\uAC1C\uCCB4)"]})]}),e("div",{className:"flex items-center gap-1.5",children:[n("span",{className:"w-3 h-3 rounded bg-teal-700 border border-teal-400/40"}),e("span",{className:"text-slate-300",children:["\uC6B0\uC131 Aa (",s.Aa,"\uAC1C\uCCB4)"]})]}),e("div",{className:"flex items-center gap-1.5",children:[n("span",{className:"w-3 h-3 rounded bg-amber-600 border border-amber-400/60"}),e("span",{className:"text-slate-300",children:["\uC5F4\uC131 aa (",s.aa,"\uAC1C\uCCB4)"]})]})]})]}),e("div",{className:"mt-3.5 p-3 rounded-lg bg-slate-950/50 border border-amber-500/20 text-xs text-amber-300/90 flex items-start gap-2",children:[n(Ke,{className:"w-4 h-4 shrink-0 mt-0.5 text-amber-400","aria-hidden":"true"}),n("p",{className:"leading-relaxed",children:"\uC548\uB0B4: \uB09C\uC218 \uD45C\uBCF8\uC740 \uD655\uB960\uC801 \uB3C5\uB9BD \uC2DC\uD589\uC5D0 \uB530\uB978 \uC6B0\uC5F0\uC801 \uBCC0\uB3D9(Sampling Error)\uC73C\uB85C \uC778\uD574 \uC218\uD559\uC801 \uC774\uB860 \uAE30\uB313\uAC12\uACFC \uC815\uD655\uD788 \uC77C\uCE58\uD558\uC9C0 \uC54A\uC744 \uC218 \uC788\uC2B5\uB2C8\uB2E4. [\uC0C8\uB85C\uBF51\uAE30]\uB97C \uBC18\uBCF5\uD558\uBA70 \uBD84\uD3EC\uC758 \uC0B0\uD3EC\uB3C4\uB97C \uBE44\uAD50\uD574 \uBCF4\uC138\uC694."})]})]}),e("div",{className:"p-5 rounded-xl bg-slate-900/60 border border-slate-800",children:[n("h4",{className:"text-xs font-semibold text-slate-200 mb-3",children:"\uAD00\uCE21 \uBE44\uC728 vs \uC774\uB860 \uBE44\uC728 \uBE44\uAD50 \uB9C9\uB300\uADF8\uB798\uD504"}),e("div",{className:"space-y-4 text-xs",children:[e("div",{children:[e("div",{className:"text-slate-300 font-medium mb-1.5 flex justify-between",children:[n("span",{children:"1. \uD45C\uD604\uD615 \uBE44\uAD50 (\uC6B0\uC131 vs \uC5F4\uC131)"}),e("span",{className:"text-slate-400 font-mono text-[11px]",children:["\uAD00\uCE21 ",s.dominant,"% : ",s.recessive,"%",n("span",{className:"mx-1.5 text-slate-600",children:"|"}),"\uC774\uB860 ",f.dominant.toFixed(0),"% : ",f.recessive.toFixed(0),"%"]})]}),e("div",{className:"space-y-1.5",children:[e("div",{className:"flex items-center gap-2",children:[n("span",{className:"w-14 text-slate-400 text-[11px]",children:"\uC2E4\uC81C \uAD00\uCE21"}),e("div",{className:"flex-1 h-5 rounded bg-slate-950 overflow-hidden flex border border-slate-800",children:[n("div",{style:{width:`${s.dominant}%`},className:"bg-emerald-500 flex items-center justify-center text-[10px] font-bold text-slate-950 transition-all duration-300",children:s.dominant>8?`\uC6B0\uC131 ${s.dominant}%`:""}),n("div",{style:{width:`${s.recessive}%`},className:"bg-amber-500 flex items-center justify-center text-[10px] font-bold text-slate-950 transition-all duration-300",children:s.recessive>8?`\uC5F4\uC131 ${s.recessive}%`:""})]})]}),e("div",{className:"flex items-center gap-2",children:[n("span",{className:"w-14 text-slate-400 text-[11px]",children:"\uC774\uB860 \uAE30\uB313\uAC12"}),e("div",{className:"flex-1 h-5 rounded bg-slate-950 overflow-hidden flex border border-slate-800 opacity-80",children:[n("div",{style:{width:`${f.dominant}%`},className:"bg-emerald-700 flex items-center justify-center text-[10px] font-bold text-slate-200 transition-all duration-300",children:f.dominant>8?`\uC6B0\uC131 ${f.dominant.toFixed(0)}%`:""}),n("div",{style:{width:`${f.recessive}%`},className:"bg-amber-700 flex items-center justify-center text-[10px] font-bold text-slate-200 transition-all duration-300",children:f.recessive>8?`\uC5F4\uC131 ${f.recessive.toFixed(0)}%`:""})]})]})]})]}),e("div",{className:"pt-3 border-t border-slate-800",children:[n("div",{className:"text-slate-300 font-medium mb-2",children:"2. \uC720\uC804\uC790\uD615\uBCC4 \uC138\uBD80 \uC624\uCC28 \uBD84\uC11D (\uB2E8\uC704: \uAC1C\uCCB4 \uC218 / %)"}),e("div",{className:"grid grid-cols-3 gap-2 text-center font-mono text-xs",children:[e("div",{className:"p-2.5 rounded-lg bg-slate-950/70 border border-slate-800",children:[n("span",{className:"text-slate-400 block text-[10px]",children:"AA (\uC21C\uC885 \uC6B0\uC131)"}),e("div",{className:"text-slate-100 font-bold mt-1",children:[s.AA,"\uAC1C",e("span",{className:"text-[10px] font-normal text-slate-400 ml-1",children:["(\uC774\uB860 ",f.AA.toFixed(0),"\uAC1C)"]})]}),e("span",{className:`text-[10px] mt-0.5 block ${Math.abs(s.AA-f.AA)===0?"text-emerald-400":"text-slate-400"}`,children:["\uC624\uCC28: ",s.AA-f.AA>0?`+${s.AA-f.AA}`:s.AA-f.AA,"\uAC1C"]})]}),e("div",{className:"p-2.5 rounded-lg bg-slate-950/70 border border-slate-800",children:[n("span",{className:"text-slate-400 block text-[10px]",children:"Aa (\uC7A1\uC885)"}),e("div",{className:"text-slate-100 font-bold mt-1",children:[s.Aa,"\uAC1C",e("span",{className:"text-[10px] font-normal text-slate-400 ml-1",children:["(\uC774\uB860 ",f.Aa.toFixed(0),"\uAC1C)"]})]}),e("span",{className:`text-[10px] mt-0.5 block ${Math.abs(s.Aa-f.Aa)===0?"text-emerald-400":"text-slate-400"}`,children:["\uC624\uCC28: ",s.Aa-f.Aa>0?`+${s.Aa-f.Aa}`:s.Aa-f.Aa,"\uAC1C"]})]}),e("div",{className:"p-2.5 rounded-lg bg-slate-950/70 border border-slate-800",children:[n("span",{className:"text-slate-400 block text-[10px]",children:"aa (\uC21C\uC885 \uC5F4\uC131)"}),e("div",{className:"text-slate-100 font-bold mt-1",children:[s.aa,"\uAC1C",e("span",{className:"text-[10px] font-normal text-slate-400 ml-1",children:["(\uC774\uB860 ",f.aa.toFixed(0),"\uAC1C)"]})]}),e("span",{className:`text-[10px] mt-0.5 block ${Math.abs(s.aa-f.aa)===0?"text-emerald-400":"text-slate-400"}`,children:["\uC624\uCC28: ",s.aa-f.aa>0?`+${s.aa-f.aa}`:s.aa-f.aa,"\uAC1C"]})]})]})]})]})]})]})]}),n(Z,{tasks:Ze,isPresentationMode:A,onApplyTaskPreset:z}),n(Q,{guide:Qe,isPresentationMode:A})]})};import{useState as ce}from"react";import{RotateCcw as et,History as we,ArrowUp as tt,ArrowDown as at,CheckCircle2 as st,Shuffle as nt,ExternalLink as rt,BookMarked as lt,Info as ot}from"lucide-react";import{jsx as g,jsxs as j}from"react/jsx-runtime";var ee=[{id:1,year:1392,title:"\uC870\uC120 \uAC74\uAD6D",summary:"\uD0DC\uC870 \uC774\uC131\uACC4\uAC00 \uC2E0\uC9C4\uC0AC\uB300\uBD80\uC640 \uD568\uAED8 1392\uB144 \uC870\uC120\uC744 \uAC74\uAD6D\uD558\uC600\uC2B5\uB2C8\uB2E4. \uD55C\uC591 \uCC9C\uB3C4\uB294 1394\uB144\uC5D0 \uC774\uB8E8\uC5B4\uC84C\uC2B5\uB2C8\uB2E4.",detailedContext:"\uC704\uD654\uB3C4 \uD68C\uAD70(1388)\uACFC \uACFC\uC804\uBC95 \uC81C\uC815(1391)\uC744 \uAC70\uCCD0 \uC0C8 \uC655\uC870\uAC00 \uCD9C\uBC94\uD558\uBA70 \uC131\uB9AC\uD559\uC801 \uC9C8\uC11C\uC758 \uAE30\uD2C0\uC744 \uB9C8\uB828\uD588\uC2B5\uB2C8\uB2E4.",period:"\uC804\uAE30"},{id:2,year:1443,title:"\uD6C8\uBBFC\uC815\uC74C \uCC3D\uC81C",summary:"\uC138\uC885\uB300\uC655\uC774 \uCE5C\uD788 \uC6B0\uB9AC\uB9D0\uC744 \uD45C\uAE30\uD560 \uB3C5\uCC3D\uC801\uC778 28\uC790 \uBB38\uC790 \uCCB4\uACC4\uB97C \uC644\uC131\uD558\uC600\uC2B5\uB2C8\uB2E4.",detailedContext:"\uC74C\uC6B4 \uCCB4\uACC4 \uC5F0\uAD6C\uB97C \uC9D1\uB300\uC131\uD558\uC5EC \uCC3D\uC81C\uD558\uC600\uC73C\uBA70, \uC138\uC885 25\uB144 \uC74C\uB825 12\uC6D4 \uC2E4\uB85D\uC5D0 \uC5B4\uC81C(\u5FA1\u88FD) \uAE00\uC790 \uC644\uC131\uC774 \uCC98\uC74C \uAE30\uB85D\uB418\uC5C8\uC2B5\uB2C8\uB2E4.",period:"\uC804\uAE30"},{id:3,year:1446,title:"\uD6C8\uBBFC\uC815\uC74C \uBC18\uD3EC",summary:"\uAE00\uC790\uC758 \uC81C\uC790 \uC6D0\uB9AC\uC640 \uC6A9\uB840\uB97C \uC0C1\uC138\uD788 \uBC1D\uD78C \u300E\uD6C8\uBBFC\uC815\uC74C\u300F(\uD574\uB840\uBCF8)\uC744 \uC644\uC131\uD558\uC5EC \uBC31\uC131\uB4E4\uC5D0\uAC8C \uACF5\uC2DD\uC801\uC73C\uB85C \uBC18\uD3EC\uD558\uC600\uC2B5\uB2C8\uB2E4.",detailedContext:"1443\uB144 \uCC3D\uC81C \uD6C4 \u300E\uC6A9\uBE44\uC5B4\uCC9C\uAC00\u300F \uC2DC\uD5D8 \uD3B8\uCC2C \uB4F1 3\uB144\uAC04\uC758 \uC2E4\uC6A9\uC131 \uAC80\uC99D\uACFC \uC815\uC778\uC9C0 \uB4F1\uC758 \uD574\uB840\uBCF8 \uC9D1\uD544\uC744 \uAC70\uCCD0 \uC138\uC885 28\uB144\uC5D0 \uACF5\uD3EC\uB418\uC5C8\uC2B5\uB2C8\uB2E4.",period:"\uC804\uAE30"},{id:4,year:1592,title:"\uC784\uC9C4\uC65C\uB780 \uBC1C\uBC1C",summary:"\uB3C4\uC694\uD1A0\uBBF8 \uD788\uB370\uC694\uC2DC\uAC00 \uC774\uB044\uB294 \uC65C\uAD70\uC758 \uAE30\uC2B5 \uCE68\uB7B5\uC73C\uB85C 7\uB144\uAC04\uC758 \uB3D9\uC544\uC2DC\uC544 \uAD6D\uC81C \uC804\uC7C1\uC774 \uC2DC\uC791\uB418\uC5C8\uC2B5\uB2C8\uB2E4.",detailedContext:"\uC721\uC9C0\uC5D0\uC11C\uC758 \uCD08\uAE30 \uD328\uC804 \uC18D\uC5D0\uC11C\uB3C4 \uC774\uC21C\uC2E0\uC758 \uC218\uAD70 \uC2B9\uB9AC\uC640 \uC804\uAD6D \uAC01\uC9C0 \uC758\uBCD1\uC758 \uAD90\uAE30, \uBA85\uB098\uB77C \uC6D0\uAD70 \uD30C\uBCD1 \uB4F1\uC73C\uB85C \uAD6D\uB09C\uC744 \uADF9\uBCF5\uD588\uC2B5\uB2C8\uB2E4.",period:"\uC911\uAE30(\uC591\uB780)"},{id:5,year:1636,title:"\uBCD1\uC790\uD638\uB780 \uBC1C\uBC1C",summary:"\uCCAD \uD0DC\uC885\uC774 \uC9C1\uC811 \uB300\uAD70\uC744 \uC774\uB04C\uACE0 \uC555\uB85D\uAC15\uC744 \uAC74\uB108 \uCE68\uB7B5\uD558\uC5EC \uC778\uC870\uAC00 \uB0A8\uD55C\uC0B0\uC131\uC5D0\uC11C \uD56D\uC804\uD55C \uC804\uC7C1\uC785\uB2C8\uB2E4.",detailedContext:"\uAC15\uD654\uB3C4\uAC00 \uD568\uB77D\uB418\uC790 \uB0A8\uD55C\uC0B0\uC131\uC5D0\uC11C 47\uC77C\uAC04 \uD56D\uC804 \uB05D\uC5D0 \uC0BC\uC804\uB3C4\uC5D0\uC11C \uCCAD\uACFC \uAD70\uC2E0 \uAD00\uACC4\uB97C \uB9FA\uB294 \uAD74\uC695\uC801 \uD654\uC758\uB97C \uCCB4\uACB0\uD558\uAC8C \uB418\uC5C8\uC2B5\uB2C8\uB2E4.",period:"\uC911\uAE30(\uC591\uB780)"},{id:6,year:1725,title:"\uC601\uC870 \uD0D5\uD3C9 \uAD50\uC11C \uBC1C\uD45C",summary:"\uC601\uC870\uAC00 \uC989\uC704 \uC9C1\uD6C4 \uADF9\uC2EC\uD55C \uBD95\uB2F9 \uAC04\uC758 \uB300\uB9BD\uACFC \uBC18\uBAA9\uC744 \uC885\uC2DD\uC2DC\uD0A4\uAE30 \uC704\uD574 \uD0D5\uD3C9\uCC45\uC758 \uAE30\uBCF8 \uBC29\uCE68\uC744 \uB2F4\uC740 \uAD50\uC11C\uB97C \uC120\uD3EC\uD558\uC600\uC2B5\uB2C8\uB2E4.",detailedContext:"\uB178\uB860\uACFC \uC18C\uB860\uC758 \uC628\uAC74\uD30C\uB97C \uACE0\uB974\uAC8C \uB4F1\uC6A9\uD558\uB294 \uC644\uB860 \uD0D5\uD3C9\uC744 \uCD94\uC9C4\uD558\uACE0, \uD0D5\uD3C9\uBE44\uB97C \uAC74\uB9BD\uD558\uC5EC \uC655\uAD8C\uC744 \uC548\uC815\uC2DC\uD0A4\uACE0\uC790 \uD588\uC2B5\uB2C8\uB2E4.",period:"\uD6C4\uAE30(\uD0D5\uD3C9)"},{id:7,year:1776,title:"\uC815\uC870 \uC989\uC704",summary:"\uC0AC\uB3C4\uC138\uC790\uC758 \uC544\uB4E4 \uC815\uC870\uAC00 \uC989\uC704\uD558\uC5EC \uADDC\uC7A5\uAC01\uACFC \uC7A5\uC6A9\uC601\uC744 \uC911\uC2EC\uC73C\uB85C \uC655\uAD8C \uAC15\uD654\uC640 \uD559\uBB38\xB7\uBB38\uBB3C \uC911\uD765\uC744 \uC774\uB04C\uC5C8\uC2B5\uB2C8\uB2E4.",detailedContext:"\u2018\uACFC\uC778\uC740 \uC0AC\uB3C4\uC138\uC790\uC758 \uC544\uB4E4\uC774\uB2E4\u2019\uB77C\uACE0 \uC120\uC5B8\uD558\uBA70 \uC989\uC704\uD55C \uD6C4, \uC2DC\uD30C\uC640 \uBCBD\uD30C\uB97C \uD1B5\uC12D\uD558\uB294 \uC900\uB860 \uD0D5\uD3C9\uACFC \uC2E0\uD574\uD1B5\uACF5(1791) \uB4F1 \uAC1C\uD601\uC744 \uB2E8\uD589\uD588\uC2B5\uB2C8\uB2E4.",period:"\uD6C4\uAE30(\uD0D5\uD3C9)"},{id:8,year:1894,title:"\uAC11\uC624\uAC1C\uD601 \uC2DC\uC791",summary:"\uB3D9\uD559 \uB18D\uBBFC \uC6B4\uB3D9\uACFC \uCCAD\uC77C \uC804\uC7C1\uC758 \uC18C\uC6A9\uB3CC\uC774 \uC18D\uC5D0\uC11C \uAD70\uAD6D\uAE30\uBB34\uCC98\uB97C \uC124\uCE58\uD558\uACE0 \uC2E0\uBD84\uC81C \uD3D0\uC9C0 \uB4F1 \uADFC\uB300\uC801 \uAD6D\uAC00 \uAC1C\uD601\uC744 \uB2E8\uD589\uD588\uC2B5\uB2C8\uB2E4.",detailedContext:"\uACFC\uAC70\uC81C \uD3D0\uC9C0, \uACF5\uC0AC \uB178\uBE44\uBC95 \uD3D0\uC9C0, \uC740\uBCF8\uC704 \uD654\uD3D0\uC81C \uB3C4\uC785 \uB4F1 \uC804\uD1B5\uC801 \uC911\uC138 \uC2E0\uBD84 \uC9C8\uC11C\uB97C \uD0C0\uD30C\uD558\uACE0 \uADFC\uB300\uC801 \uCCB4\uC81C\uB85C \uC804\uD658\uD558\uB294 \uC804\uAE30\uAC00 \uB418\uC5C8\uC2B5\uB2C8\uB2E4.",period:"\uADFC\uB300 \uC804\uD658\uAE30"}],it={intro:"\uB2E8\uC21C \uC5F0\uB3C4 \uC554\uAE30\uC5D0\uC11C \uBC97\uC5B4\uB098, \uC0AC\uAC74 \uAC04\uC758 \uC6D0\uC778\uACFC \uACB0\uACFC(\uC778\uACFC \uAD00\uACC4) \uBC0F \uC804\uD6C4 \uB9E5\uB77D\uC744 \uD30C\uC545\uD558\uB294 \uC5ED\uC0AC\uC801 \uC0AC\uACE0\uB825\uC758 \uAC00\uCE58\uB97C \uC81C\uC2DC\uD569\uB2C8\uB2E4.",activity:"\uD559\uC0DD\uB4E4\uC774 \uC704/\uC544\uB798 \uBC84\uD2BC\uC774\uB098 \uB4DC\uB798\uADF8\uB85C 8\uAC1C \uC0AC\uAC74\uC744 \uC2DC\uAC04\uC21C\uC73C\uB85C \uC815\uB82C\uD55C \uB4A4 \uCC44\uC810\uD558\uC5EC, \uCC3D\uC81C-\uBC18\uD3EC\uC758 \uAC04\uACA9\uACFC \uC591\uB780-\uD0D5\uD3C9\uC758 \uC21C\uC11C\uB97C \uC2A4\uC2A4\uB85C \uC810\uAC80\uD558\uAC8C \uD569\uB2C8\uB2E4.",summary:"1392\uB144 \uAC74\uAD6D\uBD80\uD130 1894\uB144 \uC2E0\uBD84\uC81C \uD3D0\uC9C0\uC5D0 \uC774\uB974\uAE30\uAE4C\uC9C0, \uAD6D\uAC00 \uCCB4\uC81C\uAC00 \uC704\uAE30(\uC591\uB780)\uB97C \uACAA\uACE0 \uC218\uC2B5(\uD0D5\uD3C9)\uC744 \uAC70\uCCD0 \uADFC\uB300(\uAC11\uC624\uAC1C\uD601)\uB85C \uC774\uD589\uD558\uB294 \uADA4\uC801\uC744 \uCD1D\uC815\uB9AC\uD569\uB2C8\uB2E4.",prompts:["\uC138\uC885\uB300\uC655\uC740 \uD6C8\uBBFC\uC815\uC74C\uC744 1443\uB144\uC5D0 \uC644\uC131(\uCC3D\uC81C)\uD558\uACE0\uB3C4 \uC65C \uBC14\uB85C \uBC18\uD3EC\uD558\uC9C0 \uC54A\uACE0 3\uB144 \uB4A4\uC778 1446\uB144\uC5D0 \uD574\uB840\uBCF8\uACFC \uD568\uAED8 \uBC18\uD3EC\uD588\uC744\uAE4C\uC694?","\uC784\uC9C4\uC65C\uB780(1592)\uACFC \uBCD1\uC790\uD638\uB780(1636)\uC744 \uAC70\uCE5C \uD6C4, \uBD95\uB2F9 \uAC04\uC758 \uB300\uB9BD\uC774 \uACA9\uD654\uB418\uC790 \uC601\uC870(1725)\uC640 \uC815\uC870(1776)\uAC00 \uD0D5\uD3C9\uCC45\uC744 \uAD6D\uAC00 \uC81C1\uC758 \uACFC\uC81C\uB85C \uC0BC\uC740 \uC774\uC720\uB294 \uBB34\uC5C7\uC77C\uAE4C\uC694?"]},dt=[{id:1,title:"\uD6C8\uBBFC\uC815\uC74C \uCC3D\uC81C\uC640 \uBC18\uD3EC\uC758 3\uB144 \uC2DC\uCC28\uC640 \uC5ED\uC0AC\uC801 \uC758\uC758",predict:"\uAE00\uC790\uB97C \uB9CC\uB4E0 \uC0AC\uAC74(\uCC3D\uC81C)\uC774 \uD574\uB840\uBCF8\uC744 \uBC31\uC131\uC5D0\uAC8C \uC54C\uB9B0 \uC0AC\uAC74(\uBC18\uD3EC)\uBCF4\uB2E4 \uC55E\uC120\uB2E4.",operate:"\uD6C8\uBBFC\uC815\uC74C \uCC3D\uC81C(1443)\uC640 \uBC18\uD3EC(1446) \uCE74\uB4DC\uB97C \uCC3E\uC544 \uC870\uC120 \uAC74\uAD6D \uC9C1\uD6C4 \uC21C\uC11C\uC5D0 \uC54C\uB9DE\uAC8C \uBC30\uCE58\uD55C\uB2E4.",confirm:"\uC815\uB2F5 \uD655\uC778 \uD6C4 3\uB144\uAC04\uC758 \uC2DC\uD5D8 \uC6B4\uC6A9(\u300E\uC6A9\uBE44\uC5B4\uCC9C\uAC00\u300F)\uACFC \uD574\uB840\uBCF8 \uC644\uC131 \uACFC\uC815\uC758 \uC758\uBBF8\uB97C \uD574\uC124\uC5D0\uC11C \uD655\uC778\uD55C\uB2E4."},{id:2,title:"\uB3D9\uC544\uC2DC\uC544 \uC591\uB780\uC758 \uC21C\uC11C\uC640 17\uC138\uAE30 \uCCB4\uC81C \uBCC0\uB3D9",predict:"\uC77C\uBCF8\uC758 \uCE68\uB7B5(\uC784\uC9C4\uC65C\uB780, 16\uC138\uAE30 \uB9D0)\uC774 \uC5EC\uC9C4/\uCCAD\uC758 \uCE68\uB7B5(\uBCD1\uC790\uD638\uB780, 17\uC138\uAE30 \uC804\uBC18)\uBCF4\uB2E4 \uC55E\uC120\uB2E4.",operate:"\uC784\uC9C4\uC65C\uB780(1592)\uACFC \uBCD1\uC790\uD638\uB780(1636)\uC758 \uC804\uD6C4 \uAD00\uACC4\uB97C \uC815\uB82C\uD558\uACE0, \uC804\uB780\uC774 \uD1B5\uCE58 \uAE30\uAD6C\uC5D0 \uBBF8\uCE5C \uC601\uD5A5\uC744 \uACE0\uB824\uD55C\uB2E4.",confirm:"\uC591\uB780\uC758 \uBC1C\uBC1C \uC2DC\uC810\uACFC \uBE44\uBCC0\uC0AC\uC758 \uAE30\uB2A5 \uAC15\uD654 \uB4F1 \uC870\uC120 \uC911\uAE30 \uD1B5\uCE58 \uAD6C\uC870\uC758 \uBCC0\uD654\uB97C \uC815\uB9AC\uD55C\uB2E4."},{id:3,title:"\uD0D5\uD3C9 \uC815\uCE58(\uC601\uC870\xB7\uC815\uC870)\uC5D0\uC11C \uADFC\uB300 \uAC1C\uD601(\uAC11\uC624\uAC1C\uD601)\uC73C\uB85C\uC758 \uADA4\uC801",predict:"\uC601\uC870\uC758 \uD0D5\uD3C9 \uAD50\uC11C(1725) \u2192 \uC815\uC870 \uC989\uC704(1776) \u2192 1894\uB144 \uAC11\uC624\uAC1C\uD601 \uC21C\uC11C\uB85C \uC774\uC5B4\uC9C4\uB2E4.",operate:"\uC870\uC120 \uD6C4\uAE30 \uAC1C\uD601 \uAD70\uC8FC\uB4E4\uC758 \uD1B5\uCE58\uAE30\uC640 19\uC138\uAE30 \uB9D0 \uADFC\uB300\uC801 \uC81C\uB3C4 \uAC1C\uD601 \uCE74\uB4DC\uB97C \uC5F0\uACB0\uD558\uC5EC \uBC30\uCE58\uD55C\uB2E4.",confirm:"\uC2E0\uBD84\uC81C \uD3D0\uC9C0\uB77C\uB294 \uC911\uB300\uD55C \uC0AC\uD68C\uC801 \uC804\uD658\uC774 \uC870\uC120 \uAC74\uAD6D 502\uB144 \uB9CC\uC5D0 \uB2E8\uD589\uB418\uC5C8\uC74C\uC744 \uD655\uC778\uD55C\uB2E4."}],Ae=({isPresentationMode:A})=>{let[c,I]=ce(()=>W([...ee])),[l,E]=ce(!1),[P,R]=ce(null);function W(s){let r=[...s];for(let t=r.length-1;t>0;t--){let d=Math.floor(Math.random()*(t+1));[r[t],r[d]]=[r[d],r[t]]}return r}let _=()=>{I(W([...ee])),E(!1)},G=()=>{I([...ee]),E(!0)},N=()=>{E(!0)},f=(s,r)=>{if(r==="up"&&s===0||r==="down"&&s===c.length-1)return;let t=r==="up"?s-1:s+1,d=[...c],w=d[s];d[s]=d[t],d[t]=w,I(d),E(!1)},F=s=>{R(s)},J=s=>{s.preventDefault()},L=s=>{if(P===null||P===s)return;let r=[...c],t=r[P];r.splice(P,1),r.splice(s,0,t),I(r),R(null),E(!1)},V=c.reduce((s,r,t)=>r.id===ee[t].id?s+1:s,0),z=V===ee.length;return j("div",{className:"space-y-6",children:[j("div",{className:"flex flex-col md:flex-row md:items-end justify-between gap-4 pb-4 border-b border-slate-800",children:[j("div",{children:[j("div",{className:"flex items-center gap-2 text-xs font-semibold text-emerald-400 mb-1",children:[g(we,{className:"w-4 h-4","aria-hidden":"true"}),g("span",{children:"\uD55C\uAD6D\uC0AC \uD0D0\uAD6C \uBAA8\uB4C8"}),g("span",{className:"text-slate-500",children:"\xB7"}),g("span",{children:"\uC870\uC120\uC0AC \uD575\uC2EC \uC5F0\uD45C \uAD6C\uC870\uD654"})]}),g("h2",{className:`font-bold text-slate-100 ${A?"text-3xl":"text-2xl"}`,children:"\uC870\uC120\uC758 \uC2DC\uAC04\uC120: 8\uB300 \uBD84\uAE30\uC810 \uC0AC\uAC74 \uC7AC\uBC30\uC5F4"}),g("p",{className:"text-slate-400 text-sm mt-1 max-w-3xl leading-relaxed",children:"\uAC74\uAD6D(1392)\uBD80\uD130 \uAC11\uC624\uAC1C\uD601(1894)\uAE4C\uC9C0 \uC870\uC120 500\uB144\uC0AC\uC758 \uC5ED\uB3D9\uC801 \uC804\uAC1C \uACFC\uC815\uC744 \uC704/\uC544\uB798 \uBC84\uD2BC\uC774\uB098 \uB4DC\uB798\uADF8\uB85C \uC62C\uBC14\uB978 \uC2DC\uB300\uC21C\uC73C\uB85C \uC7AC\uBC30\uC5F4\uD558\uACE0, \uC0AC\uAC74 \uAC04\uC758 \uC6D0\uC778\uACFC \uACB0\uACFC \uB9E5\uB77D\uC744 \uD0D0\uC0C9\uD569\uB2C8\uB2E4."})]}),j("div",{className:"flex flex-wrap items-center gap-2 shrink-0",children:[j("button",{type:"button",onClick:_,className:"inline-flex items-center gap-1.5 px-3 py-2 text-xs font-medium text-slate-300 bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-lg transition-colors",children:[g(nt,{className:"w-3.5 h-3.5","aria-hidden":"true"}),g("span",{children:"\uCE74\uB4DC \uC11E\uAE30"})]}),j("button",{type:"button",onClick:N,className:"inline-flex items-center gap-1.5 px-4 py-2 text-xs font-semibold text-emerald-950 bg-emerald-400 hover:bg-emerald-300 rounded-lg transition-colors shadow-sm",children:[g(st,{className:"w-3.5 h-3.5","aria-hidden":"true"}),g("span",{children:"\uC815\uB2F5 \uD655\uC778 \uBC0F \uCC44\uC810"})]}),j("button",{type:"button",onClick:G,className:"inline-flex items-center gap-1.5 px-3 py-2 text-xs font-medium text-slate-400 hover:text-slate-200 transition-colors",children:[g(et,{className:"w-3.5 h-3.5","aria-hidden":"true"}),g("span",{children:"\uC815\uB2F5 \uBC30\uCE58\uB85C \uBCF4\uAE30"})]})]})]}),j("div",{className:"p-3.5 rounded-lg bg-emerald-950/20 border border-emerald-500/20 text-xs text-emerald-200/90 flex items-start gap-2.5",children:[g("span",{className:"font-semibold text-emerald-400 shrink-0",children:"\uD559\uC2B5 \uBAA9\uD45C"}),j("div",{className:"space-y-0.5",children:[g("p",{children:"1. \uC870\uC120 \uC804\xB7\uD6C4\uAE30\uB97C \uAD00\uD1B5\uD558\uB294 8\uB300 \uD575\uC2EC \uC5ED\uC0AC \uC0AC\uAC74\uC758 \uBC1C\uC0DD \uC21C\uC11C\uC640 \uC2DC\uB300\uC801 \uB9E5\uB77D\uC744 \uD30C\uC545\uD560 \uC218 \uC788\uB2E4."}),g("p",{children:"2. \uD6C8\uBBFC\uC815\uC74C \uCC3D\uC81C(1443)\uC640 \uBC18\uD3EC(1446)\uC758 \uC5ED\uC0AC\uC801 \uCC28\uC774\uB97C \uAD6C\uBD84\uD558\uACE0, \uC65C\uB780\xB7\uD638\uB780 \uBC0F \uD0D5\uD3C9 \uC815\uCE58\uC758 \uD750\uB984\uC744 \uC5F0\uD45C\uB85C \uC885\uD569\uD560 \uC218 \uC788\uB2E4."})]})]}),j("div",{className:"p-4 rounded-xl bg-slate-900/60 border border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-3",children:[j("div",{className:"flex items-center gap-3",children:[g("span",{className:"text-xs font-semibold text-slate-300",children:"\uD604\uC7AC \uC0C1\uD0DC:"}),l?j("div",{className:"flex items-center gap-2",children:[j("span",{className:`text-xs font-bold px-2.5 py-1 rounded-md ${z?"bg-emerald-950 text-emerald-300 border border-emerald-500/40":"bg-amber-950 text-amber-300 border border-amber-500/40"}`,children:[V," / 8\uAC1C \uC77C\uCE58 (",Math.round(V/8*100),"\uC810)"]}),g("span",{className:"text-xs text-slate-300",children:z?"\uC644\uBCBD\uD569\uB2C8\uB2E4! \uC870\uC120 8\uB300 \uC0AC\uAC74\uC758 \uC21C\uC11C\uB97C \uC815\uD655\uD788 \uC644\uC131\uD588\uC2B5\uB2C8\uB2E4.":"\uC624\uB2F5 \uCE74\uB4DC\uC758 \uC704\uCE58\uB97C \uD655\uC778\uD558\uACE0 \uB2E4\uC2DC \uC7AC\uBC30\uC5F4\uD574 \uBCF4\uC138\uC694."})]}):g("span",{className:"text-xs text-slate-400",children:"\uBB38\uC81C \uD480\uC774 \uC9C4\uD589 \uC911 (\uC5F0\uB3C4 \uBBF8\uACF5\uAC1C \uBAA8\uB4DC \xB7 \uC704/\uC544\uB798 \uC774\uB3D9 \uB610\uB294 \uB4DC\uB798\uADF8\uD558\uC5EC \uBC30\uCE58 \uD6C4 \uCC44\uC810)"})]}),j("div",{className:"text-xs text-slate-400 flex items-center gap-1.5",children:[g(ot,{className:"w-3.5 h-3.5 text-teal-400","aria-hidden":"true"}),g("span",{children:"\uCE74\uB4DC \uC624\uB978\uCABD \uC774\uB3D9 \uBC84\uD2BC(\u25B2/\u25BC) \uB610\uB294 \uB9C8\uC6B0\uC2A4 \uB4DC\uB798\uADF8\uB85C \uC21C\uC11C \uBCC0\uACBD \uAC00\uB2A5"})]})]}),j("div",{className:"p-4 rounded-xl bg-slate-900/80 border border-teal-500/30 text-xs text-slate-200",children:[j("div",{className:"flex items-center gap-2 font-semibold text-teal-300 mb-1.5",children:[g(lt,{className:"w-4 h-4 text-teal-400","aria-hidden":"true"}),g("span",{children:"\uC5ED\uC0AC\uC801 \uD575\uC2EC \uAC1C\uB150: \uD6C8\uBBFC\uC815\uC74C \u2018\uCC3D\uC81C(1443)\u2019\uC640 \u2018\uBC18\uD3EC(1446)\u2019\uC758 \uAD6C\uBD84"})]}),j("p",{className:"leading-relaxed text-slate-300",children:["1443\uB144(\uC138\uC885 25\uB144) \uC138\uC885\uB300\uC655\uC774 \uCE5C\uD788 \uC6B0\uB9AC\uB9D0\uC744 \uC801\uB294 28\uAC1C \uC790\uBAA8 \uCCB4\uACC4\uB97C \uC644\uC131\uD55C \uAC83\uC744 ",g("strong",{className:"text-emerald-300 font-semibold",children:"\u2018\uCC3D\uC81C\u2019"}),"\uB77C\uACE0 \uD558\uBA70, \uC774\uD6C4 3\uB144\uAC04 \u300E\uC6A9\uBE44\uC5B4\uCC9C\uAC00\u300F \uB4F1\uC744 \uC9C0\uC5B4 \uC0C8 \uAE00\uC790\uC758 \uC2E4\uC6A9\uC131\uC744 \uCCA0\uC800\uD788 \uC2DC\uD5D8\uD558\uACE0 \uC9D1\uD604\uC804 \uD559\uC0AC\uB4E4\uACFC \uC81C\uC790 \uC6D0\uB9AC\uB97C \uC0C1\uC138\uD788 \uD574\uC124\uD55C \u300E\uD6C8\uBBFC\uC815\uC74C\u300F(\uD574\uB840\uBCF8)\uC744 \uC644\uC131\uD558\uC5EC \uC138\uC0C1\uC5D0 \uACF5\uC2DD \uBC1C\uD45C\uD55C 1446\uB144(\uC138\uC885 28\uB144)\uC744 ",g("strong",{className:"text-teal-300 font-semibold",children:"\u2018\uBC18\uD3EC\u2019"}),"\uB77C\uACE0 \uAD6C\uBCC4\uD569\uB2C8\uB2E4."]})]}),g("div",{className:"space-y-3",children:c.map((s,r)=>{let t=l&&s.id===ee[r].id,d=l&&s.id!==ee[r].id;return g("div",{draggable:!0,onDragStart:()=>F(r),onDragOver:J,onDrop:()=>L(r),className:`p-4 rounded-xl transition-all border ${l?t?"bg-slate-900/90 border-emerald-500/50 shadow-sm":"bg-slate-900/90 border-amber-500/40":"bg-slate-900/60 border-slate-800 hover:border-slate-700"}`,children:j("div",{className:"flex items-start justify-between gap-4",children:[j("div",{className:"flex items-start gap-3.5",children:[g("div",{className:`w-8 h-8 rounded-lg flex items-center justify-center font-bold text-xs shrink-0 ${l?t?"bg-emerald-500 text-slate-950":"bg-amber-500 text-slate-950":"bg-slate-800 text-slate-300 border border-slate-700"}`,children:r+1}),j("div",{className:"space-y-1",children:[j("div",{className:"flex flex-wrap items-center gap-2",children:[g("h4",{className:`font-semibold text-slate-100 ${A?"text-lg":"text-base"}`,children:s.title}),l?j("span",{className:"font-mono text-xs font-bold px-2 py-0.5 rounded bg-slate-800 text-emerald-400 border border-slate-700",children:[s.year,"\uB144"]}):g("span",{className:"font-mono text-[11px] px-2 py-0.5 rounded bg-slate-950 text-slate-500 border border-slate-800",children:"\uC5F0\uB3C4 \uBBF8\uACF5\uAC1C"}),j("span",{className:"text-xs text-slate-400",children:["[",s.period,"]"]}),l&&g("span",{className:`text-xs font-medium ml-1 ${t?"text-emerald-400":"text-amber-400"}`,children:t?"\uC815\uB2F5 \uC704\uCE58":`\uC624\uB2F5 (\uC2E4\uC81C: ${ee.findIndex(w=>w.id===s.id)+1}\uBC88\uC9F8)`})]}),g("p",{className:`text-slate-300 leading-relaxed ${A?"text-sm":"text-xs"}`,children:s.summary}),l&&j("div",{className:"pt-2 mt-2 border-t border-slate-800/80 text-xs text-slate-400",children:[g("strong",{className:"text-slate-300 mr-1",children:"\uC5ED\uC0AC\uC801 \uB9E5\uB77D:"}),s.detailedContext]})]})]}),j("div",{className:"flex flex-col gap-1 shrink-0",children:[g("button",{type:"button",onClick:()=>f(r,"up"),disabled:r===0,"aria-label":`\uC0AC\uAC74 ${s.title} \uC704\uB85C \uC774\uB3D9`,className:"p-1.5 rounded bg-slate-800 text-slate-300 hover:bg-slate-700 disabled:opacity-30 disabled:hover:bg-slate-800 transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-emerald-500",children:g(tt,{className:"w-4 h-4","aria-hidden":"true"})}),g("button",{type:"button",onClick:()=>f(r,"down"),disabled:r===c.length-1,"aria-label":`\uC0AC\uAC74 ${s.title} \uC544\uB798\uB85C \uC774\uB3D9`,className:"p-1.5 rounded bg-slate-800 text-slate-300 hover:bg-slate-700 disabled:opacity-30 disabled:hover:bg-slate-800 transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-emerald-500",children:g(at,{className:"w-4 h-4","aria-hidden":"true"})})]})]})},s.id)})}),l&&j("div",{className:"p-5 rounded-xl bg-slate-900/60 border border-slate-800",children:[j("div",{className:"flex items-center justify-between mb-4",children:[j("h3",{className:"text-sm font-semibold text-slate-100 flex items-center gap-2",children:[g(we,{className:"w-4 h-4 text-emerald-400","aria-hidden":"true"}),g("span",{children:"\uC870\uC120 500\uB144 \uC815\uB2F5 \uC5F0\uD45C (1392 ~ 1894) \uC804\uCCB4 \uC870\uB9DD"})]}),g("span",{className:"text-xs text-slate-400",children:"\uAD6D\uC0AC\uD3B8\uCC2C\uC704\uC6D0\uD68C \uC0AC\uB8CC \uAE30\uC900 \uC5F0\uD45C"})]}),g("div",{className:"relative pl-6 space-y-4 border-l-2 border-emerald-500/40 my-3",children:ee.map((s,r)=>j("div",{className:"relative group",children:[g("div",{className:"absolute -left-[31px] top-1 w-3.5 h-3.5 rounded-full bg-emerald-500 border-2 border-slate-950"}),j("div",{className:"flex flex-col sm:flex-row sm:items-baseline gap-2",children:[j("span",{className:"font-mono font-bold text-xs text-emerald-400 w-16 shrink-0",children:[s.year,"\uB144"]}),j("span",{className:"font-semibold text-slate-200 text-xs sm:text-sm",children:[r+1,". ",s.title]}),j("span",{className:"text-xs text-slate-400",children:["\u2014 ",s.summary]})]})]},s.id))}),j("div",{className:"mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-slate-400",children:[g("span",{children:"\uCC38\uACE0\uC790\uB8CC \uACF5\uC2DD \uCD9C\uCC98: \uAD6D\uC0AC\uD3B8\uCC2C\uC704\uC6D0\uD68C \uC6B0\uB9AC\uC5ED\uC0AC\uB137"}),j("a",{href:"https://contents.history.go.kr/",target:"_blank",rel:"noreferrer noopener",className:"inline-flex items-center gap-1 text-emerald-400 hover:text-emerald-300 font-medium",children:[g("span",{children:"\uC6B0\uB9AC\uC5ED\uC0AC\uB137 \uBC14\uB85C\uAC00\uAE30"}),g(rt,{className:"w-3.5 h-3.5","aria-hidden":"true"})]})]})]}),g(Z,{tasks:dt,isPresentationMode:A}),g(Q,{guide:it,isPresentationMode:A})]})};import{useState as xe,useMemo as mt}from"react";import{RotateCcw as ke,Globe as pt,Download as ct,Thermometer as xt,CloudRain as bt,AlertTriangle as ut,Info as ft}from"lucide-react";import{jsx as i,jsxs as u}from"react/jsx-runtime";var re={tropical:{name:"\uAC00\uC0C1 \uC5F4\uB300\uB2E4\uC6B0 (Tropical Rainforest Model)",description:"\uC5F0\uC911 \uACE0\uC628(26~28\xB0C)\uC774\uBA70 \uBAA8\uB4E0 \uC6D4\uC5D0 \uAC78\uCCD0 200mm \uC774\uC0C1\uC758 \uD48D\uBD80\uD55C \uAC15\uC218\uAC00 \uC9C0\uC18D\uB418\uB294 \uC5F4\uB300 \uB2E4\uC6B0 \uC218\uCE58 \uBAA8\uB378\uC785\uB2C8\uB2E4.",data:[{month:1,temp:26.5,precip:260},{month:2,temp:26.8,precip:240},{month:3,temp:27.2,precip:280},{month:4,temp:27,precip:250},{month:5,temp:26.9,precip:230},{month:6,temp:26.4,precip:210},{month:7,temp:26.2,precip:220},{month:8,temp:26.5,precip:230},{month:9,temp:26.8,precip:270},{month:10,temp:27,precip:290},{month:11,temp:26.7,precip:310},{month:12,temp:26.4,precip:300}]},temperate:{name:"\uAC00\uC0C1 \uC628\uB300\uACC4\uC808 (Temperate Monsoonal Model)",description:"\uC5EC\uB984\uCCA0(7~8\uC6D4) \uACE0\uC628\uB2E4\uC6B0\uC640 \uACA8\uC6B8\uCCA0(12~2\uC6D4) \uD55C\uB7AD\uAC74\uC870\uAC00 \uB69C\uB837\uD558\uAC8C \uB300\uBE44\uB418\uB294 \uACC4\uC808\uD48D \uC218\uCE58 \uBAA8\uB378\uC785\uB2C8\uB2E4.",data:[{month:1,temp:-2.4,precip:22},{month:2,temp:.4,precip:24},{month:3,temp:5.7,precip:45},{month:4,temp:12.5,precip:65},{month:5,temp:17.8,precip:95},{month:6,temp:22.2,precip:135},{month:7,temp:25.8,precip:360},{month:8,temp:26.1,precip:330},{month:9,temp:21.4,precip:140},{month:10,temp:14.8,precip:50},{month:11,temp:7.2,precip:45},{month:12,temp:.3,precip:25}]},arid:{name:"\uAC00\uC0C1 \uAC74\uC870 (Arid Desert Model)",description:"\uC5F0\uC911 \uAC15\uC218\uB7C9\uC774 \uADF9\uD788 \uD76C\uBC15(\uC5F0\uAC04 100mm \uBBF8\uB9CC)\uD558\uACE0 \uAD6C\uB984\uC774 \uC801\uC5B4 \uC77C\uC0AC \uD761\uC218\uC640 \uBC29\uCD9C\uC774 \uCEE4 \uAE30\uC628 \uC5F0\uAD50\uCC28\uAC00 \uD070 \uC0AC\uB9C9 \uC218\uCE58 \uBAA8\uB378\uC785\uB2C8\uB2E4.",data:[{month:1,temp:9.5,precip:8},{month:2,temp:12,precip:7},{month:3,temp:17.2,precip:6},{month:4,temp:22.5,precip:3},{month:5,temp:28,precip:1},{month:6,temp:33.2,precip:0},{month:7,temp:35.8,precip:0},{month:8,temp:34.6,precip:0},{month:9,temp:30.1,precip:1},{month:10,temp:23.5,precip:4},{month:11,temp:15.8,precip:6},{month:12,temp:10.2,precip:9}]}},gt={intro:"\uB0A0\uC528(\uC21C\uAC04 \uAE30\uC0C1)\uC640 \uAE30\uD6C4(30\uB144 \uC7A5\uAE30 \uD1B5\uACC4)\uC758 \uAC1C\uB150 \uCC28\uC774\uB97C \uD658\uAE30\uD558\uACE0, \uAE30\uC628 \uAEBE\uC740\uC120\uACFC \uAC15\uC218\uB7C9 \uB9C9\uB300\uAC00 \uACB0\uD569\uB41C \uBCF5\uD569 \uAE30\uD6C4\uADF8\uB798\uD504\uC758 \uB3C5\uD574\uBC95\uC744 \uC9C0\uB3C4\uD569\uB2C8\uB2E4.",activity:"\uD559\uC0DD\uB4E4\uC774 3\uAC1C \uD504\uB9AC\uC14B\uC758 \uC5F0\uD3C9\uADE0 \uAE30\uC628, \uC5F0\uAD50\uCC28, \uC5F0\uAC15\uC218\uB7C9 \uD1B5\uACC4\uB97C \uBE44\uAD50\uD558\uACE0, \uC6D4\uBCC4 \uAE30\uC628\xB7\uAC15\uC218\uB7C9 \uC2AC\uB77C\uC774\uB354\uB97C \uC9C1\uC811 \uC218\uC815\uD558\uBA70 \uC9C0\uD45C\uC758 \uC0C1\uAD00\uAD00\uACC4\uB97C \uD0D0\uAD6C\uD558\uAC8C \uD569\uB2C8\uB2E4.",summary:"\uCFA8\uD39C \uBD84\uB958\uAC00 \uAE30\uC628\u00B7\uAC15\uC218\uB7C9 \uAE30\uC900\uC744 \uC801\uC6A9\uD568\uC744 \uC124\uBA85\uD558\uACE0, \uD559\uC2B5\uC6A9 \uAC00\uC0C1 \uC790\uB8CC\uB85C \uD604\uC2E4 \uAD6D\uAC00\uB098 \uAE30\uD6C4 \uC6D0\uC778\uC744 \uB2E8\uC815\uD558\uC9C0 \uC54A\uB3C4\uB85D \uC548\uB0B4\uD569\uB2C8\uB2E4.",prompts:["\uC5F0\uAD50\uCC28\uAC00 2\xB0C \uC548\uD30E\uC73C\uB85C \uADF9\uD788 \uC791\uC740 \uC5F4\uB300 \uBAA8\uB378\uACFC \uC5F0\uAD50\uCC28\uAC00 28\xB0C\uC5D0 \uC774\uB974\uB294 \uC628\uB300 \uACC4\uC808\uD48D \uBAA8\uB378\uC758 \uC704\uB3C4 \uBC0F \uD0DC\uC591 \uACE0\uB3C4 \uCC28\uC774\uB294 \uBB34\uC5C7\uC77C\uAE4C\uC694?","\uC5F0\uAC15\uC218\uB7C9\uC774 1,300mm\uB85C \uB3D9\uC77C\uD55C \uB450 \uC9C0\uC5ED\uC774 \uC788\uC744 \uB54C, \uAC15\uC218\uAC00 \uC5EC\uB984\uCCA0\uC5D0 70% \uC9D1\uC911\uB418\uB294 \uACF3\uACFC 12\uAC1C\uC6D4 \uADE0\uB4F1 \uBC30\uBD84\uB418\uB294 \uACF3\uC758 \uB18D\uC5C5 \uBC0F \uC0DD\uD65C\uC591\uC2DD\uC740 \uC5B4\uB5BB\uAC8C \uB2E4\uB97C\uAE4C\uC694?"]},ht=[{id:1,title:"\uC5F4\uB300\uB2E4\uC6B0 \uBAA8\uB378\uACFC \uADF9\uC18C \uC5F0\uAD50\uCC28 \uBD84\uC11D",predict:"\uC801\uB3C4 \uBD80\uADFC\uC758 \uC5F4\uB300\uB2E4\uC6B0 \uBAA8\uB378\uC740 \uD0DC\uC591 \uC785\uC0AC\uAC01\uC758 \uC5F0\uC911 \uBCC0\uB3D9\uC774 \uC801\uC5B4 \uC5F0\uAD50\uCC28\uAC00 3\xB0C \uC774\uB0B4\uB85C \uB9E4\uC6B0 \uC791\uC744 \uAC83\uC774\uB2E4.",operate:"[\uAC00\uC0C1 \uC5F4\uB300\uB2E4\uC6B0] \uD504\uB9AC\uC14B\uC744 \uC120\uD0DD\uD558\uACE0 12\uAC1C\uC6D4 \uAE30\uC628 \uADF8\uB798\uD504\uC758 \uD3C9\uD0C4\uC131\uACFC \uC5F0\uD3C9\uADE0 \uAE30\uC628\uC744 \uD655\uC778\uD55C\uB2E4.",confirm:"\uCD5C\uB09C\uC6D4(27.2\xB0C)\uACFC \uCD5C\uD55C\uC6D4(26.2\xB0C)\uC758 \uCC28\uC774(\uC5F0\uAD50\uCC28 1.0\xB0C)\uB97C \uD655\uC778\uD558\uACE0 \uC5F0\uAC15\uC218\uB7C9\uC774 2,500mm\uB97C \uCD08\uACFC\uD568\uC744 \uAD00\uCC30\uD55C\uB2E4."},{id:2,title:"\uC628\uB300\uACC4\uC808 \uBAA8\uB378\uC758 \uC5EC\uB984\uCCA0 \uAC15\uC218 \uC9D1\uC911\uB960\uACFC \uC5F0\uAD50\uCC28",predict:"\uACC4\uC808\uD48D\uC758 \uC601\uD5A5\uC744 \uBC1B\uB294 \uC628\uB300\uACC4\uC808 \uBAA8\uB378\uC740 7~8\uC6D4\uC5D0 \uC5F0\uAC15\uC218\uB7C9\uC758 \uC808\uBC18 \uC774\uC0C1\uC774 \uC9D1\uC911\uB420 \uAC83\uC774\uB2E4.",operate:"[\uAC00\uC0C1 \uC628\uB300\uACC4\uC808] \uD504\uB9AC\uC14B\uC744 \uC801\uC6A9\uD55C \uB4A4, 1\uC6D4 \uAE30\uC628\uC744 -10\xB0C\uB85C \uB0AE\uCD94\uC5B4 \uC5F0\uAD50\uCC28\uC758 \uBCC0\uD654\uB97C \uAD00\uCE21\uD55C\uB2E4.",confirm:"\uACA8\uC6B8 \uAE30\uC628\uC744 \uB0AE\uCD9C\uC218\uB85D \uC5F0\uAD50\uCC28\uAC00 \uAE09\uC99D\uD558\uB294 \uD604\uC0C1\uACFC \uC5EC\uB984\uCCA0 \uAC15\uC218 \uC9D1\uC911\uB960\uC744 \uBC31\uBD84\uC728\uB85C \uACC4\uC0B0\uD574 \uBCF8\uB2E4."},{id:3,title:"\uAC74\uC870 \uBAA8\uB378\uC758 \uAC15\uC218 \uC784\uACC4\uAC12\uACFC \uAC00\uBB44 \uC870\uAC74 \uC870\uC791",predict:"\uC5F0\uAC15\uC218\uB7C9\uC774 250mm \uBBF8\uB9CC\uC778 \uD658\uACBD\uC5D0\uC11C\uB294 \uAC15\uC218\uB7C9 \uB9C9\uB300\uAC00 \uBC14\uB2E5\uC5D0 \uBC00\uCC29\uB420 \uAC83\uC774\uB2E4.",operate:"[\uAC00\uC0C1 \uAC74\uC870] \uD504\uB9AC\uC14B\uC5D0\uC11C \uD2B9\uC815 \uC6D4\uC758 \uAC15\uC218\uB7C9\uC744 \uC784\uC758\uB85C \uC62C\uB824\uBCF4\uBA70 \uC5F0\uAC15\uC218\uB7C9 \uCD1D\uD569 \uBCC0\uD654\uB97C \uCD94\uC801\uD55C\uB2E4.",confirm:"\uC5F0\uAC04 \uCD1D\uAC15\uC218\uB7C9 \uC218\uCE58\uAC00 100mm \uB0B4\uC678\uC5D0 \uBA38\uBB34\uB294 \uC0AC\uB9C9 \uAE30\uD6C4\uC758 \uAC74\uC870 \uD2B9\uC131\uC744 \uD655\uC778\uD558\uACE0 CSV \uD30C\uC77C\uB85C \uB0B4\uB824\uBC1B\uB294\uB2E4."}],Ce=({isPresentationMode:A})=>{let[c,I]=xe("temperate"),[l,E]=xe(()=>[...re.temperate.data]),[P,R]=xe(null),W=a=>{I(a),E([...re[a].data])},_=()=>{W("temperate")},G=(a,$,h)=>{let p=[...l];$==="precip"?p[a].precip=Math.max(0,Math.min(600,Math.round(h))):p[a].temp=Math.round(h*10)/10,E(p)},N=mt(()=>{let a=l.map(o=>o.temp),h=l.map(o=>o.precip).reduce((o,S)=>o+S,0),p=a.reduce((o,S)=>o+S,0)/12,v=Math.max(...a),T=Math.min(...a),M=v-T,D=l.find(o=>o.temp===v)?.month||1,O=l.find(o=>o.temp===T)?.month||1,x=l.reduce((o,S)=>S.precip>o.precip?S:o,l[0]),y=l.reduce((o,S)=>S.precip<o.precip?S:o,l[0]);return{avgTemp:p,maxTemp:v,minTemp:T,tempRange:M,totalPrecip:h,warmestMonth:D,coldestMonth:O,wettestMonth:x,driestMonth:y}},[l]),f=()=>{let a=`\uC6D4,\uAE30\uC628(\xB0C),\uAC15\uC218\uB7C9(mm)
+`,$=l.map(M=>`${M.month}\uC6D4,${M.temp},${M.precip}`).join(`
+`),h=`
+\uC5F0\uD3C9\uADE0\uAE30\uC628,${N.avgTemp.toFixed(1)},\xB0C
+\uC5F0\uAD50\uCC28,${N.tempRange.toFixed(1)},\xB0C
+\uC5F0\uAC15\uC218\uB7C9,${N.totalPrecip},mm
+`,p=new Blob(["\uFEFF"+a+$+h],{type:"text/csv;charset=utf-8;"}),v=URL.createObjectURL(p),T=document.createElement("a");T.href=v,T.download=`\uAC00\uC0C1\uAE30\uD6C4\uB370\uC774\uD130_${c}_12\uAC1C\uC6D4.csv`,T.click(),URL.revokeObjectURL(v)},F=640,J=320,L={top:35,right:55,bottom:45,left:55},V=F-L.left-L.right,z=J-L.top-L.bottom,s=400,r=-20,t=40,d=a=>{let $=V/12;return L.left+$*a+$/2},w=a=>{let $=Math.max(0,Math.min(s,a));return L.top+z-$/s*z},H=a=>{let h=(Math.max(r,Math.min(t,a))-r)/(t-r);return L.top+z-h*z},q=l.reduce((a,$,h)=>{let p=d(h),v=H($.temp);return h===0?`M ${p} ${v}`:`${a} L ${p} ${v}`},"");return u("div",{className:"space-y-6",children:[u("div",{className:"flex flex-col md:flex-row md:items-end justify-between gap-4 pb-4 border-b border-slate-800",children:[u("div",{children:[u("div",{className:"flex items-center gap-2 text-xs font-semibold text-emerald-400 mb-1",children:[i(pt,{className:"w-4 h-4","aria-hidden":"true"}),i("span",{children:"\uC9C0\uB9AC \uD0D0\uAD6C \uBAA8\uB4C8"}),i("span",{className:"text-slate-500",children:"\xB7"}),i("span",{children:"\uBCF5\uD569 \uAE30\uD6C4\uADF8\uB798\uD504 \uBC0F \uC218\uCE58 \uC9C0\uD45C"})]}),i("h2",{className:`font-bold text-slate-100 ${A?"text-3xl":"text-2xl"}`,children:"\uAE30\uD6C4\uC758 \uB9AC\uB4EC: 12\uAC1C\uC6D4 \uAE30\uC628\xB7\uAC15\uC218\uB7C9 \uBCF5\uD569 \uBD84\uC11D"}),i("p",{className:"text-slate-400 text-sm mt-1 max-w-3xl leading-relaxed",children:"\uC6D4\uBCC4 \uAE30\uC628(\xB0C) \uAEBE\uC740\uC120\uACFC \uAC15\uC218\uB7C9(mm) \uB9C9\uB300\uB97C \uB2E8\uC77C \uC88C\uD45C\uACC4\uC5D0 \uC2DC\uAC01\uD654\uD558\uC5EC \uC5F0\uD3C9\uADE0 \uAE30\uC628, \uC5F0\uAD50\uCC28, \uC5F0\uAC15\uC218\uB7C9\uC744 \uC2E4\uC2DC\uAC04 \uC0B0\uCD9C\uD558\uACE0, \uAE30\uD6C4 \uBAA8\uB378\uC758 \uD328\uD134\uC744 \uC815\uB7C9\uC801\uC73C\uB85C \uAD00\uCC30\uD569\uB2C8\uB2E4."})]}),u("div",{className:"flex flex-wrap items-center gap-2 shrink-0",children:[u("button",{type:"button",onClick:f,className:"inline-flex items-center gap-1.5 px-3 py-2 text-xs font-medium text-emerald-400 bg-slate-800 hover:bg-slate-700 border border-emerald-500/30 rounded-lg transition-colors",children:[i(ct,{className:"w-3.5 h-3.5","aria-hidden":"true"}),i("span",{children:"\uC6D0\uC790\uB8CC CSV \uB0B4\uB824\uBC1B\uAE30"})]}),u("button",{type:"button",onClick:_,className:"inline-flex items-center gap-1.5 px-3 py-2 text-xs font-medium text-slate-300 bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-lg transition-colors",children:[i(ke,{className:"w-3.5 h-3.5","aria-hidden":"true"}),i("span",{children:"\uCD08\uAE30\uD654"})]})]})]}),u("div",{className:"p-3.5 rounded-lg bg-emerald-950/20 border border-emerald-500/20 text-xs text-emerald-200/90 flex items-start gap-2.5",children:[i("span",{className:"font-semibold text-emerald-400 shrink-0",children:"\uD559\uC2B5 \uBAA9\uD45C"}),u("div",{className:"space-y-0.5",children:[i("p",{children:"1. 12\uAC1C\uC6D4\uC758 \uC6D4\uD3C9\uADE0 \uAE30\uC628\uACFC \uC6D4\uAC15\uC218\uB7C9 \uB370\uC774\uD130\uB97C \uBC14\uD0D5\uC73C\uB85C \uAE30\uD6C4\uADF8\uB798\uD504(\uAC15\uC218\uB7C9 \uB9C9\uB300 + \uAE30\uC628 \uAEBE\uC740\uC120)\uB97C \uD574\uC11D\uD560 \uC218 \uC788\uB2E4."}),i("p",{children:"2. \uC5F0\uD3C9\uADE0 \uAE30\uC628, \uAE30\uC628\uC758 \uC5F0\uAD50\uCC28(\uCD5C\uB09C\uC6D4 - \uCD5C\uD55C\uC6D4), \uC5F0\uAC15\uC218\uB7C9\uC744 \uC0B0\uCD9C\uD558\uACE0 \uC218\uCE58\uC801 \uAE30\uD6C4 \uD2B9\uC9D5\uC744 \uAC1D\uAD00\uC801\uC73C\uB85C \uB3C4\uCD9C\uD560 \uC218 \uC788\uB2E4."})]})]}),u("div",{className:"p-4 rounded-xl bg-slate-900/60 border border-slate-800 space-y-3",children:[u("div",{className:"flex flex-wrap items-center justify-between gap-3",children:[u("div",{className:"flex items-center gap-2",children:[i("span",{className:"text-xs font-semibold text-slate-300",children:"\uAC00\uC0C1 \uD559\uC2B5\uC6A9 \uD504\uB9AC\uC14B:"}),i("div",{className:"inline-flex rounded-lg border border-slate-700 p-1 bg-slate-950/40",children:Object.keys(re).map(a=>i("button",{type:"button",onClick:()=>W(a),className:`px-3 py-1 text-xs font-medium rounded-md transition-colors ${c===a?"bg-emerald-600 text-white":"text-slate-400 hover:text-slate-200"}`,children:re[a].name.split(" (")[0]},a))})]}),i("span",{className:"text-xs text-slate-400",children:re[c]?.description})]}),u("div",{className:"p-3 rounded-lg bg-slate-950/60 border border-amber-500/20 text-xs text-amber-200/90 flex items-start gap-2",children:[i(ut,{className:"w-4 h-4 text-amber-400 shrink-0 mt-0.5","aria-hidden":"true"}),u("p",{className:"leading-relaxed",children:[i("strong",{children:"\uD0D0\uAD6C \uC720\uC758\uC0AC\uD56D:"})," \uBCF8 \uB3C4\uAD6C\uB294 \uAC00\uC0C1 \uD559\uC2B5\uC6A9 \uC218\uCE58 \uBAA8\uB378\uC785\uB2C8\uB2E4. \uCFA8\uD39C \uAE30\uD6C4 \uAD6C\uBD84\uC740 \uAE30\uC628\u00B7\uAC15\uC218\uB7C9\uC758 \uC815\uD574\uC9C4 \uAE30\uC900\uACFC \uAC74\uC870 \uD55C\uACC4\uAC12 \uB4F1\uC744 \uC801\uC6A9\uD569\uB2C8\uB2E4. \uB2E8\uC21C 12\uAC1C\uC6D4 \uC218\uCE58\uB9CC\uC73C\uB85C \uAE30\uD6C4\uC758 \uC6D0\uC778\uC774\uB098 \uD2B9\uC815 \uD604\uC2E4 \uAD6D\uAC00\xB7\uC9C0\uC5ED\uC744 \uC123\uBD88\uB9AC \uB2E8\uC815\uD558\uC9C0 \uB9D0\uACE0 \uC218\uCE58\uC801 \uD2B9\uC131\uC744 \uAD00\uCC30\uD574\uC57C \uD569\uB2C8\uB2E4."]})]})]}),u("div",{className:"grid grid-cols-1 lg:grid-cols-12 gap-6 items-start",children:[u("div",{className:"lg:col-span-8 p-5 rounded-xl bg-slate-900/60 border border-slate-800",children:[u("div",{className:"flex items-center justify-between mb-4",children:[u("div",{className:"flex items-center gap-4 text-xs",children:[i("span",{className:"font-semibold text-slate-200",children:"\uBCF5\uD569 \uAE30\uD6C4\uADF8\uB798\uD504"}),u("div",{className:"flex items-center gap-1.5 text-cyan-400",children:[i("span",{className:"w-3 h-3 rounded-sm bg-cyan-500/70 inline-block"}),i("span",{children:"\uAC15\uC218\uB7C9(mm, \uC88C\uCE21 \uCD95)"})]}),u("div",{className:"flex items-center gap-1.5 text-amber-400",children:[i("span",{className:"w-3 h-0.5 bg-amber-400 inline-block"}),i("span",{children:"\uAE30\uC628(\xB0C, \uC6B0\uCE21 \uCD95)"})]})]}),P!==null&&u("span",{className:"text-xs font-mono text-emerald-300 bg-slate-950 px-2 py-0.5 rounded border border-slate-800",children:[P,"\uC6D4: \uAE30\uC628 ",l[P-1].temp,"\xB0C / \uAC15\uC218 ",l[P-1].precip,"mm"]})]}),i("div",{className:"w-full overflow-x-auto",children:u("svg",{viewBox:`0 0 ${F} ${J}`,className:"w-full max-w-full h-auto bg-slate-950 rounded-lg border border-slate-800",style:{minWidth:"480px"},children:[[0,100,200,300,400].map(a=>{let $=w(a);return u("g",{children:[i("line",{x1:L.left,y1:$,x2:F-L.right,y2:$,stroke:"#1e293b",strokeDasharray:"3 3"}),i("text",{x:L.left-8,y:$+4,fill:"#38bdf8",fontSize:"10",textAnchor:"end",fontFamily:"monospace",children:a})]},`grid-${a}`)}),r<=0&&t>=0&&i("line",{x1:L.left,y1:H(0),x2:F-L.right,y2:H(0),stroke:"#fbbf24",strokeOpacity:"0.3",strokeWidth:"1.5"}),[-20,-10,0,10,20,30,40].map(a=>{let $=H(a);return u("text",{x:F-L.right+8,y:$+4,fill:"#f59e0b",fontSize:"10",textAnchor:"start",fontFamily:"monospace",children:[a,"\xB0"]},`temp-axis-${a}`)}),l.map((a,$)=>{let h=d($),p=24,v=w(a.precip),T=L.top+z-v,M=P===a.month;return i("g",{onMouseEnter:()=>R(a.month),onMouseLeave:()=>R(null),className:"cursor-pointer",children:i("rect",{x:h-p/2,y:v,width:p,height:Math.max(0,T),fill:M?"#38bdf8":"#0284c7",fillOpacity:M?.95:.65,rx:"2"})},`bar-${a.month}`)}),i("path",{d:q,fill:"none",stroke:"#f59e0b",strokeWidth:"2.5",strokeLinecap:"round",strokeLinejoin:"round"}),l.map((a,$)=>{let h=d($),p=H(a.temp),v=P===a.month;return i("circle",{cx:h,cy:p,r:v?5.5:4,fill:v?"#fbbf24":"#f59e0b",stroke:"#0f172a",strokeWidth:"2",onMouseEnter:()=>R(a.month),onMouseLeave:()=>R(null),className:"cursor-pointer transition-all"},`dot-${a.month}`)}),l.map((a,$)=>{let h=d($);return u("text",{x:h,y:J-15,fill:P===a.month?"#34d399":"#94a3b8",fontSize:"11",textAnchor:"middle",fontWeight:P===a.month?"bold":"normal",children:[a.month,"\uC6D4"]},`label-${a.month}`)}),i("text",{x:L.left,y:20,fill:"#38bdf8",fontSize:"11",fontWeight:"bold",textAnchor:"start",children:"\uAC15\uC218\uB7C9 (mm)"}),i("text",{x:F-L.right,y:20,fill:"#f59e0b",fontSize:"11",fontWeight:"bold",textAnchor:"end",children:"\uAE30\uC628 (\xB0C)"})]})})]}),i("div",{className:"lg:col-span-4 space-y-4",children:u("div",{className:"p-5 rounded-xl bg-slate-900/60 border border-slate-800 space-y-4",children:[i("h3",{className:"text-sm font-semibold text-slate-200",children:"\uC2E4\uC2DC\uAC04 \uD575\uC2EC \uAE30\uD6C4 \uC9C0\uD45C \uC0B0\uCD9C"}),u("div",{className:"space-y-3",children:[u("div",{className:"p-3.5 rounded-lg bg-slate-950/70 border border-slate-800",children:[u("div",{className:"flex items-center justify-between text-xs text-slate-400 mb-1",children:[u("span",{className:"flex items-center gap-1.5",children:[i(xt,{className:"w-3.5 h-3.5 text-amber-400"}),i("span",{children:"\uC5F0\uD3C9\uADE0 \uAE30\uC628"})]}),i("span",{children:"12\uAC1C\uC6D4 \uAE30\uC628 \uC0B0\uC220\uD3C9\uADE0"})]}),u("div",{className:"text-2xl font-bold font-mono text-amber-400",children:[N.avgTemp.toFixed(1)," ",i("span",{className:"text-sm font-normal text-slate-300",children:"\xB0C"})]})]}),u("div",{className:"p-3.5 rounded-lg bg-slate-950/70 border border-slate-800",children:[u("div",{className:"flex items-center justify-between text-xs text-slate-400 mb-1",children:[u("span",{className:"flex items-center gap-1.5",children:[i(ke,{className:"w-3.5 h-3.5 text-teal-400"}),i("span",{children:"\uAE30\uC628\uC758 \uC5F0\uAD50\uCC28"})]}),i("span",{children:"\uCD5C\uB09C\uC6D4 - \uCD5C\uD55C\uC6D4"})]}),u("div",{className:"text-2xl font-bold font-mono text-teal-400",children:[N.tempRange.toFixed(1)," ",i("span",{className:"text-sm font-normal text-slate-300",children:"\xB0C"})]}),u("div",{className:"text-[11px] text-slate-400 mt-1 flex justify-between",children:[u("span",{children:["\uCD5C\uB09C\uC6D4: ",N.warmestMonth,"\uC6D4 (",N.maxTemp,"\xB0C)"]}),u("span",{children:["\uCD5C\uD55C\uC6D4: ",N.coldestMonth,"\uC6D4 (",N.minTemp,"\xB0C)"]})]})]}),u("div",{className:"p-3.5 rounded-lg bg-slate-950/70 border border-slate-800",children:[u("div",{className:"flex items-center justify-between text-xs text-slate-400 mb-1",children:[u("span",{className:"flex items-center gap-1.5",children:[i(bt,{className:"w-3.5 h-3.5 text-cyan-400"}),i("span",{children:"\uC5F0 \uAC15\uC218\uB7C9 \uCD1D\uD569"})]}),i("span",{children:"12\uAC1C\uC6D4 \uAC15\uC218 \uB204\uC801"})]}),u("div",{className:"text-2xl font-bold font-mono text-cyan-400",children:[N.totalPrecip.toLocaleString()," ",i("span",{className:"text-sm font-normal text-slate-300",children:"mm"})]}),u("div",{className:"text-[11px] text-slate-400 mt-1 flex justify-between",children:[u("span",{children:["\uCD5C\uB2E4\uC6B0\uC6D4: ",N.wettestMonth.month,"\uC6D4 (",N.wettestMonth.precip,"mm)"]}),u("span",{children:["\uCD5C\uC18C\uC6B0\uC6D4: ",N.driestMonth.month,"\uC6D4 (",N.driestMonth.precip,"mm)"]})]})]})]})]})})]}),u("div",{className:"p-5 rounded-xl bg-slate-900/60 border border-slate-800",children:[u("div",{className:"flex items-center justify-between mb-3",children:[u("div",{className:"flex items-center gap-2",children:[i(ft,{className:"w-4 h-4 text-emerald-400","aria-hidden":"true"}),i("h3",{className:"text-sm font-semibold text-slate-200",children:"12\uAC1C\uC6D4 \uC218\uCE58 \uB370\uC774\uD130 \uC9C1\uC811 \uD3B8\uC9D1 (\uAE30\uC628 \uBC0F \uAC15\uC218\uB7C9 \uC870\uC791)"})]}),i("span",{className:"text-xs text-slate-400",children:"* \uAC15\uC218\uB7C9\uC740 \uC74C\uC218 \uC785\uB825\uC774 \uAE08\uC9C0\uB429\uB2C8\uB2E4 (0 \uC774\uC0C1)"})]}),i("div",{className:"overflow-x-auto",children:u("table",{className:"w-full text-xs text-center border border-slate-800 rounded-lg overflow-hidden",children:[i("thead",{className:"bg-slate-950 text-slate-300 font-semibold border-b border-slate-800",children:u("tr",{children:[i("th",{className:"py-2.5 px-2 text-left pl-4",children:"\uAD6C\uBD84"}),l.map(a=>u("th",{className:"py-2.5 px-2",children:[a.month,"\uC6D4"]},`th-${a.month}`))]})}),u("tbody",{className:"divide-y divide-slate-800/80 bg-slate-900/30",children:[u("tr",{children:[i("td",{className:"py-2.5 px-2 text-left pl-4 font-medium text-amber-400",children:"\uAE30\uC628 (\xB0C)"}),l.map((a,$)=>i("td",{className:"p-1",children:i("input",{type:"number",step:"0.5",min:"-40",max:"50",value:a.temp,onChange:h=>G($,"temp",parseFloat(h.target.value)||0),"aria-label":`${a.month}\uC6D4 \uAE30\uC628`,className:"w-14 bg-slate-950 border border-slate-700/80 rounded px-1.5 py-1 text-center font-mono text-slate-200 focus:border-amber-500 focus:outline-none"})},`input-temp-${a.month}`))]}),u("tr",{children:[i("td",{className:"py-2.5 px-2 text-left pl-4 font-medium text-cyan-400",children:"\uAC15\uC218 (mm)"}),l.map((a,$)=>i("td",{className:"p-1",children:i("input",{type:"number",step:"5",min:"0",max:"600",value:a.precip,onChange:h=>G($,"precip",parseFloat(h.target.value)||0),"aria-label":`${a.month}\uC6D4 \uAC15\uC218\uB7C9`,className:"w-14 bg-slate-950 border border-slate-700/80 rounded px-1.5 py-1 text-center font-mono text-slate-200 focus:border-cyan-500 focus:outline-none"})},`input-precip-${a.month}`))]})]})]})})]}),i(Z,{tasks:ht,isPresentationMode:A}),i(Q,{guide:gt,isPresentationMode:A})]})};import{useState as oe,useEffect as $e,useRef as be,useMemo as vt}from"react";import{RotateCcw as Nt,Music as yt,Play as wt,Square as At,Volume2 as kt,VolumeX as Ct,AlertCircle as $t,Sliders as Ie,Activity as It}from"lucide-react";import{Fragment as Te,jsx as b,jsxs as k}from"react/jsx-runtime";var ue={pure:{name:"\uC21C\uC74C (Pure Tone)",desc:"\uAE30\uBCF8\uC74C(1\uCC28 \uBC30\uC74C)\uB9CC \uC874\uC7AC\uD558\uB294 \uAC00\uC7A5 \uB2E8\uC21C\uD55C \uD615\uD0DC\uC758 \uB2E8\uC77C \uC0AC\uC778\uD30C(\uC18C\uB9AC\uAD7D\uC1E0 \uD615\uD0DC)\uC785\uB2C8\uB2E4.",f0:261.63,harmonics:[1,0,0,0,0,0,0,0]},string:{name:"\uD604\uC545\uD615 (String Instrument Model)",desc:"\uBC14\uC774\uC62C\uB9B0\xB7\uCCBC\uB85C\uC640 \uAC19\uC774 \uACE0\uCC28 \uBC30\uC74C\uC774 \uC810\uC9C4\uC801\uC774\uACE0 \uACE0\uB974\uAC8C \uAC10\uC1E0\uD558\uC5EC \uB530\uB73B\uD558\uACE0 \uD48D\uBD80\uD55C \uC6B8\uB9BC\uC744 \uB0C5\uB2C8\uB2E4.",f0:220,harmonics:[1,.65,.45,.32,.22,.15,.1,.06]},wind:{name:"\uAD00\uC545\uD615 (Wind Instrument Model)",desc:"\uD074\uB77C\uB9AC\uB137\uC774\uB098 \uD3D0\uAD00 \uC545\uAE30\uCC98\uB7FC \uD640\uC218 \uBC30\uC74C(1\uCC28, 3\uCC28, 5\uCC28)\uC774 \uB450\uB4DC\uB7EC\uC9C0\uACE0 \uC9DD\uC218 \uBC30\uC74C\uC774 \uC5B5\uC81C\uB41C \uBAA9\uAD00 \uC74C\uC0C9\uC785\uB2C8\uB2E4.",f0:261.63,harmonics:[1,.06,.62,.08,.4,.05,.22,.03]}},Tt=["1\uCC28 (\uAE30\uBCF8\uC74C)","2\uCC28 (\uC625\uD0C0\uBE0C)","3\uCC28 (\uC644\uC8045\uB3C4)","4\uCC28 (2\uC625\uD0C0\uBE0C)","5\uCC28 (\uC7A53\uB3C4)","6\uCC28 (\uC644\uC8045\uB3C4)","7\uCC28 (\uB2E87\uB3C4)","8\uCC28 (3\uC625\uD0C0\uBE0C)"],Mt={intro:"\uAC19\uC740 \uC74C\uB192\uC774(\uB192\uB0AE\uC774)\uC758 \uC18C\uB9AC\uB97C \uB0B4\uB354\uB77C\uB3C4 \uD53C\uC544\uB178\uC640 \uD50C\uB8E8\uD2B8\uC758 \uC18C\uB9AC\uAC00 \uBA85\uD655\uD788 \uB2E4\uB974\uAC8C \uB4E4\uB9AC\uB294 \uC774\uC720\uC778 \u2018\uC74C\uC0C9(Timbre)\u2019\uC758 \uBE44\uBC00\uC744 \uC9C8\uBB38\uD569\uB2C8\uB2E4.",activity:"\uD559\uC0DD\uB4E4\uC774 1~8\uCC28 \uBC30\uC74C \uC2AC\uB77C\uC774\uB354\uB97C \uD558\uB098\uC529 \uC870\uC791\uD558\uBA70, \uD30C\uD615\uC5D0 \uC794\uBB3C\uACB0(\uACE0\uC8FC\uD30C)\uC774 \uB354\uD574\uC9C8 \uB54C \uCCAD\uAC01\uC801\uC73C\uB85C \uC18C\uB9AC\uC758 \uB0A0\uCE74\uB85C\uC6C0\uACFC \uC9C8\uAC10\uC774 \uC5B4\uB5BB\uAC8C \uBCC0\uD558\uB294\uC9C0 \uB3D9\uC2DC \uAD00\uCC30\uD558\uAC8C \uD569\uB2C8\uB2E4.",summary:"19\uC138\uAE30 \uD5EC\uB984\uD640\uCE20\uC758 \uC74C\uD5A5\uD559 \uC2E4\uD5D8 \uBC0F \uD478\uB9AC\uC5D0 \uC815\uB9AC\uC640 \uC5F0\uACB0\uD558\uC5EC, \uC790\uC5F0\uACC4\uC758 \uBAA8\uB4E0 \uBCF5\uD569\uC74C\uC740 \uAE30\uBCF8\uC74C\uACFC \uC815\uC218\uBC30 \uBC30\uC74C\uB4E4\uC758 \uBB3C\uB9AC\uC801 \uC911\uCCA9 \uACB0\uACFC\uC784\uC744 \uC885\uD569\uD569\uB2C8\uB2E4.",prompts:["1\uCC28 \uBC30\uC74C\uB9CC \uC788\uB294 \uC21C\uC74C\uC740 \uC65C \uC804\uC790 \uBE44\uD504\uC74C\uC774\uB098 \uAE30\uACC4 \uC2E0\uD638\uC74C\uCC98\uB7FC \uAC74\uC870\uD558\uACE0 \uCC28\uAC11\uAC8C \uB290\uAEF4\uC9C8\uAE4C\uC694?","\uD640\uC218 \uBC30\uC74C(1, 3, 5, 7\uCC28)\uB9CC \uB450\uB4DC\uB7EC\uC9C0\uAC8C \uB0A8\uACBC\uC744 \uB54C\uC640 \uC9DD\uC218 \uBC30\uC74C\uC774 \uC644\uB9CC\uD558\uAC8C \uC11E\uC600\uC744 \uB54C \uCCAD\uAC01\uC801\uC73C\uB85C \uC5B4\uB5A4 \uC74C\uC0C9\uC801 \uC778\uC0C1\uC758 \uCC28\uC774\uAC00 \uB290\uAEF4\uC9C0\uB098\uC694?"]},St=[{id:1,title:"\uC21C\uC74C\uACFC 2\uCC28 \uBC30\uC74C(\uC625\uD0C0\uBE0C)\uC758 \uC911\uCCA9 \uCCAD\uC74C",predict:"\uC21C\uC74C\uC5D0 2\uCC28 \uBC30\uC74C(2\uBC30 \uC9C4\uB3D9\uC218)\uC744 \uB354\uD558\uBA74 \uD30C\uD615\uC758 \uBD09\uC6B0\uB9AC\uAC00 2\uBC30\uB85C \uC870\uBC00\uD574\uC9C0\uACE0 \uC18C\uB9AC\uAC00 \uBC1D\uC544\uC9C8 \uAC83\uC774\uB2E4.",operate:"[\uC21C\uC74C] \uD504\uB9AC\uC14B\uC744 \uC120\uD0DD\uD558\uACE0 \uC7AC\uC0DD\uD55C \uB4A4, 2\uCC28 \uBC30\uC74C \uC2AC\uB77C\uC774\uB354\uB97C 0\uC5D0\uC11C 0.8\uAE4C\uC9C0 \uC11C\uC11C\uD788 \uC62C\uB9B0\uB2E4.",confirm:"SVG \uD30C\uD615\uC5D0 \uC8FC\uAE30\uC801 \uAD74\uACE1\uC774 \uC0DD\uAE30\uACE0 \uADC0\uB85C \uC625\uD0C0\uBE0C \uD654\uC74C\uC758 \uD48D\uC131\uD568\uC744 \uD655\uC778\uD55C\uB2E4."},{id:2,title:"\uD604\uC545\uD615\uACFC \uAD00\uC545\uD615\uC758 \uBC30\uC74C \uC2A4\uD399\uD2B8\uB7FC \uBC0F \uD30C\uD615 \uBE44\uAD50",predict:"\uAD00\uC545\uD615\uC740 \uD640\uC218 \uBC30\uC74C\uC774 \uB192\uC544 \uBFB0\uC871\uD55C \uD30C\uD615\uC744 \uBCF4\uC774\uACE0, \uD604\uC545\uD615\uC740 \uC804 \uBC30\uC74C\uC774 \uACE0\uB974\uAC8C \uAC10\uC1E0\uD560 \uAC83\uC774\uB2E4.",operate:"[\uD604\uC545\uD615]\uACFC [\uAD00\uC545\uD615] \uD504\uB9AC\uC14B\uC744 \uBC88\uAC08\uC544 \uB204\uB974\uBA70 \uC2A4\uD399\uD2B8\uB7FC \uB9C9\uB300\uC640 \uD30C\uD615\uC758 \uD615\uC0C1\uC744 \uBE44\uAD50\uD55C\uB2E4.",confirm:"\uC545\uAE30 \uBAA8\uB378 \uAC04\uC758 \uBC30\uC74C \uC5D0\uB108\uC9C0 \uBD84\uD3EC \uCC28\uC774\uAC00 \uC74C\uC0C9\uC758 \uB3C5\uD2B9\uD55C \uC9C8\uAC10\uC744 \uD615\uC131\uD568\uC744 \uD655\uC778\uD55C\uB2E4."},{id:3,title:"\uAE30\uBCF8 \uC9C4\uB3D9\uC218(f0) \uC870\uC791\uACFC \uBC30\uC74C \uC8FC\uD30C\uC218 \uAC04\uACA9",predict:"f0\uB97C 110Hz\uC5D0\uC11C 440Hz\uB85C \uB192\uC774\uBA74 8\uCC28 \uBC30\uC74C\uAE4C\uC9C0\uC758 \uC808\uB300 \uC8FC\uD30C\uC218 \uAC04\uACA9\uB3C4 4\uBC30\uB85C \uB113\uC5B4\uC9C8 \uAC83\uC774\uB2E4.",operate:"\uAE30\uBCF8\uC74C f0 \uC2AC\uB77C\uC774\uB354\uB97C 110Hz(A2)\uC5D0\uC11C 440Hz(A4)\uB85C \uBCC0\uACBD\uD558\uBA70 \uAC01 \uBC30\uC74C\uBCC4 \uACC4\uC0B0 \uC8FC\uD30C\uC218\uB97C \uAD00\uCC30\uD55C\uB2E4.",confirm:"n\uCC28 \uBC30\uC74C\uC758 \uC9C4\uB3D9\uC218\uAC00 \uD56D\uC0C1 fn = f0 \xD7 n \uC758 \uC815\uC218\uBC30 \uAD00\uACC4\uB97C \uC5C4\uBC00\uD558\uAC8C \uC720\uC9C0\uD568\uC744 \uAC80\uC99D\uD55C\uB2E4."}],Me=({isPresentationMode:A})=>{let[c,I]=oe(220),[l,E]=oe([1,.65,.45,.32,.22,.15,.1,.06]),[P,R]=oe(!1),[W,_]=oe("string"),G=be(null),N=be(null),f=be([]),F=()=>{if(N.current&&G.current){let t=G.current.currentTime;N.current.gain.cancelScheduledValues(t),N.current.gain.linearRampToValueAtTime(1e-4,t+.025),setTimeout(()=>{f.current.forEach(({osc:d})=>{try{d.stop(),d.disconnect()}catch{}}),f.current=[],R(!1)},35)}else R(!1)},J=async()=>{try{if(!G.current||G.current.state==="closed"){let q=window.AudioContext||window.webkitAudioContext;G.current=new q}G.current.state==="suspended"&&await G.current.resume();let t=G.current,d=t.currentTime;f.current.forEach(({osc:q})=>{try{q.stop(),q.disconnect()}catch{}}),f.current=[];let w=t.createGain();w.gain.setValueAtTime(1e-4,d),w.gain.linearRampToValueAtTime(.1,d+.015),w.connect(t.destination),N.current=w;let H=[];l.forEach((q,a)=>{let $=a+1,h=t.createOscillator(),p=t.createGain();h.type="sine",h.frequency.setValueAtTime(c*$,d),p.gain.setValueAtTime(q/Math.max(1,l.reduce((v,T)=>v+T,0)),d),h.connect(p),p.connect(w),h.start(d),H.push({osc:h,gain:p})}),f.current=H,R(!0)}catch(t){console.error("Audio initialization error:",t)}},L=()=>{P?F():J()};$e(()=>{if(!P||!G.current||f.current.length===0)return;let d=G.current.currentTime;f.current.forEach(({osc:w,gain:H},q)=>{let a=q+1,$=l[q]||0;w.frequency.setTargetAtTime(c*a,d,.01),H.gain.setTargetAtTime($/Math.max(1,l.reduce((h,p)=>h+p,0)),d,.01)})},[c,l,P]),$e(()=>{let t=()=>{document.hidden&&P&&F()};return document.addEventListener("visibilitychange",t),()=>{document.removeEventListener("visibilitychange",t),F(),G.current&&G.current.state!=="closed"&&G.current.close().catch(()=>{})}},[P]);let V=t=>{let d=ue[t];d&&(_(t),I(d.f0),E([...d.harmonics]))},z=()=>{V("string")},s=(t,d)=>{let w=[...l];w[t]=Math.max(0,Math.min(1,Math.round(d*100)/100)),E(w),_("custom")},r=vt(()=>{let a=l.reduce((p,v)=>p+v,0)||1,$=Math.max(1,a*.7),h="";for(let p=0;p<200;p++){let v=p/199*2,T=0;l.forEach((O,x)=>{let y=x+1;T+=O*Math.sin(2*Math.PI*y*v)});let M=p/199*600,D=90-T/$*(90*.85);p===0?h+=`M ${M} ${D}`:h+=` L ${M} ${D}`}return h},[l]);return k("div",{className:"space-y-6",children:[k("div",{className:"flex flex-col md:flex-row md:items-end justify-between gap-4 pb-4 border-b border-slate-800",children:[k("div",{children:[k("div",{className:"flex items-center gap-2 text-xs font-semibold text-emerald-400 mb-1",children:[b(yt,{className:"w-4 h-4","aria-hidden":"true"}),b("span",{children:"\uC74C\uC545 \uD0D0\uAD6C \uBAA8\uB4C8"}),b("span",{className:"text-slate-500",children:"\xB7"}),b("span",{children:"\uBC30\uC74C\uB82C\uACFC \uC74C\uC0C9(Timbre)\uC758 \uBB3C\uB9AC\uC801 \uD569\uC131"})]}),b("h2",{className:`font-bold text-slate-100 ${A?"text-3xl":"text-2xl"}`,children:"\uBC30\uC74C \uACF5\uBC29: Web Audio \uAE30\uBC18 \uC74C\uC0C9 \uD569\uC131\uAE30"}),b("p",{className:"text-slate-400 text-sm mt-1 max-w-3xl leading-relaxed",children:"\uAE30\uBCF8 \uC9C4\uB3D9\uC218(f0)\uC640 1~8\uCC28 \uC815\uC218\uBC30 \uBC30\uC74C(fn = f0 \xD7 n)\uC758 \uC138\uAE30\uB97C \uC870\uC808\uD558\uC5EC \uC2E4\uC81C \uD30C\uD615\uACFC \uC2A4\uD399\uD2B8\uB7FC\uC758 \uBCC0\uD654\uB97C \uC2DC\uAC01\xB7\uCCAD\uAC01\uC801\uC73C\uB85C \uB3D9\uC2DC \uAD00\uCC30\uD558\uACE0, \uC74C\uC0C9\uC758 \uD615\uC131 \uC6D0\uB9AC\uB97C \uD0D0\uAD6C\uD569\uB2C8\uB2E4."})]}),k("div",{className:"flex flex-wrap items-center gap-2 shrink-0",children:[b("button",{type:"button",onClick:L,className:`inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold rounded-lg transition-colors shadow-sm ${P?"bg-rose-500 hover:bg-rose-600 text-white":"bg-emerald-400 hover:bg-emerald-300 text-emerald-950"}`,children:P?k(Te,{children:[b(At,{className:"w-4 h-4 fill-current","aria-hidden":"true"}),b("span",{children:"\uC7AC\uC0DD \uC815\uC9C0"})]}):k(Te,{children:[b(wt,{className:"w-4 h-4 fill-current","aria-hidden":"true"}),b("span",{children:"\uD569\uC131\uC74C \uC7AC\uC0DD"})]})}),k("button",{type:"button",onClick:z,className:"inline-flex items-center gap-1.5 px-3 py-2 text-xs font-medium text-slate-300 bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-lg transition-colors",children:[b(Nt,{className:"w-3.5 h-3.5","aria-hidden":"true"}),b("span",{children:"\uCD08\uAE30\uD654"})]})]})]}),k("div",{className:"p-3.5 rounded-lg bg-emerald-950/20 border border-emerald-500/20 text-xs text-emerald-200/90 flex items-start gap-2.5",children:[b("span",{className:"font-semibold text-emerald-400 shrink-0",children:"\uD559\uC2B5 \uBAA9\uD45C"}),k("div",{className:"space-y-0.5",children:[b("p",{children:"1. \uAE30\uBCF8 \uC9C4\uB3D9\uC218(f0)\uC640 \uC815\uC218\uBC30 \uC9C4\uB3D9\uC218(fn = f0 \xD7 n)\uB85C \uAD6C\uC131\uB418\uB294 \uBC30\uC74C\uB82C(Harmonic series)\uC758 \uC6D0\uB9AC\uB97C \uCCAD\uAC01\uACFC \uC2DC\uAC01\uC73C\uB85C \uD30C\uC545\uD560 \uC218 \uC788\uB2E4."}),b("p",{children:"2. \uBC30\uC74C\uC758 \uC0C1\uB300\uC801 \uC9C4\uD3ED(\uC138\uAE30) \uAD6C\uC131\uC774 \uC545\uAE30\uC640 \uBAA9\uC18C\uB9AC\uC758 \u2018\uC74C\uC0C9(Timbre)\u2019\uC744 \uACB0\uC815\uD558\uB294 \uD575\uC2EC \uBB3C\uB9AC\uC801 \uC694\uC778\uC784\uC744 \uC124\uBA85\uD560 \uC218 \uC788\uB2E4."})]})]}),k("div",{className:"grid grid-cols-1 md:grid-cols-2 gap-3",children:[k("div",{className:"p-3.5 rounded-lg bg-slate-950/60 border border-slate-800 text-xs text-slate-300 flex items-center gap-2.5",children:[P?b(kt,{className:"w-4 h-4 text-emerald-400 shrink-0 animate-pulse","aria-hidden":"true"}):b(Ct,{className:"w-4 h-4 text-slate-500 shrink-0","aria-hidden":"true"}),b("span",{children:P?"\uD604\uC7AC \uC624\uB514\uC624 \uD65C\uC131\uD654 \uC0C1\uD0DC (\uC548\uC804 \uBCFC\uB968 0.1 \uBC0F 15ms \uD398\uC774\uB4DC \uC801\uC6A9)":"\uD604\uC7AC \uBB34\uC74C \uC0C1\uD0DC (\uBB34\uC74C \uC911\uC5D0\uB3C4 \uC218\uC2DD \uACC4\uC0B0 \uD30C\uD615 \uBC0F \uC2A4\uD399\uD2B8\uB7FC \uC2DC\uAC01\uD654\uB294 \uC628\uC804\uD788 \uC791\uB3D9\uD569\uB2C8\uB2E4)"})]}),k("div",{className:"p-3.5 rounded-lg bg-slate-950/60 border border-amber-500/20 text-xs text-amber-300/90 flex items-center gap-2",children:[b($t,{className:"w-4 h-4 text-amber-400 shrink-0","aria-hidden":"true"}),b("span",{children:"\uCCAD\uAC01 \uBCF4\uD638 \uC548\uB0B4: \uC774\uC5B4\uD3F0 \uBC0F \uD5E4\uB4DC\uD3F0 \uC0AC\uC6A9 \uC2DC \uC2DC\uC2A4\uD15C \uBCFC\uB968\uC744 \uB0AE\uCDB0 \uC548\uC804\uD558\uAC8C \uCCAD\uCDE8\uD558\uC138\uC694."})]})]}),k("div",{className:"p-4 rounded-xl bg-slate-900/60 border border-slate-800 space-y-4",children:[k("div",{className:"flex flex-wrap items-center justify-between gap-3",children:[k("div",{className:"flex items-center gap-2",children:[b("span",{className:"text-xs font-semibold text-slate-300",children:"\uAD50\uC721\uC6A9 \uD569\uC131 \uD504\uB9AC\uC14B:"}),b("div",{className:"inline-flex rounded-lg border border-slate-700 p-1 bg-slate-950/40",children:Object.keys(ue).map(t=>b("button",{type:"button",onClick:()=>V(t),className:`px-3 py-1 text-xs font-medium rounded-md transition-colors ${W===t?"bg-emerald-600 text-white":"text-slate-400 hover:text-slate-200"}`,children:ue[t].name.split(" (")[0]},t))})]}),b("span",{className:"text-xs text-slate-400",children:"* \uAD50\uC721\uC6A9 \uD569\uC131 \uBAA8\uB378\uC774\uBA70 \uC2E4\uC81C \uC790\uC5F0 \uC545\uAE30\uC758 \uC74C\uD5A5\uC744 \uC644\uBCBD\uD558\uAC8C \uC7AC\uD604\uD558\uB294 \uAC83\uC740 \uC544\uB2D9\uB2C8\uB2E4."})]}),k("div",{className:"p-4 rounded-lg bg-slate-950/70 border border-slate-800 flex flex-col md:flex-row md:items-center justify-between gap-4",children:[k("div",{className:"space-y-0.5",children:[k("div",{className:"flex items-center gap-2",children:[b(Ie,{className:"w-4 h-4 text-emerald-400","aria-hidden":"true"}),b("label",{htmlFor:"f0-slider",className:"text-xs font-semibold text-slate-200",children:"\uAE30\uBCF8\uC74C \uC9C4\uB3D9\uC218 (f0):"}),k("span",{className:"font-mono text-emerald-400 font-bold text-sm",children:[c," Hz"]}),k("span",{className:"text-xs text-slate-400",children:["(",c<=130?"C3/A2 \uC800\uC74C\uC5ED":c<=261?"A3 \uC911\uC74C\uC5ED":c<=440?"\uAC00\uC628\uB2E4(C4)~A4":"C5 \uACE0\uC74C\uC5ED",")"]})]}),b("p",{className:"text-[11px] text-slate-400",children:"\uC2AC\uB77C\uC774\uB354\uB97C \uC6C0\uC9C1\uC5EC \uC804\uCCB4 \uBC30\uC74C\uC5F4\uC758 \uAE30\uC900\uC774 \uB418\uB294 1\uCC28 \uC9C4\uB3D9\uC218(f0)\uB97C \uBCC0\uACBD\uD569\uB2C8\uB2E4 (110Hz ~ 523Hz)."})]}),k("div",{className:"flex items-center gap-3 w-full md:w-64",children:[b("span",{className:"text-[10px] font-mono text-slate-500",children:"110Hz"}),b("input",{id:"f0-slider",type:"range",min:"110",max:"523",step:"1",value:c,onChange:t=>I(parseInt(t.target.value,10)),className:"w-full accent-emerald-500 cursor-pointer"}),b("span",{className:"text-[10px] font-mono text-slate-500",children:"523Hz"})]})]})]}),k("div",{className:"grid grid-cols-1 lg:grid-cols-12 gap-6 items-start",children:[k("div",{className:"lg:col-span-6 p-5 rounded-xl bg-slate-900/60 border border-slate-800 space-y-3",children:[k("div",{className:"flex items-center justify-between",children:[k("div",{className:"flex items-center gap-2",children:[b(It,{className:"w-4 h-4 text-teal-400","aria-hidden":"true"}),b("h3",{className:"text-sm font-semibold text-slate-200",children:"\uD569\uC131 \uD30C\uD615 (Waveform)"})]}),b("span",{className:"text-xs font-mono text-slate-400",children:"2\uC8FC\uAE30 \uAD6C\uAC04 [y(t) = \u03A3 An\xB7sin(2\u03C0\xB7n\xB7f0\xB7t)]"})]}),b("div",{className:"w-full bg-slate-950 rounded-lg border border-slate-800 p-2 overflow-hidden",children:k("svg",{viewBox:"0 0 600 180",className:"w-full h-auto",style:{maxHeight:"200px"},children:[b("line",{x1:"0",y1:"90",x2:"600",y2:"90",stroke:"#1e293b",strokeDasharray:"3 3"}),b("line",{x1:"300",y1:"0",x2:"300",y2:"180",stroke:"#1e293b",strokeDasharray:"2 2"}),b("path",{d:r,fill:"none",stroke:"#2dd4bf",strokeWidth:"2.5",strokeLinecap:"round",strokeLinejoin:"round"})]})}),b("p",{className:"text-[11px] text-slate-400",children:"* 8\uAC1C \uBC30\uC74C\uC758 \uC9C4\uD3ED\uACFC \uC704\uC0C1\uC774 \uC120\uD615 \uC911\uCCA9\uB418\uC5B4 \uB9CC\uB4E4\uC5B4\uC9C4 \uC2E4\uC81C \uC5F0\uC18D \uD30C\uD615\uC785\uB2C8\uB2E4. \uBC30\uC74C\uC774 \uCD94\uAC00\uB420\uC218\uB85D \uD30C\uD615\uC758 \uC794\uBB3C\uACB0 \uAD74\uACE1\uC774 \uBCF5\uC7A1\uD574\uC9D1\uB2C8\uB2E4."})]}),k("div",{className:"lg:col-span-6 p-5 rounded-xl bg-slate-900/60 border border-slate-800 space-y-3",children:[k("div",{className:"flex items-center justify-between",children:[k("div",{className:"flex items-center gap-2",children:[b(Ie,{className:"w-4 h-4 text-emerald-400","aria-hidden":"true"}),b("h3",{className:"text-sm font-semibold text-slate-200",children:"\uBC30\uC74C \uC2A4\uD399\uD2B8\uB7FC (Harmonics Spectrum)"})]}),b("span",{className:"text-xs font-mono text-emerald-400",children:"1~8\uCC28 \uC0C1\uB300 \uC9C4\uD3ED \uBD84\uD3EC"})]}),k("div",{className:"w-full bg-slate-950 rounded-lg border border-slate-800 p-3",children:[b("div",{className:"grid grid-cols-8 gap-2 items-end h-40 pt-2 border-b border-slate-800",children:l.map((t,d)=>{let w=d+1,H=Math.round(c*w);return k("div",{className:"flex flex-col items-center justify-end h-full",children:[k("span",{className:"text-[9px] font-mono text-slate-400 mb-1",children:[Math.round(t*100),"%"]}),b("div",{style:{height:`${Math.max(4,t*100)}%`},className:"w-full rounded-t bg-gradient-to-t from-emerald-700 to-teal-400 transition-all duration-150",title:`${w}\uCC28 \uBC30\uC74C: ${H}Hz (${(t*100).toFixed(0)}%)`}),k("span",{className:"text-[10px] font-mono text-slate-300 mt-1 font-semibold",children:[w,"\uCC28"]})]},`spec-bar-${w}`)})}),b("div",{className:"grid grid-cols-8 gap-1 text-[9px] text-slate-500 text-center mt-1 font-mono",children:l.map((t,d)=>k("span",{children:[Math.round(c*(d+1)),"Hz"]},`freq-label-${d+1}`))})]}),b("p",{className:"text-[11px] text-slate-400",children:"* \uAC01 \uB9C9\uB300\uC758 \uB192\uC774\uB294 \uD574\uB2F9 \uC9C4\uB3D9\uC218 \uC131\uBD84\uC758 \uC0C1\uB300 \uC9C4\uD3ED\uC785\uB2C8\uB2E4. \uC5D0\uB108\uC9C0\uB294 \uC9C4\uD3ED\uC758 \uC81C\uACF1\uC5D0 \uBE44\uB840\uD569\uB2C8\uB2E4."})]})]}),k("div",{className:"p-5 rounded-xl bg-slate-900/60 border border-slate-800",children:[k("h3",{className:"text-sm font-semibold text-slate-200 mb-3 flex items-center justify-between",children:[b("span",{children:"1~8\uCC28 \uBC30\uC74C \uC138\uAE30 \uAC1C\uBCC4 \uC870\uC791 \uC2AC\uB77C\uC774\uB354 (0.00 ~ 1.00)"}),b("span",{className:"text-xs text-slate-400",children:"n\uCC28 \uC9C4\uB3D9\uC218 = f0 \xD7 n"})]}),b("div",{className:"grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3",children:l.map((t,d)=>{let w=d+1,H=Math.round(c*w);return k("div",{className:"p-3 rounded-lg bg-slate-950/80 border border-slate-800 flex flex-col justify-between",children:[k("div",{children:[k("div",{className:"flex items-center justify-between text-xs mb-1",children:[k("span",{className:"font-semibold text-slate-200",children:[w,"\uCC28 \uBC30\uC74C (",H,"Hz)"]}),b("span",{className:"font-mono text-emerald-400 font-bold",children:t.toFixed(2)})]}),b("div",{className:"text-[10px] text-slate-400 mb-2",children:Tt[d]})]}),b("div",{className:"flex items-center gap-2",children:b("input",{type:"range",min:"0",max:"1",step:"0.01",value:t,onChange:q=>s(d,parseFloat(q.target.value)),"aria-label":`${w}\uCC28 \uBC30\uC74C \uC138\uAE30`,className:"w-full accent-emerald-500 cursor-pointer h-1.5 bg-slate-800 rounded-lg"})})]},`harmonic-ctrl-${w}`)})})]}),b(Z,{tasks:St,isPresentationMode:A}),b(Q,{guide:Mt,isPresentationMode:A})]})};import{useState as ae,useEffect as Se,useRef as jt,useMemo as Pt}from"react";import{RotateCcw as je,Code2 as Rt,Play as Gt,Pause as Dt,SkipForward as Ft,CheckCircle2 as Ht,Info as Et,Clock as qt,Layers as Lt}from"lucide-react";import{Fragment as Pe,jsx as m,jsxs as C}from"react/jsx-runtime";var ie=[38,12,65,24,51,7,43,19],zt={intro:"\uC77C\uC0C1\uC5D0\uC11C \uC2DC\uD5D8\uC9C0\uB098 \uCE74\uB4DC \uBB49\uCE58\uB97C \uBC88\uD638\uC21C\uC73C\uB85C \uC815\uB9AC\uD560 \uB54C \uC0AC\uB78C\uC774 \uC9C1\uAD00\uC801\uC73C\uB85C \uC4F0\uB294 \uBC29\uC2DD\uACFC \uCEF4\uD4E8\uD130\uAC00 \uCCB4\uACC4\uC801\uC73C\uB85C \uC218\uD589\uD558\uB294 \uC54C\uACE0\uB9AC\uC998\uC758 \uCC28\uC774\uB97C \uBC1C\uBB38\uD569\uB2C8\uB2E4.",activity:"\uD559\uC0DD\uB4E4\uC774 \uB3D9\uC77C\uD55C \uCD08\uAE30 \uBC30\uC5F4\uC5D0\uC11C \uBC84\uBE14, \uC120\uD0DD, \uC0BD\uC785 \uC815\uB82C\uC744 \uD55C \uB2E8\uACC4\uC529(Step) \uC804\uC9C4\uC2DC\uD0A4\uBA70 \uC815\uB82C \uD655\uC815 \uAD6C\uAC04(\uCD08\uB85D\uC0C9)\uC774 \uC5B4\uB514\uC11C\uBD80\uD130 \uB204\uC801\uB418\uB294\uC9C0 \uAD00\uCC30\uD558\uAC8C \uD569\uB2C8\uB2E4.",summary:"\uC138 \uC54C\uACE0\uB9AC\uC998 \uBAA8\uB450 \uCD5C\uC545\uC758 \uACBD\uC6B0 O(n\xB2)\uC758 \uC2DC\uAC04 \uBCF5\uC7A1\uB3C4\uB97C \uAC00\uC9C0\uC9C0\uB9CC, \uC2E4\uC81C \uC5F0\uC0B0 \uACFC\uC815\uC5D0\uC11C \uC6D0\uC18C\uAC12 \uAC04 \uBE44\uAD50 \uD69F\uC218\uC640 \uBA54\uBAA8\uB9AC \uC774\uB3D9(\uAD50\uD658) \uD69F\uC218\uC758 \uC2E4\uC9C8\uC801 \uD6A8\uC728 \uCC28\uC774\uB97C \uBE44\uAD50\uD569\uB2C8\uB2E4.",prompts:["\uC120\uD0DD \uC815\uB82C\uC740 \uC65C \uB370\uC774\uD130\uAC00 \uC774\uBBF8 \uAC70\uC758 \uC815\uB82C\uB418\uC5B4 \uC788\uB294 \uCD5C\uC120\uC758 \uACBD\uC6B0\uC5D0\uB3C4 \uBE44\uAD50 \uD69F\uC218\uAC00 \uC904\uC5B4\uB4E4\uC9C0 \uC54A\uACE0 \uD56D\uC0C1 \uB05D\uAE4C\uC9C0 \uD0D0\uC0C9\uD574\uC57C \uD560\uAE4C\uC694?","\uC218\uBC31\uB9CC \uAC1C\uC758 \uBC29\uB300\uD55C \uB370\uC774\uD130\uB97C \uC815\uB82C\uD574\uC57C \uD560 \uB54C, \uC774\uB7EC\uD55C O(n\xB2) \uAE30\uCD08 \uC54C\uACE0\uB9AC\uC998 \uB300\uC2E0 \uBCD1\uD569 \uC815\uB82C\uC774\uB098 \uD035 \uC815\uB82C \uAC19\uC740 O(n log n) \uC54C\uACE0\uB9AC\uC998\uC744 \uC0AC\uC6A9\uD574\uC57C \uD558\uB294 \uC774\uC720\uB294 \uBB34\uC5C7\uC77C\uAE4C\uC694?"]},Ot=[{id:1,title:"\uBC84\uBE14 \uC815\uB82C\uC758 1\uD68C\uC804\uACFC \uCD5C\uB300 \uC6D0\uC18C\uC758 \uC6B0\uCE21 \uD655\uC815",predict:"\uBC84\uBE14 \uC815\uB82C\uC744 1\uD68C\uC804 \uC644\uB8CC\uD558\uBA74 \uC804\uCCB4\uC5D0\uC11C \uAC00\uC7A5 \uD070 \uC218(65)\uAC00 \uB9E8 \uC624\uB978\uCABD \uB05D\uC73C\uB85C \uC774\uB3D9\uD560 \uAC83\uC774\uB2E4.",operate:"\uBC84\uBE14 \uC815\uB82C\uC744 \uC120\uD0DD\uD558\uACE0 [\uD55C \uB2E8\uACC4 \uC804\uC9C4]\uC744 \uBC18\uBCF5\uD558\uC5EC \uCCAB \uBC88\uC9F8 \uD328\uC2A4\uAC00 \uB05D\uB0A0 \uB54C\uAE4C\uC9C0 \uAD00\uCC30\uD55C\uB2E4.",confirm:"\uAC00\uC7A5 \uD070 \uAC12\uC778 65\uAC00 \uC778\uC811 \uBE44\uAD50\uB97C \uAC70\uCE58\uBA70 \uB9E8 \uB4A4(\uC778\uB371\uC2A4 7)\uC5D0 \uCD08\uB85D\uC0C9 \uC815\uB82C \uD655\uC815 \uC0C1\uD0DC\uB85C \uC548\uCC29\uD568\uC744 \uD655\uC778\uD55C\uB2E4."},{id:2,title:"\uC120\uD0DD \uC815\uB82C\uACFC \uC0BD\uC785 \uC815\uB82C\uC758 \uBE44\uAD50 \uD69F\uC218 \uB300\uBE44 \uAD50\uD658 \uD69F\uC218",predict:"\uC120\uD0DD \uC815\uB82C\uC740 \uAD50\uD658 \uD69F\uC218\uAC00 \uC801\uC9C0\uB9CC \uBE44\uAD50 \uD69F\uC218\uAC00 \uB9CE\uACE0, \uC0BD\uC785 \uC815\uB82C\uC740 \uC774\uBBF8 \uC815\uB82C\uB41C \uAD6C\uAC04\uC744 \uD65C\uC6A9\uD574 \uBE44\uAD50\uB97C \uC870\uAE30 \uC885\uB8CC\uD55C\uB2E4.",operate:"\uC120\uD0DD \uC815\uB82C\uACFC \uC0BD\uC785 \uC815\uB82C\uC744 \uB3D9\uC77C\uD55C \uAE30\uBCF8 \uBC30\uC5F4\uC5D0\uC11C \uAC01\uAC01 \uB05D\uAE4C\uC9C0 \uC2E4\uD589\uD558\uC5EC \uCD5C\uC885 \uD1B5\uACC4\uB97C \uAE30\uB85D\uD55C\uB2E4.",confirm:"\uB450 \uC54C\uACE0\uB9AC\uC998\uC758 \uCD5C\uC885 \uBE44\uAD50 \uD69F\uC218\uC640 \uAD50\uD658/\uC774\uB3D9 \uD69F\uC218\uC758 \uCC28\uC774\uB97C \uBE44\uAD50\uD558\uACE0 \uB370\uC774\uD130 \uD328\uD134\uC5D0 \uB530\uB978 \uC720\uBD88\uB9AC\uB97C \uBD84\uC11D\uD55C\uB2E4."},{id:3,title:"\uC911\uBCF5\uAC12\uC774 \uD3EC\uD568\uB41C \uBC30\uC5F4 \uC815\uB82C\uACFC \uC548\uC815\uC131 \uAD00\uCC30",predict:"\uC911\uBCF5\uB41C \uAC12\uC774 \uC788\uC744 \uB54C\uB3C4 \uD06C\uAE30 \uBE44\uAD50 \uAE30\uC900(> \uB610\uB294 <)\uC5D0 \uB530\uB77C \uC624\uB984\uCC28\uC21C \uC815\uB82C\uC774 \uC815\uC0C1 \uC644\uB8CC\uB420 \uAC83\uC774\uB2E4.",operate:"\uC0AC\uC6A9\uC790 \uC9C0\uC815 \uBC30\uC5F4\uC5D0 [25, 10, 25, 5, 10]\uC744 \uC785\uB825\uD558\uACE0 \uC815\uB82C\uC744 \uC218\uD589\uD55C\uB2E4.",confirm:"\uB3D9\uC77C\uD55C \uAC12 10\uACFC 25\uAC00 \uC624\uB958 \uC5C6\uC774 \uC62C\uBC14\uB978 \uC790\uB9AC\uC5D0 \uC815\uB82C\uB418\uB294\uC9C0 \uD655\uC778\uD558\uACE0 \uBE44\uAD50 \uCE74\uC6B4\uD2B8\uAC00 \uC815\uD655\uD788 \uC9D1\uACC4\uB418\uB294\uC9C0 \uAC80\uC99D\uD55C\uB2E4."}],Re=({isPresentationMode:A})=>{let[c,I]=ae("bubble"),[l,E]=ae([...ie]),[P,R]=ae(ie.join(", ")),[W,_]=ae(null),[G,N]=ae(0),[f,F]=ae(!1),[J,L]=ae(400),V=jt(null),z=Pt(()=>{let p=[...l],v=p.length,T=[];T.push({array:[...p],comparing:null,swapping:null,sortedIndices:[],comparisonCount:0,swapCount:0,description:"\uCD08\uAE30 \uBC30\uC5F4 \uC0C1\uD0DC\uC785\uB2C8\uB2E4. \uC815\uB82C\uC744 \uC2DC\uC791\uD560 \uC900\uBE44\uAC00 \uB418\uC5C8\uC2B5\uB2C8\uB2E4."});let M=0,D=0,O=[];if(c==="bubble"){let x=[...p];for(let y=0;y<v-1;y++){for(let o=0;o<v-1-y;o++)if(M++,T.push({array:[...x],comparing:[o,o+1],swapping:null,sortedIndices:[...O],comparisonCount:M,swapCount:D,description:`\uC778\uC811\uD55C \uC6D0\uC18C arr[${o}]=${x[o]} \uC640 arr[${o+1}]=${x[o+1]} \uC758 \uD06C\uAE30\uB97C \uBE44\uAD50\uD569\uB2C8\uB2E4.`}),x[o]>x[o+1]){D++;let S=x[o];x[o]=x[o+1],x[o+1]=S,T.push({array:[...x],comparing:null,swapping:[o,o+1],sortedIndices:[...O],comparisonCount:M,swapCount:D,description:`${x[o+1]} > ${x[o]} \uC774\uBBC0\uB85C \uB450 \uC6D0\uC18C\uC758 \uC704\uCE58\uB97C \uAD50\uD658\uD569\uB2C8\uB2E4.`})}O.push(v-1-y),T.push({array:[...x],comparing:null,swapping:null,sortedIndices:[...O],comparisonCount:M,swapCount:D,description:`\uD328\uC2A4 ${y+1} \uC644\uB8CC: \uC778\uB371\uC2A4 ${v-1-y} \uC704\uCE58\uC758 \uC6D0\uC18C ${x[v-1-y]} \uC774(\uAC00) \uC815\uB82C \uD655\uC815\uB418\uC5C8\uC2B5\uB2C8\uB2E4.`})}O.includes(0)||O.push(0),T.push({array:[...x],comparing:null,swapping:null,sortedIndices:Array.from({length:v},(y,o)=>o),comparisonCount:M,swapCount:D,description:"\uBC84\uBE14 \uC815\uB82C\uC774 \uC131\uACF5\uC801\uC73C\uB85C \uC644\uB8CC\uB418\uC5C8\uC2B5\uB2C8\uB2E4! \uC804\uCCB4 \uBC30\uC5F4\uC774 \uC624\uB984\uCC28\uC21C\uC73C\uB85C \uC815\uB82C\uB418\uC5C8\uC2B5\uB2C8\uB2E4."})}else if(c==="selection"){let x=[...p];for(let y=0;y<v-1;y++){let o=y;for(let S=y+1;S<v;S++)M++,T.push({array:[...x],comparing:[S,o],swapping:null,sortedIndices:[...O],comparisonCount:M,swapCount:D,description:`\uBBF8\uC815\uB82C \uC6D0\uC18C arr[${S}]=${x[S]} \uC640 \uD604\uC7AC \uCD5C\uC19F\uAC12 \uD6C4\uBCF4 arr[${o}]=${x[o]} \uC744 \uBE44\uAD50\uD569\uB2C8\uB2E4.`}),x[S]<x[o]&&(o=S,T.push({array:[...x],comparing:[o,y],swapping:null,sortedIndices:[...O],comparisonCount:M,swapCount:D,description:`\uC0C8\uB85C\uC6B4 \uCD5C\uC19F\uAC12 \uD6C4\uBCF4 \uBC1C\uACAC: \uC778\uB371\uC2A4 ${o} (\uAC12: ${x[o]})`}));if(o!==y){D++;let S=x[y];x[y]=x[o],x[o]=S,T.push({array:[...x],comparing:null,swapping:[y,o],sortedIndices:[...O],comparisonCount:M,swapCount:D,description:`\uBBF8\uC815\uB82C \uAD6C\uAC04\uC758 \uCD5C\uC19F\uAC12 ${x[y]} \uC744(\uB97C) \uC778\uB371\uC2A4 ${y} \uC758 \uC6D0\uC18C ${x[o]} \uC640 \uAD50\uD658\uD569\uB2C8\uB2E4.`})}O.push(y),T.push({array:[...x],comparing:null,swapping:null,sortedIndices:[...O],comparisonCount:M,swapCount:D,description:`\uC778\uB371\uC2A4 ${y} \uC704\uCE58\uC5D0 \uCD5C\uC19F\uAC12 ${x[y]} \uC774(\uAC00) \uC815\uB82C \uD655\uC815\uB418\uC5C8\uC2B5\uB2C8\uB2E4.`})}T.push({array:[...x],comparing:null,swapping:null,sortedIndices:Array.from({length:v},(y,o)=>o),comparisonCount:M,swapCount:D,description:"\uC120\uD0DD \uC815\uB82C\uC774 \uC644\uB8CC\uB418\uC5C8\uC2B5\uB2C8\uB2E4! \uC804\uCCB4 \uC6D0\uC18C\uAC00 \uC624\uB984\uCC28\uC21C\uC73C\uB85C \uBC30\uCE58\uB418\uC5C8\uC2B5\uB2C8\uB2E4."})}else if(c==="insertion"){let x=[...p];O.push(0);for(let y=1;y<v;y++){let o=x[y],S=y-1;for(T.push({array:[...x],comparing:[y,S],swapping:null,sortedIndices:[...O],comparisonCount:M,swapCount:D,description:`\uC0BD\uC785\uD560 \uB300\uC0C1 \uC6D0\uC18C key = arr[${y}] (${o}) \uC744(\uB97C) \uC815\uB82C\uB41C \uC55E\uCABD \uAD6C\uAC04\uACFC \uBE44\uAD50\uD569\uB2C8\uB2E4.`});S>=0&&(M++,T.push({array:[...x],comparing:[S,S+1],swapping:null,sortedIndices:[...O],comparisonCount:M,swapCount:D,description:`key (${o}) \uC640 \uC815\uB82C\uB41C \uC6D0\uC18C arr[${S}]=${x[S]} \uC758 \uD06C\uAE30\uB97C \uBE44\uAD50\uD569\uB2C8\uB2E4.`}),x[S]>o);)D++,x[S+1]=x[S],x[S]=o,T.push({array:[...x],comparing:null,swapping:[S,S+1],sortedIndices:[...O],comparisonCount:M,swapCount:D,description:`${x[S+1]} > ${o} \uC774\uBBC0\uB85C \uC6D0\uC18C\uB97C \uC624\uB978\uCABD\uC73C\uB85C \uD55C \uCE78 \uC774\uB3D9\uD569\uB2C8\uB2E4.`}),S--;O.push(y),T.push({array:[...x],comparing:null,swapping:null,sortedIndices:Array.from({length:y+1},(Wt,Fe)=>Fe),comparisonCount:M,swapCount:D,description:`\uC6D0\uC18C ${o} \uC774(\uAC00) \uC62C\uBC14\uB978 \uC704\uCE58\uC5D0 \uC0BD\uC785\uB418\uC5B4 0~${y} \uAD6C\uAC04\uC758 \uC815\uB82C\uC774 \uC720\uC9C0\uB429\uB2C8\uB2E4.`})}T.push({array:[...x],comparing:null,swapping:null,sortedIndices:Array.from({length:v},(y,o)=>o),comparisonCount:M,swapCount:D,description:"\uC0BD\uC785 \uC815\uB82C\uC774 \uC644\uB8CC\uB418\uC5C8\uC2B5\uB2C8\uB2E4! \uC804\uCCB4 \uBC30\uC5F4\uC774 \uC815\uB82C\uB418\uC5C8\uC2B5\uB2C8\uB2E4."})}return T},[l,c]),s=()=>{V.current&&(clearInterval(V.current),V.current=null)},r=p=>{s(),F(!1),I(p),N(0)},t=()=>{s(),F(!1),N(p=>Math.min(z.length-1,p+1))},d=()=>{s(),F(!1),N(0)},w=()=>{f?(s(),F(!1)):(G>=z.length-1&&N(0),F(!0))};Se(()=>(f?(s(),V.current=setInterval(()=>{N(p=>p>=z.length-1?(s(),F(!1),p):p+1)},J)):s(),()=>s()),[f,J,z.length]),Se(()=>()=>s(),[]);let H=p=>{p.preventDefault(),_(null);let v=P.split(",").map(M=>M.trim());if(v.length<3||v.length>16){_("\uC6D0\uC18C \uAC1C\uC218\uB294 3\uAC1C \uC774\uC0C1 16\uAC1C \uC774\uD558\uC774\uC5B4\uC57C \uD569\uB2C8\uB2E4.");return}let T=[];for(let M of v){let D=Number(M);if(!/^\d+$/.test(M)||!Number.isInteger(D)||D<1||D>99){_("\uAC01 \uC6D0\uC18C\uB294 1\uBD80\uD130 99 \uC0AC\uC774\uC758 \uC815\uC218\uC5EC\uC57C \uD569\uB2C8\uB2E4.");return}T.push(D)}s(),F(!1),E(T),N(0)},q=()=>{s(),F(!1),E([...ie]),R(ie.join(", ")),_(null),N(0)},a=z[G]||z[0],$=Math.max(...a.array,70),h=G===z.length-1;return C("div",{className:"space-y-6",children:[C("div",{className:"flex flex-col md:flex-row md:items-end justify-between gap-4 pb-4 border-b border-slate-800",children:[C("div",{children:[C("div",{className:"flex items-center gap-2 text-xs font-semibold text-emerald-400 mb-1",children:[m(Rt,{className:"w-4 h-4","aria-hidden":"true"}),m("span",{children:"\uC815\uBCF4 \uD0D0\uAD6C \uBAA8\uB4C8"}),m("span",{className:"text-slate-500",children:"\xB7"}),m("span",{children:"\uC815\uB82C \uC54C\uACE0\uB9AC\uC998 \uBA54\uCEE4\uB2C8\uC998\uACFC \uACC4\uC0B0 \uBCF5\uC7A1\uB3C4"})]}),m("h2",{className:`font-bold text-slate-100 ${A?"text-3xl":"text-2xl"}`,children:"\uC815\uB82C\uC758 \uC21C\uAC04: \uBC84\uBE14\xB7\uC120\uD0DD\xB7\uC0BD\uC785 \uC815\uB82C \uBE44\uAD50 \uC2DC\uAC01\uD654"}),m("p",{className:"text-slate-400 text-sm mt-1 max-w-3xl leading-relaxed",children:"\uB3D9\uC77C\uD55C \uCD08\uAE30 \uBC30\uC5F4\uC5D0\uC11C \uC138 \uAC00\uC9C0 \uAE30\uCD08 \uC815\uB82C \uC54C\uACE0\uB9AC\uC998\uC758 \uD55C \uB2E8\uACC4\uBCC4 \uBE44\uAD50\xB7\uAD50\uD658 \uACFC\uC815\uC744 \uCD94\uC801\uD558\uACE0, \uC6D0\uC18C\uAC12 \uAC04 \uBE44\uAD50 \uD69F\uC218\uC640 \uB370\uC774\uD130 \uC774\uB3D9 \uD69F\uC218\uC758 \uC815\uB7C9\uC801 \uCC28\uC774\uB97C \uBE44\uAD50\uD569\uB2C8\uB2E4."})]}),m("div",{className:"flex items-center gap-2 shrink-0",children:C("button",{type:"button",onClick:q,className:"inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-medium text-slate-300 bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-lg transition-colors",children:[m(je,{className:"w-3.5 h-3.5","aria-hidden":"true"}),m("span",{children:"\uAE30\uBCF8 \uBC30\uC5F4\uB85C \uCD08\uAE30\uD654"})]})})]}),C("div",{className:"p-3.5 rounded-lg bg-emerald-950/20 border border-emerald-500/20 text-xs text-emerald-200/90 flex items-start gap-2.5",children:[m("span",{className:"font-semibold text-emerald-400 shrink-0",children:"\uD559\uC2B5 \uBAA9\uD45C"}),C("div",{className:"space-y-0.5",children:[m("p",{children:"1. \uBC84\uBE14 \uC815\uB82C, \uC120\uD0DD \uC815\uB82C, \uC0BD\uC785 \uC815\uB82C\uC758 \uBE44\uAD50 \uD69F\uC218\uC640 \uAD50\uD658/\uC774\uB3D9 \uD69F\uC218\uC758 \uCC28\uC774\uB97C \uC2E4\uD589 \uACFC\uC815\uC5D0\uC11C \uC2E4\uC2DC\uAC04\uC73C\uB85C \uCD94\uC801\uD560 \uC218 \uC788\uB2E4."}),m("p",{children:"2. \uB3D9\uC77C\uD55C \uCD08\uAE30 \uBC30\uC5F4 \uC0C1\uD0DC\uC5D0\uC11C \uAC01 \uC54C\uACE0\uB9AC\uC998\uC774 \uC6D0\uC18C\uB97C \uC815\uB82C\uD574 \uB098\uAC00\uB294 \uBD88\uBCC0\uC2DD(\uC815\uB82C \uD655\uC815 \uAD6C\uAC04) \uD615\uC131 \uBA54\uCEE4\uB2C8\uC998\uC744 \uC2DC\uAC01\uC801\uC73C\uB85C \uC124\uBA85\uD560 \uC218 \uC788\uB2E4."})]})]}),C("div",{className:"p-4 rounded-xl bg-slate-900/60 border border-slate-800 flex flex-wrap items-center justify-between gap-3",children:[C("div",{className:"flex items-center gap-2",children:[m("span",{className:"text-xs font-semibold text-slate-300",children:"\uC815\uB82C \uC54C\uACE0\uB9AC\uC998 \uC120\uD0DD:"}),C("div",{className:"inline-flex rounded-lg border border-slate-700 p-1 bg-slate-950/40",children:[m("button",{type:"button",onClick:()=>r("bubble"),className:`px-3 py-1.5 text-xs font-medium rounded-md transition-colors ${c==="bubble"?"bg-emerald-600 text-white font-semibold":"text-slate-400 hover:text-slate-200"}`,children:"\uBC84\uBE14 \uC815\uB82C (Bubble Sort)"}),m("button",{type:"button",onClick:()=>r("selection"),className:`px-3 py-1.5 text-xs font-medium rounded-md transition-colors ${c==="selection"?"bg-emerald-600 text-white font-semibold":"text-slate-400 hover:text-slate-200"}`,children:"\uC120\uD0DD \uC815\uB82C (Selection Sort)"}),m("button",{type:"button",onClick:()=>r("insertion"),className:`px-3 py-1.5 text-xs font-medium rounded-md transition-colors ${c==="insertion"?"bg-emerald-600 text-white font-semibold":"text-slate-400 hover:text-slate-200"}`,children:"\uC0BD\uC785 \uC815\uB82C (Insertion Sort)"})]})]}),C("div",{className:"text-xs text-slate-400 flex items-center gap-2",children:[m("span",{children:"\uD2B9\uC9D5:"}),C("span",{className:"text-slate-200",children:[c==="bubble"&&"\uC778\uC811 \uC6D0\uC18C \uAC04 \uBE44\uAD50 \uD6C4 \uD070 \uAC12\uC744 \uB4A4\uB85C \uC774\uB3D9 (\uC624\uB978\uCABD\uBD80\uD130 \uC815\uB82C \uD655\uC815)",c==="selection"&&"\uBBF8\uC815\uB82C \uAD6C\uAC04\uC5D0\uC11C \uCD5C\uC19F\uAC12\uC744 \uCC3E\uC544 \uCCAB \uC704\uCE58\uC640 \uAD50\uD658 (\uC67C\uCABD\uBD80\uD130 \uC815\uB82C \uD655\uC815)",c==="insertion"&&"\uD604\uC7AC \uC6D0\uC18C\uB97C \uC774\uBBF8 \uC815\uB82C\uB41C \uC55E\uCABD \uBD80\uBD84\uC5D0 \uC801\uC808\uD55C \uC704\uCE58\uB85C \uC0BD\uC785 (\uC55E\uCABD \uBD80\uBD84\uBC30\uC5F4 \uC720\uC9C0)"]})]})]}),C("div",{className:"p-6 rounded-xl bg-slate-900/60 border border-slate-800 space-y-6",children:[C("div",{className:"flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-4 border-b border-slate-800",children:[C("div",{className:"flex flex-wrap items-center gap-3",children:[C("div",{className:"px-3.5 py-2 rounded-lg bg-slate-950/70 border border-slate-800 flex items-center gap-2",children:[m("span",{className:"text-xs text-slate-400",children:"\uBE44\uAD50 \uD69F\uC218 (\uC6D0\uC18C \uAC04):"}),C("span",{className:"font-mono text-base font-bold text-amber-400",children:[a.comparisonCount," ",m("span",{className:"text-xs font-normal text-slate-400",children:"\uD68C"})]})]}),C("div",{className:"px-3.5 py-2 rounded-lg bg-slate-950/70 border border-slate-800 flex items-center gap-2",children:[m("span",{className:"text-xs text-slate-400",children:"\uAD50\uD658/\uC774\uB3D9 \uD69F\uC218:"}),C("span",{className:"font-mono text-base font-bold text-rose-400",children:[a.swapCount," ",m("span",{className:"text-xs font-normal text-slate-400",children:"\uD68C"})]})]}),C("div",{className:"px-3.5 py-2 rounded-lg bg-slate-950/70 border border-slate-800 flex items-center gap-2",children:[m("span",{className:"text-xs text-slate-400",children:"\uC9C4\uD589 \uC2A4\uD15D:"}),C("span",{className:"font-mono text-xs font-semibold text-emerald-400",children:[G," / ",z.length-1," \uB2E8\uACC4"]})]})]}),C("div",{className:"flex flex-wrap items-center gap-2",children:[m("button",{type:"button",onClick:w,className:`inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-semibold rounded-lg transition-colors shadow-sm ${f?"bg-amber-500 hover:bg-amber-400 text-slate-950":"bg-emerald-400 hover:bg-emerald-300 text-emerald-950"}`,children:f?C(Pe,{children:[m(Dt,{className:"w-3.5 h-3.5 fill-current","aria-hidden":"true"}),m("span",{children:"\uC77C\uC2DC\uC815\uC9C0"})]}):C(Pe,{children:[m(Gt,{className:"w-3.5 h-3.5 fill-current","aria-hidden":"true"}),m("span",{children:h?"\uCC98\uC74C\uBD80\uD130 \uC7AC\uC0DD":"\uC2E4\uD589"})]})}),C("button",{type:"button",onClick:t,disabled:h,className:"inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-slate-200 bg-slate-800 hover:bg-slate-700 disabled:opacity-40 disabled:hover:bg-slate-800 border border-slate-700 rounded-lg transition-colors",children:[m(Ft,{className:"w-3.5 h-3.5","aria-hidden":"true"}),m("span",{children:"\uD55C \uB2E8\uACC4"})]}),C("button",{type:"button",onClick:d,className:"inline-flex items-center gap-1 px-2.5 py-1.5 text-xs text-slate-400 hover:text-slate-200 transition-colors",children:[m(je,{className:"w-3.5 h-3.5","aria-hidden":"true"}),m("span",{children:"\uCC98\uC74C\uC73C\uB85C"})]}),C("div",{className:"flex items-center gap-1.5 ml-2 pl-2 border-l border-slate-800",children:[m(qt,{className:"w-3.5 h-3.5 text-slate-400","aria-hidden":"true"}),m("span",{className:"text-[11px] text-slate-400",children:"\uC18D\uB3C4:"}),[{label:"0.5x",ms:700},{label:"1x",ms:400},{label:"2x",ms:200},{label:"4x",ms:80}].map(p=>m("button",{type:"button",onClick:()=>L(p.ms),className:`px-2 py-0.5 text-[11px] rounded transition-colors ${J===p.ms?"bg-slate-700 text-emerald-400 font-bold":"text-slate-400 hover:text-slate-300"}`,children:p.label},p.label))]})]})]}),C("div",{className:"p-4 rounded-xl bg-slate-950/80 border border-slate-800/80",children:[m("div",{className:"h-64 flex items-end justify-center gap-2 sm:gap-3 px-2 pt-6",children:a.array.map((p,v)=>{let T=a.comparing&&(a.comparing[0]===v||a.comparing[1]===v),M=a.swapping&&(a.swapping[0]===v||a.swapping[1]===v),D=a.sortedIndices.includes(v),O=Math.max(10,p/$*85),x="bg-slate-700/80 border-slate-600",y="text-slate-300";return M?(x="bg-rose-500 border-rose-300 ring-2 ring-rose-400/40",y="text-rose-300 font-bold"):T?(x="bg-amber-500 border-amber-300 ring-2 ring-amber-400/40",y="text-amber-300 font-bold"):D&&(x="bg-emerald-500/90 border-emerald-400",y="text-emerald-400 font-semibold"),C("div",{className:"flex-1 max-w-[56px] flex flex-col items-center justify-end h-full group",children:[m("span",{className:`font-mono text-xs mb-1.5 transition-colors ${y}`,children:p}),m("div",{style:{height:`${O}%`},className:`w-full rounded-t-md border transition-all duration-150 flex items-center justify-center ${x}`,children:m("span",{className:"text-[10px] font-mono text-slate-950 font-bold hidden sm:inline opacity-70",children:p})}),C("span",{className:"text-[10px] font-mono text-slate-500 mt-1.5",children:["[",v,"]"]})]},`bar-node-${v}`)})}),C("div",{className:"flex flex-wrap items-center justify-center gap-4 mt-4 pt-3 border-t border-slate-800 text-xs",children:[C("div",{className:"flex items-center gap-1.5",children:[m("span",{className:"w-3 h-3 rounded-sm bg-amber-500"}),m("span",{className:"text-slate-300",children:"\uBE44\uAD50 \uC911 (Comparing)"})]}),C("div",{className:"flex items-center gap-1.5",children:[m("span",{className:"w-3 h-3 rounded-sm bg-rose-500"}),m("span",{className:"text-slate-300",children:"\uAD50\uD658/\uC774\uB3D9 (Swapping)"})]}),C("div",{className:"flex items-center gap-1.5",children:[m("span",{className:"w-3 h-3 rounded-sm bg-emerald-500"}),m("span",{className:"text-slate-300",children:"\uC815\uB82C \uD655\uC815 (Sorted)"})]}),C("div",{className:"flex items-center gap-1.5",children:[m("span",{className:"w-3 h-3 rounded-sm bg-slate-700"}),m("span",{className:"text-slate-400",children:"\uBBF8\uC815\uB82C (Default)"})]})]})]}),C("div",{className:`p-4 rounded-xl border flex items-start gap-3 transition-colors ${h?"bg-emerald-950/30 border-emerald-500/30 text-emerald-200":"bg-slate-950/60 border-slate-800 text-slate-300"}`,children:[h?m(Ht,{className:"w-5 h-5 text-emerald-400 shrink-0 mt-0.5","aria-hidden":"true"}):m(Et,{className:"w-5 h-5 text-teal-400 shrink-0 mt-0.5","aria-hidden":"true"}),C("div",{className:"space-y-0.5",children:[m("span",{className:"text-xs font-semibold uppercase tracking-wider text-slate-400 block",children:h?"\uC54C\uACE0\uB9AC\uC998 \uC815\uB82C \uC644\uB8CC":`\uD604\uC7AC \uB2E8\uACC4 (${G}/${z.length-1}) \uD574\uC124`}),m("p",{className:"text-sm text-slate-200 leading-relaxed font-medium",children:a.description})]})]})]}),C("div",{className:"p-5 rounded-xl bg-slate-900/60 border border-slate-800",children:[C("div",{className:"flex items-center gap-2 mb-2",children:[m(Lt,{className:"w-4 h-4 text-emerald-400","aria-hidden":"true"}),m("h3",{className:"text-sm font-semibold text-slate-200",children:"\uC0AC\uC6A9\uC790 \uC9C0\uC815 \uBC30\uC5F4 \uC785\uB825 (\uC911\uBCF5\uAC12 \uD3EC\uD568 \uD5C8\uC6A9)"})]}),m("p",{className:"text-xs text-slate-400 mb-3",children:"\uC27C\uD45C(,)\uB85C \uAD6C\uBD84\uB41C 3\uAC1C~16\uAC1C\uC758 \uC815\uC218 (1~99 \uBC94\uC704)\uB97C \uC9C1\uC811 \uC785\uB825\uD558\uC5EC \uC815\uB82C \uC2DC\uBBAC\uB808\uC774\uC158\uC744 \uC218\uD589\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4."}),C("form",{onSubmit:H,className:"flex flex-col sm:flex-row items-stretch gap-2.5",children:[m("label",{htmlFor:"custom-array-input",className:"sr-only",children:"\uC0AC\uC6A9\uC790 \uBC30\uC5F4 \uC785\uB825"}),m("input",{id:"custom-array-input",type:"text",value:P,onChange:p=>R(p.target.value),placeholder:"\uC608: 38, 12, 65, 24, 51, 7, 43, 19",className:"flex-1 bg-slate-950 border border-slate-700 rounded-lg px-3.5 py-2 text-xs font-mono text-slate-200 focus:border-emerald-500 focus:outline-none"}),m("button",{type:"submit",className:"px-4 py-2 text-xs font-semibold text-emerald-950 bg-emerald-400 hover:bg-emerald-300 rounded-lg transition-colors shrink-0",children:"\uBC30\uC5F4 \uC801\uC6A9 \uBC0F \uC7AC\uC815\uB82C \uC900\uBE44"})]}),W&&C("p",{className:"text-xs text-rose-400 mt-2 font-medium",children:["* ",W]})]}),m(Z,{tasks:Ot,isPresentationMode:A}),m(Q,{guide:zt,isPresentationMode:A})]})};import{jsx as se,jsxs as De}from"react/jsx-runtime";var fe=["biology","history","geography","music","informatics"];function ge(){let[A,c]=Ge(()=>{let R=window.location.hash.replace("#","");return fe.includes(R)?R:"biology"}),[I,l]=Ge(!1);return Vt(()=>{let R=()=>{let W=window.location.hash.replace("#","");fe.includes(W)&&c(W)};return window.addEventListener("hashchange",R),(!window.location.hash||!fe.includes(window.location.hash.replace("#","")))&&(window.location.hash=`#${A}`),()=>{window.removeEventListener("hashchange",R)}},[A]),De("div",{className:`min-h-screen bg-[#090D16] text-[#F3F4F6] flex flex-col font-sans transition-all ${I?"text-lg":"text-base"}`,children:[se(ve,{activeSubject:A,onSelectSubject:R=>{c(R),window.location.hash=`#${R}`},isPresentationMode:I,onTogglePresentationMode:()=>{l(R=>!R)}}),De("main",{className:"flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8",children:[A==="biology"&&se(ye,{isPresentationMode:I}),A==="history"&&se(Ae,{isPresentationMode:I}),A==="geography"&&se(Ce,{isPresentationMode:I}),A==="music"&&se(Me,{isPresentationMode:I}),A==="informatics"&&se(Re,{isPresentationMode:I})]}),se(Ne,{})]})}import{jsx as Bt}from"react/jsx-runtime";_t(document.getElementById("root")).render(Bt(ge,{}));
+/**
+ * @license
+ * SPDX-License-Identifier: Apache-2.0
+ */
+</script></body>
+</html>
+

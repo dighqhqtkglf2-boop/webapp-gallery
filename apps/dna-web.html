@@ -1,0 +1,1228 @@
+<!doctype html>
+<html lang="ko" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DNA 3D 탐색기 | 금평초 김상흠</title>
+    <meta name="description" content="Interactive 3D B-DNA double helix visualizer with base pair editing, real-time transcription/translation, exploded view, hydrogen bonding analysis, and atomic/ribbon representation." />
+    <meta property="og:title" content="DNA 3D Explorer & Molecular Workbench" />
+    <meta property="og:description" content="Interactive 3D B-DNA double helix visualizer with base pair editing, real-time transcription/translation, exploded view, hydrogen bonding analysis, and atomic/ribbon representation." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>.aistudio-hover-highlight { box-shadow: inset 0 0 0 0.5px white, inset 0 0 0 1.5px rgba(128,128,128,0.6) !important; }.aistudio-active-highlight { outline: 2px solid #87a9ff !important; outline-offset: -2px !important; box-shadow: 0 0 0 0.5px rgba(0,0,0,0.3), inset 0 0 0 0.5px rgba(0,0,0,0.3) !important; }.aistudio-generating-blur { filter: blur(5px) grayscale(100%) brightness(28%) !important; transition: filter 0.3s ease; }#aistudio-focus-mode-tag { position: absolute; display: none; align-items: center; gap: 4px; background: #87a9ff; border-radius: 12px; z-index: 10000; padding: 8px; color: #32302c; font-family: Inter, sans-serif; font-size: 14px; font-style: normal; font-weight: 500; line-height: 21px; pointer-events: none; }#aistudio-hover-mode-tag { position: absolute; display: none; align-items: center; gap: 4px; background: rgba(128,128,128,0.6); border-radius: 12px; z-index: 10000; padding: 8px; color: white; font-family: Inter, sans-serif; font-size: 14px; font-style: normal; font-weight: 500; line-height: 21px; pointer-events: none; }.aistudio-img-icon { display: none; vertical-align: middle; pointer-events: auto; cursor: pointer; }.aistudio-img-icon.visible { display: inline-flex; }#aistudio-focus-mode-tag .aistudio-img-icon { position: relative; width: 26px; height: 26px; background: #32302c; border-radius: 6px; margin: -4px -4px -4px 0; }#aistudio-focus-mode-tag .aistudio-img-icon::before { content: ""; position: absolute; top: 4px; left: 4px; width: 18px; height: 18px; background-color: white; -webkit-mask-image: url("https://fonts.gstatic.com/s/i/short-term/release/googlesymbols/edit_fix_auto/default/24px.svg"); -webkit-mask-size: contain; -webkit-mask-repeat: no-repeat; mask-image: url("https://fonts.gstatic.com/s/i/short-term/release/googlesymbols/edit_fix_auto/default/24px.svg"); mask-size: contain; mask-repeat: no-repeat; }#aistudio-hover-mode-tag .aistudio-img-icon { position: relative; width: 18px; height: 18px; margin-left: 4px; }#aistudio-hover-mode-tag .aistudio-img-icon::before { content: ""; position: absolute; top: 0; left: 0; width: 18px; height: 18px; background-color: white; -webkit-mask-image: url("https://fonts.gstatic.com/s/i/short-term/release/googlesymbols/edit_fix_auto/default/24px.svg"); -webkit-mask-size: contain; -webkit-mask-repeat: no-repeat; mask-image: url("https://fonts.gstatic.com/s/i/short-term/release/googlesymbols/edit_fix_auto/default/24px.svg"); mask-size: contain; mask-repeat: no-repeat; }#aistudio-focus-mode-tag .aistudio-img-icon:hover, #aistudio-hover-mode-tag .aistudio-img-icon:hover { background: #424242 !important; }#aistudio-focus-mode-tag .aistudio-img-icon:active, #aistudio-hover-mode-tag .aistudio-img-icon:active { background: #393f51 !important; }
+/*! tailwindcss v4.3.3 | MIT License | https://tailwindcss.com */
+@layer properties;
+@layer theme, base, components, utilities;
+@layer theme {
+  :root, :host {
+    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+      "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+      "Segoe UI Symbol", "Noto Color Emoji";
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+      "Courier New", monospace;
+    --color-amber-300: oklch(87.9% 0.169 91.605);
+    --color-amber-400: oklch(82.8% 0.189 84.429);
+    --color-amber-500: oklch(76.9% 0.188 70.08);
+    --color-emerald-300: oklch(84.5% 0.143 164.978);
+    --color-emerald-500: oklch(69.6% 0.17 162.48);
+    --color-sky-300: oklch(82.8% 0.111 230.318);
+    --color-sky-400: oklch(74.6% 0.16 232.661);
+    --color-sky-500: oklch(68.5% 0.169 237.323);
+    --color-indigo-300: oklch(78.5% 0.115 274.713);
+    --color-indigo-400: oklch(67.3% 0.182 276.935);
+    --color-indigo-500: oklch(58.5% 0.233 277.117);
+    --color-rose-300: oklch(81% 0.117 11.638);
+    --color-rose-400: oklch(71.2% 0.194 13.428);
+    --color-rose-500: oklch(64.5% 0.246 16.439);
+    --color-slate-100: oklch(96.8% 0.007 247.896);
+    --color-slate-200: oklch(92.9% 0.013 255.508);
+    --color-slate-300: oklch(86.9% 0.022 252.894);
+    --color-slate-400: oklch(70.4% 0.04 256.788);
+    --color-slate-500: oklch(55.4% 0.046 257.417);
+    --color-slate-600: oklch(44.6% 0.043 257.281);
+    --color-slate-700: oklch(37.2% 0.044 257.287);
+    --color-slate-800: oklch(27.9% 0.041 260.031);
+    --color-slate-900: oklch(20.8% 0.042 265.755);
+    --color-slate-950: oklch(12.9% 0.042 264.695);
+    --color-white: #fff;
+    --spacing: 0.25rem;
+    --container-xs: 20rem;
+    --container-4xl: 56rem;
+    --container-7xl: 80rem;
+    --text-xs: 0.75rem;
+    --text-xs--line-height: calc(1 / 0.75);
+    --text-sm: 0.875rem;
+    --text-sm--line-height: calc(1.25 / 0.875);
+    --text-xl: 1.25rem;
+    --text-xl--line-height: calc(1.75 / 1.25);
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    --font-weight-black: 900;
+    --tracking-wider: 0.05em;
+    --leading-tight: 1.25;
+    --leading-relaxed: 1.625;
+    --radius-sm: 0.25rem;
+    --radius-lg: 0.5rem;
+    --radius-xl: 0.75rem;
+    --radius-2xl: 1rem;
+    --ease-out: cubic-bezier(0, 0, 0.2, 1);
+    --default-transition-duration: 150ms;
+    --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    --default-font-family: var(--font-sans);
+    --default-mono-font-family: var(--font-mono);
+  }
+}
+@layer base {
+  *, ::after, ::before, ::backdrop, ::file-selector-button {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0 solid;
+  }
+  html, :host {
+    line-height: 1.5;
+    -webkit-text-size-adjust: 100%;
+    tab-size: 4;
+    font-family: var(--default-font-family, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji");
+    font-feature-settings: var(--default-font-feature-settings, normal);
+    font-variation-settings: var(--default-font-variation-settings, normal);
+    -webkit-tap-highlight-color: transparent;
+  }
+  hr {
+    height: 0;
+    color: inherit;
+    border-top-width: 1px;
+  }
+  abbr:where([title]) {
+    -webkit-text-decoration: underline dotted;
+    text-decoration: underline dotted;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-size: inherit;
+    font-weight: inherit;
+  }
+  a {
+    color: inherit;
+    -webkit-text-decoration: inherit;
+    text-decoration: inherit;
+  }
+  b, strong {
+    font-weight: bolder;
+  }
+  code, kbd, samp, pre {
+    font-family: var(--default-mono-font-family, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace);
+    font-feature-settings: var(--default-mono-font-feature-settings, normal);
+    font-variation-settings: var(--default-mono-font-variation-settings, normal);
+    font-size: 1em;
+  }
+  small {
+    font-size: 80%;
+  }
+  sub, sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+  }
+  sub {
+    bottom: -0.25em;
+  }
+  sup {
+    top: -0.5em;
+  }
+  table {
+    text-indent: 0;
+    border-color: inherit;
+    border-collapse: collapse;
+  }
+  :-moz-focusring:where(:not(iframe)) {
+    outline: auto;
+  }
+  progress {
+    vertical-align: baseline;
+  }
+  summary {
+    display: list-item;
+  }
+  ol, ul, menu {
+    list-style: none;
+  }
+  img, svg, video, canvas, audio, iframe, embed, object {
+    display: block;
+    vertical-align: middle;
+  }
+  img, video {
+    max-width: 100%;
+    height: auto;
+  }
+  button, input, select, optgroup, textarea, ::file-selector-button {
+    font: inherit;
+    font-feature-settings: inherit;
+    font-variation-settings: inherit;
+    letter-spacing: inherit;
+    color: inherit;
+    border-radius: 0;
+    background-color: transparent;
+    opacity: 1;
+  }
+  :where(select:is([multiple], [size])) optgroup {
+    font-weight: bolder;
+  }
+  :where(select:is([multiple], [size])) optgroup option {
+    padding-inline-start: 20px;
+  }
+  ::file-selector-button {
+    margin-inline-end: 4px;
+  }
+  ::placeholder {
+    opacity: 1;
+  }
+  @supports (not (-webkit-appearance: -apple-pay-button))  or (contain-intrinsic-size: 1px) {
+    ::placeholder {
+      color: currentcolor;
+      @supports (color: color-mix(in lab, red, red)) {
+        color: color-mix(in oklab, currentcolor 50%, transparent);
+      }
+    }
+  }
+  textarea {
+    resize: vertical;
+  }
+  ::-webkit-search-decoration {
+    -webkit-appearance: none;
+  }
+  ::-webkit-date-and-time-value {
+    min-height: 1lh;
+    text-align: inherit;
+  }
+  ::-webkit-datetime-edit {
+    display: inline-flex;
+  }
+  ::-webkit-datetime-edit-fields-wrapper {
+    padding: 0;
+  }
+  ::-webkit-datetime-edit, ::-webkit-datetime-edit-year-field, ::-webkit-datetime-edit-month-field, ::-webkit-datetime-edit-day-field, ::-webkit-datetime-edit-hour-field, ::-webkit-datetime-edit-minute-field, ::-webkit-datetime-edit-second-field, ::-webkit-datetime-edit-millisecond-field, ::-webkit-datetime-edit-meridiem-field {
+    padding-block: 0;
+  }
+  ::-webkit-calendar-picker-indicator {
+    line-height: 1;
+  }
+  :-moz-ui-invalid {
+    box-shadow: none;
+  }
+  button, input:where([type="button"], [type="reset"], [type="submit"]), ::file-selector-button {
+    appearance: button;
+  }
+  ::-webkit-inner-spin-button, ::-webkit-outer-spin-button {
+    height: auto;
+  }
+  [hidden]:where(:not([hidden="until-found"])) {
+    display: none !important;
+  }
+}
+@layer utilities {
+  .pointer-events-auto {
+    pointer-events: auto;
+  }
+  .pointer-events-none {
+    pointer-events: none;
+  }
+  .absolute {
+    position: absolute;
+  }
+  .fixed {
+    position: fixed;
+  }
+  .relative {
+    position: relative;
+  }
+  .inset-0 {
+    inset: 0px;
+  }
+  .top-4 {
+    top: calc(var(--spacing) * 4);
+  }
+  .top-16 {
+    top: calc(var(--spacing) * 16);
+  }
+  .right-4 {
+    right: calc(var(--spacing) * 4);
+  }
+  .bottom-5 {
+    bottom: calc(var(--spacing) * 5);
+  }
+  .left-1\/2 {
+    left: calc(1 / 2 * 100%);
+  }
+  .left-5 {
+    left: calc(var(--spacing) * 5);
+  }
+  .z-10 {
+    z-index: 10;
+  }
+  .z-20 {
+    z-index: 20;
+  }
+  .z-30 {
+    z-index: 30;
+  }
+  .container {
+    width: 100%;
+    @media (width >= 40rem) {
+      max-width: 40rem;
+    }
+    @media (width >= 48rem) {
+      max-width: 48rem;
+    }
+    @media (width >= 64rem) {
+      max-width: 64rem;
+    }
+    @media (width >= 80rem) {
+      max-width: 80rem;
+    }
+    @media (width >= 96rem) {
+      max-width: 96rem;
+    }
+  }
+  .mx-auto {
+    margin-inline: auto;
+  }
+  .my-\[1px\] {
+    margin-block: 1px;
+  }
+  .mt-0\.5 {
+    margin-top: calc(var(--spacing) * 0.5);
+  }
+  .mt-1 {
+    margin-top: var(--spacing);
+  }
+  .mt-2 {
+    margin-top: calc(var(--spacing) * 2);
+  }
+  .mt-2\.5 {
+    margin-top: calc(var(--spacing) * 2.5);
+  }
+  .mt-3 {
+    margin-top: calc(var(--spacing) * 3);
+  }
+  .mb-0\.5 {
+    margin-bottom: calc(var(--spacing) * 0.5);
+  }
+  .mb-1 {
+    margin-bottom: var(--spacing);
+  }
+  .mb-1\.5 {
+    margin-bottom: calc(var(--spacing) * 1.5);
+  }
+  .mb-2 {
+    margin-bottom: calc(var(--spacing) * 2);
+  }
+  .mb-3 {
+    margin-bottom: calc(var(--spacing) * 3);
+  }
+  .line-clamp-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+  .block {
+    display: block;
+  }
+  .flex {
+    display: flex;
+  }
+  .grid {
+    display: grid;
+  }
+  .hidden {
+    display: none;
+  }
+  .inline {
+    display: inline;
+  }
+  .h-2\.5 {
+    height: calc(var(--spacing) * 2.5);
+  }
+  .h-\[13px\] {
+    height: 13px;
+  }
+  .h-full {
+    height: 100%;
+  }
+  .h-screen {
+    height: 100vh;
+  }
+  .w-2\.5 {
+    width: calc(var(--spacing) * 2.5);
+  }
+  .w-20 {
+    width: calc(var(--spacing) * 20);
+  }
+  .w-80 {
+    width: calc(var(--spacing) * 80);
+  }
+  .w-\[95vw\] {
+    width: 95vw;
+  }
+  .w-full {
+    width: 100%;
+  }
+  .w-screen {
+    width: 100vw;
+  }
+  .max-w-4xl {
+    max-width: var(--container-4xl);
+  }
+  .max-w-7xl {
+    max-width: var(--container-7xl);
+  }
+  .max-w-\[36px\] {
+    max-width: 36px;
+  }
+  .max-w-\[140px\] {
+    max-width: 140px;
+  }
+  .max-w-xs {
+    max-width: var(--container-xs);
+  }
+  .min-w-\[34px\] {
+    min-width: 34px;
+  }
+  .flex-1 {
+    flex: 1;
+  }
+  .shrink-0 {
+    flex-shrink: 0;
+  }
+  .-translate-x-1\/2 {
+    --tw-translate-x: calc(calc(1 / 2 * 100%) * -1);
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
+  .translate-y-0 {
+    --tw-translate-y: 0px;
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
+  .translate-y-\[calc\(100\%-36px\)\] {
+    --tw-translate-y: calc(100% - 36px);
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
+  .scale-105 {
+    --tw-scale-x: 105%;
+    --tw-scale-y: 105%;
+    --tw-scale-z: 105%;
+    scale: var(--tw-scale-x) var(--tw-scale-y);
+  }
+  .cursor-default {
+    cursor: default;
+  }
+  .cursor-pointer {
+    cursor: pointer;
+  }
+  .resize {
+    resize: both;
+  }
+  .grid-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+  .grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .flex-col {
+    flex-direction: column;
+  }
+  .items-baseline {
+    align-items: baseline;
+  }
+  .items-center {
+    align-items: center;
+  }
+  .justify-between {
+    justify-content: space-between;
+  }
+  .justify-center {
+    justify-content: center;
+  }
+  .gap-1 {
+    gap: var(--spacing);
+  }
+  .gap-1\.5 {
+    gap: calc(var(--spacing) * 1.5);
+  }
+  .gap-2 {
+    gap: calc(var(--spacing) * 2);
+  }
+  .gap-2\.5 {
+    gap: calc(var(--spacing) * 2.5);
+  }
+  .gap-3 {
+    gap: calc(var(--spacing) * 3);
+  }
+  .gap-4 {
+    gap: calc(var(--spacing) * 4);
+  }
+  .truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .overflow-hidden {
+    overflow: hidden;
+  }
+  .overflow-x-auto {
+    overflow-x: auto;
+  }
+  .scroll-smooth {
+    scroll-behavior: smooth;
+  }
+  .rounded {
+    border-radius: 0.25rem;
+  }
+  .rounded-2xl {
+    border-radius: var(--radius-2xl);
+  }
+  .rounded-full {
+    border-radius: calc(infinity * 1px);
+  }
+  .rounded-lg {
+    border-radius: var(--radius-lg);
+  }
+  .rounded-sm {
+    border-radius: var(--radius-sm);
+  }
+  .rounded-xl {
+    border-radius: var(--radius-xl);
+  }
+  .border {
+    border-style: var(--tw-border-style);
+    border-width: 1px;
+  }
+  .border-t {
+    border-top-style: var(--tw-border-style);
+    border-top-width: 1px;
+  }
+  .border-b {
+    border-bottom-style: var(--tw-border-style);
+    border-bottom-width: 1px;
+  }
+  .border-l {
+    border-left-style: var(--tw-border-style);
+    border-left-width: 1px;
+  }
+  .border-amber-500\/40 {
+    border-color: color-mix(in srgb, oklch(76.9% 0.188 70.08) 40%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-amber-500) 40%, transparent);
+    }
+  }
+  .border-emerald-500\/40 {
+    border-color: color-mix(in srgb, oklch(69.6% 0.17 162.48) 40%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-emerald-500) 40%, transparent);
+    }
+  }
+  .border-indigo-500\/30 {
+    border-color: color-mix(in srgb, oklch(58.5% 0.233 277.117) 30%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-indigo-500) 30%, transparent);
+    }
+  }
+  .border-indigo-500\/40 {
+    border-color: color-mix(in srgb, oklch(58.5% 0.233 277.117) 40%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-indigo-500) 40%, transparent);
+    }
+  }
+  .border-indigo-500\/50 {
+    border-color: color-mix(in srgb, oklch(58.5% 0.233 277.117) 50%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-indigo-500) 50%, transparent);
+    }
+  }
+  .border-rose-500\/30 {
+    border-color: color-mix(in srgb, oklch(64.5% 0.246 16.439) 30%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-rose-500) 30%, transparent);
+    }
+  }
+  .border-rose-500\/40 {
+    border-color: color-mix(in srgb, oklch(64.5% 0.246 16.439) 40%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-rose-500) 40%, transparent);
+    }
+  }
+  .border-sky-500\/30 {
+    border-color: color-mix(in srgb, oklch(68.5% 0.169 237.323) 30%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-sky-500) 30%, transparent);
+    }
+  }
+  .border-sky-500\/40 {
+    border-color: color-mix(in srgb, oklch(68.5% 0.169 237.323) 40%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-sky-500) 40%, transparent);
+    }
+  }
+  .border-slate-700 {
+    border-color: var(--color-slate-700);
+  }
+  .border-slate-700\/80 {
+    border-color: color-mix(in srgb, oklch(37.2% 0.044 257.287) 80%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-slate-700) 80%, transparent);
+    }
+  }
+  .border-slate-800 {
+    border-color: var(--color-slate-800);
+  }
+  .border-slate-800\/80 {
+    border-color: color-mix(in srgb, oklch(27.9% 0.041 260.031) 80%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-slate-800) 80%, transparent);
+    }
+  }
+  .bg-\[\#0a0f1d\]\/85 {
+    background-color: color-mix(in oklab, #0a0f1d 85%, transparent);
+  }
+  .bg-\[\#0a0f1d\]\/90 {
+    background-color: color-mix(in oklab, #0a0f1d 90%, transparent);
+  }
+  .bg-\[\#0a0f1d\]\/95 {
+    background-color: color-mix(in oklab, #0a0f1d 95%, transparent);
+  }
+  .bg-\[\#06b6d4\] {
+    background-color: #06b6d4;
+  }
+  .bg-\[\#10b981\] {
+    background-color: #10b981;
+  }
+  .bg-\[\#070b12\] {
+    background-color: #070b12;
+  }
+  .bg-\[\#ef4444\] {
+    background-color: #ef4444;
+  }
+  .bg-\[\#f59e0b\] {
+    background-color: #f59e0b;
+  }
+  .bg-amber-500\/20 {
+    background-color: color-mix(in srgb, oklch(76.9% 0.188 70.08) 20%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-amber-500) 20%, transparent);
+    }
+  }
+  .bg-emerald-500\/20 {
+    background-color: color-mix(in srgb, oklch(69.6% 0.17 162.48) 20%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-emerald-500) 20%, transparent);
+    }
+  }
+  .bg-indigo-500\/20 {
+    background-color: color-mix(in srgb, oklch(58.5% 0.233 277.117) 20%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-indigo-500) 20%, transparent);
+    }
+  }
+  .bg-indigo-500\/30 {
+    background-color: color-mix(in srgb, oklch(58.5% 0.233 277.117) 30%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-indigo-500) 30%, transparent);
+    }
+  }
+  .bg-rose-500\/20 {
+    background-color: color-mix(in srgb, oklch(64.5% 0.246 16.439) 20%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-rose-500) 20%, transparent);
+    }
+  }
+  .bg-sky-400 {
+    background-color: var(--color-sky-400);
+  }
+  .bg-sky-500 {
+    background-color: var(--color-sky-500);
+  }
+  .bg-sky-500\/20 {
+    background-color: color-mix(in srgb, oklch(68.5% 0.169 237.323) 20%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-sky-500) 20%, transparent);
+    }
+  }
+  .bg-sky-500\/25 {
+    background-color: color-mix(in srgb, oklch(68.5% 0.169 237.323) 25%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-sky-500) 25%, transparent);
+    }
+  }
+  .bg-slate-800 {
+    background-color: var(--color-slate-800);
+  }
+  .bg-slate-800\/60 {
+    background-color: color-mix(in srgb, oklch(27.9% 0.041 260.031) 60%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-slate-800) 60%, transparent);
+    }
+  }
+  .bg-slate-900 {
+    background-color: var(--color-slate-900);
+  }
+  .bg-slate-900\/40 {
+    background-color: color-mix(in srgb, oklch(20.8% 0.042 265.755) 40%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-slate-900) 40%, transparent);
+    }
+  }
+  .bg-slate-900\/50 {
+    background-color: color-mix(in srgb, oklch(20.8% 0.042 265.755) 50%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-slate-900) 50%, transparent);
+    }
+  }
+  .bg-slate-900\/60 {
+    background-color: color-mix(in srgb, oklch(20.8% 0.042 265.755) 60%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-slate-900) 60%, transparent);
+    }
+  }
+  .bg-slate-900\/70 {
+    background-color: color-mix(in srgb, oklch(20.8% 0.042 265.755) 70%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-slate-900) 70%, transparent);
+    }
+  }
+  .bg-slate-900\/80 {
+    background-color: color-mix(in srgb, oklch(20.8% 0.042 265.755) 80%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-slate-900) 80%, transparent);
+    }
+  }
+  .bg-slate-950\/80 {
+    background-color: color-mix(in srgb, oklch(12.9% 0.042 264.695) 80%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-slate-950) 80%, transparent);
+    }
+  }
+  .p-0\.5 {
+    padding: calc(var(--spacing) * 0.5);
+  }
+  .p-1\.5 {
+    padding: calc(var(--spacing) * 1.5);
+  }
+  .p-2\.5 {
+    padding: calc(var(--spacing) * 2.5);
+  }
+  .p-3 {
+    padding: calc(var(--spacing) * 3);
+  }
+  .p-3\.5 {
+    padding: calc(var(--spacing) * 3.5);
+  }
+  .px-1 {
+    padding-inline: var(--spacing);
+  }
+  .px-1\.5 {
+    padding-inline: calc(var(--spacing) * 1.5);
+  }
+  .px-2 {
+    padding-inline: calc(var(--spacing) * 2);
+  }
+  .px-2\.5 {
+    padding-inline: calc(var(--spacing) * 2.5);
+  }
+  .px-3 {
+    padding-inline: calc(var(--spacing) * 3);
+  }
+  .px-3\.5 {
+    padding-inline: calc(var(--spacing) * 3.5);
+  }
+  .px-4 {
+    padding-inline: calc(var(--spacing) * 4);
+  }
+  .py-0\.5 {
+    padding-block: calc(var(--spacing) * 0.5);
+  }
+  .py-1 {
+    padding-block: var(--spacing);
+  }
+  .py-1\.5 {
+    padding-block: calc(var(--spacing) * 1.5);
+  }
+  .py-2 {
+    padding-block: calc(var(--spacing) * 2);
+  }
+  .py-2\.5 {
+    padding-block: calc(var(--spacing) * 2.5);
+  }
+  .pt-1\.5 {
+    padding-top: calc(var(--spacing) * 1.5);
+  }
+  .pt-2 {
+    padding-top: calc(var(--spacing) * 2);
+  }
+  .pb-2 {
+    padding-bottom: calc(var(--spacing) * 2);
+  }
+  .pb-2\.5 {
+    padding-bottom: calc(var(--spacing) * 2.5);
+  }
+  .pl-2 {
+    padding-left: calc(var(--spacing) * 2);
+  }
+  .text-center {
+    text-align: center;
+  }
+  .font-mono {
+    font-family: var(--font-mono);
+  }
+  .font-sans {
+    font-family: var(--font-sans);
+  }
+  .text-sm {
+    font-size: var(--text-sm);
+    line-height: var(--tw-leading, var(--text-sm--line-height));
+  }
+  .text-xl {
+    font-size: var(--text-xl);
+    line-height: var(--tw-leading, var(--text-xl--line-height));
+  }
+  .text-xs {
+    font-size: var(--text-xs);
+    line-height: var(--tw-leading, var(--text-xs--line-height));
+  }
+  .text-\[8px\] {
+    font-size: 8px;
+  }
+  .text-\[9px\] {
+    font-size: 9px;
+  }
+  .text-\[10px\] {
+    font-size: 10px;
+  }
+  .text-\[11px\] {
+    font-size: 11px;
+  }
+  .leading-none {
+    --tw-leading: 1;
+    line-height: 1;
+  }
+  .leading-relaxed {
+    --tw-leading: var(--leading-relaxed);
+    line-height: var(--leading-relaxed);
+  }
+  .leading-tight {
+    --tw-leading: var(--leading-tight);
+    line-height: var(--leading-tight);
+  }
+  .font-black {
+    --tw-font-weight: var(--font-weight-black);
+    font-weight: var(--font-weight-black);
+  }
+  .font-bold {
+    --tw-font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-bold);
+  }
+  .font-medium {
+    --tw-font-weight: var(--font-weight-medium);
+    font-weight: var(--font-weight-medium);
+  }
+  .font-normal {
+    --tw-font-weight: var(--font-weight-normal);
+    font-weight: var(--font-weight-normal);
+  }
+  .font-semibold {
+    --tw-font-weight: var(--font-weight-semibold);
+    font-weight: var(--font-weight-semibold);
+  }
+  .tracking-wider {
+    --tw-tracking: var(--tracking-wider);
+    letter-spacing: var(--tracking-wider);
+  }
+  .text-amber-300 {
+    color: var(--color-amber-300);
+  }
+  .text-amber-400 {
+    color: var(--color-amber-400);
+  }
+  .text-emerald-300 {
+    color: var(--color-emerald-300);
+  }
+  .text-indigo-300 {
+    color: var(--color-indigo-300);
+  }
+  .text-indigo-400 {
+    color: var(--color-indigo-400);
+  }
+  .text-rose-300 {
+    color: var(--color-rose-300);
+  }
+  .text-rose-400 {
+    color: var(--color-rose-400);
+  }
+  .text-sky-300 {
+    color: var(--color-sky-300);
+  }
+  .text-sky-400 {
+    color: var(--color-sky-400);
+  }
+  .text-slate-100 {
+    color: var(--color-slate-100);
+  }
+  .text-slate-200 {
+    color: var(--color-slate-200);
+  }
+  .text-slate-300 {
+    color: var(--color-slate-300);
+  }
+  .text-slate-400 {
+    color: var(--color-slate-400);
+  }
+  .text-slate-500 {
+    color: var(--color-slate-500);
+  }
+  .text-slate-600 {
+    color: var(--color-slate-600);
+  }
+  .text-slate-950 {
+    color: var(--color-slate-950);
+  }
+  .text-white {
+    color: var(--color-white);
+  }
+  .uppercase {
+    text-transform: uppercase;
+  }
+  .antialiased {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  .accent-amber-400 {
+    accent-color: var(--color-amber-400);
+  }
+  .accent-sky-400 {
+    accent-color: var(--color-sky-400);
+  }
+  .shadow {
+    --tw-shadow: 0 1px 3px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 1px 2px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .shadow-2xl {
+    --tw-shadow: 0 25px 50px -12px var(--tw-shadow-color, rgb(0 0 0 / 0.25));
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .shadow-lg {
+    --tw-shadow: 0 10px 15px -3px var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 4px 6px -4px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .shadow-md {
+    --tw-shadow: 0 4px 6px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 2px 4px -2px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .shadow-sm {
+    --tw-shadow: 0 1px 3px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 1px 2px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .shadow-xl {
+    --tw-shadow: 0 20px 25px -5px var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 8px 10px -6px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .ring-1 {
+    --tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color, currentcolor);
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .ring-2 {
+    --tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color, currentcolor);
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .ring-rose-400\/50 {
+    --tw-ring-color: color-mix(in srgb, oklch(71.2% 0.194 13.428) 50%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      --tw-ring-color: color-mix(in oklab, var(--color-rose-400) 50%, transparent);
+    }
+  }
+  .ring-sky-400 {
+    --tw-ring-color: var(--color-sky-400);
+  }
+  .ring-sky-400\/40 {
+    --tw-ring-color: color-mix(in srgb, oklch(74.6% 0.16 232.661) 40%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      --tw-ring-color: color-mix(in oklab, var(--color-sky-400) 40%, transparent);
+    }
+  }
+  .transition-all {
+    transition-property: all;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
+  }
+  .transition-colors {
+    transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
+  }
+  .transition-transform {
+    transition-property: transform, translate, scale, rotate;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
+  }
+  .duration-300 {
+    --tw-duration: 300ms;
+    transition-duration: 300ms;
+  }
+  .ease-out {
+    --tw-ease: var(--ease-out);
+    transition-timing-function: var(--ease-out);
+  }
+  .select-none {
+    -webkit-user-select: none;
+    user-select: none;
+  }
+  @media (hover: hover) {
+    .hover\:border-sky-500\/50:hover {
+      border-color: color-mix(in srgb, oklch(68.5% 0.169 237.323) 50%, transparent);
+    }
+    @supports (color: color-mix(in lab, red, red)) {
+      .hover\:border-sky-500\/50:hover {
+        border-color: color-mix(in oklab, var(--color-sky-500) 50%, transparent);
+      }
+    }
+    .hover\:bg-rose-500\/30:hover {
+      background-color: color-mix(in srgb, oklch(64.5% 0.246 16.439) 30%, transparent);
+    }
+    @supports (color: color-mix(in lab, red, red)) {
+      .hover\:bg-rose-500\/30:hover {
+        background-color: color-mix(in oklab, var(--color-rose-500) 30%, transparent);
+      }
+    }
+    .hover\:bg-slate-800:hover {
+      background-color: var(--color-slate-800);
+    }
+    .hover\:bg-slate-800\/40:hover {
+      background-color: color-mix(in srgb, oklch(27.9% 0.041 260.031) 40%, transparent);
+    }
+    @supports (color: color-mix(in lab, red, red)) {
+      .hover\:bg-slate-800\/40:hover {
+        background-color: color-mix(in oklab, var(--color-slate-800) 40%, transparent);
+      }
+    }
+    .hover\:bg-slate-800\/60:hover {
+      background-color: color-mix(in srgb, oklch(27.9% 0.041 260.031) 60%, transparent);
+    }
+    @supports (color: color-mix(in lab, red, red)) {
+      .hover\:bg-slate-800\/60:hover {
+        background-color: color-mix(in oklab, var(--color-slate-800) 60%, transparent);
+      }
+    }
+    .hover\:bg-slate-800\/80:hover {
+      background-color: color-mix(in srgb, oklch(27.9% 0.041 260.031) 80%, transparent);
+    }
+    @supports (color: color-mix(in lab, red, red)) {
+      .hover\:bg-slate-800\/80:hover {
+        background-color: color-mix(in oklab, var(--color-slate-800) 80%, transparent);
+      }
+    }
+    .hover\:text-rose-300:hover {
+      color: var(--color-rose-300);
+    }
+    .hover\:text-sky-300:hover {
+      color: var(--color-sky-300);
+    }
+    .hover\:text-slate-200:hover {
+      color: var(--color-slate-200);
+    }
+    .hover\:underline:hover {
+      text-decoration-line: underline;
+    }
+  }
+  @media (width >= 40rem) {
+    .sm\:inline {
+      display: inline;
+    }
+    .sm\:grid-cols-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  @media (width >= 48rem) {
+    .md\:flex {
+      display: flex;
+    }
+    .md\:grid-cols-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .md\:grid-cols-4 {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+}
+@property --tw-translate-x {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-translate-y {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-translate-z {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-scale-x {
+  syntax: "*";
+  inherits: false;
+  initial-value: 1;
+}
+@property --tw-scale-y {
+  syntax: "*";
+  inherits: false;
+  initial-value: 1;
+}
+@property --tw-scale-z {
+  syntax: "*";
+  inherits: false;
+  initial-value: 1;
+}
+@property --tw-border-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+@property --tw-leading {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-font-weight {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-tracking {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-shadow-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-shadow-alpha {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
+@property --tw-inset-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-inset-shadow-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-inset-shadow-alpha {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
+@property --tw-ring-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-ring-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-inset-ring-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-inset-ring-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-ring-inset {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-ring-offset-width {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0px;
+}
+@property --tw-ring-offset-color {
+  syntax: "*";
+  inherits: false;
+  initial-value: #fff;
+}
+@property --tw-ring-offset-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-duration {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-ease {
+  syntax: "*";
+  inherits: false;
+}
+@layer properties {
+  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
+    *, ::before, ::after, ::backdrop {
+      --tw-translate-x: 0;
+      --tw-translate-y: 0;
+      --tw-translate-z: 0;
+      --tw-scale-x: 1;
+      --tw-scale-y: 1;
+      --tw-scale-z: 1;
+      --tw-border-style: solid;
+      --tw-leading: initial;
+      --tw-font-weight: initial;
+      --tw-tracking: initial;
+      --tw-shadow: 0 0 #0000;
+      --tw-shadow-color: initial;
+      --tw-shadow-alpha: 100%;
+      --tw-inset-shadow: 0 0 #0000;
+      --tw-inset-shadow-color: initial;
+      --tw-inset-shadow-alpha: 100%;
+      --tw-ring-color: initial;
+      --tw-ring-shadow: 0 0 #0000;
+      --tw-inset-ring-color: initial;
+      --tw-inset-ring-shadow: 0 0 #0000;
+      --tw-ring-inset: initial;
+      --tw-ring-offset-width: 0px;
+      --tw-ring-offset-color: #fff;
+      --tw-ring-offset-shadow: 0 0 #0000;
+      --tw-duration: initial;
+      --tw-ease: initial;
+    }
+  }
+}
+
+</style><script type="importmap">{"imports":{"react":"https://esm.sh/react@19.0.1","react/jsx-runtime":"https://esm.sh/react@19.0.1/jsx-runtime","react/jsx-dev-runtime":"https://esm.sh/react@19.0.1/jsx-dev-runtime","react-dom":"https://esm.sh/react-dom@19.0.1?external=react","react-dom/client":"https://esm.sh/react-dom@19.0.1/client?external=react","three":"https://esm.sh/three@0.186.1","three/":"https://esm.sh/three@0.186.1/","lucide-react":"https://esm.sh/lucide-react@0.546.0?external=react","motion/react":"https://esm.sh/motion@12.23.24/react?external=react,react-dom"}}</script></head>
+  <body class="bg-[#070b12] text-slate-100 overflow-hidden select-none font-sans antialiased">
+    <div id="root"></div>
+    
+  <footer aria-label="제작자" style="position:fixed;bottom:4px;right:8px;z-index:9999;font:11px sans-serif;padding:4px 8px;border-radius:4px;background:#0f172ade;color:#e2e8f0;pointer-events:none">금평초 김상흠 · AI Studio · 교과 검토 후 활용</footer><script type="module">import{createRoot as ot}from"react-dom/client";import{useState as U,useEffect as tt,useCallback as Ge}from"react";var q={A:{type:"A",fullName:"Adenine",koreanName:"\uC544\uB370\uB2CC",category:"Purine",rings:2,hBondsWithComplement:2,color:"#10b981",hexColor:1096065,formula:"C\u2085H\u2085N\u2085",molWeight:135.13,description:"\uD4E8\uB9B0(Purine) \uACC4\uC5F4 \uC774\uC911 \uACE0\uB9AC \uC5FC\uAE30\uB85C \uD2F0\uBBFC(T)\uACFC 2\uAC1C\uC758 \uC218\uC18C\uACB0\uD569\uC744 \uD615\uC131\uD569\uB2C8\uB2E4."},T:{type:"T",fullName:"Thymine",koreanName:"\uD2F0\uBBFC",category:"Pyrimidine",rings:1,hBondsWithComplement:2,color:"#ef4444",hexColor:15680580,formula:"C\u2085H\u2086N\u2082O\u2082",molWeight:126.11,description:"\uD53C\uB9AC\uBBF8\uB518(Pyrimidine) \uACC4\uC5F4 \uB2E8\uC77C \uACE0\uB9AC \uC5FC\uAE30\uB85C \uC544\uB370\uB2CC(A)\uACFC 2\uAC1C\uC758 \uC218\uC18C\uACB0\uD569\uC744 \uD615\uC131\uD569\uB2C8\uB2E4. RNA\uC5D0\uC11C\uB294 \uC6B0\uB77C\uC2E4(U)\uB85C \uCE58\uD658\uB429\uB2C8\uB2E4."},G:{type:"G",fullName:"Guanine",koreanName:"\uAD6C\uC544\uB2CC",category:"Purine",rings:2,hBondsWithComplement:3,color:"#06b6d4",hexColor:440020,formula:"C\u2085H\u2085N\u2085O",molWeight:151.13,description:"\uD4E8\uB9B0(Purine) \uACC4\uC5F4 \uC774\uC911 \uACE0\uB9AC \uC5FC\uAE30\uB85C \uC2DC\uD1A0\uC2E0(C)\uACFC \uAC15\uB825\uD55C 3\uAC1C\uC758 \uC218\uC18C\uACB0\uD569\uC744 \uD615\uC131\uD569\uB2C8\uB2E4."},C:{type:"C",fullName:"Cytosine",koreanName:"\uC2DC\uD1A0\uC2E0",category:"Pyrimidine",rings:1,hBondsWithComplement:3,color:"#f59e0b",hexColor:16096779,formula:"C\u2084H\u2085N\u2083O",molWeight:111.1,description:"\uD53C\uB9AC\uBBF8\uB518(Pyrimidine) \uACC4\uC5F4 \uB2E8\uC77C \uACE0\uB9AC \uC5FC\uAE30\uB85C \uAD6C\uC544\uB2CC(G)\uACFC 3\uAC1C\uC758 \uC218\uC18C\uACB0\uD569\uC744 \uD615\uC131\uD569\uB2C8\uB2E4."}},Pe={A:"T",T:"A",G:"C",C:"G"},$e={A:"U",T:"A",G:"C",C:"G"},We={GCU:{code3:"Ala",code1:"A",fullName:"Alanine",koreanName:"\uC54C\uB77C\uB2CC",property:"Nonpolar",color:"#64748b",formula:"C\u2083H\u2087NO\u2082"},GCC:{code3:"Ala",code1:"A",fullName:"Alanine",koreanName:"\uC54C\uB77C\uB2CC",property:"Nonpolar",color:"#64748b",formula:"C\u2083H\u2087NO\u2082"},GCA:{code3:"Ala",code1:"A",fullName:"Alanine",koreanName:"\uC54C\uB77C\uB2CC",property:"Nonpolar",color:"#64748b",formula:"C\u2083H\u2087NO\u2082"},GCG:{code3:"Ala",code1:"A",fullName:"Alanine",koreanName:"\uC54C\uB77C\uB2CC",property:"Nonpolar",color:"#64748b",formula:"C\u2083H\u2087NO\u2082"},CGU:{code3:"Arg",code1:"R",fullName:"Arginine",koreanName:"\uC544\uB974\uAE30\uB2CC",property:"Basic",color:"#3b82f6",formula:"C\u2086H\u2081\u2084N\u2084O\u2082"},CGC:{code3:"Arg",code1:"R",fullName:"Arginine",koreanName:"\uC544\uB974\uAE30\uB2CC",property:"Basic",color:"#3b82f6",formula:"C\u2086H\u2081\u2084N\u2084O\u2082"},CGA:{code3:"Arg",code1:"R",fullName:"Arginine",koreanName:"\uC544\uB974\uAE30\uB2CC",property:"Basic",color:"#3b82f6",formula:"C\u2086H\u2081\u2084N\u2084O\u2082"},CGG:{code3:"Arg",code1:"R",fullName:"Arginine",koreanName:"\uC544\uB974\uAE30\uB2CC",property:"Basic",color:"#3b82f6",formula:"C\u2086H\u2081\u2084N\u2084O\u2082"},AGA:{code3:"Arg",code1:"R",fullName:"Arginine",koreanName:"\uC544\uB974\uAE30\uB2CC",property:"Basic",color:"#3b82f6",formula:"C\u2086H\u2081\u2084N\u2084O\u2082"},AGG:{code3:"Arg",code1:"R",fullName:"Arginine",koreanName:"\uC544\uB974\uAE30\uB2CC",property:"Basic",color:"#3b82f6",formula:"C\u2086H\u2081\u2084N\u2084O\u2082"},AAU:{code3:"Asn",code1:"N",fullName:"Asparagine",koreanName:"\uC544\uC2A4\uD30C\uB77C\uAE34",property:"Polar",color:"#a855f7",formula:"C\u2084H\u2088N\u2082O\u2083"},AAC:{code3:"Asn",code1:"N",fullName:"Asparagine",koreanName:"\uC544\uC2A4\uD30C\uB77C\uAE34",property:"Polar",color:"#a855f7",formula:"C\u2084H\u2088N\u2082O\u2083"},GAU:{code3:"Asp",code1:"D",fullName:"Aspartic Acid",koreanName:"\uC544\uC2A4\uD30C\uB974\uD2B8\uC0B0",property:"Acidic",color:"#ef4444",formula:"C\u2084H\u2087NO\u2084"},GAC:{code3:"Asp",code1:"D",fullName:"Aspartic Acid",koreanName:"\uC544\uC2A4\uD30C\uB974\uD2B8\uC0B0",property:"Acidic",color:"#ef4444",formula:"C\u2084H\u2087NO\u2084"},UGU:{code3:"Cys",code1:"C",fullName:"Cysteine",koreanName:"\uC2DC\uC2A4\uD14C\uC778",property:"Polar",color:"#10b981",formula:"C\u2083H\u2087NO\u2082S"},UGC:{code3:"Cys",code1:"C",fullName:"Cysteine",koreanName:"\uC2DC\uC2A4\uD14C\uC778",property:"Polar",color:"#10b981",formula:"C\u2083H\u2087NO\u2082S"},CAA:{code3:"Gln",code1:"Q",fullName:"Glutamine",koreanName:"\uAE00\uB8E8\uD0C0\uBBFC",property:"Polar",color:"#a855f7",formula:"C\u2085H\u2081\u2080N\u2082O\u2083"},CAG:{code3:"Gln",code1:"Q",fullName:"Glutamine",koreanName:"\uAE00\uB8E8\uD0C0\uBBFC",property:"Polar",color:"#a855f7",formula:"C\u2085H\u2081\u2080N\u2082O\u2083"},GAA:{code3:"Glu",code1:"E",fullName:"Glutamic Acid",koreanName:"\uAE00\uB8E8\uD0D0\uC0B0",property:"Acidic",color:"#ef4444",formula:"C\u2085H\u2089NO\u2084"},GAG:{code3:"Glu",code1:"E",fullName:"Glutamic Acid",koreanName:"\uAE00\uB8E8\uD0D0\uC0B0",property:"Acidic",color:"#ef4444",formula:"C\u2085H\u2089NO\u2084"},GGU:{code3:"Gly",code1:"G",fullName:"Glycine",koreanName:"\uAE00\uB9AC\uC2E0",property:"Nonpolar",color:"#64748b",formula:"C\u2082H\u2085NO\u2082"},GGC:{code3:"Gly",code1:"G",fullName:"Glycine",koreanName:"\uAE00\uB9AC\uC2E0",property:"Nonpolar",color:"#64748b",formula:"C\u2082H\u2085NO\u2082"},GGA:{code3:"Gly",code1:"G",fullName:"Glycine",koreanName:"\uAE00\uB9AC\uC2E0",property:"Nonpolar",color:"#64748b",formula:"C\u2082H\u2085NO\u2082"},GGG:{code3:"Gly",code1:"G",fullName:"Glycine",koreanName:"\uAE00\uB9AC\uC2E0",property:"Nonpolar",color:"#64748b",formula:"C\u2082H\u2085NO\u2082"},CAU:{code3:"His",code1:"H",fullName:"Histidine",koreanName:"\uD788\uC2A4\uD2F0\uB518",property:"Basic",color:"#3b82f6",formula:"C\u2086H\u2089N\u2083O\u2082"},CAC:{code3:"His",code1:"H",fullName:"Histidine",koreanName:"\uD788\uC2A4\uD2F0\uB518",property:"Basic",color:"#3b82f6",formula:"C\u2086H\u2089N\u2083O\u2082"},AUU:{code3:"Ile",code1:"I",fullName:"Isoleucine",koreanName:"\uC774\uC18C\uB958\uC2E0",property:"Nonpolar",color:"#64748b",formula:"C\u2086H\u2081\u2083NO\u2082"},AUC:{code3:"Ile",code1:"I",fullName:"Isoleucine",koreanName:"\uC774\uC18C\uB958\uC2E0",property:"Nonpolar",color:"#64748b",formula:"C\u2086H\u2081\u2083NO\u2082"},AUA:{code3:"Ile",code1:"I",fullName:"Isoleucine",koreanName:"\uC774\uC18C\uB958\uC2E0",property:"Nonpolar",color:"#64748b",formula:"C\u2086H\u2081\u2083NO\u2082"},UUA:{code3:"Leu",code1:"L",fullName:"Leucine",koreanName:"\uB958\uC2E0",property:"Nonpolar",color:"#64748b",formula:"C\u2086H\u2081\u2083NO\u2082"},UUG:{code3:"Leu",code1:"L",fullName:"Leucine",koreanName:"\uB958\uC2E0",property:"Nonpolar",color:"#64748b",formula:"C\u2086H\u2081\u2083NO\u2082"},CUU:{code3:"Leu",code1:"L",fullName:"Leucine",koreanName:"\uB958\uC2E0",property:"Nonpolar",color:"#64748b",formula:"C\u2086H\u2081\u2083NO\u2082"},CUC:{code3:"Leu",code1:"L",fullName:"Leucine",koreanName:"\uB958\uC2E0",property:"Nonpolar",color:"#64748b",formula:"C\u2086H\u2081\u2083NO\u2082"},CUA:{code3:"Leu",code1:"L",fullName:"Leucine",koreanName:"\uB958\uC2E0",property:"Nonpolar",color:"#64748b",formula:"C\u2086H\u2081\u2083NO\u2082"},CUG:{code3:"Leu",code1:"L",fullName:"Leucine",koreanName:"\uB958\uC2E0",property:"Nonpolar",color:"#64748b",formula:"C\u2086H\u2081\u2083NO\u2082"},AAA:{code3:"Lys",code1:"K",fullName:"Lysine",koreanName:"\uB77C\uC774\uC2E0",property:"Basic",color:"#3b82f6",formula:"C\u2086H\u2081\u2084N\u2082O\u2082"},AAG:{code3:"Lys",code1:"K",fullName:"Lysine",koreanName:"\uB77C\uC774\uC2E0",property:"Basic",color:"#3b82f6",formula:"C\u2086H\u2081\u2084N\u2082O\u2082"},AUG:{code3:"Met",code1:"M",fullName:"Methionine (\uAC1C\uC2DC)",koreanName:"\uBA54\uD2F0\uC624\uB2CC (START)",property:"Nonpolar",color:"#10b981",formula:"C\u2085H\u2081\u2081NO\u2082S"},UUU:{code3:"Phe",code1:"F",fullName:"Phenylalanine",koreanName:"\uD398\uB2D0\uC54C\uB77C\uB2CC",property:"Nonpolar",color:"#64748b",formula:"C\u2089H\u2081\u2081NO\u2082"},UUC:{code3:"Phe",code1:"F",fullName:"Phenylalanine",koreanName:"\uD398\uB2D0\uC54C\uB77C\uB2CC",property:"Nonpolar",color:"#64748b",formula:"C\u2089H\u2081\u2081NO\u2082"},CCU:{code3:"Pro",code1:"P",fullName:"Proline",koreanName:"\uD504\uB864\uB9B0",property:"Nonpolar",color:"#64748b",formula:"C\u2085H\u2089NO\u2082"},CCC:{code3:"Pro",code1:"P",fullName:"Proline",koreanName:"\uD504\uB864\uB9B0",property:"Nonpolar",color:"#64748b",formula:"C\u2085H\u2089NO\u2082"},CCA:{code3:"Pro",code1:"P",fullName:"Proline",koreanName:"\uD504\uB864\uB9B0",property:"Nonpolar",color:"#64748b",formula:"C\u2085H\u2089NO\u2082"},CCG:{code3:"Pro",code1:"P",fullName:"Proline",koreanName:"\uD504\uB864\uB9B0",property:"Nonpolar",color:"#64748b",formula:"C\u2085H\u2089NO\u2082"},UCU:{code3:"Ser",code1:"S",fullName:"Serine",koreanName:"\uC138\uB9B0",property:"Polar",color:"#a855f7",formula:"C\u2083H\u2087NO\u2083"},UCC:{code3:"Ser",code1:"S",fullName:"Serine",koreanName:"\uC138\uB9B0",property:"Polar",color:"#a855f7",formula:"C\u2083H\u2087NO\u2083"},UCA:{code3:"Ser",code1:"S",fullName:"Serine",koreanName:"\uC138\uB9B0",property:"Polar",color:"#a855f7",formula:"C\u2083H\u2087NO\u2083"},UCG:{code3:"Ser",code1:"S",fullName:"Serine",koreanName:"\uC138\uB9B0",property:"Polar",color:"#a855f7",formula:"C\u2083H\u2087NO\u2083"},AGU:{code3:"Ser",code1:"S",fullName:"Serine",koreanName:"\uC138\uB9B0",property:"Polar",color:"#a855f7",formula:"C\u2083H\u2087NO\u2083"},AGC:{code3:"Ser",code1:"S",fullName:"Serine",koreanName:"\uC138\uB9B0",property:"Polar",color:"#a855f7",formula:"C\u2083H\u2087NO\u2083"},ACU:{code3:"Thr",code1:"T",fullName:"Threonine",koreanName:"\uD2B8\uB808\uC624\uB2CC",property:"Polar",color:"#a855f7",formula:"C\u2084H\u2089NO\u2083"},ACC:{code3:"Thr",code1:"T",fullName:"Threonine",koreanName:"\uD2B8\uB808\uC624\uB2CC",property:"Polar",color:"#a855f7",formula:"C\u2084H\u2089NO\u2083"},ACA:{code3:"Thr",code1:"T",fullName:"Threonine",koreanName:"\uD2B8\uB808\uC624\uB2CC",property:"Polar",color:"#a855f7",formula:"C\u2084H\u2089NO\u2083"},ACG:{code3:"Thr",code1:"T",fullName:"Threonine",koreanName:"\uD2B8\uB808\uC624\uB2CC",property:"Polar",color:"#a855f7",formula:"C\u2084H\u2089NO\u2083"},UGG:{code3:"Trp",code1:"W",fullName:"Tryptophan",koreanName:"\uD2B8\uB9BD\uD1A0\uD310",property:"Nonpolar",color:"#64748b",formula:"C\u2081\u2081H\u2081\u2082N\u2082O\u2082"},UAU:{code3:"Tyr",code1:"Y",fullName:"Tyrosine",koreanName:"\uD2F0\uB85C\uC2E0",property:"Polar",color:"#a855f7",formula:"C\u2089H\u2081\u2081NO\u2083"},UAC:{code3:"Tyr",code1:"Y",fullName:"Tyrosine",koreanName:"\uD2F0\uB85C\uC2E0",property:"Polar",color:"#a855f7",formula:"C\u2089H\u2081\u2081NO\u2083"},GUU:{code3:"Val",code1:"V",fullName:"Valine",koreanName:"\uBC1C\uB9B0",property:"Nonpolar",color:"#64748b",formula:"C\u2085H\u2081\u2081NO\u2082"},GUC:{code3:"Val",code1:"V",fullName:"Valine",koreanName:"\uBC1C\uB9B0",property:"Nonpolar",color:"#64748b",formula:"C\u2085H\u2081\u2081NO\u2082"},GUA:{code3:"Val",code1:"V",fullName:"Valine",koreanName:"\uBC1C\uB9B0",property:"Nonpolar",color:"#64748b",formula:"C\u2085H\u2081\u2081NO\u2082"},GUG:{code3:"Val",code1:"V",fullName:"Valine",koreanName:"\uBC1C\uB9B0",property:"Nonpolar",color:"#64748b",formula:"C\u2085H\u2081\u2081NO\u2082"},UAA:{code3:"STOP",code1:"*",fullName:"Ochre (\uC885\uACB0)",koreanName:"\uC885\uACB0 \uCF54\uB3C8 (Stop)",property:"Stop",color:"#f43f5e",formula:"-"},UAG:{code3:"STOP",code1:"*",fullName:"Amber (\uC885\uACB0)",koreanName:"\uC885\uACB0 \uCF54\uB3C8 (Stop)",property:"Stop",color:"#f43f5e",formula:"-"},UGA:{code3:"STOP",code1:"*",fullName:"Opal (\uC885\uACB0)",koreanName:"\uC885\uACB0 \uCF54\uB3C8 (Stop)",property:"Stop",color:"#f43f5e",formula:"-"}},ke=[{id:"b-dna-canonical",name:"B-DNA Canonical Helix",koreanName:"\uD45C\uC900 B\uD615 \uC774\uC911 \uB098\uC120 (B-DNA)",sequence:"ATGCGATCGATCGATCGATC",description:"\uC0DD\uBA85\uCCB4\uC5D0\uC11C \uAC00\uC7A5 \uD754\uD55C \uD45C\uC900 \uC624\uB978\uCABD \uB098\uC120 B-DNA \uBAA8\uB378\uB85C, 1\uD68C\uC804\uB2F9 \uC57D 10.5 \uC5FC\uAE30\uC30D, \uC8FC\uD648(Major groove)\uACFC \uBD80\uD648(Minor groove)\uC744 \uC9C0\uB2D9\uB2C8\uB2E4.",category:"Educational"},{id:"sickle-cell",name:"Sickle Cell Anemia (Normal HBB)",koreanName:"\uACB8\uC0C1 \uC801\uD608\uAD6C \uBE48\uD608\uC99D \uBE44\uAD50 (HBB)",sequence:"CCTGAGGAG",description:"\uC778\uAC04 \uBCA0\uD0C0 \uAE00\uB85C\uBE48(HBB) \uC720\uC804\uC790\uC758 \uD575\uC2EC \uBD80\uC704. 6\uBC88\uC9F8 \uCF54\uB3C8 GAG(\uAE00\uB8E8\uD0D0\uC0B0)\uC774 \uB2E8\uC77C \uC5FC\uAE30 \uCE58\uD658(A\u2192T)\uC73C\uB85C GTG(\uBC1C\uB9B0)\uAC00 \uB418\uBA74 \uACB8\uC0C1 \uC801\uD608\uAD6C \uBE48\uD608\uC99D\uC774 \uBC1C\uC0DD\uD569\uB2C8\uB2E4.",category:"Medical"},{id:"tata-box",name:"TATA Box Promoter",koreanName:"TATA \uBC15\uC2A4 \uC804\uC0AC \uD504\uB85C\uBAA8\uD130",sequence:"TATAAAAGGCCTAGCTAGCT",description:"\uC9C4\uD575\uC0DD\uBB3C \uC720\uC804\uC790 \uC804\uC0AC \uC2DC\uC791 \uC9C0\uC810 \uC778\uADFC\uC5D0 \uC874\uC7AC\uD558\uB294 \uD575\uC2EC \uD504\uB85C\uBAA8\uD130 \uC11C\uC5F4\uB85C, RNA \uC911\uD569\uD6A8\uC18C \uBCF5\uD569\uCCB4\uAC00 \uACB0\uD569\uD558\uB294 \uBD80\uC704\uC785\uB2C8\uB2E4.",category:"Promoter"},{id:"telomere",name:"Human Telomeric Repeat",koreanName:"\uC778\uAC04 \uB9D0\uB2E8\uC18C\uCCB4(\uD154\uB85C\uBBF8\uC5B4) \uBC18\uBCF5 \uC11C\uC5F4",sequence:"TTAGGGTTAGGGTTAGGGTT",description:"\uC5FC\uC0C9\uCCB4 \uB05D\uB2E8\uC744 \uBCF4\uD638\uD558\uB294 \uD154\uB85C\uBBF8\uC5B4\uC758 \uACE0\uC720 6\uC5FC\uAE30 \uBC18\uBCF5 \uC11C\uC5F4 (TTAGGG)\u2099\uC785\uB2C8\uB2E4. \uC138\uD3EC \uB178\uD654 \uBC0F \uC554 \uC5F0\uAD6C\uC758 \uD575\uC2EC \uBD84\uC790\uC785\uB2C8\uB2E4.",category:"Telomere"},{id:"central-dogma-demo",name:"Central Dogma Express",koreanName:"\uC911\uC2EC\uC6D0\uB9AC (Start-Met to Stop)",sequence:"ATGGCTAACCGTTAG",description:"\uAC1C\uC2DC \uCF54\uB3C8(ATG)\uC5D0\uC11C \uC544\uBBF8\uB178\uC0B0 \uD3F4\uB9AC\uD3A9\uD0C0\uC774\uB4DC \uBC88\uC5ED \uD6C4 \uC885\uACB0 \uCF54\uB3C8(TAG)\uC73C\uB85C \uB05D\uB098\uB294 \uC804\uD615\uC801\uC778 \uB2E8\uBC31\uC9C8 \uCF54\uB529 \uC720\uC804\uC790 \uC11C\uC5F4\uC785\uB2C8\uB2E4.",category:"Educational"}];function Be(s){return s.toUpperCase().split("").map(o=>$e[o]||"N").join("")}function Oe(s){let o=[];for(let l=0;l+2<s.length;l+=3){let i=s.slice(l,l+3),f=We[i]||{code3:"???",code1:"?",fullName:"Unknown",koreanName:"\uBBF8\uC0C1",property:"Nonpolar",color:"#475569",formula:"-"};o.push({codon:i,aminoAcid:f,startIndex:l})}return o}import{useEffect as we,useRef as z}from"react";import*as e from"three";import{OrbitControls as Ye}from"three/examples/jsm/controls/OrbitControls.js";import{RoomEnvironment as Ze}from"three/examples/jsm/environments/RoomEnvironment.js";var De=class{ctx=null;enabled=!0;initCtx(){if(!this.ctx&&typeof window<"u"){let o=window.AudioContext||window.webkitAudioContext;o&&(this.ctx=new o)}this.ctx&&this.ctx.state==="suspended"&&this.ctx.resume().catch(()=>{})}setEnabled(o){this.enabled=o}isSoundEnabled(){return this.enabled}playClick(){if(this.enabled)try{if(this.initCtx(),!this.ctx)return;let o=this.ctx.createOscillator(),l=this.ctx.createGain();o.type="sine",o.frequency.setValueAtTime(600,this.ctx.currentTime),o.frequency.exponentialRampToValueAtTime(320,this.ctx.currentTime+.05),l.gain.setValueAtTime(.04,this.ctx.currentTime),l.gain.exponentialRampToValueAtTime(.001,this.ctx.currentTime+.05),o.connect(l),l.connect(this.ctx.destination),o.start(),o.stop(this.ctx.currentTime+.05)}catch{}}playBaseSelect(o){if(this.enabled)try{if(this.initCtx(),!this.ctx)return;let i={A:440,T:523.25,G:587.33,C:659.25}[o]||440,f=this.ctx.createOscillator(),m=this.ctx.createGain();f.type="triangle",f.frequency.setValueAtTime(i,this.ctx.currentTime),f.frequency.exponentialRampToValueAtTime(i*1.05,this.ctx.currentTime+.12),m.gain.setValueAtTime(.06,this.ctx.currentTime),m.gain.exponentialRampToValueAtTime(.001,this.ctx.currentTime+.15),f.connect(m),m.connect(this.ctx.destination),f.start(),f.stop(this.ctx.currentTime+.15)}catch{}}playMutation(){if(this.enabled)try{if(this.initCtx(),!this.ctx)return;let o=this.ctx.createOscillator(),l=this.ctx.createOscillator(),i=this.ctx.createGain();o.type="sawtooth",l.type="sine",o.frequency.setValueAtTime(300,this.ctx.currentTime),o.frequency.exponentialRampToValueAtTime(800,this.ctx.currentTime+.2),l.frequency.setValueAtTime(450,this.ctx.currentTime),l.frequency.exponentialRampToValueAtTime(1200,this.ctx.currentTime+.2),i.gain.setValueAtTime(.05,this.ctx.currentTime),i.gain.exponentialRampToValueAtTime(.001,this.ctx.currentTime+.25),o.connect(i),l.connect(i),i.connect(this.ctx.destination),o.start(),l.start(),o.stop(this.ctx.currentTime+.25),l.stop(this.ctx.currentTime+.25)}catch{}}playUnzip(){if(this.enabled)try{if(this.initCtx(),!this.ctx)return;let o=this.ctx.createOscillator(),l=this.ctx.createGain();o.type="sine",o.frequency.setValueAtTime(700,this.ctx.currentTime),o.frequency.exponentialRampToValueAtTime(250,this.ctx.currentTime+.35),l.gain.setValueAtTime(.05,this.ctx.currentTime),l.gain.exponentialRampToValueAtTime(.001,this.ctx.currentTime+.35),o.connect(l),l.connect(this.ctx.destination),o.start(),o.stop(this.ctx.currentTime+.35)}catch{}}},u=new De;import{jsx as Fe}from"react/jsx-runtime";var Re=new e.Vector3,He=new e.Vector3,ie=new e.Vector3,ye=new e.Vector3,ce=new e.Vector3,Ve=9.5,Ce=3.35,Ke=36*Math.PI/180,Xe=144*Math.PI/180,qe=({basePairs:s,selectedId:o,onSelectBasePair:l,displayMode:i,explodedProgress:f,unzipProgress:m,autoRotate:h,rotationSpeed:G,cameraPreset:C,showHBonds:c,showBackbone:v,showGrooveLabels:Z,colorScheme:j})=>{let te=z(null),$=z(null),M=z(null),B=z(null),re=z(null),oe=z(null),de=z(0),K=z(new e.Raycaster),S=z(new e.Vector2(-999,-999)),O=z(null),P=z(new Map),me=z({explodedProgress:f,unzipProgress:m,autoRotate:h,rotationSpeed:G,selectedId:o});return we(()=>{me.current={explodedProgress:f,unzipProgress:m,autoRotate:h,rotationSpeed:G,selectedId:o}},[f,m,h,G,o]),we(()=>{if(!B.current||!re.current)return;let n=s.length*Ce/2;if(C==="default")ye.set(32,22,n+18),ce.set(0,0,n);else if(C==="topDown")ye.set(.1,48,n),ce.set(0,0,n);else if(C==="groove")ye.set(24,0,n+5),ce.set(0,0,n);else if(C==="closeUp"){let T=(o!==null?o:Math.floor(s.length/2))*Ce;ye.set(16,4,T+8),ce.set(0,0,T)}},[C,s.length,o]),we(()=>{if(o===null||!B.current||!re.current)return;let n=o*Ce;ce.set(0,0,n)},[o]),we(()=>{let n=te.current;if(!n)return;let R=n.clientWidth||window.innerWidth,T=n.clientHeight||window.innerHeight,b=new e.Scene;$.current=b,b.background=new e.Color(461586),b.fog=new e.FogExp2(461586,.009);let A=new e.PerspectiveCamera(45,R/T,.1,1e3);B.current=A;let X=s.length*Ce/2;A.position.set(34,20,X+20),ye.copy(A.position),ce.set(0,0,X);let x=new e.WebGLRenderer({antialias:!0,powerPreference:"high-performance",alpha:!1});M.current=x,x.setSize(R,T),x.setPixelRatio(Math.min(window.devicePixelRatio,2)),x.outputColorSpace=e.SRGBColorSpace,x.toneMapping=e.ACESFilmicToneMapping,x.toneMappingExposure=1.15,x.shadowMap.enabled=!0,x.shadowMap.type=e.PCFSoftShadowMap,n.appendChild(x.domElement);let t=new Ye(A,x.domElement);re.current=t,t.enableDamping=!0,t.dampingFactor=.05,t.maxDistance=140,t.minDistance=6,t.target.copy(ce);let p=new e.PMREMGenerator(x);b.environment=p.fromScene(new Ze,.04).texture,p.dispose();let E=new e.DirectionalLight(16774635,2.2);E.position.set(35,45,30),E.castShadow=!0,E.shadow.mapSize.width=1024,E.shadow.mapSize.height=1024,E.shadow.bias=-5e-4,E.shadow.normalBias=.02,b.add(E);let Q=new e.HemisphereLight(6333946,1976635,1.2);b.add(Q);let pe=new e.DirectionalLight(440020,1.4);pe.position.set(-35,-20,-25),b.add(pe);let d=new e.AmbientLight(988970,.6);b.add(d);let D=new e.PlaneGeometry(120,120),w=new e.MeshBasicMaterial({color:198418,transparent:!0,opacity:.7,depthWrite:!1}),J=new e.Mesh(D,w);J.rotation.x=-Math.PI/2,J.position.y=-18,b.add(J);let se=new e.GridHelper(120,24,1976635,988970);se.position.y=-17.95,b.add(se);let le=new e.Group;b.add(le),oe.current=le;let Ne=()=>{if(!n||!M.current||!B.current)return;let H=n.clientWidth,g=n.clientHeight;B.current.aspect=H/g,B.current.updateProjectionMatrix(),M.current.setSize(H,g)};window.addEventListener("resize",Ne);let he=H=>{let g=n.getBoundingClientRect();S.current.x=(H.clientX-g.left)/g.width*2-1,S.current.y=-((H.clientY-g.top)/g.height)*2+1};n.addEventListener("pointermove",he);let ue=H=>{let g=n.getBoundingClientRect(),ae=(H.clientX-g.left)/g.width*2-1,L=-((H.clientY-g.top)/g.height)*2+1;S.current.set(ae,L),K.current.setFromCamera(S.current,A);let ge=Array.from(P.current.keys()),fe=K.current.intersectObjects(ge,!1);if(fe.length>0){let Se=fe[0].object,xe=P.current.get(Se);if(xe){let Ae=s.find(I=>I.id===xe.id),Ee=xe.strand===1?Ae?.strand1:Ae?.strand2;Ee&&u.playBaseSelect(Ee),l(xe.id)}}};n.addEventListener("click",ue);let Me=new e.Clock,Te=()=>{de.current=requestAnimationFrame(Te);let H=Me.getDelta();if(t&&A&&(A.position.lerp(ye,1-Math.exp(-4*H)),t.target.lerp(ce,1-Math.exp(-5*H)),t.update()),oe.current&&me.current.autoRotate&&(oe.current.rotation.z+=.3*me.current.rotationSpeed*H),K.current&&A&&S.current.x>-2){K.current.setFromCamera(S.current,A);let g=Array.from(P.current.keys()),ae=K.current.intersectObjects(g,!1);if(ae.length>0){let L=ae[0].object;O.current!==L&&(O.current&&O.current.material.emissive&&O.current.material.emissive.setHex(0),O.current=L,L.material.emissive&&(L.material.emissive.setHex(3718648),L.material.emissiveIntensity=.5),n.style.cursor="pointer")}else O.current&&O.current.material.emissive&&(O.current.material.emissive.setHex(0),O.current=null),n.style.cursor="default"}x.render(b,A)};return Te(),()=>{cancelAnimationFrame(de.current),window.removeEventListener("resize",Ne),n.removeEventListener("pointermove",he),n.removeEventListener("click",ue),x.dispose(),n.contains(x.domElement)&&n.removeChild(x.domElement)}},[]),we(()=>{let n=oe.current;if(!n)return;for(;n.children.length>0;){let d=n.children[0];n.remove(d),d.geometry&&d.geometry.dispose()}P.current.clear();let R=s.length,T=[],b=[],A=new e.MeshStandardMaterial({color:16096779,metalness:.85,roughness:.2,envMapIntensity:1.2}),X=new e.MeshStandardMaterial({color:3718648,metalness:.35,roughness:.3,envMapIntensity:.9}),x=new e.MeshPhysicalMaterial({color:165063,metalness:.4,roughness:.25,clearcoat:.8,clearcoatRoughness:.2}),t=new e.MeshPhysicalMaterial({color:6514417,metalness:.4,roughness:.25,clearcoat:.8,clearcoatRoughness:.2}),p=d=>j==="pastel"?{A:7268279,T:16557477,G:6809849,C:16638023}[d]||13421772:j==="monochrome"?{A:16777215,T:13421772,G:10066329,C:6710886}[d]||13421772:q[d]?.hexColor||1096065,E=new e.CylinderGeometry(1,1,.35,5),Q=new e.SphereGeometry(.7,16,16),pe=new e.SphereGeometry(i==="spacefill"?1.6:.8,16,16);if(s.forEach((d,D)=>{let w=D*Ce,J=D*Ke,se=J+Xe,le=f*8,Ne=m*(R+2),he=D<Ne,ue=he?Math.min((Ne-D)*.45,1.8):0,Me=he?Math.min((Ne-D)*3.5,18):0,Te=Ve+le+Me,H=Ve+le+Me,g=Math.cos(J-ue)*Te,ae=Math.sin(J-ue)*Te,L=Math.cos(se+ue)*H,ge=Math.sin(se+ue)*H;T.push(new e.Vector3(g,ae,w)),b.push(new e.Vector3(L,ge,w));let fe=d.id===o;if(v){let I=new e.Mesh(Q,A);I.position.set(g,ae,w),I.castShadow=!0,n.add(I);let W=new e.Mesh(E,X);W.position.set(g*.86,ae*.86,w-.2),W.rotation.z=J,W.rotation.x=Math.PI/3,W.castShadow=!0,n.add(W);let y=new e.Mesh(Q,A);y.position.set(L,ge,w),y.castShadow=!0,n.add(y);let F=new e.Mesh(E,X);F.position.set(L*.86,ge*.86,w-.2),F.rotation.z=se,F.rotation.x=-Math.PI/3,F.castShadow=!0,n.add(F)}if(i==="backboneOnly")return;let Se=q[d.strand1],xe=q[d.strand2],Ae=new e.MeshStandardMaterial({color:p(d.strand1),metalness:.35,roughness:.35,emissive:fe?new e.Color(3718648):d.isMutated?new e.Color(16007006):new e.Color(0),emissiveIntensity:fe?.45:d.isMutated?.35:0}),Ee=new e.MeshStandardMaterial({color:p(d.strand2),metalness:.35,roughness:.35,emissive:fe?new e.Color(3718648):d.isMutated?new e.Color(16007006):new e.Color(0),emissiveIntensity:fe?.45:d.isMutated?.35:0});if(Re.set(g*.78,ae*.78,w),He.set(L*.78,ge*.78,w),ie.lerpVectors(Re,He,.5),i==="atomic"||i==="spacefill"){let I=Se.rings,W=xe.rings;for(let y=0;y<(I===2?5:3);y++){let F=.15+y/5*.32,ne=new e.Vector3().lerpVectors(Re,ie,F),V=new e.Mesh(pe,Ae);V.position.copy(ne),V.castShadow=!0,n.add(V),P.current.set(V,{id:d.id,strand:1})}for(let y=0;y<(W===2?5:3);y++){let F=.15+y/5*.32,ne=new e.Vector3().lerpVectors(He,ie,F),V=new e.Mesh(pe,Ee);V.position.copy(ne),V.castShadow=!0,n.add(V),P.current.set(V,{id:d.id,strand:2})}}else{let I=Se.rings===2?3.4:2.5,W=new e.BoxGeometry(I,.65,.85),y=new e.Mesh(W,Ae);y.position.lerpVectors(Re,ie,.32),y.lookAt(ie),y.castShadow=!0,n.add(y),P.current.set(y,{id:d.id,strand:1});let ne=xe.rings===2?3.4:2.5,V=new e.BoxGeometry(ne,.65,.85),ee=new e.Mesh(V,Ee);ee.position.lerpVectors(He,ie,.32),ee.lookAt(ie),ee.castShadow=!0,n.add(ee),P.current.set(ee,{id:d.id,strand:2})}if(c&&!he){let I=d.strand1==="G"||d.strand1==="C"?3:2,W=.38,y=new e.CylinderGeometry(.12,.12,1.8,8),F=new e.MeshPhysicalMaterial({color:14742270,emissive:3718648,emissiveIntensity:.65,transmission:.5,roughness:.2});for(let ne=0;ne<I;ne++){let V=(ne-(I-1)/2)*W,ee=new e.Mesh(y,F);ee.position.copy(ie),ee.position.z+=V,ee.quaternion.setFromUnitVectors(new e.Vector3(0,1,0),new e.Vector3().subVectors(He,Re).normalize()),n.add(ee)}}}),v&&T.length>2){let d=new e.CatmullRomCurve3(T),D=new e.TubeGeometry(d,R*6,.45,12,!1),w=new e.Mesh(D,x);w.castShadow=!0,n.add(w);let J=new e.CatmullRomCurve3(b),se=new e.TubeGeometry(J,R*6,.45,12,!1),le=new e.Mesh(se,t);le.castShadow=!0,n.add(le)}if(Z&&R>=12){let d=new e.TorusGeometry(Ve+3.2,.12,8,48),D=new e.MeshBasicMaterial({color:3718648,transparent:!0,opacity:.35}),w=new e.Mesh(d,D);w.position.set(0,0,Ce*5.2),n.add(w)}M.current&&$.current&&B.current&&M.current.compile($.current,B.current)},[s,o,i,f,m,c,v,Z,j]),Fe("div",{className:"w-full h-full relative overflow-hidden select-none",children:Fe("div",{ref:te,className:"w-full h-full absolute inset-0"})})};import{useRef as Qe,useEffect as Je}from"react";import{jsx as _,jsxs as ve}from"react/jsx-runtime";var ze=({basePairs:s,selectedId:o,onSelectBasePair:l,onAddBasePair:i,onRemoveBasePair:f})=>{let m=Qe(null);Je(()=>{if(o===null||!m.current)return;let c=m.current.querySelector(`[data-bpid="${o}"]`);c&&c.scrollIntoView({behavior:"smooth",block:"nearest",inline:"center"})},[o]);let h=s.map(c=>c.strand1).join(""),G=Be(h),C=Oe(G);return _("div",{className:"w-full bg-[#0a0f1d]/90 border-b border-slate-800/80 px-4 py-2 select-none shadow-lg",children:ve("div",{className:"flex items-center justify-between gap-4 max-w-7xl mx-auto",children:[ve("div",{className:"flex items-center gap-2 shrink-0",children:[_("span",{className:"text-[11px] font-mono font-bold px-1.5 py-0.5 rounded bg-sky-500/20 text-sky-400 border border-sky-500/30",children:"5'"}),ve("span",{className:"text-xs font-semibold text-slate-300 hidden sm:inline",children:["DNA \uC11C\uC5F4 (\uCD1D ",s.length," bp)"]})]}),_("div",{ref:m,className:"flex items-center gap-1.5 overflow-x-auto py-1 px-2 no-scrollbar scroll-smooth",style:{scrollbarWidth:"none",msOverflowStyle:"none"},children:s.map((c,v)=>{let Z=c.id===o,j=q[c.strand1],te=Math.floor(v/3),$=v%3===0,M=C[te]?.aminoAcid;return ve("div",{"data-bpid":c.id,onClick:()=>{u.playBaseSelect(c.strand1),l(c.id)},className:`flex flex-col items-center justify-center min-w-[34px] px-1 py-1 rounded cursor-pointer transition-all ${Z?"bg-sky-500/25 ring-2 ring-sky-400 shadow-md scale-105":c.isMutated?"bg-rose-500/20 hover:bg-rose-500/30 ring-1 ring-rose-400/50":"bg-slate-900/60 hover:bg-slate-800/80 border border-slate-800"}`,title:`#${v+1}: ${j.koreanName} (${c.strand1}) \u2550 ${q[c.strand2].koreanName} (${c.strand2})`,children:[$&&_("span",{className:"text-[9px] font-mono font-bold uppercase tracking-wider px-1 rounded-sm mb-0.5 truncate max-w-[36px]",style:{backgroundColor:`${M?.color||"#334155"}33`,color:M?.color||"#94a3b8"},children:M?.code3||`C${te+1}`}),!$&&_("span",{className:"h-[13px] text-[8px] text-slate-600 font-mono",children:"\xB7"}),_("span",{className:"text-xs font-mono font-bold leading-tight",style:{color:j.color},children:c.strand1}),_("span",{className:"text-[9px] leading-none text-slate-500 font-mono my-[1px]",children:c.strand1==="G"||c.strand1==="C"?"\u22EE":"\u2025"}),_("span",{className:"text-[11px] font-mono font-semibold leading-tight",style:{color:q[c.strand2].color},children:c.strand2}),_("span",{className:"text-[8px] font-mono text-slate-500 mt-0.5",children:v+1})]},c.id)})}),ve("div",{className:"flex items-center gap-2 shrink-0",children:[_("span",{className:"text-[11px] font-mono font-bold px-1.5 py-0.5 rounded bg-indigo-500/20 text-indigo-400 border border-indigo-500/30",children:"3'"}),ve("div",{className:"flex items-center border border-slate-800 rounded bg-slate-900/70 p-0.5",children:[_("button",{onClick:()=>{u.playClick(),i()},title:"\uC5FC\uAE30\uC30D \uCD94\uAC00 (+bp)",className:"px-2 py-0.5 text-xs text-sky-400 hover:text-sky-300 hover:bg-slate-800 rounded font-bold cursor-pointer",children:"+bp"}),_("button",{onClick:()=>{u.playClick(),f()},title:"\uB9C8\uC9C0\uB9C9 \uC5FC\uAE30\uC30D \uC0AD\uC81C (-bp)",className:"px-2 py-0.5 text-xs text-rose-400 hover:text-rose-300 hover:bg-slate-800 rounded font-bold cursor-pointer",children:"-bp"})]})]})]})})};import{jsx as N,jsxs as k}from"react/jsx-runtime";var _e=({selectedBp:s,selectedIndex:o,totalBp:l,onMutateBase:i,onClose:f})=>{if(!s)return k("div",{className:"absolute top-16 left-5 z-20 pointer-events-auto bg-[#0a0f1d]/85 border border-slate-800/80 rounded-xl px-3.5 py-2.5 shadow-xl max-w-xs transition-all",children:[k("div",{className:"flex items-center gap-2",children:[N("div",{className:"w-2.5 h-2.5 rounded-full bg-sky-400"}),N("span",{className:"text-xs font-semibold text-slate-200",children:"DNA \uBD84\uC790 \uD0D0\uC0C9\uAE30"}),N("span",{className:"text-[10px] font-mono px-1.5 py-0.2 rounded bg-slate-800 text-slate-400 border border-slate-700",children:"B-DNA 3D"})]}),N("p",{className:"text-[11px] text-slate-400 mt-1 leading-relaxed",children:"3D \uB098\uC120\uC758 \uC5FC\uAE30\uB098 \uC0C1\uB2E8 \uC11C\uC5F4\uC744 \uD074\uB9AD\uD558\uBA74 \uC138\uBD80 \uD654\uD559 \uACB0\uD569 \uBC0F \uB3CC\uC5F0\uBCC0\uC774 \uC2E4\uD5D8\uC744 \uC9C4\uD589\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4."})]});let m=q[s.strand1],h=q[s.strand2],G=s.strand1==="G"||s.strand1==="C"?3:2;return k("div",{className:"absolute top-16 left-5 z-20 pointer-events-auto bg-[#0a0f1d]/95 border border-slate-700/80 rounded-xl p-3.5 shadow-2xl w-80 transition-all select-none animate-in fade-in slide-in-from-top-2",children:[k("div",{className:"flex items-center justify-between border-b border-slate-800 pb-2",children:[k("div",{className:"flex items-center gap-2",children:[k("span",{className:"text-[11px] font-mono font-bold px-1.5 py-0.5 rounded bg-sky-500/20 text-sky-400 border border-sky-500/30",children:["#",o+1," / ",l]}),N("span",{className:"text-xs font-bold text-slate-100",children:"\uC653\uC2A8-\uD06C\uB9AD \uC5FC\uAE30\uC30D \uC0C1\uC138"})]}),N("button",{onClick:()=>{u.playClick(),f()},className:"text-slate-400 hover:text-slate-200 p-0.5 rounded hover:bg-slate-800 text-sm cursor-pointer",title:"\uB2EB\uAE30",children:"\u2715"})]}),k("div",{className:"mt-2.5 grid grid-cols-2 gap-2 bg-slate-900/80 p-2.5 rounded-lg border border-slate-800",children:[k("div",{className:"flex flex-col",children:[N("span",{className:"text-[10px] text-sky-400 font-mono font-semibold",children:"5' \uAC00\uB2E5"}),k("div",{className:"flex items-baseline gap-1.5 mt-0.5",children:[N("span",{className:"text-xl font-black font-mono",style:{color:m.color},children:m.type}),N("span",{className:"text-xs font-semibold text-slate-200",children:m.koreanName})]}),k("span",{className:"text-[10px] text-slate-400 mt-1",children:[m.category," (",m.rings,"\uACE0\uB9AC)"]}),N("span",{className:"text-[9px] font-mono text-slate-500",children:m.formula})]}),k("div",{className:"flex flex-col border-l border-slate-800 pl-2",children:[N("span",{className:"text-[10px] text-indigo-400 font-mono font-semibold",children:"3' \uC0C1\uBCF4 \uAC00\uB2E5"}),k("div",{className:"flex items-baseline gap-1.5 mt-0.5",children:[N("span",{className:"text-xl font-black font-mono",style:{color:h.color},children:h.type}),N("span",{className:"text-xs font-semibold text-slate-200",children:h.koreanName})]}),k("span",{className:"text-[10px] text-slate-400 mt-1",children:[h.category," (",h.rings,"\uACE0\uB9AC)"]}),N("span",{className:"text-[9px] font-mono text-slate-500",children:h.formula})]})]}),k("div",{className:"mt-2.5 flex items-center justify-between px-2 py-1.5 bg-slate-900/50 rounded border border-slate-800 text-xs",children:[N("span",{className:"text-slate-400",children:"\uC218\uC18C \uACB0\uD569(Hydrogen Bonds)"}),N("span",{className:"font-mono font-bold text-sky-300",children:G===3?"3\uC911 \uACB0\uD569 (G\u2261C)":"2\uC911 \uACB0\uD569 (A=T)"})]}),k("div",{className:"mt-3",children:[k("div",{className:"flex items-center justify-between mb-1.5",children:[N("span",{className:"text-[11px] font-semibold text-slate-300",children:"\uC5FC\uAE30 \uCE58\uD658 (\uB3CC\uC5F0\uBCC0\uC774 \uC720\uB3C4)"}),s.isMutated&&N("span",{className:"text-[9px] font-mono px-1 py-0.5 rounded bg-rose-500/20 text-rose-400 border border-rose-500/30 font-bold",children:"\uBCC0\uC774\uB428 (Mutated)"})]}),N("div",{className:"grid grid-cols-4 gap-1.5",children:["A","T","G","C"].map(C=>{let c=s.strand1===C,v=q[C];return k("button",{onClick:()=>{u.playMutation(),i(s.id,C)},disabled:c,style:{borderColor:c?v.color:void 0},className:`py-1.5 px-1 rounded text-xs font-mono font-bold flex flex-col items-center justify-center cursor-pointer transition-all ${c?"bg-slate-800 text-white border ring-1 ring-sky-400/40 cursor-default":"bg-slate-900/80 hover:bg-slate-800 text-slate-300 border border-slate-800"}`,children:[N("span",{style:{color:v.color},children:C}),N("span",{className:"text-[9px] text-slate-400 font-sans font-normal mt-0.5",children:v.koreanName.slice(0,2)})]},C)})})]})]})};import et,{useState as Ue}from"react";import{jsx as a,jsxs as r}from"react/jsx-runtime";var je=({basePairs:s,displayMode:o,setDisplayMode:l,explodedProgress:i,setExplodedProgress:f,unzipProgress:m,setUnzipProgress:h,autoRotate:G,setAutoRotate:C,rotationSpeed:c,setRotationSpeed:v,cameraPreset:Z,setCameraPreset:j,showHBonds:te,setShowHBonds:$,showBackbone:M,setShowBackbone:B,showGrooveLabels:re,setShowGrooveLabels:oe,onLoadPreset:de,onResetHelix:K,soundEnabled:S,setSoundEnabled:O})=>{let[P,me]=Ue(!1),[n,R]=Ue("view"),[T,b]=Ue(!1);et.useEffect(()=>{let t;return T&&(t=window.setInterval(()=>{h(p=>p>=1?(b(!1),1):Math.min(1,p+.02))},50)),()=>clearInterval(t)},[T,h]);let A=s.map(t=>t.strand1).join(""),X=Be(A),x=Oe(X);return r("div",{className:`fixed bottom-5 left-1/2 -translate-x-1/2 z-30 transition-transform duration-300 ease-out flex flex-col items-center w-[95vw] max-w-4xl ${P?"translate-y-[calc(100%-36px)]":"translate-y-0"}`,children:[a("button",{onClick:()=>{u.playClick(),me(!P)},className:"mb-1.5 px-4 py-1 rounded-full bg-[#0a0f1d]/90 hover:bg-slate-800 text-slate-300 text-xs font-medium border border-slate-700/80 shadow-lg flex items-center gap-1.5 cursor-pointer backdrop-none",children:a("span",{children:P?"\u25B4 \uCEE8\uD2B8\uB864 \uD328\uB110 \uC5F4\uAE30 (Show Controls)":"\u25BE \uC2DC\uB124\uB9C8 \uBDF0 / \uCEE8\uD2B8\uB864 \uC228\uAE30\uAE30 (Hide)"})}),r("div",{className:"w-full bg-[#0a0f1d]/95 border border-slate-700/80 rounded-2xl shadow-2xl p-3.5 backdrop-none select-none",children:[r("div",{className:"flex items-center justify-between border-b border-slate-800 pb-2.5 mb-3 gap-2",children:[r("div",{className:"flex items-center gap-1.5 overflow-x-auto",children:[a("button",{onClick:()=>{u.playClick(),R("view")},className:`px-3 py-1.5 rounded-lg text-xs font-semibold cursor-pointer transition-all ${n==="view"?"bg-sky-500/20 text-sky-300 border border-sky-500/40":"text-slate-400 hover:text-slate-200 hover:bg-slate-800/60"}`,children:"\uAD6C\uC870 & 3D \uBDF0"}),r("button",{onClick:()=>{u.playClick(),R("dogma")},className:`px-3 py-1.5 rounded-lg text-xs font-semibold cursor-pointer transition-all flex items-center gap-1 ${n==="dogma"?"bg-indigo-500/20 text-indigo-300 border border-indigo-500/40":"text-slate-400 hover:text-slate-200 hover:bg-slate-800/60"}`,children:[a("span",{children:"\uC804\uC0AC \xB7 \uBC88\uC5ED"}),r("span",{className:"text-[10px] px-1 py-0.2 bg-indigo-500/30 text-indigo-300 rounded font-mono",children:[x.length," AA"]})]}),a("button",{onClick:()=>{u.playClick(),R("unzip")},className:`px-3 py-1.5 rounded-lg text-xs font-semibold cursor-pointer transition-all ${n==="unzip"?"bg-amber-500/20 text-amber-300 border border-amber-500/40":"text-slate-400 hover:text-slate-200 hover:bg-slate-800/60"}`,children:"\uD5EC\uB9AC\uCE74\uC544\uC81C \uBCF5\uC81C \uD480\uB9BC"}),a("button",{onClick:()=>{u.playClick(),R("presets")},className:`px-3 py-1.5 rounded-lg text-xs font-semibold cursor-pointer transition-all ${n==="presets"?"bg-emerald-500/20 text-emerald-300 border border-emerald-500/40":"text-slate-400 hover:text-slate-200 hover:bg-slate-800/60"}`,children:"\uC8FC\uC694 \uC720\uC804\uC790 \uD504\uB9AC\uC14B"})]}),r("div",{className:"flex items-center gap-2 shrink-0",children:[a("button",{onClick:()=>{let t=!S;O(t),u.setEnabled(t),t&&u.playClick()},title:S?"\uD6A8\uACFC\uC74C \uB044\uAE30":"\uD6A8\uACFC\uC74C \uCF1C\uAE30",className:`p-1.5 rounded-lg border text-xs cursor-pointer ${S?"bg-slate-800 border-slate-700 text-sky-400":"bg-slate-900 border-slate-800 text-slate-500"}`,children:S?"\u{1F50A} \uC0AC\uC6B4\uB4DC On":"\u{1F507} \uC0AC\uC6B4\uB4DC Mute"}),a("button",{onClick:()=>{u.playClick(),K()},title:"\uCD08\uAE30\uD654",className:"px-2.5 py-1.5 rounded-lg border border-slate-700/80 bg-slate-800/60 hover:bg-slate-800 text-slate-300 text-xs font-medium cursor-pointer",children:"\uCD08\uAE30\uD654"})]})]}),n==="view"&&r("div",{className:"grid grid-cols-1 md:grid-cols-4 gap-4 text-xs",children:[r("div",{className:"flex flex-col gap-1.5",children:[a("span",{className:"text-[11px] font-semibold text-slate-400",children:"\uD45C\uD604 \uBC29\uC2DD (Model Style)"}),a("div",{className:"grid grid-cols-3 gap-1",children:[{id:"ribbon",label:"\uB9AC\uBCF8"},{id:"ladder",label:"\uC0AC\uB2E4\uB9AC"},{id:"spacefill",label:"\uC6D0\uC790\uAD6C"}].map(t=>a("button",{onClick:()=>{u.playClick(),l(t.id)},className:`py-1.5 px-1 rounded text-center font-medium cursor-pointer transition-colors ${o===t.id?"bg-sky-500 text-slate-950 font-bold shadow":"bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800"}`,children:t.label},t.id))}),a("span",{className:"text-[11px] font-semibold text-slate-400 mt-2",children:"\uC2DC\uC810 (Camera View)"}),a("div",{className:"grid grid-cols-2 gap-1",children:[{id:"default",label:"\uAE30\uBCF8 \uAC01\uB3C4"},{id:"topDown",label:"\uC704\uC5D0\uC11C (\uCD95\uBC29\uD5A5)"},{id:"groove",label:"\uC8FC\uD648/\uBD80\uD648"},{id:"closeUp",label:"\uCD08\uC810 \uD655\uB300"}].map(t=>a("button",{onClick:()=>{u.playClick(),j(t.id)},className:`py-1 px-1 rounded text-center text-[11px] cursor-pointer transition-colors ${Z===t.id?"bg-indigo-500/30 text-indigo-300 border border-indigo-500/50 font-bold":"bg-slate-900 text-slate-400 hover:bg-slate-800 border border-slate-800"}`,children:t.label},t.id))})]}),r("div",{className:"flex flex-col gap-1.5",children:[r("div",{className:"flex items-center justify-between",children:[a("span",{className:"text-[11px] font-semibold text-slate-400",children:"\uBD84\uD574 \uC870\uB9BD \uBDF0 (Exploded View)"}),r("span",{className:"font-mono text-sky-400 font-bold",children:[Math.round(i*100),"%"]})]}),a("input",{type:"range",min:"0",max:"1",step:"0.01",value:i,onChange:t=>f(parseFloat(t.target.value)),className:"w-full accent-sky-400 cursor-pointer"}),a("p",{className:"text-[10px] text-slate-500 leading-tight",children:"\uC2AC\uB77C\uC774\uB354\uB97C \uC62C\uB9AC\uBA74 \uC591\uCABD \uB098\uC120 \uAC00\uB2E5\uC774 \uBC29\uC0AC\uD615\uC73C\uB85C \uBD84\uB9AC\uB418\uC5B4 \uB0B4\uBD80 \uC218\uC18C \uACB0\uD569\uACFC \uC5FC\uAE30 \uBC30\uD5A5\uC744 \uBA85\uD655\uD788 \uAD00\uCC30\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4."}),r("div",{className:"mt-2 pt-2 border-t border-slate-800 flex items-center justify-between",children:[r("label",{className:"flex items-center gap-2 cursor-pointer",children:[a("input",{type:"checkbox",checked:G,onChange:t=>{u.playClick(),C(t.target.checked)},className:"accent-sky-400"}),a("span",{className:"text-slate-300",children:"\uC790\uB3D9 \uD68C\uC804 (Auto Spin)"})]}),G&&a("input",{type:"range",min:"0.2",max:"2.5",step:"0.1",value:c,onChange:t=>v(parseFloat(t.target.value)),className:"w-20 accent-sky-400",title:"\uD68C\uC804 \uC18D\uB3C4"})]})]}),r("div",{className:"flex flex-col gap-2",children:[a("span",{className:"text-[11px] font-semibold text-slate-400",children:"\uBD84\uC790 \uAD6C\uC131 \uC694\uC18C \uD1A0\uAE00"}),r("label",{className:"flex items-center justify-between p-1.5 bg-slate-900/60 rounded border border-slate-800 cursor-pointer hover:bg-slate-800/40",children:[a("span",{className:"text-slate-300",children:"\uC218\uC18C \uACB0\uD569\uC120 (H-Bonds)"}),a("input",{type:"checkbox",checked:te,onChange:t=>$(t.target.checked),className:"accent-sky-400"})]}),r("label",{className:"flex items-center justify-between p-1.5 bg-slate-900/60 rounded border border-slate-800 cursor-pointer hover:bg-slate-800/40",children:[a("span",{className:"text-slate-300",children:"\uB2F9-\uC778\uC0B0 \uACE8\uACA9 (Backbone)"}),a("input",{type:"checkbox",checked:M,onChange:t=>B(t.target.checked),className:"accent-sky-400"})]}),r("label",{className:"flex items-center justify-between p-1.5 bg-slate-900/60 rounded border border-slate-800 cursor-pointer hover:bg-slate-800/40",children:[a("span",{className:"text-slate-300",children:"\uC8FC\uD648 / \uBD80\uD648 \uAC00\uC774\uB4DC \uB9C1"}),a("input",{type:"checkbox",checked:re,onChange:t=>oe(t.target.checked),className:"accent-sky-400"})]})]}),r("div",{className:"flex flex-col gap-1.5 bg-slate-900/40 p-2.5 rounded-lg border border-slate-800",children:[a("span",{className:"text-[11px] font-semibold text-slate-300",children:"\uC5FC\uAE30 \uC0C9\uC0C1 \uAC00\uC774\uB4DC"}),r("div",{className:"grid grid-cols-2 gap-1.5",children:[r("div",{className:"flex items-center gap-1.5",children:[a("div",{className:"w-2.5 h-2.5 rounded-full bg-[#10b981]"}),a("span",{className:"text-slate-300 font-mono",children:"A : \uC544\uB370\uB2CC"})]}),r("div",{className:"flex items-center gap-1.5",children:[a("div",{className:"w-2.5 h-2.5 rounded-full bg-[#ef4444]"}),a("span",{className:"text-slate-300 font-mono",children:"T : \uD2F0\uBBFC"})]}),r("div",{className:"flex items-center gap-1.5",children:[a("div",{className:"w-2.5 h-2.5 rounded-full bg-[#06b6d4]"}),a("span",{className:"text-slate-300 font-mono",children:"G : \uAD6C\uC544\uB2CC"})]}),r("div",{className:"flex items-center gap-1.5",children:[a("div",{className:"w-2.5 h-2.5 rounded-full bg-[#f59e0b]"}),a("span",{className:"text-slate-300 font-mono",children:"C : \uC2DC\uD1A0\uC2E0"})]})]}),a("p",{className:"text-[10px] text-slate-500 mt-1",children:"A=T (\uC218\uC18C\uACB0\uD569 2\uAC1C), G\u2261C (\uC218\uC18C\uACB0\uD569 3\uAC1C) \uC0C1\uBCF4\uC801 \uACB0\uD569 \uC6D0\uB9AC\uB97C \uB530\uB985\uB2C8\uB2E4."})]})]}),n==="dogma"&&r("div",{className:"flex flex-col gap-3 text-xs",children:[a("div",{className:"flex items-center justify-between",children:r("div",{children:[a("span",{className:"text-xs font-bold text-slate-200",children:"\uC0DD\uBA85\uACFC\uD559 \uC911\uC2EC\uC6D0\uB9AC: DNA \u2192 mRNA \uC804\uC0AC \u2192 \uD3F4\uB9AC\uD3A9\uD0C0\uC774\uB4DC(\uB2E8\uBC31\uC9C8) \uBC88\uC5ED"}),a("p",{className:"text-[11px] text-slate-400 mt-0.5",children:"\uC0C1\uB2E8 \uC5FC\uAE30\uB97C \uBCC0\uACBD\uD558\uAC70\uB098 \uB3CC\uC5F0\uBCC0\uC774\uB97C \uC77C\uC73C\uD0A4\uBA74 \uB2E8\uBC31\uC9C8 \uC544\uBBF8\uB178\uC0B0 \uC11C\uC5F4\uC774 \uC989\uC2DC \uC2E4\uC2DC\uAC04\uC73C\uB85C \uC7AC\uACC4\uC0B0\uB429\uB2C8\uB2E4."})]})}),r("div",{className:"bg-slate-900/80 p-3 rounded-xl border border-slate-800",children:[a("span",{className:"text-[11px] font-semibold text-indigo-400 mb-2 block",children:"\uC0DD\uC131\uB41C \uD3F4\uB9AC\uD3A9\uD0C0\uC774\uB4DC \uC0AC\uC2AC (N-\uB9D0\uB2E8 \u2192 C-\uB9D0\uB2E8)"}),x.length===0?a("div",{className:"text-slate-500 py-2",children:"\uCD5C\uC18C 3\uAC1C \uC774\uC0C1\uC758 \uC5FC\uAE30\uAC00 \uD544\uC694\uD569\uB2C8\uB2E4."}):a("div",{className:"flex items-center gap-2 overflow-x-auto py-1",children:x.map((t,p)=>r("div",{className:"flex items-center gap-1.5 shrink-0 bg-slate-950/80 border border-slate-800 px-2.5 py-1.5 rounded-lg shadow",children:[r("div",{className:"flex flex-col items-center",children:[r("span",{className:"text-[9px] font-mono text-slate-500",children:["\uCF54\uB3C8 #",p+1]}),a("span",{className:"text-xs font-mono font-bold text-sky-300",children:t.codon})]}),a("span",{className:"text-slate-600",children:"\u2192"}),r("div",{className:"flex flex-col",children:[r("span",{className:"text-xs font-bold font-mono px-1.5 py-0.2 rounded",style:{backgroundColor:`${t.aminoAcid.color}25`,color:t.aminoAcid.color},children:[t.aminoAcid.code3," (",t.aminoAcid.koreanName,")"]}),a("span",{className:"text-[9px] text-slate-400",children:t.aminoAcid.property})]})]},p))})]})]}),n==="unzip"&&r("div",{className:"flex flex-col gap-3 text-xs",children:[r("div",{className:"flex items-center justify-between",children:[r("div",{children:[a("span",{className:"text-xs font-bold text-slate-200",children:"\uD5EC\uB9AC\uCE74\uC544\uC81C(Helicase) \uBCF5\uC81C \uBD84\uAE30\uC810 \uC2DC\uBBAC\uB808\uC774\uC158"}),a("p",{className:"text-[11px] text-slate-400 mt-0.5",children:"DNA \uBCF5\uC81C \uC2DC \uD5EC\uB9AC\uCE74\uC544\uC81C \uD6A8\uC18C\uAC00 \uC218\uC18C \uACB0\uD569\uC744 \uB04A\uC5B4 \uC774\uC911 \uB098\uC120\uC744 \uB2E8\uC77C \uAC00\uB2E5 \uBCF5\uC81C \uD3EC\uD06C(Replication Fork)\uB85C \uD489\uB2C8\uB2E4."})]}),r("div",{className:"flex items-center gap-2",children:[a("button",{onClick:()=>{u.playUnzip(),b(!T)},className:`px-3 py-1.5 rounded-lg font-bold cursor-pointer transition-all ${T?"bg-rose-500/20 text-rose-300 border border-rose-500/40":"bg-amber-500/20 text-amber-300 border border-amber-500/40"}`,children:T?"\u275A\u275A \uC77C\uC2DC\uC815\uC9C0":"\u25B6 \uB098\uC120 \uD480\uAE30 \uC2DC\uBBAC\uB808\uC774\uC158"}),a("button",{onClick:()=>{u.playClick(),b(!1),h(0)},className:"px-2.5 py-1.5 rounded-lg bg-slate-800 text-slate-400 hover:text-slate-200 cursor-pointer",children:"\uB418\uAC10\uAE30"})]})]}),r("div",{className:"flex items-center gap-4",children:[a("span",{className:"font-mono text-slate-400 shrink-0",children:"\uD480\uB9BC \uC9C4\uD589\uB960:"}),a("input",{type:"range",min:"0",max:"1",step:"0.01",value:m,onChange:t=>{h(parseFloat(t.target.value))},className:"w-full accent-amber-400 cursor-pointer"}),r("span",{className:"font-mono font-bold text-amber-400 shrink-0",children:[Math.round(m*100),"%"]})]})]}),n==="presets"&&r("div",{className:"flex flex-col gap-2.5 text-xs",children:[a("span",{className:"text-xs font-bold text-slate-300",children:"\uD559\uC220 \uBC0F \uC758\uD559\uC801\uC73C\uB85C \uC911\uC694\uD55C \uB300\uD45C DNA \uC11C\uC5F4 \uD504\uB9AC\uC14B"}),a("div",{className:"grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2",children:ke.map(t=>r("div",{onClick:()=>{u.playClick(),de(t)},className:"p-2.5 rounded-xl bg-slate-900/70 hover:bg-slate-800 border border-slate-800 hover:border-sky-500/50 cursor-pointer transition-all flex flex-col justify-between",children:[r("div",{children:[r("div",{className:"flex items-center justify-between mb-1",children:[a("span",{className:"font-bold text-slate-200",children:t.koreanName}),a("span",{className:"text-[9px] font-mono px-1 py-0.5 rounded bg-slate-800 text-slate-400",children:t.category})]}),a("p",{className:"text-[10px] text-slate-400 line-clamp-2 leading-relaxed",children:t.description})]}),r("div",{className:"mt-2 pt-1.5 border-t border-slate-800/80 flex items-center justify-between",children:[r("span",{className:"font-mono text-[10px] text-sky-400 truncate max-w-[140px]",children:["5'-",t.sequence,"-3'"]}),a("span",{className:"text-[10px] text-sky-300 font-semibold hover:underline",children:"\uC801\uC6A9 \u2192"})]})]},t.id))})]})]})]})};import{jsx as Y,jsxs as be}from"react/jsx-runtime";function Le(s){return s.toUpperCase().split("").map((o,l)=>{let i=["A","T","G","C"].includes(o)?o:"A";return{id:l,strand1:i,strand2:Pe[i],isMutated:!1}})}function Ie(){let[s,o]=U(()=>Le(ke[0].sequence)),[l,i]=U(null),[f,m]=U("ribbon"),[h,G]=U(0),[C,c]=U(0),[v,Z]=U(!0),[j,te]=U(1),[$,M]=U("default"),[B,re]=U(!0),[oe,de]=U(!0),[K,S]=U(!1),[O]=U("standard"),[P,me]=U(!0);tt(()=>{let t=p=>{p.target instanceof HTMLInputElement||p.target instanceof HTMLTextAreaElement||(p.key===" "||p.code==="Space"?(p.preventDefault(),Z(E=>!E)):p.key==="Escape"&&i(null))};return window.addEventListener("keydown",t),()=>window.removeEventListener("keydown",t)},[]);let n=Ge((t,p)=>{o(E=>E.map(Q=>Q.id===t?{...Q,strand1:p,strand2:Pe[p],isMutated:!0}:Q))},[]),R=Ge(()=>{o(t=>{let p=["A","T","G","C"],E=p[Math.floor(Math.random()*p.length)],Q=t.length>0?Math.max(...t.map(pe=>pe.id))+1:0;return[...t,{id:Q,strand1:E,strand2:Pe[E],isMutated:!1}]})},[]),T=Ge(()=>{o(t=>t.length<=6?t:t.slice(0,t.length-1)),i(t=>t!==null&&t>=s.length-1?null:t)},[s.length]),b=Ge(t=>{o(Le(t.sequence)),i(null),c(0),G(0)},[]),A=Ge(()=>{o(Le(ke[0].sequence)),i(null),G(0),c(0),Z(!0),M("default"),m("ribbon"),re(!0),de(!0),S(!1)},[]),X=s.find(t=>t.id===l)||null,x=X?s.findIndex(t=>t.id===l):-1;return be("div",{className:"relative w-screen h-screen overflow-hidden bg-[#070b12] text-slate-100 flex flex-col font-sans select-none",children:[Y(ze,{basePairs:s,selectedId:l,onSelectBasePair:t=>i(t),onAddBasePair:R,onRemoveBasePair:T}),be("main",{className:"flex-1 w-full h-full relative",children:[Y(qe,{basePairs:s,selectedId:l,onSelectBasePair:t=>i(t),displayMode:f,explodedProgress:h,unzipProgress:C,autoRotate:v,rotationSpeed:j,cameraPreset:$,showHBonds:B,showBackbone:oe,showGrooveLabels:K,colorScheme:O}),Y(_e,{selectedBp:X,selectedIndex:x,totalBp:s.length,onMutateBase:n,onClose:()=>i(null)}),be("div",{className:"absolute top-4 right-4 z-10 pointer-events-none hidden md:flex items-center gap-2 text-[11px] text-slate-400 bg-slate-900/60 border border-slate-800/80 px-2.5 py-1 rounded-lg backdrop-none shadow-sm",children:[be("span",{children:[Y("kbd",{className:"px-1 py-0.5 rounded bg-slate-800 font-mono text-slate-300",children:"\uB4DC\uB798\uADF8"})," \uD68C\uC804"]}),Y("span",{children:"\u2022"}),be("span",{children:[Y("kbd",{className:"px-1 py-0.5 rounded bg-slate-800 font-mono text-slate-300",children:"\uD720"})," \uC90C"]}),Y("span",{children:"\u2022"}),be("span",{children:[Y("kbd",{className:"px-1 py-0.5 rounded bg-slate-800 font-mono text-slate-300",children:"Space"})," \uC815\uC9C0/\uC7AC\uC0DD"]}),Y("span",{children:"\u2022"}),be("span",{children:[Y("kbd",{className:"px-1 py-0.5 rounded bg-slate-800 font-mono text-slate-300",children:"\uD074\uB9AD"})," \uC5FC\uAE30 \uC120\uD0DD"]})]})]}),Y(je,{basePairs:s,displayMode:f,setDisplayMode:m,explodedProgress:h,setExplodedProgress:G,unzipProgress:C,setUnzipProgress:c,autoRotate:v,setAutoRotate:Z,rotationSpeed:j,setRotationSpeed:te,cameraPreset:$,setCameraPreset:M,showHBonds:B,setShowHBonds:re,showBackbone:oe,setShowBackbone:de,showGrooveLabels:K,setShowGrooveLabels:S,onLoadPreset:b,onResetHelix:A,soundEnabled:P,setSoundEnabled:me})]})}import{jsx as at}from"react/jsx-runtime";ot(document.getElementById("root")).render(at(Ie,{}));
+/**
+ * @license
+ * SPDX-License-Identifier: Apache-2.0
+ */
+</script></body>
+</html>

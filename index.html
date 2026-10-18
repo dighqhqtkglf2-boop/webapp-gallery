@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>수업 웹앱 전시관</title>
-<meta name="description" content="AI Studio 바이브 코딩 교사 연수용 교과 웹앱 전시관과 교과별 프롬프트 모음">
+<title>교과 웹앱 제작 도구 비교 · 금평초 김상흠</title>
+<meta name="description" content="금평초 김상흠의 교과 웹앱 제작 도구 비교: Gemini Canvas와 AI Studio, 같은 원본 프롬프트로 만든 교육용 예시와 연수 가이드">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231B1A17'/%3E%3Ctext x='32' y='44' font-size='34' text-anchor='middle' fill='%23F3EFE6' font-family='serif'%3E전%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -81,6 +81,23 @@ a{color:inherit}
 .stats div{display:flex;flex-direction:column}
 .stats dt{font-size:.78rem;color:var(--ink-3);order:2}
 .stats dd{font-family:var(--serif);font-size:2rem;line-height:1.1;font-weight:700;order:1}
+
+.comparison{margin-top:30px;padding:22px 24px;border:1px solid var(--rule);border-radius:var(--radius);background:var(--surface)}
+.comparison h2{font-family:var(--serif);font-size:1.2rem;margin-bottom:8px}
+.comparison p{font-size:.9rem;color:var(--ink-2);max-width:80em}
+.comparison .comparison-note{font-size:.82rem;color:var(--ink-3);margin-top:8px}
+.comparison-links{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:12px;font-size:.82rem;color:var(--ink-2)}
+.comparison-links a{text-underline-offset:4px}
+.platform-note{border-left:2px solid var(--rule-2);padding:8px 14px;color:var(--ink-2);font-size:.88rem;margin-bottom:14px;max-width:78em}
+.gallery-count{font-size:.8rem;color:var(--ink-3);margin-bottom:12px}
+.version-label{font-size:.76rem;color:var(--ink-2);margin-top:10px}
+.ex-credit{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:10px}
+.ex-credit .ex-author{margin-top:0}
+.ex-credit .btn.icon{width:30px;height:30px;border-radius:8px;color:var(--ink-3)}
+.ex-actions{display:grid;grid-template-columns:1fr 1.25fr}
+.ex-actions .btn{font-size:.8rem;padding:0 8px;gap:4px;white-space:nowrap}
+.ex-actions .btn.remix{background:transparent;color:var(--ink);border-color:var(--rule-2)}
+.ex-actions .btn.remix:hover{background:var(--surface-2);border-color:var(--ink);color:var(--ink)}
 
 /* ── 탭 ───────────────────────────────── */
 .tabbar{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--paper) 88%,transparent);
@@ -165,7 +182,7 @@ a{color:inherit}
 .ex-desc{margin-top:12px;color:var(--ink-2);font-size:.94rem}
 .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px;list-style:none}
 .tags li{font-size:.76rem;padding:3px 9px;border-radius:6px;background:var(--surface-2);color:var(--ink-2)}
-.ex-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:18px}
+.ex-actions{display:grid;grid-template-columns:1fr 1.25fr;gap:8px;margin-top:auto;padding-top:18px}
 .btn{height:40px;padding:0 16px;border-radius:10px;font-size:.88rem;font-weight:700;display:inline-flex;align-items:center;
   justify-content:center;gap:7px;border:1px solid var(--rule-2);color:var(--ink);text-decoration:none;transition:all .18s}
 .btn:hover{border-color:var(--ink)}
@@ -334,29 +351,38 @@ html.present .mast{padding-top:24px}
 <header class="mast">
   <div class="wrap">
     <div class="mast-top">
-      <span class="eyebrow">AIEDAP 연구모임 · AI Studio 바이브 코딩 교사 연수</span>
-      <span class="eyebrow">고등학교 교과 웹앱 컬렉션</span>
+      <span class="eyebrow">금평초 김상흠</span>
+      <span class="eyebrow">교과 웹앱 제작 도구 비교</span>
     </div>
     <div class="mast-grid">
       <h1>수업이 되는<br><em>웹앱</em> 전시관</h1>
       <div>
-        <p class="lede">선생님들이 말로 만든 한 장짜리 HTML 앱을 모았습니다. 앱을 직접 체험해 보고, 교과별 프롬프트를 복사해 내 수업 앱을 만들어 보세요.</p>
+        <p class="lede">같은 원본 프롬프트로 만든 Gemini Canvas와 AI Studio 버전을 나란히 살펴봅니다. GitHub 배포본을 체험하고, AI Studio 프로젝트에서 내 수업에 맞게 리믹스해 보세요.</p>
         <dl class="stats">
-          <div><dt>전시 앱</dt><dd id="stat-apps">0</dd></div>
+          <div><dt>전체 버전</dt><dd id="stat-apps">0</dd></div>
           <div><dt>교과 프롬프트</dt><dd id="stat-prompts">0</dd></div>
-          <div><dt>교과</dt><dd id="stat-subjects">0</dd></div>
+          <div><dt>주제 · 기존 작품 포함</dt><dd id="stat-topics">0</dd></div>
         </dl>
       </div>
     </div>
+  </div>
+  <div class="wrap">
+    <section class="comparison" aria-labelledby="comparison-title">
+      <h2 id="comparison-title">같은 입력, 다른 제작 환경</h2>
+      <p><b>Gemini Canvas · Pro 모드</b>와 <b>AI Studio · Gemini 3.8 Flash</b>에 같은 원본 A/B 프롬프트(각 5교과)를 사용했습니다. 모델·실행 환경이 다르고 생성 후 사람의 수정도 포함되므로, 통제된 성능 평가나 우열 순위가 아닙니다.</p>
+      <p class="comparison-note">입력의 동일성을 위해 Gemini Canvas와 푸터 지시가 담긴 원본 프롬프트를 그대로 보존했습니다. 두 배포 버전의 푸터 표기는 금평초 김상흠으로 바로잡았습니다. 기존 작품 2개는 짝 비교에서 제외합니다.</p>
+      <div class="comparison-links"><a href="data/comparison/prompt-a.txt" target="_blank" rel="noopener">원본 프롬프트 A · 5교과 ↗</a><a href="data/comparison/prompt-b.txt" target="_blank" rel="noopener">원본 프롬프트 B · 5교과 ↗</a><a href="data/comparison/notes.json" target="_blank" rel="noopener">생성 후 수정 기록 ↗</a></div>
+    </section>
   </div>
 </header>
 
 <nav class="tabbar" aria-label="주 메뉴">
   <div class="wrap">
     <div class="tabs" role="tablist">
-      <button class="tab" role="tab" data-tab="gallery" aria-controls="panel-gallery"><span class="num">01</span>전시관</button>
-      <button class="tab" role="tab" data-tab="prompts" aria-controls="panel-prompts"><span class="num">02</span><span class="t-label">교과별 </span>프롬프트</button>
-      <button class="tab" role="tab" data-tab="guide" aria-controls="panel-guide"><span class="num">03</span>연수 가이드</button>
+      <button class="tab" id="tab-gallery" role="tab" data-tab="gallery" aria-controls="panel-gallery"><span class="num">01</span>Gemini Canvas</button>
+      <button class="tab" id="tab-studio" role="tab" data-tab="studio" aria-controls="panel-gallery"><span class="num">02</span>AI Studio</button>
+      <button class="tab" role="tab" id="tab-prompts" data-tab="prompts" aria-controls="panel-prompts"><span class="num">03</span><span class="t-label">교과별 </span>프롬프트</button>
+      <button class="tab" role="tab" id="tab-guide" data-tab="guide" aria-controls="panel-guide"><span class="num">04</span>연수 가이드</button>
     </div>
     <button class="tool" id="btn-present" aria-pressed="false" title="발표 모드 (F)">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg>
@@ -370,12 +396,14 @@ html.present .mast{padding-top:24px}
 
 <main>
   <!-- 01 전시관 -->
-  <section class="panel" id="panel-gallery" role="tabpanel" data-panel="gallery">
+  <section class="panel" id="panel-gallery" role="tabpanel" aria-labelledby="tab-gallery" data-panel="gallery">
     <div class="wrap">
       <div class="sec-head">
-        <h2>전시관</h2>
-        <p>썸네일이나 <b>바로 체험</b>을 누르면 이 화면에서 앱이 열립니다. <b>QR</b>을 띄우면 참가자가 휴대폰으로 바로 접속할 수 있어요.</p>
+        <h2 id="gallery-title">Gemini Canvas</h2>
+        <p>두 버튼으로 <b>GitHub 배포본 체험</b>과 <b>AI Studio 프로젝트 리믹스</b>를 선택하세요. 작은 QR 아이콘은 배포본의 휴대폰 접속용입니다.</p>
       </div>
+      <p class="platform-note" id="platform-note"></p>
+      <p class="gallery-count" id="gallery-count" role="status" aria-live="polite"></p>
       <div class="filters">
         <div class="chips" id="area-chips" role="group" aria-label="영역"></div>
         <label class="search">
@@ -471,7 +499,7 @@ html.present .mast{padding-top:24px}
 
 <footer>
   <div class="wrap">
-    <span>출처: AI Studio 바이브 코딩 교사 연수 가이드 · AIEDAP 연구모임</span>
+    <span>기획·구성 금평초 김상흠 · AI 생성 교육용 예시 · 교과 검토 후 활용</span>
     <span>앱 추가는 <code>data/apps.js</code>, 프롬프트 수정은 <code>data/prompts.js</code></span>
   </div>
 </footer>
@@ -504,7 +532,7 @@ html.present .mast{padding-top:24px}
 
 <div class="toast" id="toast" role="status"></div>
 
-<script src="data/apps.js?v=canvas-10-bdb5929"></script>
+<script src="data/apps.js?v=compare-v2"></script>
 <script src="data/prompts.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" defer></script>
 <script>
@@ -588,16 +616,26 @@ html.present .mast{padding-top:24px}
   /* ── 통계 ─────────────────────────────── */
   $('#stat-apps').textContent = APPS.length;
   $('#stat-prompts').textContent = P.subjects.length;
-  $('#stat-subjects').textContent = Object.keys(P.subjects.reduce(function (m, p) { m[p.subject] = 1; return m; }, {})).length;
+  $('#stat-topics').textContent = Object.keys(APPS.reduce(function (m, a) { m[a.pairId && !a.legacy ? 'pair:' + a.pairId : 'app:' + a.id] = 1; return m; }, {})).length;
 
   /* ── 탭 ───────────────────────────────── */
-  var TABS = ['gallery', 'prompts', 'guide'];
+  var TABS = ['gallery', 'studio', 'prompts', 'guide'];
   var current = 'gallery';
   function showTab(name, anchor) {
     if (TABS.indexOf(name) < 0) name = 'gallery';
     current = name;
-    $$('.tab').forEach(function (t) { t.setAttribute('aria-selected', t.dataset.tab === name ? 'true' : 'false'); });
-    $$('[data-panel]').forEach(function (p) { p.hidden = p.dataset.panel !== name; });
+    $$('.tab').forEach(function (t) { var selected = t.dataset.tab === name; t.setAttribute('aria-selected', selected ? 'true' : 'false'); t.tabIndex = selected ? 0 : -1; });
+    $$('[data-panel]').forEach(function (p) { p.hidden = p.dataset.panel !== (name === 'studio' ? 'gallery' : name); });
+    if (name === 'gallery' || name === 'studio') {
+      gState = gStates[name];
+      $('#app-q').value = gState.q;
+      $('#panel-gallery').setAttribute('aria-labelledby', 'tab-' + name);
+      $('#gallery-title').textContent = name === 'studio' ? 'AI Studio' : 'Gemini Canvas';
+      $('#platform-note').textContent = name === 'studio'
+        ? 'Gemini 3.8 Flash로 만든 AI Studio 버전입니다. 기존 작품 2개는 별도 표시하며 A/B 짝 비교에서 제외합니다. 리믹스는 새 탭에서 열리며 Google 로그인이 필요할 수 있습니다.'
+        : 'Pro 모드로 만든 Gemini Canvas 배포본입니다. 이 탭의 AI Studio 리믹스는 Canvas 원본이 아니라, 같은 프롬프트로 만든 AI Studio 짝 버전으로 연결됩니다. Google 로그인이 필요할 수 있습니다.';
+      renderAreaChips(); renderGallery();
+    }
     if (location.hash.slice(1) !== name) history.replaceState(null, '', '#' + name);
     clearFocus();
     if (anchor) {
@@ -609,6 +647,16 @@ html.present .mast{padding-top:24px}
     }
   }
   $$('.tab').forEach(function (t) { t.addEventListener('click', function () { showTab(t.dataset.tab); }); });
+  $('.tabs').addEventListener('keydown', function (e) {
+    if (document.documentElement.classList.contains('present')) return;
+    var i = TABS.indexOf(current), next;
+    if (e.key === 'ArrowRight') next = (i + 1) % TABS.length;
+    else if (e.key === 'ArrowLeft') next = (i + TABS.length - 1) % TABS.length;
+    else if (e.key === 'Home') next = 0;
+    else if (e.key === 'End') next = TABS.length - 1;
+    else return;
+    e.preventDefault(); showTab(TABS[next]); $('[data-tab="' + TABS[next] + '"]').focus();
+  });
   document.addEventListener('click', function (e) {
     var g = e.target.closest('[data-goto]');
     if (g) { e.preventDefault(); showTab(g.dataset.goto, g.dataset.anchor); }
@@ -616,7 +664,9 @@ html.present .mast{padding-top:24px}
   window.addEventListener('hashchange', function () { showTab(location.hash.slice(1)); });
 
   /* ── 01 전시관 ─────────────────────────── */
-  var gState = { area: 'all', q: '' };
+  var gStates = { gallery: { area: 'all', q: '' }, studio: { area: 'all', q: '' } };
+  var gState = gStates.gallery;
+  function platformApps() { return APPS.filter(function (a) { return a.platform === (current === 'studio' ? 'studio' : 'canvas'); }); }
 
   function thumbFallback(app) {
     var words = String(app.title || '?').split(/\s+/);
@@ -626,33 +676,27 @@ html.present .mast{padding-top:24px}
 
   function appCard(app, idx) {
     var area = AREAS[app.area] || AREAS.etc;
-    var ext = isExternal(app);
     var thumb = app.thumb ? '<img src="' + esc(app.thumb) + '" alt="' + esc(app.title) + ' 화면" loading="lazy">' : thumbFallback(app);
     var tags = (app.tags || []).map(function (t) { return '<li>' + esc(t) + '</li>'; }).join('');
-    var src = app.source ? '<a class="btn icon" href="' + esc(app.source) + '" target="_blank" rel="noopener" title="원본 보기" aria-label="원본 보기">' + ICON.src + '</a>' : '';
-    return '' +
-      '<article class="exhibit' + (app.featured ? ' featured' : '') + '" style="--c:' + area.color + '" data-id="' + esc(app.id) + '" tabindex="-1">' +
-        '<button class="thumb" data-open="' + esc(app.id) + '" aria-label="' + esc(app.title) + ' 바로 체험">' + thumb +
-          '<span class="play">' + (ext ? ICON.ext + ' 앱 열기' : ICON.play + ' 바로 체험') + '</span></button>' +
-        '<div class="ex-body">' +
-          '<div class="ex-meta"><span class="ex-no">No.<b>' + pad(idx + 1) + '</b></span>' +
-            '<span class="area"><i></i>' + esc(area.label) + (app.subject && app.subject !== area.label ? ' · ' + esc(app.subject) : '') + '</span></div>' +
-          '<h3 class="ex-title">' + esc(app.title) + '</h3>' +
-          '<p class="ex-sub">' + esc(app.subtitle) + '</p>' +
-          '<p class="ex-desc">' + esc(app.desc) + '</p>' +
-          (tags ? '<ul class="tags">' + tags + '</ul>' : '') +
-          (app.author ? '<p class="ex-author">만든 사람 · ' + esc(app.author) + '</p>' : '') +
-          (ext ? '<p class="ex-author">새 탭에서 열려요' + (/ai\.studio|aistudio\.google/.test(app.url) ? ' · AI Studio라 구글 로그인이 필요할 수 있어요' : '') + '</p>' : '') +
-          '<div class="ex-actions">' +
-            (ext
-              ? '<a class="btn primary" href="' + esc(app.url) + '" target="_blank" rel="noopener">' + ICON.ext + '앱 열기</a>'
-              : '<button class="btn primary" data-open="' + esc(app.id) + '">' + ICON.play + '바로 체험</button>' +
-                '<a class="btn icon" href="' + esc(app.url) + '" target="_blank" rel="noopener" title="새 창으로 열기" aria-label="새 창으로 열기">' + ICON.ext + '</a>') +
-            '<button class="btn icon" data-qr="' + esc(app.id) + '" title="QR 코드" aria-label="QR 코드">' + ICON.qr + '</button>' +
-            src +
-          '</div>' +
+    var remixTitle = app.platform === 'canvas' ? 'Canvas 원본이 아닌, 같은 프롬프트로 만든 AI Studio 짝 버전 리믹스 (새 탭)' : '이 AI Studio 프로젝트 리믹스 (새 탭)';
+    var version = app.legacy ? '기존 작품 · 비교 제외' : (app.bundle ? '원본 ' + String(app.bundle).toUpperCase() + ' · ' : '') + (app.model || '');
+    return '<article class="exhibit" style="--c:' + area.color + '" data-id="' + esc(app.id) + '" tabindex="-1">' +
+      '<button class="thumb" data-open="' + esc(app.id) + '" aria-label="' + esc(app.title) + ' GitHub 배포본 체험">' + thumb +
+        '<span class="play">' + ICON.play + 'GitHub 체험</span></button>' +
+      '<div class="ex-body">' +
+        '<div class="ex-meta"><span class="ex-no">No.<b>' + pad(idx + 1) + '</b></span><span class="area"><i></i>' + esc(area.label) + (app.subject && app.subject !== area.label ? ' · ' + esc(app.subject) : '') + '</span></div>' +
+        '<h3 class="ex-title">' + esc(app.title) + '</h3>' +
+        '<p class="ex-sub">' + esc(app.subtitle) + '</p>' +
+        '<p class="version-label">' + esc(version) + '</p>' +
+        '<p class="ex-desc">' + esc(app.desc) + '</p>' +
+        (tags ? '<ul class="tags">' + tags + '</ul>' : '') +
+        '<div class="ex-credit">' + (app.author ? '<p class="ex-author">만든 사람 · ' + esc(app.author) + '</p>' : '<span></span>') +
+          '<button class="btn icon" data-qr="' + esc(app.id) + '" title="GitHub 배포본 QR 코드" aria-label="' + esc(app.title) + ' GitHub 배포본 QR 코드">' + ICON.qr + '</button></div>' +
+        '<div class="ex-actions">' +
+          '<button class="btn primary" data-open="' + esc(app.id) + '">' + ICON.play + 'GitHub 체험</button>' +
+          '<a class="btn primary remix" href="' + esc(app.remixUrl) + '" target="_blank" rel="noopener" title="' + esc(remixTitle) + '">' + ICON.ext + 'AI Studio 리믹스</a>' +
         '</div>' +
-      '</article>';
+      '</div></article>';
   }
 
   var ADD_CARD = '' +
@@ -669,8 +713,9 @@ html.present .mast{padding-top:24px}
 
   function renderAreaChips() {
     var counts = {};
-    APPS.forEach(function (a) { var k = AREAS[a.area] ? a.area : 'etc'; counts[k] = (counts[k] || 0) + 1; });
-    var html = '<button class="chip" data-area="all" aria-pressed="' + (gState.area === 'all') + '">전체 <small>' + APPS.length + '</small></button>';
+    var apps = platformApps();
+    apps.forEach(function (a) { var k = AREAS[a.area] ? a.area : 'etc'; counts[k] = (counts[k] || 0) + 1; });
+    var html = '<button class="chip" data-area="all" aria-pressed="' + (gState.area === 'all') + '">전체 <small>' + apps.length + '</small></button>';
     Object.keys(AREAS).forEach(function (k) {
       if (!counts[k]) return;
       html += '<button class="chip" data-area="' + k + '" style="--c:' + AREAS[k].color + '" aria-pressed="' + (gState.area === k) + '"><i></i>' + AREAS[k].label + ' <small>' + counts[k] + '</small></button>';
@@ -680,18 +725,20 @@ html.present .mast{padding-top:24px}
 
   function renderGallery() {
     var q = norm(gState.q);
-    var html = '';
-    APPS.forEach(function (app, i) {
+    var html = '', shown = 0;
+    var apps = platformApps();
+    apps.forEach(function (app, i) {
       var k = AREAS[app.area] ? app.area : 'etc';
       if (gState.area !== 'all' && k !== gState.area) return;
       if (q) {
         var hay = norm([app.title, app.subtitle, app.subject, app.desc, (app.tags || []).join(' '), AREAS[k].label].join(' '));
         if (hay.indexOf(q) < 0) return;
       }
-      html += appCard(app, i);
+      html += appCard(app, i); shown++;
     });
     if (!html && (q || gState.area !== 'all')) html = '<div class="empty" style="grid-column:1/-1">조건에 맞는 앱이 없어요.</div>';
-    if (gState.area === 'all' && !q) html += ADD_CARD;
+    $('#gallery-count').textContent = (current === 'studio' ? 'AI Studio' : 'Gemini Canvas') + ' · ' + apps.length + '개 버전 중 ' + shown + '개 표시' + (current === 'studio' ? ' · 기존 작품 ' + apps.filter(function (a) { return a.legacy; }).length + '개 포함' : '');
+    clearFocus();
     $('#gallery').innerHTML = html;
     $$('#gallery img').forEach(function (img) {
       img.addEventListener('error', function () {
@@ -757,9 +804,10 @@ html.present .mast{padding-top:24px}
   });
 
   function jumpToApp(app) {
+    showTab(app.platform === 'studio' ? 'studio' : 'gallery');
     gState.area = 'all'; gState.q = ''; $('#app-q').value = '';
-    renderAreaChips(); renderGallery(); showTab('gallery');
-    var card = $('.exhibit[data-id="' + app.id + '"]');
+    renderAreaChips(); renderGallery();
+    var card = $$('#gallery .exhibit').filter(function (el) { return el.dataset.id === app.id; })[0];
     if (card) {
       card.scrollIntoView({ behavior: 'smooth', block: 'center' });
       card.classList.add('flash'); setTimeout(function () { card.classList.remove('flash'); }, 2200);
@@ -951,7 +999,7 @@ html.present .mast{padding-top:24px}
 
   var focusIdx = -1;
   function navItems() {
-    var sel = { gallery: '#gallery .exhibit', prompts: '#prompt-list .pcard', guide: '#stages .stage-item' }[current];
+    var sel = { gallery: '#gallery .exhibit', studio: '#gallery .exhibit', prompts: '#prompt-list .pcard', guide: '#stages .stage-item' }[current];
     return $$(sel);
   }
   function clearFocus() { $$('.is-focus').forEach(function (el) { el.classList.remove('is-focus'); }); focusIdx = -1; }
@@ -968,14 +1016,14 @@ html.present .mast{padding-top:24px}
     var tag = (e.target.tagName || '').toLowerCase();
     if (tag === 'input' || tag === 'textarea' || e.metaKey || e.ctrlKey || e.altKey) return;
     if (e.key === 'f' || e.key === 'F') { e.preventDefault(); setPresent(!root.classList.contains('present')); return; }
-    if (e.key === '1' || e.key === '2' || e.key === '3') { showTab(TABS[+e.key - 1]); return; }
+    if (e.key === '1' || e.key === '2' || e.key === '3' || e.key === '4') { showTab(TABS[+e.key - 1]); return; }
     if (!root.classList.contains('present')) return;
     if (e.key === 'ArrowRight' || e.key === 'ArrowDown') { e.preventDefault(); moveFocus(1); }
     else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); moveFocus(-1); }
     else if (e.key === 'Enter' && focusIdx >= 0) {
       var el = navItems()[focusIdx]; if (!el) return;
       e.preventDefault();
-      if (current === 'gallery' && el.dataset.id) openApp(el.dataset.id);
+      if ((current === 'gallery' || current === 'studio') && el.dataset.id) openApp(el.dataset.id);
       else { var b = el.querySelector('.copy'); if (b) b.click(); }
     }
   });
