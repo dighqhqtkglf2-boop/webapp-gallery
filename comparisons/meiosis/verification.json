@@ -1,0 +1,572 @@
+{
+  "date": "2026-10-20",
+  "baselineCommit": "262d927",
+  "method": "같은 HTML·CSS·공통 요청문. 최초 생성본 보존. 보조 코드 검토와 브라우저 실행 확인이며 교과 전문 감수·학습효과 측정이 아님.",
+  "runtimeEnvironment": "Aside Chromium · WebGL 2.0 · CDN Three.js/OrbitControls 0.160.1",
+  "sourceEdits": {
+    "gemini": [],
+    "gpt": []
+  },
+  "packaging": "파일명만 gemini.html / chatgpt.html로 변경",
+  "gemini": {
+    "service": "Google AI Studio",
+    "model": "Gemini 3.8 Flash",
+    "mode": "Default",
+    "selfTests": [
+      {
+        "name": "G1 세포당 계수",
+        "pass": true,
+        "actual": {
+          "chromosomes": 4,
+          "dna": 4
+        },
+        "expected": {
+          "chromosomes": 4,
+          "dna": 4
+        }
+      },
+      {
+        "name": "복제 후 세포당 계수",
+        "pass": true,
+        "actual": {
+          "chromosomes": 4,
+          "dna": 8
+        },
+        "expected": {
+          "chromosomes": 4,
+          "dna": 8
+        }
+      },
+      {
+        "name": "중기 I 계수",
+        "pass": true,
+        "actual": {
+          "chromosomes": 4,
+          "dna": 8
+        },
+        "expected": {
+          "chromosomes": 4,
+          "dna": 8
+        }
+      },
+      {
+        "name": "분열 I 후 세포당 계수",
+        "pass": true,
+        "actual": {
+          "chromosomes": 2,
+          "dna": 4
+        },
+        "expected": {
+          "chromosomes": 2,
+          "dna": 4
+        }
+      },
+      {
+        "name": "분열 II 후 세포당 계수",
+        "pass": true,
+        "actual": {
+          "chromosomes": 2,
+          "dna": 2
+        },
+        "expected": {
+          "chromosomes": 2,
+          "dna": 2
+        }
+      },
+      {
+        "name": "독립 같은 방향 한 번의 다중집합",
+        "pass": true,
+        "actual": {
+          "AB": 2,
+          "Ab": 0,
+          "aB": 0,
+          "ab": 2
+        },
+        "expected": {
+          "AB": 2,
+          "Ab": 0,
+          "aB": 0,
+          "ab": 2
+        }
+      },
+      {
+        "name": "독립 반대 방향 한 번의 다중집합",
+        "pass": true,
+        "actual": {
+          "AB": 0,
+          "Ab": 2,
+          "aB": 2,
+          "ab": 0
+        },
+        "expected": {
+          "AB": 0,
+          "Ab": 2,
+          "aB": 2,
+          "ab": 0
+        }
+      },
+      {
+        "name": "독립 네 방향을 합치면 네 유형 같은 비율",
+        "pass": true,
+        "actual": {
+          "AB": 4,
+          "Ab": 4,
+          "aB": 4,
+          "ab": 4
+        },
+        "expected": {
+          "AB": 4,
+          "Ab": 4,
+          "aB": 4,
+          "ab": 4
+        }
+      },
+      {
+        "name": "독립 매번 두 유형 각 2개",
+        "pass": true,
+        "actual": true,
+        "expected": true
+      },
+      {
+        "name": "연관 모든 방향 AB와 ab만",
+        "pass": true,
+        "actual": {
+          "AB": 8,
+          "Ab": 0,
+          "aB": 0,
+          "ab": 8
+        },
+        "expected": {
+          "AB": 8,
+          "Ab": 0,
+          "aB": 0,
+          "ab": 8
+        }
+      },
+      {
+        "name": "연관 무표지 쌍을 뒤집어도 같은 유전자형",
+        "pass": true,
+        "actual": [
+          "AB",
+          "AB",
+          "ab",
+          "ab"
+        ],
+        "expected": [
+          "AB",
+          "AB",
+          "ab",
+          "ab"
+        ]
+      },
+      {
+        "name": "기대비 총합 1",
+        "pass": true,
+        "actual": [
+          1,
+          1
+        ],
+        "expected": [
+          1,
+          1
+        ]
+      },
+      {
+        "name": "영회 누적: 음수·NaN 없음",
+        "pass": true,
+        "actual": true,
+        "expected": true
+      },
+      {
+        "name": "누적 총합은 분열 횟수의 네 배",
+        "pass": true,
+        "actual": 16,
+        "expected": 16
+      },
+      {
+        "name": "수동·무작위 혼합 누적 정합성",
+        "pass": true,
+        "actual": true,
+        "expected": true
+      },
+      {
+        "name": "잘못된 음수 자료 거부",
+        "pass": true,
+        "actual": false,
+        "expected": false
+      },
+      {
+        "name": "저장 스냅숏은 원본에서 분리됨",
+        "pass": true,
+        "actual": true,
+        "expected": true
+      },
+      {
+        "name": "대칭·총합이 맞아도 홀수 배우자 자료 거부",
+        "pass": true,
+        "actual": false,
+        "expected": false
+      },
+      {
+        "name": "독립 모형의 유효한 반대 방향 누적 허용",
+        "pass": true,
+        "actual": true,
+        "expected": true
+      },
+      {
+        "name": "연관 모형의 Ab·aB 누적 거부",
+        "pass": true,
+        "actual": false,
+        "expected": false
+      },
+      {
+        "name": "연관 스냅숏도 유전자형 제약 검사",
+        "pass": true,
+        "actual": false,
+        "expected": false
+      },
+      {
+        "name": "홀수 누적 스냅숏 거부",
+        "pass": true,
+        "actual": false,
+        "expected": false
+      },
+      {
+        "name": "유효한 연관 스냅숏 허용",
+        "pass": true,
+        "actual": true,
+        "expected": true
+      },
+      {
+        "name": "저장 실패는 false 반환",
+        "pass": true,
+        "actual": false,
+        "expected": false
+      },
+      {
+        "name": "성공 문구 뒤에도 저장 실패 경고 유지",
+        "pass": true,
+        "actual": "배우자를 누적했다. 로컬 보관에 실패해 현재 변경은 이 화면에만 남아 있다. JSON을 내보내 별도 보관해 주세요.",
+        "expected": "배우자를 누적했다. 로컬 보관에 실패해 현재 변경은 이 화면에만 남아 있다. JSON을 내보내 별도 보관해 주세요."
+      },
+      {
+        "name": "저장 성공 반환과 JSON 직렬화",
+        "pass": true,
+        "actual": true,
+        "expected": true
+      },
+      {
+        "name": "저장 성공 시 불필요한 경고 없음",
+        "pass": true,
+        "actual": "보존했다.",
+        "expected": "보존했다."
+      }
+    ],
+    "webgl": true,
+    "cameraPresetChangesPixels": true,
+    "mobile": {
+      "iframeViewport": 390,
+      "documentScrollWidth": 375,
+      "horizontalOverflow": false,
+      "sceneIssue": "일부 세포·표지 잘림. 위 시점에서는 표지/세포 겹침 관찰."
+    },
+    "sourceReviewNotes": [
+      "렌더 장면 계수·상동체/자매 분배에서 중대 오류 발견하지 못함. 전문 감수 아님.",
+      "반복 장면 재생성 시 GPU 자원 dispose 누락",
+      "해석기록 저장 실패 경고 누락",
+      "독립 HTML과 제작 프로젝트의 React 화면은 일부 다름"
+    ],
+    "sceneNotes": [
+      "데스크톱 기본 시점에서도 일부 계보 표지 텍스트 잘림 관찰"
+    ]
+  },
+  "gpt": {
+    "service": "ChatGPT",
+    "model": "GPT-6.1 Sol Light",
+    "mode": "Work",
+    "selfTests": [
+      {
+        "name": "G1 세포당 계수",
+        "pass": true,
+        "actual": {
+          "chromosomes": 4,
+          "dna": 4
+        },
+        "expected": {
+          "chromosomes": 4,
+          "dna": 4
+        }
+      },
+      {
+        "name": "복제 후 세포당 계수",
+        "pass": true,
+        "actual": {
+          "chromosomes": 4,
+          "dna": 8
+        },
+        "expected": {
+          "chromosomes": 4,
+          "dna": 8
+        }
+      },
+      {
+        "name": "중기 I 계수",
+        "pass": true,
+        "actual": {
+          "chromosomes": 4,
+          "dna": 8
+        },
+        "expected": {
+          "chromosomes": 4,
+          "dna": 8
+        }
+      },
+      {
+        "name": "분열 I 후 세포당 계수",
+        "pass": true,
+        "actual": {
+          "chromosomes": 2,
+          "dna": 4
+        },
+        "expected": {
+          "chromosomes": 2,
+          "dna": 4
+        }
+      },
+      {
+        "name": "분열 II 후 세포당 계수",
+        "pass": true,
+        "actual": {
+          "chromosomes": 2,
+          "dna": 2
+        },
+        "expected": {
+          "chromosomes": 2,
+          "dna": 2
+        }
+      },
+      {
+        "name": "독립 같은 방향 한 번의 다중집합",
+        "pass": true,
+        "actual": {
+          "AB": 2,
+          "Ab": 0,
+          "aB": 0,
+          "ab": 2
+        },
+        "expected": {
+          "AB": 2,
+          "Ab": 0,
+          "aB": 0,
+          "ab": 2
+        }
+      },
+      {
+        "name": "독립 반대 방향 한 번의 다중집합",
+        "pass": true,
+        "actual": {
+          "AB": 0,
+          "Ab": 2,
+          "aB": 2,
+          "ab": 0
+        },
+        "expected": {
+          "AB": 0,
+          "Ab": 2,
+          "aB": 2,
+          "ab": 0
+        }
+      },
+      {
+        "name": "독립 네 방향을 합치면 네 유형 같은 비율",
+        "pass": true,
+        "actual": {
+          "AB": 4,
+          "Ab": 4,
+          "aB": 4,
+          "ab": 4
+        },
+        "expected": {
+          "AB": 4,
+          "Ab": 4,
+          "aB": 4,
+          "ab": 4
+        }
+      },
+      {
+        "name": "독립 매번 두 유형 각 2개",
+        "pass": true,
+        "actual": true,
+        "expected": true
+      },
+      {
+        "name": "연관 모든 방향 AB와 ab만",
+        "pass": true,
+        "actual": {
+          "AB": 8,
+          "Ab": 0,
+          "aB": 0,
+          "ab": 8
+        },
+        "expected": {
+          "AB": 8,
+          "Ab": 0,
+          "aB": 0,
+          "ab": 8
+        }
+      },
+      {
+        "name": "연관 무표지 쌍을 뒤집어도 같은 유전자형",
+        "pass": true,
+        "actual": [
+          "AB",
+          "AB",
+          "ab",
+          "ab"
+        ],
+        "expected": [
+          "AB",
+          "AB",
+          "ab",
+          "ab"
+        ]
+      },
+      {
+        "name": "기대비 총합 1",
+        "pass": true,
+        "actual": [
+          1,
+          1
+        ],
+        "expected": [
+          1,
+          1
+        ]
+      },
+      {
+        "name": "영회 누적: 음수·NaN 없음",
+        "pass": true,
+        "actual": true,
+        "expected": true
+      },
+      {
+        "name": "누적 총합은 분열 횟수의 네 배",
+        "pass": true,
+        "actual": 16,
+        "expected": 16
+      },
+      {
+        "name": "수동·무작위 혼합 누적 정합성",
+        "pass": true,
+        "actual": true,
+        "expected": true
+      },
+      {
+        "name": "잘못된 음수 자료 거부",
+        "pass": true,
+        "actual": false,
+        "expected": false
+      },
+      {
+        "name": "저장 스냅숏은 원본에서 분리됨",
+        "pass": true,
+        "actual": true,
+        "expected": true
+      },
+      {
+        "name": "대칭·총합이 맞아도 홀수 배우자 자료 거부",
+        "pass": true,
+        "actual": false,
+        "expected": false
+      },
+      {
+        "name": "독립 모형의 유효한 반대 방향 누적 허용",
+        "pass": true,
+        "actual": true,
+        "expected": true
+      },
+      {
+        "name": "연관 모형의 Ab·aB 누적 거부",
+        "pass": true,
+        "actual": false,
+        "expected": false
+      },
+      {
+        "name": "연관 스냅숏도 유전자형 제약 검사",
+        "pass": true,
+        "actual": false,
+        "expected": false
+      },
+      {
+        "name": "홀수 누적 스냅숏 거부",
+        "pass": true,
+        "actual": false,
+        "expected": false
+      },
+      {
+        "name": "유효한 연관 스냅숏 허용",
+        "pass": true,
+        "actual": true,
+        "expected": true
+      },
+      {
+        "name": "저장 실패는 false 반환",
+        "pass": true,
+        "actual": false,
+        "expected": false
+      },
+      {
+        "name": "성공 문구 뒤에도 저장 실패 경고 유지",
+        "pass": true,
+        "actual": "배우자를 누적했다. 로컬 보관에 실패해 현재 변경은 이 화면에만 남아 있다. JSON을 내보내 별도 보관해 주세요.",
+        "expected": "배우자를 누적했다. 로컬 보관에 실패해 현재 변경은 이 화면에만 남아 있다. JSON을 내보내 별도 보관해 주세요."
+      },
+      {
+        "name": "저장 성공 반환과 JSON 직렬화",
+        "pass": true,
+        "actual": true,
+        "expected": true
+      },
+      {
+        "name": "저장 성공 시 불필요한 경고 없음",
+        "pass": true,
+        "actual": "보존했다.",
+        "expected": "보존했다."
+      }
+    ],
+    "webgl": true,
+    "keyboardOrbitChangesPixels": true,
+    "mobile": {
+      "iframeViewport": 390,
+      "documentScrollWidth": 375,
+      "horizontalOverflow": false,
+      "sceneIssue": "네 배우자 표시 확인. 작은 표지는 확대/2D 도식 병행 필요."
+    },
+    "sourceReviewNotes": [
+      "렌더 장면 계수·상동체/자매 분배에서 중대 오류 발견하지 못함. 전문 감수 아님.",
+      "자체검사는 계산·저장 중심, 렌더 장면 구조 자동검사 없음",
+      "개발자 진단 chromosomeBodies 값은 염색체 단위가 아닌 DNA 막대 수"
+    ]
+  },
+  "claude": {
+    "status": "reserved-for-user",
+    "autoResume": false,
+    "note": "사용자 요청으로 직접 제작 예정. 빈 탭만 보존."
+  },
+  "mobileTestLimit": "390px iframe 레이아웃 검사이며 실제 터치 기기 검사 아님. 데스크톱 스크롤바로 내부 문서 폭은375px.",
+  "previewCapture": {
+    "phase": "감수분열 II 완료",
+    "camera": "각 앱의 기본 시점",
+    "nativeCanvasPixels": {
+      "gemini": [
+        1049,
+        438
+      ],
+      "gpt": [
+        1009,
+        478
+      ]
+    },
+    "note": "실제 WebGL 캔버스 캡처. 같은 카메라·투영 조건을 강제한 성능 비교 아님."
+  }
+}

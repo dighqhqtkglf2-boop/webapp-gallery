@@ -1,0 +1,22 @@
+[
+  {
+    "File": "comparisons/meiosis/input/common-prompt.txt",
+    "SHA256": "dedbec04fb40724eb31bf57a65b235532e5541006661d8078723e7b282b45552"
+  },
+  {
+    "File": "comparisons/meiosis/input/meiosis-baseline.html",
+    "SHA256": "73ac533f887e4211000c9dba1e9943cee98fc452b58b2211951fe8b1f46723d0"
+  },
+  {
+    "File": "comparisons/meiosis/input/inquiry.css",
+    "SHA256": "c6a26755dd260d837c3e51f7c0cbf7e9ee85492d34d33d141af49191890ddb8f"
+  },
+  {
+    "File": "comparisons/meiosis/gemini.html",
+    "SHA256": "7f1bf88c031ddd84d5d6f0a9be18eb63653f0d7b474416d70f34725c2258e635"
+  },
+  {
+    "File": "comparisons/meiosis/chatgpt.html",
+    "SHA256": "0544bd20d3676a3b52ad75bdea869d1f6bfc8b8559d0f6f3303e03fdd7763591"
+  }
+]

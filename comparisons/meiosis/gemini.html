@@ -1,0 +1,856 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>감수분열 3D 공간 추적실 · 염색체의 방향이 만드는 조합</title>
+<style>
+:root{--bg:#f4f2ed;--ink:#182830;--muted:#58686c;--line:#d9dfdc;--teal:#116d69;--orange:#b96839;--blue:#326b94}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Malgun Gothic",sans-serif;line-height:1.5}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer;background:white;border:1px solid #aebbb7;border-radius:5px;color:var(--ink);padding:8px 11px;transition:background .15s,border .15s}
+button:hover{border-color:var(--teal);background:#f1f8f6}
+button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid #326b94;outline-offset:3px}
+button:disabled{cursor:default;opacity:.45}
+.primary{background:var(--teal);color:white;border-color:var(--teal)}
+.primary:hover{background:#0e5754;color:white}
+h1,h2,h3,p{margin:0}
+h1{font-size:clamp(22px,2.5vw,32px);letter-spacing:-1px;line-height:1.25}
+h2{font-size:17px}
+h3{font-size:14px}
+.app-header,main,footer{max-width:1440px;margin:auto;padding:18px 24px}
+.topline{display:flex;justify-content:space-between;gap:12px;font-size:12px;margin-bottom:10px;color:var(--muted)}
+.question{margin-top:8px;color:var(--muted);font-size:14px}
+.workspace{display:grid;grid-template-columns:270px minmax(0,1fr);gap:18px}
+.panel{background:white;border:1px solid var(--line);border-radius:9px}
+.controls{padding:18px;display:flex;flex-direction:column;gap:16px}
+.eyebrow{font-size:11px;letter-spacing:.05em;color:var(--teal);font-weight:750;margin-bottom:6px}
+fieldset{border:0;padding:0;margin:0;min-width:0}
+legend{font-weight:700;margin-bottom:8px;font-size:13px}
+.mode-option{display:block;border:1px solid var(--line);border-radius:5px;padding:9px;margin:6px 0;font-size:13px}
+.mode-option:has(input:checked){border-color:var(--teal);background:#f1f7f5}
+.mode-option small{display:block;margin-left:22px;color:var(--muted);font-size:11px}
+.orientation{width:100%;text-align:left;margin:4px 0;font-size:12px;display:flex;justify-content:space-between;gap:5px}
+.orientation strong{color:var(--teal)}
+.hint{font-size:11px;color:var(--muted)}
+.rule{border-top:1px solid var(--line);padding-top:12px}
+.legend-line{display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:11px;color:var(--muted)}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:4px;background:var(--teal)}
+.dot.p{background:var(--orange)}
+.viz{overflow:hidden;padding:16px 18px;min-width:0;display:flex;flex-direction:column}
+.viz-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.stage-count{font-size:12px;text-align:right;white-space:nowrap}
+.stage-count b{font-size:17px;color:var(--teal)}
+.countnote{font-size:10px;color:var(--muted)}
+.stages{display:flex;gap:4px;margin:12px 0 8px}
+.stages button{border:1px solid #ccd8d8;background:#edf1ef;padding:6px 3px;flex:1;font-size:11px;border-radius:4px}
+.stages button[aria-current="step"]{background:var(--teal);color:white;border-color:var(--teal)}
+.stages button.done:not([aria-current]){background:#d8e8e2}
+#webglContainer{width:100%;height:440px;background:#f5f7f6;border:1px solid var(--line);border-radius:6px;position:relative;overflow:hidden;cursor:grab}
+#webglContainer:active{cursor:grabbing}
+.transport{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-top:10px}
+.transport #stageCaption{font-size:12px;flex:1;min-width:180px;margin-left:8px;color:var(--muted)}
+.camera-tools{position:absolute;top:10px;right:10px;z-index:10;display:flex;gap:4px}
+.camera-tools button{font-size:11px;padding:4px 8px;background:rgba(255,255,255,0.92);border-radius:4px}
+.outcome{margin-top:12px;padding-top:10px;border-top:1px solid var(--line)}
+.outcome-title{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin-bottom:8px}
+.gametes{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.gamete{background:#f5f7f5;padding:6px 8px;border-radius:4px;text-align:center;font-size:11px;border:1px solid #e1e7e4}
+.gamete b{font-size:18px;letter-spacing:2px;color:var(--teal)}
+.gamete .source{display:block;font-size:10px;color:var(--muted)}
+.conclusion{font-size:12px;margin-top:8px;color:var(--teal);font-weight:650}
+.below{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}
+.sample,.compare{padding:16px 18px;min-width:0}
+.sectionhead{display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:8px}
+.sample-actions{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}
+.sample-actions button{font-size:11px}
+.ratio-row{display:grid;grid-template-columns:35px 1fr 75px 55px;align-items:center;gap:8px;margin:6px 0;font-size:11px}
+.bartrack{height:12px;background:#eef1ef;position:relative;border-radius:2px;overflow:hidden;border:1px solid #dde3e0}
+.bar{height:100%;background:var(--teal);min-width:0}
+.ratio-head{color:var(--muted);font-size:10px}
+.expected{color:var(--muted);text-align:right}
+.num{text-align:right;font-variant-numeric:tabular-nums}
+.comparison-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.saved{border:1px solid var(--line);border-radius:6px;padding:8px 10px;min-width:0;background:#fafbfa}
+.saved strong{display:block;font-size:13px;color:var(--teal)}
+.saved p{font-size:11px;color:var(--muted);margin-top:4px;overflow-wrap:anywhere}
+.saved button{font-size:11px;margin-bottom:6px}
+textarea{resize:vertical;min-height:60px;width:100%;border:1px solid #b9c5bf;border-radius:4px;padding:7px;font-size:12px;line-height:1.4}
+.export{display:flex;align-items:center;gap:8px;margin-top:8px;font-size:11px}
+.support{margin-top:18px;padding:12px 16px}
+.support summary{cursor:pointer;font-size:13px;font-weight:650}
+.support p,.support li{font-size:12px;color:var(--muted);margin:6px 0}
+.support ul{padding-left:18px}
+.test-row{padding:4px 0;border-top:1px solid var(--line);font:11px ui-monospace,monospace;overflow-wrap:anywhere}
+.fail{color:#a32222}
+.pass{color:var(--teal)}
+#status{font-size:11px;min-height:18px;color:var(--teal);margin-top:6px}
+footer{font-size:11px;color:var(--muted);padding-top:12px;padding-bottom:24px;text-align:center}
+#errorBanner{display:none;background:#ffebee;color:#c62828;padding:10px 14px;border-radius:6px;font-size:12px;margin-bottom:12px}
+@media(max-width:900px){
+  .workspace{grid-template-columns:220px minmax(0,1fr)}
+  .below{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  .app-header,main,footer{padding-left:12px;padding-right:12px}
+  .workspace{grid-template-columns:1fr}
+  #webglContainer{height:360px}
+  .gametes{grid-template-columns:repeat(2,1fr)}
+  .comparison-grid{grid-template-columns:1fr}
+}
+</style>
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.1/three.module.min.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.1/examples/jsm/"
+  }
+}
+</script>
+</head>
+<body>
+<header class="app-header">
+  <div class="topline">
+    <span>고등학교 생명과학 · 3D 공간 탐구 · 2n = 4</span>
+    <span>Three.js 0.160.1 CDN 기반 (인터넷 연결 필요)</span>
+  </div>
+  <h1>감수분열 3D 공간 추적실</h1>
+  <p class="question">상동염색체의 배열과 분리가 배우자의 유전자 조합을 어떻게 만드는가? 3D 공간에서 염색체와 계보를 추적한다.</p>
+</header>
+<main>
+  <div id="errorBanner" role="alert"></div>
+
+  <div class="workspace">
+    <aside class="controls panel" aria-label="탐구 조건">
+      <div class="intro">
+        <div class="eyebrow">01 · 조건 변경 및 3D 배향</div>
+        <h2>위치가 다르면, 조합도 다를까?</h2>
+      </div>
+
+      <fieldset>
+        <legend>유전자 위치</legend>
+        <label class="mode-option">
+          <input type="radio" name="mode" value="independent" checked> 독립 모형
+          <small>1번 쌍 A/a · 2번 쌍 B/b</small>
+        </label>
+        <label class="mode-option">
+          <input type="radio" name="mode" value="linked"> 연관 모형
+          <small>1번 쌍 AB/ab · 2번 쌍 표지 없음</small>
+        </label>
+      </fieldset>
+
+      <fieldset>
+        <legend>중기 I · 왼쪽 극을 향할 상동체</legend>
+        <button class="orientation" id="orient0" aria-label="1번 쌍의 방향 바꾸기">
+          <span>긴 1번 쌍</span><strong id="orientation0"></strong>
+        </button>
+        <button class="orientation" id="orient1" aria-label="2번 쌍의 방향 바꾸기">
+          <span>짧은 2번 쌍</span><strong id="orientation1"></strong>
+        </button>
+        <button id="randomize" style="width:100%;margin-top:6px">방향 무작위로 놓기</button>
+        <p class="hint" style="margin-top:6px">바꾼 방향은 3D 중기판 배열 및 감수 1·2분열 산물 전체에 즉시 연동됩니다.</p>
+      </fieldset>
+
+      <div class="rule">
+        <div class="legend-line">
+          <span><i class="dot"></i>모계 유래(A/B)</span>
+          <span><i class="dot p"></i>부계 유래(a/b)</span>
+        </div>
+        <p class="hint" style="margin-top:6px">
+          복제 후 두 가닥은 자매염색분체, 중앙 검은 구체는 동원체입니다. 대립유전자 3D 라벨은 시점을 회전해도 항상 정면을 향합니다. 교차·비분리는 배제된 모형입니다.
+        </p>
+      </div>
+    </aside>
+
+    <section class="viz panel" aria-labelledby="stageTitle">
+      <div class="viz-head">
+        <div>
+          <div class="eyebrow">02 · 실제 네 배우자까지 3D 공간 추적</div>
+          <h2 id="stageTitle">G1 · 복제 전</h2>
+        </div>
+        <div class="stage-count">
+          <b id="chrCount">4</b> 염색체 · <b id="dnaCount">4</b> DNA
+          <div class="countnote">그림의 세포 1개당 · DNA = 분자 수</div>
+        </div>
+      </div>
+
+      <nav class="stages" aria-label="감수분열 단계">
+        <button data-stage="0" aria-current="step">G1</button>
+        <button data-stage="1">복제 후</button>
+        <button data-stage="2">중기 I</button>
+        <button data-stage="3">분열 I 후</button>
+        <button data-stage="4">분열 II 후</button>
+      </nav>
+
+      <div id="webglContainer">
+        <div class="camera-tools">
+          <button id="resetCamBtn">시점 리셋 (R)</button>
+          <button id="camFrontBtn">정면</button>
+          <button id="camTopBtn">위</button>
+        </div>
+      </div>
+
+      <div class="transport">
+        <button id="back" aria-label="이전 단계">이전</button>
+        <button id="play" class="primary">재생</button>
+        <button id="next">다음</button>
+        <span id="stageCaption">상동 염색체는 모계·부계 한 개씩. 아직 자매 염색분체는 없다.</span>
+      </div>
+
+      <div class="outcome">
+        <div class="outcome-title">
+          <h3>이번 한 세포가 만드는 네 배우자</h3>
+          <span class="hint" id="outcomeHint">선택한 방향의 최종 결과</span>
+        </div>
+        <div class="gametes" id="gametes"></div>
+        <p class="conclusion" id="conclusion"></p>
+      </div>
+    </section>
+  </div>
+
+  <div class="below">
+    <section class="sample panel" aria-labelledby="sampleTitle">
+      <div class="sectionhead">
+        <h2 id="sampleTitle">03 · 여러 세포를 모으면?</h2>
+        <span class="small" id="sampleSize">0회 · 0배우자</span>
+      </div>
+      <p class="hint" id="sampleMode">독립 A/a · B/b 누적</p>
+      <div class="sample-actions">
+        <button id="addOne">이번 방향 1회 누적 (+4)</button>
+        <button id="sample100" class="primary">무작위 100회 누적</button>
+        <button id="resetSample">이 모형 누적 지우기</button>
+      </div>
+      <div class="ratio-row ratio-head">
+        <span>유형</span>
+        <span>관찰 비율 (전체 = 100%)</span>
+        <span class="num">개수 · 비율</span>
+        <span class="expected">이론 기대</span>
+      </div>
+      <div id="ratios"></div>
+      <p class="hint" style="margin-top:10px">
+        기대비는 두 상동쌍의 방향이 서로 독립이고, 각 방향이 같은 확률로 정해질 때의 값입니다. 한 번의 분열 산물(2개+2개)과 여러 무작위 세포의 집단 기대비(1:1:1:1 또는 1:1)는 엄격히 구별됩니다.
+      </p>
+    </section>
+
+    <section class="compare panel" aria-labelledby="compareTitle">
+      <div class="sectionhead">
+        <h2 id="compareTitle">04 · A/B 증거 비교</h2>
+        <span class="hint">모형·방향·누적 보존</span>
+      </div>
+      <div class="comparison-grid">
+        <div class="saved">
+          <button id="saveA">현재 상태를 A에 보존</button>
+          <div id="savedA"><p>독립 모형을 관찰한 뒤 저장해 보세요.</p></div>
+        </div>
+        <div class="saved">
+          <button id="saveB">현재 상태를 B에 보존</button>
+          <div id="savedB"><p>연관 모형으로 바꿔 저장해 보세요.</p></div>
+        </div>
+      </div>
+      <label for="observation" style="display:block;margin:12px 0 4px;font-size:12px;font-weight:700">
+        해석 기록 · 한 번의 결과와 여러 번의 결과를 구별해 설명하기
+      </label>
+      <textarea id="observation" placeholder="A와 B에서 나타난 유형은? 독립 모형에서 한 번에 네 유형이 모두 나오지 않는 까닭은? 연관 모형에서는 어떤 조합이 나타나지 않았는가?"></textarea>
+      <div class="export">
+        <button id="export">A/B + 관찰기록 JSON 내보내기</button>
+        <span class="hint">로컬 저장소 자동 보관</span>
+      </div>
+      <p id="status" role="status" aria-live="polite"></p>
+    </section>
+  </div>
+
+  <details class="support panel">
+    <summary>모형을 읽는 법 · 고교 생명과학 개념과 가정</summary>
+    <ul>
+      <li><b>가상 생물 2n=4.</b> 긴 1번 염색체, 짧은 2번 염색체가 각각 한 상동쌍입니다. 모계 유래(청록), 부계 유래(황토색/줄무늬)는 동일 유전자좌를 지닙니다.</li>
+      <li><b>복제와 분리 계수.</b> G1기 4염색체/4DNA, 복제 후 및 중기 I 4염색체/8DNA, 감수 1분열 후 딸세포당 2염색체/4DNA, 감수 2분열 후 배우자당 2염색체/2DNA. 염색체 수는 동원체 분리 단위 기준입니다.</li>
+      <li><b>교차 없음.</b> 독립 모형에서도 한 번의 감수분열은 AB·ab 2개씩 또는 Ab·aB 2개씩을 만듭니다. 무작위 감수분열 누적 시 1:1:1:1로 수렴합니다.</li>
+      <li><b>연관 모형.</b> 1번 쌍에 AB/ab가 상인 배열되어 있으며, 2번 쌍은 무표지입니다. 교차가 없으므로 AB:ab = 1:1 만 형성됩니다.</li>
+      <li><b>기술 환경.</b> Three.js 0.160.1 및 OrbitControls (CDN 의존성 있음, 최초 로드 시 인터넷 필요). 단일 독립 HTML로 로컬 정적 호스팅 가능.</li>
+      <li><b>기획·구성:</b> 금평초 김상흠.</li>
+    </ul>
+  </details>
+
+  <details class="support panel">
+    <summary>계산 검증 · 자체 테스트 (window.runSelfTests)</summary>
+    <p>단계 계수, 네 배우자의 실제 다중집합, 독립·연관 조합, 누적 무결성을 검증합니다.</p>
+    <button id="runTests">자체 테스트 실행</button>
+    <div id="testResults" aria-live="polite" style="margin-top:8px"></div>
+  </details>
+</main>
+<footer>기획·구성 금평초 김상흠 · Three.js 0.160.1 3D 공간 시뮬레이션 · 교육용 모형, 교과 검토 후 활용</footer>
+
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+const $ = id => document.getElementById(id);
+const TYPES = ['AB', 'Ab', 'aB', 'ab'];
+const STAGES = [
+  { name: 'G1 · 복제 전', chr: 4, dna: 4, caption: '상동 염색체는 모계·부계 한 개씩. 아직 자매 염색분체는 없다.' },
+  { name: 'DNA 복제 후', chr: 4, dna: 8, caption: 'DNA만 두 배. 같은 염색체의 두 자매 염색분체가 동원체에서 연결된다.' },
+  { name: '중기 I · 방향 선택', chr: 4, dna: 8, caption: '각 상동쌍이 양극을 향한다. 긴 쌍과 짧은 쌍의 방향은 독립적이다.' },
+  { name: '감수분열 I 후 · 두 세포', chr: 2, dna: 4, caption: '상동 염색체가 갈라졌다. 각 세포의 자매 염색분체는 아직 붙어 있다.' },
+  { name: '감수분열 II 후 · 네 배우자', chr: 2, dna: 2, caption: '자매 염색분체가 갈라졌다. 각 세포에 상동쌍별로 염색체 한 개씩.' }
+];
+
+function empty() { return { cells: 0, manual: 0, random: 0, counts: { AB: 0, Ab: 0, aB: 0, ab: 0 } }; }
+function gametes(mode, bits) {
+  const left = mode === 'linked' ? (bits[0] ? 'AB' : 'ab') : (bits[0] ? 'A' : 'a') + (bits[1] ? 'B' : 'b');
+  const right = left.split('').map(c => c === c.toUpperCase() ? c.toLowerCase() : c.toUpperCase()).join('');
+  return [left, left, right, right];
+}
+function expected(mode) {
+  return mode === 'linked' ? { AB: .5, Ab: 0, aB: 0, ab: .5 } : { AB: .25, Ab: .25, aB: .25, ab: .25 };
+}
+function tally(arr) {
+  const o = { AB: 0, Ab: 0, aB: 0, ab: 0 };
+  arr.forEach(t => o[t]++);
+  return o;
+}
+function addResult(dataset, mode, bits, method) {
+  const counts = tally(gametes(mode, bits));
+  TYPES.forEach(t => dataset.counts[t] += counts[t]);
+  dataset.cells++;
+  dataset[method]++;
+  return dataset;
+}
+function stageCounts(i) { return { chromosomes: STAGES[i].chr, dna: STAGES[i].dna }; }
+
+let mode = 'independent', bits = [true, true], stage = 0, timer = null;
+let samples = { independent: empty(), linked: empty() }, saved = { A: null, B: null }, record = '';
+const STORAGE = 'aside-meiosis-inquiry-v1';
+let storageAvailable = true;
+
+function validDataset(d, datasetMode = 'independent') {
+  return !!(d && ['independent', 'linked'].includes(datasetMode) &&
+    Number.isSafeInteger(d.cells) && d.cells >= 0 && d.cells <= Math.floor(Number.MAX_SAFE_INTEGER / 4) &&
+    Number.isSafeInteger(d.manual) && d.manual >= 0 &&
+    Number.isSafeInteger(d.random) && d.random >= 0 &&
+    d.manual + d.random === d.cells &&
+    TYPES.every(t => Number.isSafeInteger(d.counts?.[t]) && d.counts[t] >= 0 && d.counts[t] % 2 === 0) &&
+    TYPES.reduce((s, t) => s + d.counts[t], 0) === 4 * d.cells &&
+    d.counts.AB === d.counts.ab && d.counts.Ab === d.counts.aB &&
+    (datasetMode === 'independent' || (d.counts.Ab === 0 && d.counts.aB === 0)));
+}
+function validSnapshot(v) {
+  return v === null || (v && ['independent', 'linked'].includes(v.mode) &&
+    Array.isArray(v.bits) && v.bits.length === 2 && v.bits.every(b => typeof b === 'boolean') &&
+    validDataset(v.sample, v.mode) && Number.isInteger(v.stage) &&
+    v.stage >= 0 && v.stage < STAGES.length && typeof v.note === 'string');
+}
+
+try {
+  const d = JSON.parse(localStorage.getItem(STORAGE) || 'null');
+  if (d && d.version === 1 && validDataset(d.samples?.independent, 'independent') && validDataset(d.samples?.linked, 'linked')) {
+    samples = d.samples;
+    if (d.saved && validSnapshot(d.saved.A) && validSnapshot(d.saved.B)) saved = d.saved;
+    if (typeof d.record === 'string') record = d.record;
+  }
+} catch (e) {
+  storageAvailable = false;
+}
+
+const STORAGE_WARNING = '로컬 보관에 실패해 현재 변경은 이 화면에만 남아 있다. JSON을 내보내 별도 보관해 주세요.';
+function persistenceMessage(message, stored) { return stored ? message : message + ' ' + STORAGE_WARNING; }
+function writeStore(storage, payload) {
+  try { storage.setItem(STORAGE, JSON.stringify(payload)); return true; } catch (e) { return false; }
+}
+function persist() {
+  let stored = false;
+  try { stored = writeStore(localStorage, { version: 1, samples, saved, record }); } catch (e) { stored = false; }
+  storageAvailable = stored;
+  return stored;
+}
+
+// Three.js 3D Initialization
+let scene, camera, renderer, controls, rootGroup;
+function initThree() {
+  const container = $('webglContainer');
+  if (!container) return;
+  const width = container.clientWidth;
+  const height = container.clientHeight;
+
+  scene = new THREE.Scene();
+  scene.background = new THREE.Color(0xf5f7f6);
+
+  camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 100);
+  camera.position.set(0, 0, 18);
+
+  try {
+    renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setSize(width, height);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.outputColorSpace = THREE.SRGBColorSpace;
+    container.appendChild(renderer.domElement);
+
+    controls = new OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.08;
+
+    const ambient = new THREE.AmbientLight(0xffffff, 0.9);
+    const dir = new THREE.DirectionalLight(0xfffaf0, 1.2);
+    dir.position.set(10, 15, 12);
+    scene.add(ambient, dir);
+
+    rootGroup = new THREE.Group();
+    scene.add(rootGroup);
+
+    function animate() {
+      requestAnimationFrame(animate);
+      controls.update();
+      renderer.render(scene, camera);
+    }
+    animate();
+
+    window.addEventListener('resize', () => {
+      const w = container.clientWidth;
+      const h = container.clientHeight;
+      camera.aspect = w / h;
+      camera.updateProjectionMatrix();
+      renderer.setSize(w, h);
+    });
+  } catch (err) {
+    $('errorBanner').style.display = 'block';
+    $('errorBanner').textContent = 'WebGL 또는 Three.js 초기화 중 오류가 발생했습니다: ' + err.message;
+  }
+}
+
+function createLabelSprite(text, bgColor, textColor = '#ffffff') {
+  const canvas = document.createElement('canvas');
+  canvas.width = 128;
+  canvas.height = 64;
+  const ctx = canvas.getContext('2d');
+  ctx.fillStyle = bgColor;
+  ctx.beginPath();
+  ctx.roundRect ? ctx.roundRect(2, 2, 124, 60, 14) : ctx.rect(2, 2, 124, 60);
+  ctx.fill();
+  ctx.strokeStyle = '#ffffff';
+  ctx.lineWidth = 3;
+  ctx.stroke();
+
+  ctx.fillStyle = textColor;
+  ctx.font = 'bold 36px sans-serif';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillText(text, 64, 34);
+
+  const tex = new THREE.CanvasTexture(canvas);
+  tex.colorSpace = THREE.SRGBColorSpace;
+  const mat = new THREE.SpriteMaterial({ map: tex, transparent: true, depthTest: false });
+  const sprite = new THREE.Sprite(mat);
+  sprite.scale.set(1.4, 0.7, 1);
+  return sprite;
+}
+
+function update3D() {
+  if (!rootGroup) return;
+  while (rootGroup.children.length > 0) {
+    const c = rootGroup.children[0];
+    rootGroup.remove(c);
+  }
+
+  const teal = 0x116d69, orange = 0xb96839, centro = 0x223035;
+
+  function buildChromatid(pair, maternal, offsetX) {
+    const g = new THREE.Group();
+    const len = pair === 0 ? 3.8 : 2.6;
+    const geo = new THREE.CylinderGeometry(0.22, 0.22, len, 20);
+    const mat = new THREE.MeshStandardMaterial({ color: maternal ? teal : orange, roughness: 0.35 });
+    const mesh = new THREE.Mesh(geo, mat);
+    g.add(mesh);
+    g.position.x = offsetX;
+    return g;
+  }
+
+  function buildChromosome(pair, maternal, replicated) {
+    const g = new THREE.Group();
+    const len = pair === 0 ? 3.8 : 2.6;
+    if (replicated) {
+      g.add(buildChromatid(pair, maternal, -0.23));
+      g.add(buildChromatid(pair, maternal, 0.23));
+      const cGeo = new THREE.SphereGeometry(0.32, 16, 16);
+      const cMesh = new THREE.Mesh(cGeo, new THREE.MeshStandardMaterial({ color: centro }));
+      g.add(cMesh);
+    } else {
+      g.add(buildChromatid(pair, maternal, 0));
+      const cGeo = new THREE.SphereGeometry(0.28, 16, 16);
+      const cMesh = new THREE.Mesh(cGeo, new THREE.MeshStandardMaterial({ color: centro }));
+      g.add(cMesh);
+    }
+
+    const bg = maternal ? '#116d69' : '#b96839';
+    if (pair === 0) {
+      const spA = createLabelSprite(maternal ? 'A' : 'a', bg);
+      spA.position.set(replicated ? 0.75 : 0.6, len * 0.28, 0.3);
+      g.add(spA);
+      if (mode === 'linked') {
+        const spB = createLabelSprite(maternal ? 'B' : 'b', bg);
+        spB.position.set(replicated ? 0.75 : 0.6, -len * 0.28, 0.3);
+        g.add(spB);
+      }
+    } else {
+      if (mode === 'independent') {
+        const spB = createLabelSprite(maternal ? 'B' : 'b', bg);
+        spB.position.set(replicated ? 0.75 : 0.6, len * 0.26, 0.3);
+        g.add(spB);
+      }
+    }
+    return g;
+  }
+
+  function buildCellEnvelope(x, y, rx, ry, label) {
+    const g = new THREE.Group();
+    const geo = new THREE.SphereGeometry(1, 24, 18);
+    geo.scale(rx, ry, ry * 0.8);
+    const mat = new THREE.MeshStandardMaterial({ color: 0xbed2ca, transparent: true, opacity: 0.16, depthWrite: false });
+    g.add(new THREE.Mesh(geo, mat));
+    g.position.set(x, y, 0);
+    if (label) {
+      const sp = createLabelSprite(label, '#2d4b47', '#e8f3f0');
+      sp.scale.set(2.4, 0.8, 1);
+      sp.position.set(0, ry + 0.8, 0);
+      g.add(sp);
+    }
+    return g;
+  }
+
+  if (stage === 0) {
+    rootGroup.add(buildCellEnvelope(0, 0, 7.2, 5.0, 'G1 세포 · 2n=4'));
+    const c1m = buildChromosome(0, true, false); c1m.position.set(-4.2, 0, 0);
+    const c1p = buildChromosome(0, false, false); c1p.position.set(-1.4, 0, 0);
+    const c2m = buildChromosome(1, true, false); c2m.position.set(1.4, 0, 0);
+    const c2p = buildChromosome(1, false, false); c2p.position.set(4.2, 0, 0);
+    rootGroup.add(c1m, c1p, c2m, c2p);
+  } else if (stage === 1) {
+    rootGroup.add(buildCellEnvelope(0, 0, 7.5, 5.2, '복제 완료 · 4염색체 / 8DNA'));
+    const c1m = buildChromosome(0, true, true); c1m.position.set(-4.5, 0, 0);
+    const c1p = buildChromosome(0, false, true); c1p.position.set(-1.5, 0, 0);
+    const c2m = buildChromosome(1, true, true); c2m.position.set(1.5, 0, 0);
+    const c2p = buildChromosome(1, false, true); c2p.position.set(4.5, 0, 0);
+    rootGroup.add(c1m, c1p, c2m, c2p);
+  } else if (stage === 2) {
+    rootGroup.add(buildCellEnvelope(0, 0, 8.4, 5.4, '중기 I · 상동염색체 양극 배향'));
+    const c1L = buildChromosome(0, bits[0], true); c1L.position.set(-1.8, 1.6, 0);
+    const c1R = buildChromosome(0, !bits[0], true); c1R.position.set(1.8, 1.6, 0);
+    const c2L = buildChromosome(1, bits[1], true); c2L.position.set(-1.8, -1.6, 0);
+    const c2R = buildChromosome(1, !bits[1], true); c2R.position.set(1.8, -1.6, 0);
+    rootGroup.add(c1L, c1R, c2L, c2R);
+
+    const spL = createLabelSprite('◀ 왼쪽 극', '#116d69'); spL.position.set(-7, 2, 0);
+    const spR = createLabelSprite('오른쪽 극 ▶', '#b96839'); spR.position.set(7, 2, 0);
+    rootGroup.add(spL, spR);
+  } else if (stage === 3) {
+    rootGroup.add(buildCellEnvelope(-4.6, 0, 4.2, 4.8, '딸세포 1 (왼쪽)'));
+    rootGroup.add(buildCellEnvelope(4.6, 0, 4.2, 4.8, '딸세포 2 (오른쪽)'));
+    const c1L = buildChromosome(0, bits[0], true); c1L.position.set(-5.6, 0, 0);
+    const c2L = buildChromosome(1, bits[1], true); c2L.position.set(-3.6, 0, 0);
+    const c1R = buildChromosome(0, !bits[0], true); c1R.position.set(3.6, 0, 0);
+    const c2R = buildChromosome(1, !bits[1], true); c2R.position.set(5.6, 0, 0);
+    rootGroup.add(c1L, c2L, c1R, c2R);
+  } else if (stage === 4) {
+    const gs = gametes(mode, bits);
+    const pos = [
+      { x: -5.2, y: 2.8, name: '배우자 1 [' + gs[0] + ']', s: 0 },
+      { x: -5.2, y: -2.8, name: '배우자 2 [' + gs[1] + ']', s: 0 },
+      { x: 5.2, y: 2.8, name: '배우자 3 [' + gs[2] + ']', s: 1 },
+      { x: 5.2, y: -2.8, name: '배우자 4 [' + gs[3] + ']', s: 1 }
+    ];
+    pos.forEach(p => {
+      rootGroup.add(buildCellEnvelope(p.x, p.y, 3.4, 2.5, p.name));
+      const m1 = p.s === 0 ? bits[0] : !bits[0];
+      const m2 = p.s === 0 ? bits[1] : !bits[1];
+      const c1 = buildChromosome(0, m1, false); c1.position.set(p.x - 0.9, p.y, 0);
+      const c2 = buildChromosome(1, m2, false); c2.position.set(p.x + 0.9, p.y, 0);
+      rootGroup.add(c1, c2);
+    });
+  }
+}
+
+function render() {
+  const s = STAGES[stage];
+  $('stageTitle').textContent = s.name;
+  $('chrCount').textContent = s.chr;
+  $('dnaCount').textContent = s.dna;
+  $('stageCaption').textContent = s.caption;
+  $('back').disabled = stage === 0;
+  $('next').disabled = stage === 4;
+
+  document.querySelectorAll('[data-stage]').forEach((b, i) => {
+    b.classList.toggle('done', i < stage);
+    if (i === stage) b.setAttribute('aria-current', 'step'); else b.removeAttribute('aria-current');
+  });
+
+  $('orientation0').textContent = (bits[0] ? '모계 ' : '부계 ') + (mode === 'linked' ? (bits[0] ? 'AB' : 'ab') : (bits[0] ? 'A' : 'a'));
+  $('orientation1').textContent = (bits[1] ? '모계 ' : '부계 ') + (mode === 'linked' ? '(무표지)' : (bits[1] ? 'B' : 'b'));
+
+  const gs = gametes(mode, bits);
+  $('gametes').innerHTML = gs.map((g, i) =>
+    '<div class="gamete">배우자 ' + (i + 1) + '<br><b>' + g + '</b><span class="source">' + (i < 2 ? '왼쪽' : '오른쪽') + ' 유래</span></div>'
+  ).join('');
+
+  $('outcomeHint').textContent = stage === 4 ? '분열 완료 · 공간 계보 일치' : '선택한 방향의 최종 결과 미리보기';
+  $('conclusion').textContent = '이번 한 번: ' + gs[0] + ' 2개 + ' + gs[2] + ' 2개. ' + (mode === 'linked' ? '교차가 없어 Ab·aB는 나오지 않는다.' : '네 유형이 한 개씩 나오는 것이 아니다.');
+
+  update3D();
+  renderSample();
+}
+
+function renderSample() {
+  const d = samples[mode], n = d.cells * 4, e = expected(mode);
+  $('sampleSize').textContent = d.cells.toLocaleString() + '회 · ' + n.toLocaleString() + '배우자';
+  $('sampleMode').textContent = (mode === 'linked' ? '연관 AB/ab' : '독립 A/a · B/b') + ' 누적 | 무작위 ' + d.random + '회 · 수동 방향 ' + d.manual + '회';
+  $('ratios').innerHTML = TYPES.map(t => {
+    const pct = n ? d.counts[t] / n * 100 : 0;
+    return '<div class="ratio-row"><b>' + t + '</b><div class="bartrack"><div class="bar" style="width:' + pct + '%"></div></div><span class="num">' + d.counts[t].toLocaleString() + ' · ' + (n ? pct.toFixed(1) + '%' : '−') + '</span><span class="expected">' + e[t] * 100 + '%</span></div>';
+  }).join('');
+}
+
+function stop() {
+  if (timer !== null) clearInterval(timer);
+  timer = null;
+  $('play').textContent = '재생';
+}
+
+function go(i) {
+  stop();
+  stage = i;
+  render();
+}
+
+function status(s, stored = storageAvailable) {
+  $('status').textContent = persistenceMessage(s, stored);
+}
+
+function renderSaved() {
+  ['A', 'B'].forEach(k => {
+    const s = saved[k], el = $('saved' + k);
+    el.replaceChildren();
+    if (!s) {
+      const p = document.createElement('p');
+      p.textContent = k === 'A' ? '독립 모형을 관찰한 뒤 저장해 보세요.' : '연관 모형으로 바꿔 저장해 보세요.';
+      el.append(p);
+      return;
+    }
+    const strong = document.createElement('strong');
+    strong.textContent = (s.mode === 'linked' ? '연관 AB/ab' : '독립 A/a · B/b');
+    const p = document.createElement('p');
+    p.textContent = '이번: ' + gametes(s.mode, s.bits).join(' · ');
+    const p2 = document.createElement('p');
+    p2.textContent = s.sample.cells + '회 누적 / ' + TYPES.map(t => t + ' ' + s.sample.counts[t]).join(' · ');
+    const p3 = document.createElement('p');
+    p3.textContent = '이론 기대: ' + (s.mode === 'linked' ? 'AB:ab = 1:1' : 'AB:Ab:aB:ab = 1:1:1:1');
+    el.append(strong, p, p2, p3);
+    if (s.note) {
+      const p4 = document.createElement('p');
+      p4.textContent = '기록: ' + s.note;
+      el.append(p4);
+    }
+  });
+}
+
+// Event listeners
+document.querySelectorAll('input[name="mode"]').forEach(r => r.addEventListener('change', () => {
+  stop();
+  mode = r.value;
+  render();
+  status((mode === 'linked' ? '연관' : '독립') + ' 모형으로 전환. 각 모형의 누적 자료는 따로 유지된다.');
+}));
+
+[0, 1].forEach(i => $('orient' + i).addEventListener('click', () => {
+  stop();
+  bits[i] = !bits[i];
+  stage = 2;
+  render();
+}));
+
+$('randomize').addEventListener('click', () => {
+  stop();
+  bits = [Math.random() < .5, Math.random() < .5];
+  stage = 2;
+  render();
+});
+
+document.querySelectorAll('[data-stage]').forEach(b => b.addEventListener('click', () => go(Number(b.dataset.stage))));
+$('back').onclick = () => go(Math.max(0, stage - 1));
+$('next').onclick = () => go(Math.min(4, stage + 1));
+$('play').onclick = () => {
+  if (timer !== null) { stop(); return; }
+  if (stage === 4) stage = 0;
+  $('play').textContent = '일시정지';
+  render();
+  timer = setInterval(() => {
+    stage++;
+    render();
+    if (stage === 4) stop();
+  }, 1600);
+};
+
+$('resetCamBtn').onclick = () => {
+  if (camera && controls) {
+    camera.position.set(0, 0, 18);
+    controls.target.set(0, 0, 0);
+    controls.update();
+  }
+};
+$('camFrontBtn').onclick = () => {
+  if (camera && controls) {
+    camera.position.set(0, 0, 18);
+    controls.target.set(0, 0, 0);
+    controls.update();
+  }
+};
+$('camTopBtn').onclick = () => {
+  if (camera && controls) {
+    camera.position.set(0, 19, 0.01);
+    controls.target.set(0, 0, 0);
+    controls.update();
+  }
+};
+
+window.addEventListener('keydown', e => {
+  if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+  if (e.key === ' ' || e.code === 'Space') {
+    e.preventDefault();
+    $('play').click();
+  } else if (e.key === 'r' || e.key === 'R') {
+    e.preventDefault();
+    $('resetCamBtn').click();
+  } else if (e.key === 'ArrowRight') {
+    e.preventDefault();
+    $('next').click();
+  } else if (e.key === 'ArrowLeft') {
+    e.preventDefault();
+    $('back').click();
+  }
+});
+
+$('addOne').onclick = () => {
+  addResult(samples[mode], mode, bits, 'manual');
+  const stored = persist();
+  renderSample();
+  status('이번 방향의 네 배우자를 누적했다.', stored);
+};
+$('sample100').onclick = () => {
+  for (let i = 0; i < 100; i++) addResult(samples[mode], mode, [Math.random() < .5, Math.random() < .5], 'random');
+  const stored = persist();
+  renderSample();
+  status('무작위 감수분열 100회, 배우자 400개를 누적했다.', stored);
+};
+$('resetSample').onclick = () => {
+  samples[mode] = empty();
+  const stored = persist();
+  renderSample();
+  status('현재 모형의 누적을 지웠다.', stored);
+};
+
+['A', 'B'].forEach(k => $('save' + k).onclick = () => {
+  saved[k] = { mode, bits: [...bits], stage, sample: JSON.parse(JSON.stringify(samples[mode])), note: $('observation').value, savedAt: new Date().toISOString() };
+  const stored = persist();
+  renderSaved();
+  status(k + '에 현재 모형·방향·누적을 보존했다.', stored);
+});
+
+$('observation').value = record;
+$('observation').addEventListener('input', () => {
+  record = $('observation').value;
+  persist();
+});
+
+$('export').onclick = () => {
+  const data = {
+    app: '감수분열 3D 공간 추적실',
+    version: 1,
+    exportedAt: new Date().toISOString(),
+    assumptions: ['가상 생물 2n=4', '교차·비분리 없음', '연관 배열 AB/ab', '각 세포의 네 감수분열 산물 모두 계수'],
+    current: { mode, bits, stage: STAGES[stage].name, gametes: gametes(mode, bits) },
+    samples,
+    saved,
+    observation: record,
+    expected: { independent: expected('independent'), linked: expected('linked') }
+  };
+  const url = URL.createObjectURL(new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' }));
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'meiosis-3d-inquiry-' + new Date().toISOString().slice(0, 10) + '.json';
+  document.body.append(a);
+  a.click();
+  a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+  status('JSON 내보내기를 완료했습니다.');
+};
+
+window.runSelfTests = function() {
+  const results = [];
+  function test(name, actual, expected) {
+    results.push({ name, pass: JSON.stringify(actual) === JSON.stringify(expected), actual: JSON.parse(JSON.stringify(actual)), expected: JSON.parse(JSON.stringify(expected)) });
+  }
+  test('G1 세포당 계수', stageCounts(0), { chromosomes: 4, dna: 4 });
+  test('복제 후 세포당 계수', stageCounts(1), { chromosomes: 4, dna: 8 });
+  test('중기 I 계수', stageCounts(2), { chromosomes: 4, dna: 8 });
+  test('분열 I 후 세포당 계수', stageCounts(3), { chromosomes: 2, dna: 4 });
+  test('분열 II 후 세포당 계수', stageCounts(4), { chromosomes: 2, dna: 2 });
+  test('독립 같은 방향 한 번의 다중집합', tally(gametes('independent', [true, true])), { AB: 2, Ab: 0, aB: 0, ab: 2 });
+  test('독립 반대 방향 한 번의 다중집합', tally(gametes('independent', [true, false])), { AB: 0, Ab: 2, aB: 2, ab: 0 });
+
+  const orientations = [[true, true], [true, false], [false, true], [false, false]];
+  const ind = empty();
+  orientations.forEach(b => addResult(ind, 'independent', b, 'random'));
+  test('독립 네 방향을 합치면 네 유형 같은 비율', ind.counts, { AB: 4, Ab: 4, aB: 4, ab: 4 });
+  test('독립 매번 두 유형 각 2개', orientations.every(b => Object.values(tally(gametes('independent', b))).filter(n => n === 2).length === 2), true);
+
+  const linked = empty();
+  orientations.forEach(b => addResult(linked, 'linked', b, 'random'));
+  test('연관 모든 방향 AB와 ab만', linked.counts, { AB: 8, Ab: 0, aB: 0, ab: 8 });
+  test('연관 무표지 쌍을 뒤집어도 같은 유전자형', gametes('linked', [true, true]), gametes('linked', [true, false]));
+  test('기대비 총합 1', [Object.values(expected('independent')).reduce((a, b) => a + b, 0), Object.values(expected('linked')).reduce((a, b) => a + b, 0)], [1, 1]);
+  test('영회 누적: 음수·NaN 없음', validDataset(empty()), true);
+  test('누적 총합은 분열 횟수의 네 배', TYPES.reduce((n, t) => n + ind.counts[t], 0), ind.cells * 4);
+  test('수동·무작위 혼합 누적 정합성', validDataset(addResult(ind, 'independent', [false, true], 'manual')), true);
+  test('잘못된 음수 자료 거부', validDataset({ cells: 0, manual: 0, random: 0, counts: { AB: -1, Ab: 0, aB: 0, ab: 1 } }), false);
+  test('저장 스냅숏은 원본에서 분리됨', (() => {
+    const d = empty();
+    const copy = JSON.parse(JSON.stringify(d));
+    addResult(d, 'linked', [true, true], 'manual');
+    return copy.cells === 0 && copy.counts.AB === 0;
+  })(), true);
+
+  const odd = { cells: 1, manual: 1, random: 0, counts: { AB: 1, Ab: 1, aB: 1, ab: 1 } };
+  test('대칭·총합이 맞아도 홀수 배우자 자료 거부', validDataset(odd, 'independent'), false);
+  const recombinant = { cells: 1, manual: 1, random: 0, counts: { AB: 0, Ab: 2, aB: 2, ab: 0 } };
+  test('독립 모형의 유효한 반대 방향 누적 허용', validDataset(recombinant, 'independent'), true);
+  test('연관 모형의 Ab·aB 누적 거부', validDataset(recombinant, 'linked'), false);
+  test('연관 스냅숏도 유전자형 제약 검사', validSnapshot({ mode: 'linked', bits: [true, true], stage: 4, sample: recombinant, note: '' }), false);
+  test('홀수 누적 스냅숏 거부', validSnapshot({ mode: 'independent', bits: [true, true], stage: 4, sample: odd, note: '' }), false);
+  test('유효한 연관 스냅숏 허용', validSnapshot({ mode: 'linked', bits: [true, true], stage: 4, sample: linked, note: '' }), true);
+
+  const failedStore = { setItem() { throw new Error('모의 저장 초과'); } };
+  test('저장 실패는 false 반환', writeStore(failedStore, { version: 1 }), false);
+  test('성공 문구 뒤에도 저장 실패 경고 유지', persistenceMessage('배우자를 누적했다.', writeStore(failedStore, {})), '배우자를 누적했다. ' + STORAGE_WARNING);
+  let storedText = '';
+  test('저장 성공 반환과 JSON 직렬화', writeStore({ setItem(key, value) { storedText = value; } }, { version: 1 }) && storedText === '{"version":1}', true);
+  test('저장 성공 시 불필요한 경고 없음', persistenceMessage('보존했다.', true), '보존했다.');
+  return results;
+};
+
+$('runTests').onclick = () => {
+  const r = window.runSelfTests();
+  $('testResults').replaceChildren();
+  const p = document.createElement('p');
+  p.textContent = r.filter(t => t.pass).length + ' / ' + r.length + ' 통과';
+  $('testResults').append(p);
+  r.forEach(t => {
+    const d = document.createElement('div');
+    d.className = 'test-row ' + (t.pass ? 'pass' : 'fail');
+    d.textContent = (t.pass ? '통과' : '실패') + ' · ' + t.name + ' | 실제 ' + JSON.stringify(t.actual) + ' / 기대 ' + JSON.stringify(t.expected);
+    $('testResults').append(d);
+  });
+};
+
+initThree();
+render();
+renderSaved();
+</script>
+</body>
+</html>
