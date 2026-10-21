@@ -1,90 +1,1172 @@
 <!doctype html>
 <html lang="ko">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>한 조각의 넓이, 한 점의 기울기 | 누적함수 탐구</title>
-<style>
-:root{color-scheme:light;--bg:#f4f2ed;--ink:#182830;--muted:#5b6c73;--line:#d8dfdc;--green:#116d69;--blue:#326b94;--orange:#b96839;--purple:#785b8c}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,'Malgun Gothic',sans-serif;font-size:15px;line-height:1.5}button,input,select,textarea{font:inherit}button,select{cursor:pointer}button{border:1px solid var(--line);border-radius:7px;background:white;color:var(--ink);padding:8px 12px}button:hover{border-color:var(--green);background:#f1f7f5}button.primary{background:var(--green);color:white;border-color:var(--green)}a{color:var(--green)}button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid #77b4d6;outline-offset:3px}.shell{max-width:1440px;margin:auto;padding:20px 28px}.app-header{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:12px}.eyebrow{font-size:12px;font-weight:700;letter-spacing:.06em;color:var(--green)}h1{font-size:25px;line-height:1.3;margin:4px 0}h2{font-size:17px;margin:0}p{margin:0}.question{font-size:17px;margin:0 0 18px}.question strong{color:var(--green)}.workspace{display:grid;grid-template-columns:285px minmax(0,1fr);gap:18px;align-items:start}.panel{background:white;border:1px solid var(--line);border-radius:12px}.controls{padding:18px}.control{margin-top:18px}.control:first-child{margin-top:0}label,.label{font-weight:650;display:block;margin-bottom:7px}.control select{width:100%;border:1px solid var(--line);border-radius:6px;padding:9px;background:white}.value-line{display:flex;align-items:center;justify-content:space-between;gap:8px}.value-line label{margin:0}.value-line input[type=number]{width:84px;text-align:right;padding:5px 7px;border:1px solid var(--line);border-radius:6px;font-variant-numeric:tabular-nums}input[type=range]{width:100%;accent-color:var(--green);margin:10px 0 0;min-height:26px}.ends{display:flex;justify-content:space-between;font-size:11px;color:var(--muted)}.hint{font-size:12px;color:var(--muted);margin-top:6px}.small-button{font-size:12px;padding:5px 9px}.row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.segmented{display:flex;border:1px solid var(--line);border-radius:7px;margin-top:8px;overflow:hidden}.segmented button{border:0;border-radius:0;flex:1;font-size:12px;padding:8px 5px}.segmented button[aria-pressed=true]{background:#e5f1ee;color:var(--green);font-weight:700}.direction{margin-top:14px;padding:9px;border-left:3px solid var(--orange);background:#fbf4ee;font-size:12px}.viz{padding:16px 18px 12px;min-width:0}.viz-top{display:flex;justify-content:space-between;gap:12px;align-items:start}.legend{font-size:11px;display:flex;flex-wrap:wrap;gap:6px 12px;color:var(--muted)}.swatch{width:17px;height:3px;display:inline-block;margin:0 4px 3px 0;background:var(--green)}.swatch.blue{background:var(--blue)}.swatch.orange{background:var(--orange)}.swatch.dash{background:repeating-linear-gradient(to right,var(--purple) 0 4px,transparent 4px 7px)}.graph-head{display:flex;justify-content:space-between;align-items:center;margin-top:9px;gap:8px;font-size:12px}.graph-head strong{font-size:14px}.graph-head span{color:var(--muted)}svg{width:100%;height:auto;display:block;touch-action:pan-y;user-select:none;overflow:hidden}svg [data-handle]{cursor:ew-resize;touch-action:none}.graph-note{font-size:12px;color:var(--muted);min-height:18px}.metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin-top:10px;border-top:1px solid var(--line);padding-top:11px}.metric{padding:0 10px;border-right:1px solid var(--line);min-width:0}.metric:first-child{padding-left:0}.metric:last-child{border:0}.metric small{display:block;font-size:11px;color:var(--muted)}.metric b{display:block;font-size:22px;font-weight:650;font-variant-numeric:tabular-nums;white-space:nowrap}.metric b.green{color:var(--green)}.metric b.blue{color:var(--blue)}.local-evidence{font-size:12px;border-top:1px solid var(--line);margin-top:10px;padding-top:9px;display:flex;gap:8px 20px;flex-wrap:wrap}.local-evidence strong{font-variant-numeric:tabular-nums}.experiment{margin-top:18px;padding:16px 18px}.experiment-top{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:12px}.saved{border-left:3px solid var(--orange);padding-left:12px;min-width:0}.saved.b{border-color:var(--purple)}.saved p{font-size:12px;color:var(--muted);margin:7px 0}.saved .readings{color:var(--ink);font-variant-numeric:tabular-nums}.saved button{font-size:12px;padding:5px 8px}.note-row{display:flex;align-items:end;gap:12px;margin-top:14px}.note-row>div{flex:1}.note-row label{font-size:12px}.note-row textarea{width:100%;resize:vertical;min-height:58px;border:1px solid var(--line);border-radius:6px;padding:9px}.under{margin-top:15px}.under details{border-top:1px solid var(--line);padding:12px 0}.under summary{font-weight:650;cursor:pointer}.under details p,.under details ul{font-size:13px;margin-top:9px;color:var(--muted)}.under code{font-family:ui-monospace,monospace;color:var(--ink)}#test-output{font-size:12px;line-height:1.7;white-space:pre-wrap;overflow-wrap:anywhere}footer{font-size:11px;color:var(--muted);padding:18px 0 6px}#status{font-size:12px;color:var(--green);min-height:18px;margin-top:6px}.clip-warning{color:var(--orange)}@media(min-width:1100px){.viz svg{max-height:230px}}@media(max-width:900px){.shell{padding:16px}.workspace{grid-template-columns:235px minmax(0,1fr)}.controls{padding:14px}.viz{padding:13px}.metrics{grid-template-columns:1fr 1fr;row-gap:10px}.metric:nth-child(2){border:0}.metric:nth-child(3){padding-left:0}.metric b{font-size:20px}}@media(max-width:650px){.shell{padding:14px 12px}.app-header{align-items:start}h1{font-size:21px}.app-header a{font-size:12px;white-space:nowrap}.question{font-size:15px}.workspace{display:flex;flex-direction:column}.viz{order:0;width:100%;padding:12px 8px}.controls{order:1;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:15px 16px}.control{margin:0}.control:first-child,.area-mode,.direction{grid-column:1/-1}.direction{margin:0}.graph-head{padding:0 4px}.graph-head span{font-size:10px}.viz-top{padding:0 4px}.viz-top h2{font-size:15px}.legend{font-size:10px}.metrics{padding:10px 4px 0}.metric b{font-size:21px}.graph-note{padding:0 4px;font-size:11px}.local-evidence{padding-left:4px}.compare-grid{grid-template-columns:1fr}.note-row{display:block}.note-row button{margin-top:8px}.experiment{padding:14px}.viz-top{flex-wrap:wrap}.under{margin-top:10px}}
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>회전하는 단면, 쌓이는 부피 | 회전체 적분 3D 탐구 (독립 실행본)</title>
+  <meta name="description" content="x축 회전체의 단면 원판과 적분을 3D로 탐구하며 구분구적법과 정적분의 부피 공식을 비교하는 미적분 시각화 실험실" />
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f4f2ed;
+      --paper: #ffffff;
+      --ink: #182830;
+      --muted: #5b6c73;
+      --line: #d8dfdc;
+      --green: #116d69;
+      --blue: #326b94;
+      --orange: #b96839;
+      --purple: #785b8c;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: system-ui, -apple-system, 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif;
+      font-size: 15px;
+      line-height: 1.5;
+    }
+    button, input, select, textarea { font: inherit; }
+    button, select { cursor: pointer; }
+    button {
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      background: white;
+      color: var(--ink);
+      padding: 8px 12px;
+      transition: background 0.15s, border-color 0.15s;
+    }
+    button:hover { border-color: var(--green); background: #f1f7f5; }
+    button:disabled { opacity: 0.45; cursor: not-allowed; }
+    button.primary { background: var(--green); color: white; border-color: var(--green); }
+    button.primary:hover { background: #0d5754; }
+    a { color: var(--green); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, summary:focus-visible {
+      outline: 3px solid #77b4d6;
+      outline-offset: 3px;
+    }
+    .shell { max-width: 1440px; margin: auto; padding: 20px 28px; }
+    .app-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 12px; }
+    .eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; color: var(--green); }
+    h1 { font-size: 25px; line-height: 1.3; margin: 4px 0; font-weight: 700; }
+    h2 { font-size: 17px; margin: 0; font-weight: 700; }
+    p { margin: 0; }
+    .question { font-size: 17px; margin: 0 0 18px; }
+    .question strong { color: var(--green); }
+    .workspace { display: grid; grid-template-columns: 295px minmax(0, 1fr); gap: 18px; align-items: start; }
+    .panel { background: white; border: 1px solid var(--line); border-radius: 12px; }
+    .controls { padding: 18px; }
+    .control { margin-top: 16px; }
+    .control:first-child { margin-top: 0; }
+    label, .label { font-weight: 650; display: block; margin-bottom: 7px; font-size: 13.5px; }
+    .control select { width: 100%; border: 1px solid var(--line); border-radius: 6px; padding: 8px 10px; background: white; }
+    .value-line { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+    .value-line label { margin: 0; }
+    .value-line input[type=number] { width: 84px; text-align: right; padding: 5px 7px; border: 1px solid var(--line); border-radius: 6px; font-variant-numeric: tabular-nums; }
+    input[type=range] { width: 100%; accent-color: var(--green); margin: 8px 0 0; min-height: 24px; }
+    .ends { display: flex; justify-content: space-between; font-size: 11px; color: var(--muted); }
+    .hint { font-size: 12px; color: var(--muted); margin-top: 6px; }
+    .small-button { font-size: 12px; padding: 5px 9px; }
+    .row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .segmented { display: flex; border: 1px solid var(--line); border-radius: 7px; margin-top: 6px; overflow: hidden; }
+    .segmented button { border: 0; border-radius: 0; flex: 1; font-size: 12px; padding: 8px 5px; background: white; }
+    .segmented button:not(:last-child) { border-right: 1px solid var(--line); }
+    .segmented button[aria-pressed=true] { background: #e5f1ee; color: var(--green); font-weight: 700; }
+    .viz { padding: 16px 18px 14px; min-width: 0; }
+    .viz-top { display: flex; justify-content: space-between; gap: 12px; align-items: flex-start; flex-wrap: wrap; margin-bottom: 12px; }
+    .legend { font-size: 11px; display: flex; flex-wrap: wrap; gap: 6px 14px; color: var(--muted); margin-top: 4px; }
+    .swatch { width: 14px; height: 4px; display: inline-block; margin: 0 4px 2px 0; border-radius: 2px; }
+    .graph-note { font-size: 12px; color: var(--muted); min-height: 18px; margin-top: 6px; }
+    .metrics { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; margin-top: 12px; border-top: 1px solid var(--line); padding-top: 11px; }
+    .metric { padding: 0 12px; border-right: 1px solid var(--line); min-width: 0; }
+    .metric:first-child { padding-left: 0; }
+    .metric:last-child { border: 0; }
+    .metric small { display: block; font-size: 11px; color: var(--muted); }
+    .metric b { display: block; font-size: 20px; font-weight: 650; font-variant-numeric: tabular-nums; white-space: nowrap; }
+    .metric b.green { color: var(--green); }
+    .metric b.blue { color: var(--blue); }
+    .local-evidence { font-size: 12px; border-top: 1px solid var(--line); margin-top: 10px; padding-top: 9px; display: flex; gap: 8px 20px; flex-wrap: wrap; }
+    .local-evidence strong { font-variant-numeric: tabular-nums; }
+    .warning { color: #824519; background: #fff5e8; border: 1px solid #f1d7b7; padding: 8px 12px; border-radius: 8px; font-size: 13px; margin: 8px 0; }
+    .experiment { margin-top: 18px; padding: 16px 18px; }
+    .experiment-top { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 12px; }
+    .saved { border-left: 3px solid var(--orange); padding-left: 12px; min-width: 0; }
+    .saved.b { border-color: var(--purple); }
+    .saved p { font-size: 12px; color: var(--muted); margin: 7px 0; }
+    .saved .readings { color: var(--ink); font-variant-numeric: tabular-nums; }
+    .note-row { display: flex; align-items: flex-end; gap: 12px; margin-top: 14px; }
+    .note-row > div { flex: 1; }
+    .note-row label { font-size: 12px; }
+    .note-row textarea { width: 100%; resize: vertical; min-height: 58px; border: 1px solid var(--line); border-radius: 6px; padding: 9px; }
+    .under { margin-top: 15px; }
+    .under details { border-top: 1px solid var(--line); padding: 12px 0; }
+    .under summary { font-weight: 650; cursor: pointer; }
+    .under details p, .under details ul { font-size: 13px; margin-top: 9px; color: var(--muted); }
+    .under code { font-family: ui-monospace, monospace; color: var(--ink); background: #eaece9; padding: 2px 5px; border-radius: 4px; font-size: 12px; }
+    #test-output { font-size: 12px; line-height: 1.7; white-space: pre-wrap; overflow-wrap: anywhere; background: #fdfcf9; border: 1px solid var(--line); border-radius: 6px; padding: 10px; margin-top: 9px; font-family: ui-monospace, monospace; }
+    footer { font-size: 11px; color: var(--muted); padding: 18px 0 6px; text-align: center; }
+    #status { font-size: 12px; color: var(--green); min-height: 18px; margin-top: 8px; font-weight: 600; }
+    @media (max-width: 900px) {
+      .shell { padding: 14px 12px; }
+      .workspace { display: flex; flex-direction: column; gap: 16px; }
+      .viz { order: 1; width: 100%; padding: 14px 12px; }
+      .controls { order: 2; width: 100%; padding: 14px 12px; }
+      .metrics { grid-template-columns: 1fr 1fr; row-gap: 10px; }
+      .metric:nth-child(2) { border-right: 0; }
+      .metric:nth-child(3) { padding-left: 0; }
+      .compare-grid { grid-template-columns: 1fr; }
+      .note-row { flex-direction: column; align-items: stretch; }
+      .metric b { font-size: 18px; }
+    }
+    @media (max-width: 480px) {
+      .shell { padding: 10px 8px; }
+      h1 { font-size: 21px; }
+      .app-header { flex-direction: column; align-items: flex-start; gap: 8px; }
+      .viz-top { flex-direction: column; gap: 8px; }
+      .viz-top .row { width: 100%; display: grid; grid-template-columns: repeat(3, 1fr); gap: 5px; }
+      .viz-top .row button { padding: 6px 4px; font-size: 11px; text-align: center; }
+      .metrics { grid-template-columns: 1fr; row-gap: 8px; }
+      .metric { border-right: 0; border-bottom: 1px solid var(--line); padding: 4px 0 6px 0; }
+      .metric:last-child { border-bottom: 0; }
+      .segmented { flex-wrap: wrap; }
+      .segmented button { flex: 1 1 30%; min-width: 80px; }
+    }
+  </style>
+
+  <!-- Three.js 0.160.1 Import Map -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.1/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.1/examples/jsm/"
+    }
+  }
+  </script>
 </head>
-<body><main class="shell">
-<header class="app-header"><div><div class="eyebrow">수학 · 미적분 탐구 / 고교 범위</div><h1>한 조각의 넓이, 한 점의 기울기</h1></div><a href="../index.html">전시관으로</a></header>
-<p class="question">누적함수의 기울기는 왜 <strong>원래 함수의 높이</strong>가 될까?</p>
-<section class="workspace" aria-label="누적함수 탐구 작업 공간">
-<aside class="panel controls" aria-label="실험 조건">
-<div class="control"><label for="function">원래 함수 f(t)</label><select id="function"><option value="linear">f(t) = 2t</option><option value="quadratic">f(t) = t² − 1</option><option value="sine">f(t) = sin t</option></select><p class="hint">sin의 입력 단위는 라디안입니다.</p></div>
-<div class="control"><div class="value-line"><label for="a-range">출발점 a</label><input id="a-number" type="number" min="-2.5" max="2.5" step="0.01" aria-label="출발점 a 숫자"></div><input id="a-range" type="range" min="-2.5" max="2.5" step="0.01"><div class="ends"><span>−2.5</span><span>2.5</span></div></div>
-<div class="control"><div class="value-line"><label for="x-range">탐침 x</label><input id="x-number" type="number" min="-2.5" max="2.5" step="0.01" aria-label="탐침 x 숫자"></div><input id="x-range" type="range" min="-2.5" max="2.5" step="0.01"><div class="ends"><span>−2.5</span><span>2.5</span></div></div>
-<div class="control"><div class="value-line"><label for="h-range">추가 구간 h ≠ 0</label><input id="h-number" type="number" min="-1" max="1" step="0.01" aria-label="추가 구간 h 숫자"></div><input id="h-range" type="range" min="-1" max="1" step="0.01"><div class="ends"><span>−1</span><span>1</span></div><div class="row" style="margin-top:7px"><button id="halve" class="small-button">|h| 절반으로</button><button id="flip" class="small-button">h 방향 바꾸기</button></div><p class="hint">최소 |h| = 0.01. 0 입력은 직전 방향의 0.01로 바뀝니다.</p></div>
-<div class="control area-mode"><span class="label">위쪽 색칠 영역</span><div class="segmented"><button id="signed-mode" aria-pressed="true">부호 있는 누적</button><button id="geometric-mode" aria-pressed="false">기하학적 넓이</button></div><p class="hint" id="area-hint">초록은 +기여, 주황은 −기여. 빗금은 추가 구간입니다.</p></div>
-<p class="direction" id="direction"></p>
-</aside>
-<section class="panel viz" aria-label="연결된 두 그래프">
-<div class="viz-top"><h2>같은 x, 연결되는 두 그래프</h2><div class="legend"><span><i class="swatch"></i>현재</span><span><i class="swatch blue"></i>할선·추가 구간</span><span><i class="swatch orange"></i>접선</span><span><i class="swatch dash"></i>보관 A/B</span></div></div>
-<div class="graph-head"><strong>① 원래 함수 f(t)와 넓이</strong><span>가로 t: −3.5~3.5 · 세로: −8~12</span></div>
-<svg id="upper" viewBox="0 0 800 228" role="img" aria-labelledby="upper-title upper-desc"><title id="upper-title">함수와 누적 넓이</title><desc id="upper-desc">a에서 x까지의 넓이와 x에서 x+h까지의 추가 넓이. x 표식을 드래그할 수 있습니다.</desc></svg>
-<p class="graph-note" id="area-readout"></p>
-<div class="graph-head"><strong>② 누적함수 F(t)</strong><span>가로 t: −3.5~3.5 · 세로: −14~14</span></div>
-<svg id="lower" viewBox="0 0 800 228" role="img" aria-labelledby="lower-title lower-desc"><title id="lower-title">누적함수와 기울기</title><desc id="lower-desc">위쪽과 같은 x 탐침. 파랑 할선은 평균 변화율이고 주황 접선은 순간 변화율입니다.</desc></svg>
-<p class="graph-note" id="clipping">두 그래프의 축 범위는 함수·a·A/B가 바뀌어도 고정됩니다.</p>
-<div class="metrics" aria-live="polite" aria-atomic="true"><div class="metric"><small>부호 있는 누적 F(x)</small><b class="green" id="m-integral"></b></div><div class="metric"><small>기하학적 넓이 ∫ |f|</small><b id="m-geometric"></b></div><div class="metric"><small>할선 ΔF / h</small><b class="blue" id="m-quotient"></b></div><div class="metric"><small>접선 기울기 f(x)</small><b id="m-derivative"></b></div></div>
-<div class="local-evidence"><span>추가 누적 ΔF = <strong id="m-delta"></strong></span><span>직사각형 근사 f(x)h = <strong id="m-approx"></strong></span><span>기울기 차이 = <strong id="m-error"></strong></span></div>
-</section></section>
-<section class="panel experiment" aria-labelledby="experiment-title"><div class="experiment-top"><h2 id="experiment-title">A/B 실험 보관</h2><label class="row" style="font-size:12px;font-weight:400;margin:0"><input id="overlay" type="checkbox" checked> 같은 축에 A/B 곡선 겹치기</label></div><div class="compare-grid"><div class="saved"><div class="row"><strong style="color:var(--orange)">A</strong><button id="save-a">현재를 A에 보관</button><button id="load-a" disabled>A 불러오기</button></div><p id="summary-a">예: 지금 조건을 A에 보관한 뒤 h만 줄여 보세요.</p></div><div class="saved b"><div class="row"><strong style="color:var(--purple)">B</strong><button id="save-b">현재를 B에 보관</button><button id="load-b" disabled>B 불러오기</button></div><p id="summary-b">예: B와 A의 할선 기울기 차이를 비교하세요.</p></div></div><div class="note-row"><div><label for="observation">관찰 기록 · 무엇을 바꾸었고, 어떤 수치가 근거인가요?</label><textarea id="observation" placeholder="a를 바꾸어도 같은 x에서 접선 기울기가 달라지지 않는지 확인해 보세요."></textarea></div><button id="export" class="primary">실험 JSON 내보내기</button></div><p id="status" role="status"></p></section>
-<section class="under"><details><summary>탐구 안내 · 부호와 방향을 구별하기</summary><ul><li>먼저 h만 절반으로 줄이세요. 추가 누적 ΔF와 직사각형 f(x)h, 할선 기울기와 f(x)를 각각 비교하세요.</li><li>a만 바꿔 A/B를 보관하세요. F의 그래프는 위아래로 이동하지만 같은 x에서 기울기는 어떻게 될까요?</li><li>x &lt; a이면 적분 방향이 반대입니다. 초록·주황은 함수값 자체가 아니라 a → x 방향에서의 양·음 기여를 나타냅니다.</li><li>기하학적 넓이는 두 끝점 사이의 |f|를 적분한 양수입니다. 표시 모드를 바꿔도 아래 F는 부호 있는 적분을 유지합니다.</li><li>위·아래 그래프의 x 점을 드래그하거나 숫자·슬라이더를 사용하세요. a와 x+h 점도 위 그래프에서 이동할 수 있습니다. 키보드는 입력칸·슬라이더를 이용하세요.</li></ul></details><details><summary>식과 모형 범위 · 자세히 보기</summary><p><code>F(x) = ∫ₐˣ f(t)dt = P(x) − P(a)</code><br>f(t)=2t이면 P(t)=t², f(t)=t²−1이면 P(t)=t³/3−t, f(t)=sin t이면 P(t)=−cos t입니다. 적분 수치는 이 원시함수로 계산하며, 그래프만 표본점으로 그립니다.</p><p><code>ΔF = F(x+h) − F(x) = ∫ₓˣ⁺ʰ f(t)dt ≈ f(x)h</code><br><code>ΔF/h → f(x) = F′(x)</code> (h → 0, h ≠ 0). 파랑 할선은 두 끝점을 지나며 주황 접선의 기울기는 정확한 f(x)입니다. 주황 점선 직사각형은 근사량을 나타냅니다.</p><p>여기서는 연속함수 세 가지와 고정된 실험 범위만 다룹니다. 유한한 h에서 두 기울기가 가깝다는 관찰은 일반적인 정리의 증명을 대신하지 않습니다. 소수 표시는 반올림하며 내부 계산은 자바스크립트 부동소수점입니다. 보관 A/B와 관찰은 이 브라우저에 저장되며 내보내기로 별도 보관할 수 있습니다.</p></details><details><summary>계산 검증 · 실제 자체 테스트</summary><p>원시함수, 음의 방향, 절댓값 넓이, h의 양·음 방향, 0 방지, 도함수를 검증합니다.</p><button id="run-tests" style="margin-top:9px">자체 테스트 실행</button><pre id="test-output">아직 실행하지 않았습니다.</pre></details></section>
-<footer>기획·구성 금평초 김상흠 · AI 지원 구현 · 교육용 모형, 교과 검토 후 활용.</footer>
+<body>
+<main class="shell">
+  <header class="app-header">
+    <div>
+      <div class="eyebrow">수학 · 미적분 탐구 / 고교 범위</div>
+      <h1>회전하는 단면, 쌓이는 부피</h1>
+    </div>
+    <span style="font-size:12px; color:var(--muted)">독립 실행 정적 HTML</span>
+  </header>
+
+  <p class="question">
+    평면도형을 회전하면 <strong>부피는 어떻게 쌓일까?</strong>
+  </p>
+
+  <div class="workspace">
+    <!-- Controls Panel -->
+    <aside class="panel controls" aria-label="탐구 조작 조건">
+      <div class="control">
+        <label for="func-select">원래 함수 f(x) (비음수 반지름)</label>
+        <select id="func-select">
+          <option value="linear">f(x) = x (원뿔 모형, [0,1] 부피: π/3)</option>
+          <option value="quadratic">f(x) = x² (f(x)=x² 회전체, [0,1] 부피: π/5)</option>
+          <option value="sqrt">f(x) = √x (회전포물면/포물면체, [0,1] 부피: π/2)</option>
+        </select>
+        <p class="hint">x축 회전체에서 f(x)는 x 위치에서의 단면 원의 반지름 R이 됩니다.</p>
+      </div>
+
+      <div class="control">
+        <div class="value-line">
+          <label for="a-range">구간 출발점 a</label>
+          <input id="a-number" type="number" min="0" max="3" step="0.05" value="0" />
+        </div>
+        <input id="a-range" type="range" min="0" max="2.9" step="0.05" value="0" />
+        <div class="ends"><span>0.00</span><span>2.90</span></div>
+      </div>
+
+      <div class="control">
+        <div class="value-line">
+          <label for="b-range">구간 도착점 b</label>
+          <input id="b-number" type="number" min="0.1" max="3" step="0.05" value="1" />
+        </div>
+        <input id="b-range" type="range" min="0.1" max="3" step="0.05" value="1" />
+        <div class="ends"><span>0.10</span><span>3.00</span></div>
+      </div>
+
+      <div class="control">
+        <div class="value-line">
+          <label for="n-range">원판 분할 개수 n</label>
+          <input id="n-number" type="number" min="2" max="64" step="1" value="8" />
+        </div>
+        <input id="n-range" type="range" min="2" max="64" step="1" value="8" />
+        <div class="row" style="margin-top:6px;">
+          <button class="small-button" data-preset-n="4">n=4</button>
+          <button class="small-button" data-preset-n="8">n=8</button>
+          <button class="small-button" data-preset-n="16">n=16</button>
+          <button class="small-button" data-preset-n="32">n=32</button>
+          <button class="small-button" data-preset-n="64">n=64</button>
+        </div>
+        <p class="hint" id="delta-hint">두께 Δx = (b − a)/n</p>
+      </div>
+
+      <div class="control">
+        <span class="label">원판 높이 기준점</span>
+        <div class="segmented" id="slicemode-segmented">
+          <button data-mode="midpoint" aria-pressed="true">중점 근사 (권장)</button>
+          <button data-mode="left" aria-pressed="false">좌측점</button>
+          <button data-mode="right" aria-pressed="false">우측점</button>
+        </div>
+      </div>
+
+      <div class="control">
+        <div class="value-line">
+          <label for="sweep-range">표시 전개각 θ (3D 시각화 전개)</label>
+          <span id="sweep-readout" style="font-weight:600">360° / 360° (360° 완성형)</span>
+        </div>
+        <input id="sweep-range" type="range" min="10" max="360" step="5" value="360" />
+        <div class="row" style="margin-top:6px">
+          <button class="small-button" id="btn-play-sweep">전개 애니메이션</button>
+          <button class="small-button" id="btn-sweep-360">360° 전체</button>
+          <button class="small-button" id="btn-sweep-180">180° 반절</button>
+        </div>
+        <p class="hint">
+          ※ 표시 전개각 θ는 3D 내부 단면과 형성 과정을 펼쳐 보기 위한 시각화 제어입니다. 아래 계산된 정적분 부피, 원판 구분구적합, 오차 및 A/B 수치 기록은 표시 전개각과 무관하게 항상 360° 완전 회전체 기준입니다.
+        </p>
+      </div>
+
+      <div class="control">
+        <div class="value-line">
+          <label for="slicex-range">단면 관찰 위치 x</label>
+          <input id="slicex-number" type="number" min="0" max="1" step="0.05" value="0.6" />
+        </div>
+        <input id="slicex-range" type="range" min="0" max="1" step="0.05" value="0.6" />
+        <p class="hint" id="slice-hint">단면 정보</p>
+      </div>
+
+      <div class="control">
+        <span class="label">3D 시각화 모드</span>
+        <div class="segmented" id="displaymode-segmented">
+          <button data-disp="both" aria-pressed="true">중첩 (원판+회전체)</button>
+          <button data-disp="disks" aria-pressed="false">원판만</button>
+          <button data-disp="solid" aria-pressed="false">회전체만</button>
+        </div>
+      </div>
+
+      <div class="control">
+        <div class="value-line">
+          <label for="opacity-range">회전체 투명도</label>
+          <span id="opacity-readout">75%</span>
+        </div>
+        <input id="opacity-range" type="range" min="0.1" max="1.0" step="0.05" value="0.75" />
+      </div>
+
+      <div class="control">
+        <div class="row">
+          <label class="row" style="font-size:13px; cursor:pointer">
+            <input type="checkbox" id="check-profile" checked />
+            평면 영역 및 기준 곡선 표시
+          </label>
+          <label class="row" style="font-size:13px; cursor:pointer">
+            <input type="checkbox" id="check-autorotate" />
+            축 자동 자전
+          </label>
+        </div>
+      </div>
+    </aside>
+
+    <!-- 3D Viewport & Metrics -->
+    <section class="panel viz" aria-label="3D 회전체 및 단면 시각화">
+      <div class="viz-top">
+        <div>
+          <h2>실시간 3D 회전체 시각화 (Three.js 0.160.1)</h2>
+          <div class="legend">
+            <span><i class="swatch" style="background:#116d69"></i>연속 회전체 표면</span>
+            <span><i class="swatch" style="background:#326b94"></i>근사 원판</span>
+            <span><i class="swatch" style="background:#b96839"></i>선택 단면 (A=πf(x)²)</span>
+            <span><i class="swatch" style="background:#b96839; height:2px"></i>x 회전축</span>
+          </div>
+        </div>
+
+        <div class="row">
+          <button class="small-button" id="cam-default">기본 3D</button>
+          <button class="small-button" id="cam-front">정면 (XY 평면)</button>
+          <button class="small-button" id="cam-side">측면 (YZ 단면)</button>
+          <button class="small-button" id="cam-top">위 (XZ 평면)</button>
+          <button class="small-button" id="cam-fit">시점 맞춤</button>
+          <button class="small-button" id="cam-reset">시점 리셋</button>
+        </div>
+      </div>
+
+      <div id="warning-box" class="warning" style="display:none"></div>
+
+      <div id="canvas-container" style="width:100%; height:380px; border-radius:8px; overflow:hidden; background:#f6f5f1; position:relative; touch-action:none"></div>
+
+      <p class="graph-note">
+        마우스 좌클릭 드래그로 3D 회전, 우클릭 드래그로 이동, 휠 스크롤로 확대/축소할 수 있습니다. 모바일 터치 조작을 지원합니다.
+      </p>
+
+      <div class="metrics" aria-live="polite">
+        <div class="metric">
+          <small>정적분 정확 부피 (360° 완성 회전체, V = π∫f²dx)</small>
+          <b class="green" id="m-exact">0.0000 단위³</b>
+        </div>
+        <div class="metric">
+          <small>원판 구분구적 부피 (360° 완성 회전체, ∑πf²Δx)</small>
+          <b class="blue" id="m-approx">0.0000 단위³</b>
+        </div>
+        <div class="metric">
+          <small>근사 절대 오차 (|Vₙ − V|)</small>
+          <b id="m-error">0.0000</b>
+        </div>
+        <div class="metric">
+          <small>회전 전 2D 평면 넓이 (∫fdx)</small>
+          <b id="m-area2d">0.0000 단위²</b>
+        </div>
+      </div>
+
+      <div class="local-evidence">
+        <span>선택 단면 x = <strong id="m-slicex">0.60</strong></span>
+        <span>단면 반지름 R = f(x) = <strong id="m-radius">0.600</strong> 단위</span>
+        <span>단면 원 넓이 A(x) = πR² = <strong id="m-slicearea">1.131</strong> 단위²</span>
+        <span>차원 단위 구분: 길이(단위), 넓이(단위²), 부피(단위³) · <strong>모든 부피 수치는 표시 전개각과 무관하게 360° 완성 입체 기준</strong></span>
+      </div>
+    </section>
+  </div>
+
+  <!-- A/B Experiment Comparison -->
+  <section class="panel experiment" aria-labelledby="experiment-title">
+    <div class="experiment-top">
+      <h2 id="experiment-title">A/B 실험 보관 및 비교</h2>
+      <span style="font-size:13px; color:var(--muted)">
+        서로 다른 분할수 n이나 구간 [a, b]를 A와 B에 보관하고 오차 수렴을 비교하세요.
+      </span>
+    </div>
+
+    <div class="compare-grid">
+      <div class="saved">
+        <div class="row">
+          <strong style="color:#b96839">보관 조건 A</strong>
+          <button class="small-button" id="save-a">현재를 A에 보관</button>
+          <button class="small-button" id="load-a" disabled>A 불러오기</button>
+        </div>
+        <p class="readings" id="summary-a">현재 조건을 A에 보관한 뒤 n을 2배로 늘려 보세요.</p>
+      </div>
+
+      <div class="saved b">
+        <div class="row">
+          <strong style="color:#785b8c">보관 조건 B</strong>
+          <button class="small-button" id="save-b">현재를 B에 보관</button>
+          <button class="small-button" id="load-b" disabled>B 불러오기</button>
+        </div>
+        <p class="readings" id="summary-b">B와 A의 오차 크기를 비교해 원판법의 수렴성을 확인하세요.</p>
+      </div>
+    </div>
+
+    <div class="note-row">
+      <div>
+        <label for="observation-note">관찰 기록 · 무엇을 바꾸었고, 어떤 수치가 근거인가요?</label>
+        <textarea id="observation-note" placeholder="예: f(x)=x²에서 n을 8에서 32로 늘렸을 때 오차가 0.04에서 0.003으로 줄어들었습니다. 원판들이 계단 형태에서 부드러운 곡면으로 수렴합니다."></textarea>
+      </div>
+      <button class="primary" id="btn-export">실험 JSON 내보내기</button>
+    </div>
+
+    <p id="status" role="status"></p>
+  </section>
+
+  <!-- Foldable Educational Information -->
+  <section class="under">
+    <details>
+      <summary>탐구 안내 · 회전체와 원판법(Disk Method)의 원리</summary>
+      <ul>
+        <li><strong>단면이 원이 되는 이유:</strong> 점 (x, f(x))가 x축을 중심으로 회전하면 x축과 수직인 평면 위에서 반지름 R = f(x)인 원을 그립니다. 따라서 x축에 수직인 모든 단면은 원입니다.</li>
+        <li><strong>2D 넓이와 3D 부피의 본질적 차이:</strong> 2D 평면 영역은 세로 길이 f(x)에 가로 폭 Δx를 곱한 직사각형들의 합(∫ f(x)dx)이지만, 3D 회전체는 단면 원의 넓이 A(x) = π[f(x)]²에 두께 Δx를 곱한 얇은 원기둥(원판)들의 부피(π[f(x)]²Δx)를 합칩니다.</li>
+        <li><strong>구분구적법에서 정적분으로의 극한:</strong> 분할수 n이 커질수록 각 원판의 두께 Δx는 0에 수렴하며, 원판들의 합 ∑ π[f(xᵢ*)]²Δx는 매끄러운 회전체의 정확한 부피 V = π∫ₐᵇ [f(x)]²dx에 수렴합니다.</li>
+        <li><strong>회전각 θ 조절:</strong> 슬라이더를 0°에서 360°까지 움직여 보면서, 2D 평면 영역이 3D 공간을 회전하며 입체를 형성하는 궤적과 내부 단면을 관찰할 수 있습니다.</li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>수식과 모형 범위 · 고교 미적분 검증 기준</summary>
+      <p><code>V = π ∫ₐᵇ [f(x)]² dx</code> (x축 회전체 부피 공식)</p>
+      <ul>
+        <li><strong>f(x) = x (원뿔 모형):</strong> [f(x)]² = x²<br />V = π ∫ₐᵇ x² dx = (π/3)(b³ − a³). [0, 1] 구간에서 <strong>V = π/3 ≈ 1.047198 단위³</strong> (밑면 반지름 1, 높이 1인 원뿔 부피 공식 V = (1/3)πr²h와 일치)</li>
+        <li><strong>f(x) = x² (f(x)=x² 회전체):</strong> [f(x)]² = x⁴<br />V = π ∫ₐᵇ x⁴ dx = (π/5)(b⁵ − a⁵). [0, 1] 구간에서 <strong>V = π/5 ≈ 0.628319 단위³</strong></li>
+        <li><strong>f(x) = √x (회전포물면/포물면체):</strong> [f(x)]² = x (x ≥ 0)<br />V = π ∫ₐᵇ x dx = (π/2)(b² − a²). [0, 1] 구간에서 <strong>V = π/2 ≈ 1.570796 단위³</strong></li>
+      </ul>
+      <p>본 모형은 고교 미적분 선택과목 수준의 대표적 회전체 탐구 모형입니다. 분할 원판의 수치 합은 중점 근사(Midpoint Rule)를 기본으로 계산하며, 정확식과 오차율을 함께 표시합니다.</p>
+    </details>
+
+    <details>
+      <summary>계산 검증 · window.runSelfTests() 실행</summary>
+      <p>대표 구간 [0, 1]의 세 함수 이론 부피(π/3, π/5, π/2), 2D 넓이와 3D 부피 구분, 구분구적법 분할수 증가에 따른 오차 수렴성, 구간 역전(a ≥ b) 오류 처리, 비음수 반지름 보장성을 검증합니다.</p>
+      <button class="small-button" id="btn-run-tests" style="margin-top:8px">자체 테스트 실행</button>
+      <pre id="test-output">아직 실행하지 않았습니다.</pre>
+    </details>
+  </section>
+
+  <footer>
+    기획·구성: 금평초 김상흠 · AI 지원 구현. 제작: Google AI Studio · 미적분 선택과목 수준의 모형이며 구체적인 수업 범위는 교사 확인.
+  </footer>
 </main>
-<script>
-'use strict';
-(()=>{
-const $=id=>document.getElementById(id), NS='http://www.w3.org/2000/svg';
-const functions={linear:{label:'2t',f:t=>2*t,p:t=>t*t,roots:(lo,hi)=>[0].filter(v=>v>lo&&v<hi)},quadratic:{label:'t² − 1',f:t=>t*t-1,p:t=>t*t*t/3-t,roots:(lo,hi)=>[-1,1].filter(v=>v>lo&&v<hi)},sine:{label:'sin t',f:Math.sin,p:t=>-Math.cos(t),roots:(lo,hi)=>{const r=[];for(let k=Math.ceil(lo/Math.PI);k<=Math.floor(hi/Math.PI);k++){const t=k*Math.PI;if(t>lo&&t<hi)r.push(t)}return r}}};
-const clamp=(v,lo,hi)=>Math.max(lo,Math.min(hi,v));
-function safeH(v,previous=.6){if(!Number.isFinite(v))return previous;return Math.abs(v)<.01?(previous<0?-.01:.01):clamp(v,-1,1)}
-function integral(fn,a,x){return functions[fn].p(x)-functions[fn].p(a)}
-function geometric(fn,a,x){const lo=Math.min(a,x),hi=Math.max(a,x),cuts=[lo,...functions[fn].roots(lo,hi),hi];let area=0;for(let i=1;i<cuts.length;i++)area+=Math.abs(integral(fn,cuts[i-1],cuts[i]));return area}
-function quotient(fn,a,x,h){if(!Number.isFinite(h)||h===0)return null;return integral(fn,x,x+h)/h}
-function metrics(s){const F=integral(s.fn,s.a,s.x),delta=integral(s.fn,s.x,s.x+s.h),derivative=functions[s.fn].f(s.x);return {F,geometric:geometric(s.fn,s.a,s.x),delta,approx:derivative*s.h,quotient:quotient(s.fn,s.a,s.x,s.h),derivative,error:quotient(s.fn,s.a,s.x,s.h)-derivative}}
-const initial={fn:'linear',a:0,x:1,h:.6,mode:'signed'};let state={...initial},saved={A:null,B:null},note='',overlay=true;
-const STORAGE='inquiry-accumulation-v1';
-function valid(s){return s&&Object.hasOwn(functions,s.fn)&&Number.isFinite(s.a)&&Math.abs(s.a)<=2.5&&Number.isFinite(s.x)&&Math.abs(s.x)<=2.5&&Number.isFinite(s.h)&&Math.abs(s.h)>=.01&&Math.abs(s.h)<=1&&['signed','geometric'].includes(s.mode)}
-try{const old=JSON.parse(localStorage.getItem(STORAGE));if(old){if(valid(old.state))state={...old.state};for(const k of ['A','B'])if(valid(old.saved?.[k]))saved[k]={...old.saved[k]};note=typeof old.note==='string'?old.note:'';overlay=old.overlay!==false}}catch(e){}
-function persist(){try{localStorage.setItem(STORAGE,JSON.stringify({state,saved,note,overlay}))}catch(e){$('status').textContent='브라우저 저장을 사용할 수 없습니다. JSON으로 보관하세요.'}}
-const fmt=(n,d=4)=>Math.abs(n)<.5*10**(-d)?'0':Number(n.toFixed(d)).toLocaleString('ko-KR',{maximumFractionDigits:d});
-const colors={green:'#116d69',blue:'#326b94',orange:'#b96839',purple:'#785b8c',ink:'#182830',grid:'#e9eeeb',muted:'#63767c'};
-const box={l:57,r:770,t:23,b:194},XMIN=-3.5,XMAX=3.5;
-const sx=x=>box.l+(x-XMIN)/(XMAX-XMIN)*(box.r-box.l),sy=(y,lower)=>box.b-(y-(lower?-14:-8))/(lower?28:20)*(box.b-box.t);
-function el(tag,attrs={},text){const n=document.createElementNS(NS,tag);Object.entries(attrs).forEach(([k,v])=>n.setAttribute(k,String(v)));if(text!==undefined)n.textContent=text;return n}
-function line(g,x1,y1,x2,y2,attrs={}){g.append(el('line',{x1,y1,x2,y2,...attrs}))}
-function text(g,x,y,t,attrs={}){g.append(el('text',{x,y,fill:colors.muted,'font-size':12,'font-family':'system-ui,sans-serif',...attrs},t))}
-function curvePath(fun,lower){let d='';for(let i=0;i<=360;i++){const x=XMIN+(XMAX-XMIN)*i/360,y=fun(x);d+=(i?'L':'M')+sx(x).toFixed(2)+' '+sy(y,lower).toFixed(2)}return d}
-function drawCurve(g,fun,lower,color,width=2.5,dash=''){g.append(el('path',{d:curvePath(fun,lower),fill:'none',stroke:color,'stroke-width':width,'stroke-dasharray':dash,'vector-effect':'non-scaling-stroke'}))}
-function base(svg,lower){svg.replaceChildren(el('title',{},lower?'누적함수 F와 할선·접선':'원래 함수 f와 부호 있는 넓이'),el('desc',{},'같은 탐침 x를 공유합니다. 입력칸이나 슬라이더로 모든 조건을 조작할 수 있습니다.'));const defs=el('defs'),clip=el('clipPath',{id:lower?'clip-l':'clip-u'});clip.append(el('rect',{x:box.l,y:box.t,width:box.r-box.l,height:box.b-box.t}));defs.append(clip);if(!lower){const pattern=el('pattern',{id:'hatch',width:7,height:7,patternUnits:'userSpaceOnUse',patternTransform:'rotate(35)'});pattern.append(el('rect',{width:7,height:7,fill:'#d5e8f5','fill-opacity':.55}),el('line',{x1:0,y1:0,x2:0,y2:7,stroke:colors.blue,'stroke-width':2,'stroke-opacity':.65}));defs.append(pattern)}svg.append(defs);
-const ys=lower?[-14,-7,0,7,14]:[-8,-4,0,4,8,12];for(const y of ys){line(svg,box.l,sy(y,lower),box.r,sy(y,lower),{stroke:y===0?'#9aa9ab':colors.grid,'stroke-width':y===0?1.2:1});text(svg,box.l-9,sy(y,lower)+4,String(y),{'text-anchor':'end'})}for(let x=-3;x<=3;x++){line(svg,sx(x),box.t,sx(x),box.b,{stroke:x===0?'#9aa9ab':colors.grid});text(svg,sx(x),box.b+19,String(x),{'text-anchor':'middle'})}text(svg,box.r+7,sy(0,lower)+5,'t',{'font-style':'italic'});text(svg,box.l,14,lower?'F(t)':'f(t)',{fill:colors.ink,'font-weight':650});const g=el('g',{'clip-path':`url(#${lower?'clip-l':'clip-u'})`});svg.append(g);return g}
-function area(g,from,to,fn,mode,extra=false){if(from===to)return;const lo=Math.min(from,to),hi=Math.max(from,to),cuts=[lo,...functions[fn].roots(lo,hi),hi],direction=Math.sign(to-from);for(let j=1;j<cuts.length;j++){const l=cuts[j-1],r=cuts[j];let d=`M${sx(l)} ${sy(0,false)}`;for(let i=0;i<=65;i++){const t=l+(r-l)*i/65;d+=`L${sx(t)} ${sy(functions[fn].f(t),false)}`}d+=`L${sx(r)} ${sy(0,false)}Z`;const positive=functions[fn].f((l+r)/2)*direction>=0;g.append(el('path',{d,fill:extra?'url(#hatch)':mode==='geometric'?colors.purple:positive?colors.green:colors.orange,'fill-opacity':extra?1:.18,stroke:extra?colors.blue:'none','stroke-width':extra?1:0}))}}
-function marker(svg,g,t,lower,label,color,handle,yValue){const yy=yValue===undefined?0:yValue;line(g,sx(t),box.t,sx(t),box.b,{stroke:color,'stroke-opacity':.6,'stroke-dasharray':'4 4','stroke-width':1});const y=clamp(sy(yy,lower),box.t+6,box.b-6);const group=el('g',{'data-handle':handle});group.append(el('circle',{cx:sx(t),cy:y,r:14,fill:'transparent'}),el('circle',{cx:sx(t),cy:y,r:5,fill:'white',stroke:color,'stroke-width':2}));svg.append(group);const ly=label==='a'?box.t+11:label==='x'?box.b+33:box.t-5;text(svg,sx(t),ly,label,{fill:color,'text-anchor':'middle','font-weight':650,'font-size':12})}
-function renderGraphs(){const u=$('upper'),l=$('lower'),width=Math.max(340,Math.min(800,Math.round(u.getBoundingClientRect().width)||800));box.l=width<500?43:57;box.r=width-30;box.b=width<500?174:194;const height=box.b+34;u.setAttribute('viewBox',`0 0 ${width} ${height}`);l.setAttribute('viewBox',`0 0 ${width} ${height}`);const ug=base(u,false),lg=base(l,true);const f=functions[state.fn].f,F=t=>integral(state.fn,state.a,t);if(overlay){for(const [key,s] of Object.entries(saved)){if(!s)continue;const col=key==='A'?colors.orange:colors.purple;drawCurve(ug,functions[s.fn].f,false,col,1.5,'6 5');drawCurve(lg,t=>integral(s.fn,s.a,t),true,col,1.5,'6 5')}}
-area(ug,state.a,state.x,state.fn,state.mode);area(ug,state.x,state.x+state.h,state.fn,state.mode,true);
-const rx=Math.min(state.x,state.x+state.h),rw=Math.abs(sx(state.x+state.h)-sx(state.x)),fy=f(state.x);ug.append(el('rect',{x:sx(rx),y:Math.min(sy(fy,false),sy(0,false)),width:rw,height:Math.abs(sy(fy,false)-sy(0,false)),fill:'none',stroke:colors.orange,'stroke-width':1.6,'stroke-dasharray':'4 3'}));
-drawCurve(ug,f,false,colors.green);drawCurve(lg,F,true,colors.green);const val=metrics(state),Fx=val.F,xh=state.x+state.h;
-// Local tangent and secant are clipped by the same fixed plotting box.
-line(lg,sx(state.x-.85),sy(Fx-.85*val.derivative,true),sx(state.x+.85),sy(Fx+.85*val.derivative,true),{stroke:colors.orange,'stroke-width':2});const ext=.22;const sl=Math.min(state.x,xh)-ext,sr=Math.max(state.x,xh)+ext;line(lg,sx(sl),sy(Fx+(sl-state.x)*val.quotient,true),sx(sr),sy(Fx+(sr-state.x)*val.quotient,true),{stroke:colors.blue,'stroke-width':2,'stroke-dasharray':'7 4'});line(lg,sx(state.x),sy(Fx,true),sx(xh),sy(Fx,true),{stroke:colors.blue,'stroke-width':1,'stroke-opacity':.55});line(lg,sx(xh),sy(Fx,true),sx(xh),sy(F(xh),true),{stroke:colors.blue,'stroke-width':1,'stroke-opacity':.55});
-marker(u,ug,state.a,false,'a',colors.orange,'a',0);marker(u,ug,xh,false,'x+h',colors.blue,'h',f(xh));marker(u,ug,state.x,false,'x',colors.green,'x',f(state.x));marker(l,lg,state.a,true,'a',colors.orange,'a',0);marker(l,lg,xh,true,'x+h',colors.blue,'h',F(xh));marker(l,lg,state.x,true,'x',colors.green,'x',Fx);
-let clipped=[];for(const [key,s] of [['현재',state],...(overlay?Object.entries(saved).filter(([,s])=>s):[])]){for(let i=0;i<=140;i++){const t=XMIN+(XMAX-XMIN)*i/140,ff=functions[s.fn].f(t),FF=integral(s.fn,s.a,t);if(ff < -8||ff>12||FF < -14||FF>14){clipped.push(key);break}}}
-$('clipping').textContent=clipped.length?`범위 밖 곡선: ${clipped.join(', ')}. 축은 고정이며 바깥 부분은 잘려 보입니다.`:'고정 축 · 위아래 x 점을 드래그하세요. A/B도 같은 축으로 비교합니다.';$('clipping').className='graph-note'+(clipped.length?' clip-warning':'');}
-function summary(key){const s=saved[key];$('load-'+key.toLowerCase()).disabled=!s;if(!s)return;const m=metrics(s);const p=$('summary-'+key.toLowerCase());p.textContent=`f(t)=${functions[s.fn].label} · a=${fmt(s.a,2)} · x=${fmt(s.x,2)} · h=${fmt(s.h,2)} | F=${fmt(m.F)} · 넓이=${fmt(m.geometric)} · ΔF/h=${fmt(m.quotient)} · f(x)=${fmt(m.derivative)}`;p.classList.add('readings')}
-function render(){for(const k of ['a','x','h']){$(k+'-range').value=state[k];$(k+'-number').value=Number(state[k].toFixed(4))}$('function').value=state.fn;$('signed-mode').setAttribute('aria-pressed',state.mode==='signed');$('geometric-mode').setAttribute('aria-pressed',state.mode==='geometric');$('area-hint').textContent=state.mode==='signed'?'초록은 +기여, 주황은 −기여. 빗금은 추가 구간입니다.':'보라색은 방향과 무관한 넓이. 아래 F는 여전히 부호 있는 누적입니다.';const m=metrics(state);for(const [id,k] of [['integral','F'],['geometric','geometric'],['quotient','quotient'],['derivative','derivative'],['delta','delta'],['approx','approx'],['error','error']])$('m-'+id).textContent=fmt(m[k]);$('direction').textContent=state.x<state.a?'a → x는 왼쪽 방향입니다. ∫ₐˣ f = −∫ₓᵃ f: 같은 영역도 누적 부호가 뒤집힙니다.':state.x===state.a?'a = x이므로 누적 F(x)는 0입니다. 기울기 f(x)는 0이 아닐 수 있습니다.':'a → x는 오른쪽 방향입니다. 축 위쪽은 양, 아래쪽은 음의 누적으로 더합니다.';$('area-readout').textContent=state.mode==='signed'?`a=${fmt(state.a,2)} → x=${fmt(state.x,2)}의 부호 있는 누적: ${fmt(m.F)} · 빗금: x → x+h (h=${fmt(state.h,2)})`:`두 끝점 사이 기하학적 넓이: ${fmt(m.geometric)} ≥ 0 · F(x)=${fmt(m.F)}와 구별하세요.`;renderGraphs();summary('A');summary('B')}
-function update(k,v){if(k==='fn'||k==='mode')state[k]=v;else{if(!Number.isFinite(v)){render();return}state[k]=k==='h'?safeH(v,state.h):clamp(v,-2.5,2.5)}render();persist()}
-for(const k of ['a','x','h']){$(k+'-range').addEventListener('input',e=>update(k,Number(e.target.value)));$(k+'-number').addEventListener('change',e=>update(k,e.target.value===''?NaN:Number(e.target.value)))}
-$('function').addEventListener('change',e=>update('fn',e.target.value));$('signed-mode').onclick=()=>update('mode','signed');$('geometric-mode').onclick=()=>update('mode','geometric');$('halve').onclick=()=>update('h',state.h/2);$('flip').onclick=()=>update('h',-state.h);
-for(const key of ['A','B']){$('save-'+key.toLowerCase()).onclick=()=>{saved[key]={...state};render();persist();$('status').textContent=key+'에 현재 조건을 보관했습니다.'};$('load-'+key.toLowerCase()).onclick=()=>{if(saved[key]){state={...saved[key]};render();persist();$('status').textContent=key+' 조건을 불러왔습니다.'}}}
-$('overlay').checked=overlay;$('overlay').onchange=e=>{overlay=e.target.checked;renderGraphs();persist()};$('observation').value=note;$('observation').addEventListener('input',e=>{note=e.target.value;persist()});
-for(const id of ['upper','lower']){const svg=$(id);let drag=null;svg.addEventListener('pointerdown',e=>{const target=e.target.closest('[data-handle]');if(!target)return;drag=target.getAttribute('data-handle');svg.setPointerCapture(e.pointerId);e.preventDefault()});svg.addEventListener('pointermove',e=>{if(!drag)return;const pt=svg.createSVGPoint();pt.x=e.clientX;pt.y=e.clientY;const p=pt.matrixTransform(svg.getScreenCTM().inverse()),t=XMIN+(p.x-box.l)/(box.r-box.l)*(XMAX-XMIN);if(drag==='h')update('h',Number((t-state.x).toFixed(2)));else update(drag,Number(t.toFixed(2)));e.preventDefault()});const end=()=>{drag=null};svg.addEventListener('pointerup',end);svg.addEventListener('pointercancel',end);svg.addEventListener('lostpointercapture',end)}
-$('export').onclick=()=>{const data={app:'accumulation-inquiry',version:1,exportedAt:new Date().toISOString(),units:{horizontal:'실수 / sin은 radian',area:'좌표 넓이'},current:{...state,results:metrics(state)},experiments:Object.fromEntries(Object.entries(saved).map(([k,s])=>[k,s?{...s,results:metrics(s)}:null])),observation:note,calculation:'원시함수 차이로 정확식 계산, 표시값 반올림',disclosure:'기획·구성 금평초 김상흠 · AI 지원 구현 · 교육용 모형'};const url=URL.createObjectURL(new Blob([JSON.stringify(data,null,2)],{type:'application/json'})),a=document.createElement('a');a.href=url;a.download='accumulation-experiment.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);$('status').textContent='현재 조건, A/B, 관찰 기록을 JSON으로 내보냈습니다.'};
-window.runSelfTests=()=>{const out=[],check=(name,actual,expected,tolerance=1e-9)=>out.push({name,pass:typeof expected==='number'?Number.isFinite(actual)&&Math.abs(actual-expected)<=tolerance:actual===expected,actual,expected});check('2t, a=0: F(1.7)=1.7²',integral('linear',0,1.7),2.89);check('t²−1, a=0: F(1)=−2/3',integral('quadratic',0,1),-2/3);check('음의 방향: ∫₂¹ 2t = −3',integral('linear',2,1),-3);check('방향 반전의 합은 0',integral('quadratic',-2,1.7)+integral('quadratic',1.7,-2),0);check('출발점에서 누적은 0',integral('sine',1.2,1.2),0);check('sin, 0→π/2 누적',integral('sine',0,Math.PI/2),1);check('sin, −π→π의 기하학적 넓이',geometric('sine',-Math.PI,Math.PI),4);check('t²−1, −2→2 부호 누적',integral('quadratic',-2,2),4/3);check('t²−1, −2→2 기하학적 넓이',geometric('quadratic',-2,2),4);check('기하학적 넓이는 방향 불변',geometric('quadratic',2,-2),4);check('양의 h 평균 변화율',quotient('linear',0,1,.5),2.5);check('음의 h 평균 변화율',quotient('linear',0,1,-.5),1.5);check('h=0 계산은 null 반환',quotient('linear',0,1,0),null);check('0 입력의 양 방향 보호',safeH(0,.5),.01);check('0 입력의 음 방향 보호',safeH(0,-.5),-.01);const eps=1e-5;check('F의 수치 도함수 = t²−1 at 1.4',(integral('quadratic',-.8,1.4+eps)-integral('quadratic',-.8,1.4-eps))/(2*eps),.96,1e-7);check('F의 수치 도함수 = sin(0.7)',(integral('sine',2,.7+eps)-integral('sine',2,.7-eps))/(2*eps),Math.sin(.7),1e-7);check('a가 달라도 같은 x의 할선은 동일',quotient('quadratic',-2,1.2,-.1)-quotient('quadratic',2,1.2,-.1),0);check('음의 h 추가 누적과 평균변화율 일치',integral('sine',.8,.5),quotient('sine',0,.8,-.3)*(-.3));check('구간 덧셈: F(x+h)−F(x)=∫ₓˣ⁺ʰ f',integral('quadratic',-1,1.6)-integral('quadratic',-1,1),integral('quadratic',1,1.6));return out};
-$('run-tests').onclick=()=>{const tests=window.runSelfTests(),passes=tests.filter(t=>t.pass).length;$('test-output').textContent=`${passes}/${tests.length} 통과\n`+tests.map(t=>`${t.pass?'통과':'실패'} · ${t.name}\n  actual: ${JSON.stringify(t.actual)} / expected: ${JSON.stringify(t.expected)}`).join('\n')};
-let resizeFrame;window.addEventListener('resize',()=>{cancelAnimationFrame(resizeFrame);resizeFrame=requestAnimationFrame(renderGraphs)});
-render();
-})();
+
+<!-- Complete Standalone Three.js Logic -->
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+
+const STORAGE_KEY = 'gallery3d-accumulation-v1';
+
+const FUNCTIONS = {
+  linear: {
+    key: 'linear',
+    label: 'f(x) = x',
+    f: x => Math.max(0, x),
+    exactVolume: (a, b) => (Math.PI / 3) * (b ** 3 - a ** 3),
+    exactArea: (a, b) => 0.5 * (b ** 2 - a ** 2),
+  },
+  quadratic: {
+    key: 'quadratic',
+    label: 'f(x) = x²',
+    f: x => x ** 2,
+    exactVolume: (a, b) => (Math.PI / 5) * (b ** 5 - a ** 5),
+    exactArea: (a, b) => (1 / 3) * (b ** 3 - a ** 3),
+  },
+  sqrt: {
+    key: 'sqrt',
+    label: 'f(x) = √x',
+    f: x => (x >= 0 ? Math.sqrt(x) : 0),
+    exactVolume: (a, b) => (Math.PI / 2) * (b ** 2 - a ** 2),
+    exactArea: (a, b) => {
+      const aVal = a >= 0 ? Math.pow(a, 1.5) : 0;
+      const bVal = b >= 0 ? Math.pow(b, 1.5) : 0;
+      return (2 / 3) * (bVal - aVal);
+    },
+  },
+};
+
+function validateInterval(a, b) {
+  if (!Number.isFinite(a) || !Number.isFinite(b)) return { isValid: false, msg: '올바른 실수가 아닙니다.' };
+  if (a < 0 || b < 0) return { isValid: false, msg: '비음수 반지름 모형이므로 a, b ≥ 0 이어야 합니다.' };
+  if (a > 3 || b > 3) return { isValid: false, msg: '탐구 범위는 0 ≤ x ≤ 3 입니다.' };
+  if (a >= b) return { isValid: false, msg: `구간 역전/0폭 오류: 출발점 a(${a.toFixed(2)})는 도착점 b(${b.toFixed(2)})보다 작아야 합니다 (a < b).` };
+  if (b - a < 0.05) return { isValid: false, msg: '구간 폭이 너무 좁습니다. 0.05 이상으로 설정하세요.' };
+  return { isValid: true };
+}
+
+function computeRiemann(fnKey, a, b, n, mode) {
+  const deltaX = (b - a) / n;
+  const fn = FUNCTIONS[fnKey];
+  let totalVolume = 0;
+  const disks = [];
+  for (let i = 0; i < n; i++) {
+    const xLeft = a + i * deltaX;
+    const xRight = a + (i + 1) * deltaX;
+    let xSample = xLeft;
+    if (mode === 'midpoint') xSample = xLeft + 0.5 * deltaX;
+    else if (mode === 'right') xSample = xRight;
+
+    const radius = fn.f(xSample);
+    const diskArea = Math.PI * (radius ** 2);
+    const diskVol = diskArea * deltaX;
+    totalVolume += diskVol;
+    disks.push({ xLeft, xRight, xSample, radius, volume: diskVol });
+  }
+  return { approxVolume: totalVolume, deltaX, disks };
+}
+
+function calcMetrics(state) {
+  const val = validateInterval(state.a, state.b);
+  const fn = FUNCTIONS[state.fn];
+  const safeSliceX = Math.max(state.a, Math.min(state.b, state.sliceX));
+  const sliceRadius = fn.f(safeSliceX);
+  const sliceArea = Math.PI * (sliceRadius ** 2);
+
+  if (!val.isValid) {
+    return {
+      isValid: false,
+      errorMessage: val.msg,
+      exactVolume: 0,
+      approxVolume: 0,
+      absError: 0,
+      relErrorPercent: 0,
+      area2D: 0,
+      deltaX: 0,
+      sliceX: safeSliceX,
+      sliceRadius,
+      sliceArea,
+    };
+  }
+
+  const exactVolume = fn.exactVolume(state.a, state.b);
+  const area2D = fn.exactArea(state.a, state.b);
+  const { approxVolume, deltaX } = computeRiemann(state.fn, state.a, state.b, state.n, state.sliceMode);
+  const absError = Math.abs(approxVolume - exactVolume);
+  const relErrorPercent = exactVolume > 0 ? (absError / exactVolume) * 100 : 0;
+
+  return {
+    isValid: true,
+    exactVolume,
+    approxVolume,
+    absError,
+    relErrorPercent,
+    area2D,
+    deltaX,
+    sliceX: safeSliceX,
+    sliceRadius,
+    sliceArea,
+  };
+}
+
+// State
+let state = {
+  fn: 'linear',
+  a: 0,
+  b: 1,
+  n: 8,
+  sliceMode: 'midpoint',
+  displayMode: 'both',
+  sweepAngleDeg: 360,
+  sliceX: 0.6,
+  opacity: 0.75,
+  showRegion2D: true,
+  autoRotate: false,
+};
+
+let savedA = null, savedB = null, observation = '';
+try {
+  const local = JSON.parse(localStorage.getItem(STORAGE_KEY));
+  if (local && local.state && FUNCTIONS[local.state.fn]) {
+    state = { ...state, ...local.state };
+    savedA = local.savedA || null;
+    savedB = local.savedB || null;
+    observation = local.observation || '';
+  }
+} catch (e) {}
+
+const $ = id => document.getElementById(id);
+const fmt = (n, d = 4) => {
+  if (!Number.isFinite(n) || Math.abs(n) < 1e-9) return '0';
+  return Number(n.toFixed(d)).toLocaleString('ko-KR', { maximumFractionDigits: d });
+};
+
+// 3D Scene setup
+const container = $('canvas-container');
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: 'high-performance' });
+renderer.setSize(container.clientWidth, container.clientHeight);
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.1;
+container.appendChild(renderer.domElement);
+
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0xf6f5f1);
+
+const pmremGenerator = new THREE.PMREMGenerator(renderer);
+scene.environment = pmremGenerator.fromScene(new RoomEnvironment(), 0.04).texture;
+pmremGenerator.dispose();
+
+const camera = new THREE.PerspectiveCamera(40, container.clientWidth / container.clientHeight, 0.1, 100);
+camera.position.set(4.5, 3.2, 4.8);
+
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true;
+controls.dampingFactor = 0.08;
+controls.target.set(1.5, 0.5, 0);
+
+const keyLight = new THREE.DirectionalLight(0xfff7ea, 1.4);
+keyLight.position.set(5, 7, 6);
+scene.add(keyLight);
+const fillLight = new THREE.DirectionalLight(0xdbeeff, 0.8);
+fillLight.position.set(-4, 3, -4);
+scene.add(fillLight);
+const hemiLight = new THREE.HemisphereLight(0xffffff, 0xe0e5e3, 0.7);
+scene.add(hemiLight);
+
+const axesGroup = new THREE.Group();
+const solidGroup = new THREE.Group();
+const disksGroup = new THREE.Group();
+const sliceGroup = new THREE.Group();
+const profile2DGroup = new THREE.Group();
+const labelsGroup = new THREE.Group();
+
+scene.add(axesGroup);
+scene.add(solidGroup);
+scene.add(disksGroup);
+scene.add(sliceGroup);
+scene.add(profile2DGroup);
+scene.add(labelsGroup);
+
+function addTextSprite(text, position, color, fontSize = 12, bold = false) {
+  const cvs = document.createElement('canvas');
+  const ctx = cvs.getContext('2d');
+  if (!ctx) return;
+  const fontStr = `${bold ? 'bold ' : ''}${fontSize * 2}px system-ui, sans-serif`;
+  ctx.font = fontStr;
+  const w = Math.ceil(ctx.measureText(text).width);
+  const h = fontSize * 2.8;
+  cvs.width = Math.max(32, w + 16);
+  cvs.height = Math.max(24, Math.ceil(h));
+  ctx.font = fontStr;
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillStyle = color;
+  ctx.fillText(text, cvs.width / 2, cvs.height / 2);
+
+  const texture = new THREE.CanvasTexture(cvs);
+  texture.colorSpace = THREE.SRGBColorSpace;
+  const mat = new THREE.SpriteMaterial({ map: texture, transparent: true, depthTest: false });
+  const sprite = new THREE.Sprite(mat);
+  const s = 0.015 * (fontSize / 12);
+  sprite.scale.set(cvs.width * s, cvs.height * s, 1);
+  sprite.position.copy(position);
+  labelsGroup.add(sprite);
+}
+
+function buildAxes() {
+  disposeGroup(axesGroup);
+  const grid = new THREE.GridHelper(8, 16, 0xadb5bd, 0xe9ecef);
+  grid.position.set(2, -0.01, 0);
+  axesGroup.add(grid);
+
+  // X Axis (Cylinder)
+  const xGeom = new THREE.CylinderGeometry(0.02, 0.02, 5.0, 16);
+  xGeom.rotateZ(-Math.PI / 2);
+  xGeom.translate(2.5, 0, 0);
+  const xMat = new THREE.MeshStandardMaterial({ color: 0xb96839, roughness: 0.3 });
+  axesGroup.add(new THREE.Mesh(xGeom, xMat));
+
+  const xCone = new THREE.Mesh(new THREE.ConeGeometry(0.07, 0.2, 16), xMat);
+  xCone.rotation.z = -Math.PI / 2;
+  xCone.position.set(5.05, 0, 0);
+  axesGroup.add(xCone);
+
+  // Y Axis
+  const yGeom = new THREE.CylinderGeometry(0.018, 0.018, 3.8, 16);
+  yGeom.translate(0, 1.9, 0);
+  const yMat = new THREE.MeshStandardMaterial({ color: 0x116d69, roughness: 0.3 });
+  axesGroup.add(new THREE.Mesh(yGeom, yMat));
+
+  const yCone = new THREE.Mesh(new THREE.ConeGeometry(0.07, 0.2, 16), yMat);
+  yCone.position.set(0, 3.85, 0);
+  axesGroup.add(yCone);
+
+  // Z Axis
+  const zGeom = new THREE.CylinderGeometry(0.015, 0.015, 4.0, 16);
+  zGeom.rotateX(Math.PI / 2);
+  const zMat = new THREE.MeshStandardMaterial({ color: 0x326b94, roughness: 0.3 });
+  axesGroup.add(new THREE.Mesh(zGeom, zMat));
+
+  // Torus rotation indicator
+  const rotGeom = new THREE.TorusGeometry(0.4, 0.012, 12, 32, Math.PI * 1.6);
+  rotGeom.rotateY(Math.PI / 2);
+  rotGeom.translate(-0.3, 0, 0);
+  axesGroup.add(new THREE.Mesh(rotGeom, new THREE.MeshBasicMaterial({ color: 0xb96839 })));
+}
+
+function disposeGroup(group) {
+  const geometries = new Set();
+  const materials = new Set();
+  const textures = new Set();
+
+  group.traverse(obj => {
+    if (obj.isMesh || obj.isLine || obj.isSprite) {
+      if (obj.geometry) geometries.add(obj.geometry);
+      if (Array.isArray(obj.material)) {
+        obj.material.forEach(m => {
+          if (m) {
+            materials.add(m);
+            if (m.map) textures.add(m.map);
+          }
+        });
+      } else if (obj.material) {
+        materials.add(obj.material);
+        if (obj.material.map) textures.add(obj.material.map);
+      }
+    }
+  });
+
+  textures.forEach(t => t.dispose());
+  materials.forEach(m => m.dispose());
+  geometries.forEach(g => g.dispose());
+
+  while (group.children.length > 0) {
+    group.remove(group.children[0]);
+  }
+}
+
+function update3D(metrics) {
+  disposeGroup(solidGroup);
+  disposeGroup(disksGroup);
+  disposeGroup(sliceGroup);
+  disposeGroup(profile2DGroup);
+  disposeGroup(labelsGroup);
+
+  for (let x = 1; x <= 3; x++) addTextSprite(`${x}`, new THREE.Vector3(x, -0.22, 0), '#5b6c73', 11);
+  addTextSprite('x (회전축)', new THREE.Vector3(5.2, 0, 0), '#b96839', 13, true);
+  addTextSprite('y = f(x)', new THREE.Vector3(0, 4.0, 0), '#116d69', 13, true);
+  addTextSprite('z', new THREE.Vector3(0, 0, 2.2), '#326b94', 12, true);
+  addTextSprite('O (0,0)', new THREE.Vector3(-0.2, -0.2, 0), '#5b6c73', 11);
+
+  if (!metrics.isValid) return;
+
+  const { a, b, fn: fnKey, sweepAngleDeg, displayMode, opacity, showRegion2D } = state;
+  const sweepRad = (sweepAngleDeg / 180) * Math.PI;
+  const fn = FUNCTIONS[fnKey];
+
+  // 1. Smooth Solid of Revolution with verified outward winding
+  if ((displayMode === 'both' || displayMode === 'solid') && b > a && sweepRad > 0.01) {
+    const nx = 64;
+    const ntheta = Math.max(8, Math.round((sweepRad / (2 * Math.PI)) * 48));
+    const pos = [], norm = [], uvs = [], idx = [];
+
+    for (let i = 0; i <= nx; i++) {
+      const t = i / nx;
+      const x = a + t * (b - a);
+      const r = fn.f(x);
+      for (let j = 0; j <= ntheta; j++) {
+        const th = (j / ntheta) * sweepRad;
+        pos.push(x, r * Math.cos(th), r * Math.sin(th));
+        const eps = 1e-4;
+        const df = (fn.f(Math.min(3, x + eps)) - fn.f(Math.max(0, x - eps))) / (2 * eps);
+        const len = Math.hypot(1, df);
+        norm.push(-df / len, (1 / len) * Math.cos(th), (1 / len) * Math.sin(th));
+        uvs.push(t, j / ntheta);
+      }
+    }
+    for (let i = 0; i < nx; i++) {
+      for (let j = 0; j < ntheta; j++) {
+        const r1 = i * (ntheta + 1), r2 = (i + 1) * (ntheta + 1);
+        const p1 = r1 + j;
+        const p2 = r1 + (j + 1);
+        const p3 = r2 + j;
+        const p4 = r2 + (j + 1);
+
+        // Correct outward normal winding (FrontSide visible exterior)
+        idx.push(p1, p2, p3);
+        idx.push(p2, p4, p3);
+      }
+    }
+
+    const geom = new THREE.BufferGeometry();
+    geom.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3));
+    geom.setAttribute('normal', new THREE.Float32BufferAttribute(norm, 3));
+    geom.setAttribute('uv', new THREE.Float32BufferAttribute(uvs, 2));
+    geom.setIndex(idx);
+
+    const isFull = Math.abs(sweepRad - 2 * Math.PI) < 0.02;
+    const mat = new THREE.MeshPhysicalMaterial({
+      color: 0x116d69,
+      roughness: 0.25,
+      metalness: 0.1,
+      transparent: true,
+      opacity: Math.min(0.9, opacity),
+      transmission: opacity < 0.8 ? 0.3 : 0.05,
+      side: THREE.FrontSide, // Standard FrontSide with verified outward winding
+    });
+    solidGroup.add(new THREE.Mesh(geom, mat));
+
+    const ra = fn.f(a);
+    const rb = fn.f(b);
+    const nCap = Math.max(12, Math.round((sweepRad / (2 * Math.PI)) * 36));
+
+    if (ra > 0.01) {
+      // End cap at x=a (facing -X outward)
+      const capPosA = [a, 0, 0];
+      const capNormA = [-1, 0, 0];
+      const capIdxA = [];
+      for (let k = 0; k <= nCap; k++) {
+        const th = (k / nCap) * sweepRad;
+        capPosA.push(a, ra * Math.cos(th), ra * Math.sin(th));
+        capNormA.push(-1, 0, 0);
+      }
+      for (let k = 0; k < nCap; k++) {
+        capIdxA.push(0, k + 2, k + 1);
+      }
+      const capGeomA = new THREE.BufferGeometry();
+      capGeomA.setAttribute('position', new THREE.Float32BufferAttribute(capPosA, 3));
+      capGeomA.setAttribute('normal', new THREE.Float32BufferAttribute(capNormA, 3));
+      capGeomA.setIndex(capIdxA);
+      solidGroup.add(new THREE.Mesh(capGeomA, mat));
+    }
+
+    if (rb > 0.01) {
+      // End cap at x=b (facing +X outward)
+      const capPosB = [b, 0, 0];
+      const capNormB = [1, 0, 0];
+      const capIdxB = [];
+      for (let k = 0; k <= nCap; k++) {
+        const th = (k / nCap) * sweepRad;
+        capPosB.push(b, rb * Math.cos(th), rb * Math.sin(th));
+        capNormB.push(1, 0, 0);
+      }
+      for (let k = 0; k < nCap; k++) {
+        capIdxB.push(0, k + 1, k + 2);
+      }
+      const capGeomB = new THREE.BufferGeometry();
+      capGeomB.setAttribute('position', new THREE.Float32BufferAttribute(capPosB, 3));
+      capGeomB.setAttribute('normal', new THREE.Float32BufferAttribute(capNormB, 3));
+      capGeomB.setIndex(capIdxB);
+      solidGroup.add(new THREE.Mesh(capGeomB, mat));
+    }
+
+    if (!isFull && sweepRad > 0.05) {
+      // Cut face at theta = 0 (facing -Z outward from wedge)
+      const cutShape0 = new THREE.Shape();
+      cutShape0.moveTo(a, fn.f(a));
+      for (let i = 0; i <= nx; i++) {
+        const x = a + (i / nx) * (b - a);
+        cutShape0.lineTo(x, fn.f(x));
+      }
+      cutShape0.lineTo(b, 0);
+      cutShape0.lineTo(a, 0);
+      cutShape0.closePath();
+
+      const cutGeom0 = new THREE.ShapeGeometry(cutShape0);
+      const normAttr0 = cutGeom0.getAttribute('normal');
+      if (normAttr0) {
+        for (let idx = 0; idx < normAttr0.count; idx++) normAttr0.setXYZ(idx, 0, 0, -1);
+      }
+
+      const cutMat = new THREE.MeshStandardMaterial({
+        color: 0x1f8a84,
+        roughness: 0.4,
+        metalness: 0.05,
+        side: THREE.FrontSide,
+        transparent: true,
+        opacity: Math.min(0.95, opacity + 0.1),
+      });
+      solidGroup.add(new THREE.Mesh(cutGeom0, cutMat));
+
+      // Cut face at theta = sweepRad (facing +theta outward from wedge)
+      const cutShapeTheta = new THREE.Shape();
+      cutShapeTheta.moveTo(a, 0);
+      cutShapeTheta.lineTo(b, 0);
+      cutShapeTheta.lineTo(b, rb);
+      for (let i = nx; i >= 0; i--) {
+        const x = a + (i / nx) * (b - a);
+        cutShapeTheta.lineTo(x, fn.f(x));
+      }
+      cutShapeTheta.closePath();
+
+      const cutGeomTheta = new THREE.ShapeGeometry(cutShapeTheta);
+      const cutMeshTheta = new THREE.Mesh(cutGeomTheta, cutMat);
+      cutMeshTheta.rotation.x = sweepRad;
+      solidGroup.add(cutMeshTheta);
+    }
+  }
+
+  // 2. Disks
+  if (displayMode === 'both' || displayMode === 'disks') {
+    const { disks, deltaX } = computeRiemann(fnKey, a, b, state.n, state.sliceMode);
+    disks.forEach((d, i) => {
+      if (d.radius <= 0.001) return;
+      const rSegs = Math.max(12, Math.round((sweepRad / (2 * Math.PI)) * 32));
+      const geom = new THREE.CylinderGeometry(d.radius, d.radius, deltaX, rSegs, 1, false, 0, sweepRad);
+      geom.rotateZ(-Math.PI / 2);
+      geom.translate(d.xLeft + deltaX / 2, 0, 0);
+      const mat = new THREE.MeshStandardMaterial({
+        color: i % 2 === 0 ? 0x326b94 : 0x4884af,
+        roughness: 0.35,
+        transparent: displayMode === 'both',
+        opacity: displayMode === 'both' ? 0.75 : 0.95,
+      });
+      const mesh = new THREE.Mesh(geom, mat);
+      const edges = new THREE.LineSegments(new THREE.EdgesGeometry(geom, 25), new THREE.LineBasicMaterial({ color: 0x16374d, transparent: true, opacity: 0.6 }));
+      mesh.add(edges);
+      disksGroup.add(mesh);
+    });
+  }
+
+  // 3. Slice Inspector
+  const sliceX = Math.max(a, Math.min(b, state.sliceX));
+  const rSlice = fn.f(sliceX);
+  if (rSlice > 0.01) {
+    const cGeom = new THREE.CircleGeometry(rSlice, 48, 0, sweepRad);
+    cGeom.rotateY(Math.PI / 2);
+    cGeom.translate(sliceX, 0, 0);
+    sliceGroup.add(new THREE.Mesh(cGeom, new THREE.MeshStandardMaterial({ color: 0xb96839, side: THREE.DoubleSide, transparent: true, opacity: 0.85 })));
+
+    const rGeom = new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(sliceX, 0, 0), new THREE.Vector3(sliceX, rSlice, 0)]);
+    sliceGroup.add(new THREE.Line(rGeom, new THREE.LineBasicMaterial({ color: 0xffffff, linewidth: 2 })));
+  }
+
+  // 4. 2D Profile
+  if (showRegion2D) {
+    const pts = [];
+    for (let x = 0; x <= 3.05; x += 0.05) pts.push(new THREE.Vector3(x, fn.f(x), 0.002));
+    const fLine = new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts), new THREE.LineDashedMaterial({ color: 0x829496, dashSize: 0.08, gapSize: 0.05 }));
+    fLine.computeLineDistances();
+    profile2DGroup.add(fLine);
+
+    if (b > a) {
+      const segPts = [];
+      for (let i = 0; i <= 36; i++) {
+        const x = a + (i / 36) * (b - a);
+        segPts.push(new THREE.Vector3(x, fn.f(x), 0.004));
+      }
+      profile2DGroup.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(segPts), new THREE.LineBasicMaterial({ color: 0x116d69, linewidth: 3 })));
+
+      const shape = new THREE.Shape();
+      shape.moveTo(a, 0); shape.lineTo(b, 0); shape.lineTo(b, fn.f(b));
+      for (let i = 36; i >= 0; i--) { const x = a + (i / 36) * (b - a); shape.lineTo(x, fn.f(x)); }
+      shape.closePath();
+      const sMesh = new THREE.Mesh(new THREE.ShapeGeometry(shape), new THREE.MeshBasicMaterial({ color: 0x116d69, transparent: true, opacity: 0.18, side: THREE.DoubleSide, depthWrite: false }));
+      sMesh.position.z = 0.003;
+      profile2DGroup.add(sMesh);
+    }
+  }
+
+  addTextSprite(`a = ${a.toFixed(2)}`, new THREE.Vector3(a, -0.4, 0), '#b96839', 11, true);
+  addTextSprite(`b = ${b.toFixed(2)}`, new THREE.Vector3(b, -0.4, 0), '#b96839', 11, true);
+  addTextSprite(`단면 x = ${sliceX.toFixed(2)}`, new THREE.Vector3(sliceX, rSlice + 0.25, 0), '#b96839', 11, true);
+}
+
+function fitCamera() {
+  const { a, b, fn: fnKey } = state;
+  const maxR = Math.max(0.5, FUNCTIONS[fnKey].f(b));
+  const midX = (a + b) / 2;
+  const targetY = maxR * 0.4;
+  controls.target.set(midX, targetY, 0);
+  const r = Math.hypot(b - a, maxR * 2);
+  const d = Math.max(3.5, r * 1.4);
+  camera.position.set(midX + d * 0.65, targetY + d * 0.5, d * 0.75);
+  camera.lookAt(controls.target);
+  controls.update();
+}
+
+function setPreset(p) {
+  const midX = (state.a + state.b) / 2;
+  const maxR = FUNCTIONS[state.fn].f(state.b);
+  const targetY = maxR / 2;
+  controls.target.set(midX, targetY, 0);
+  const span = Math.max(1.5, state.b - state.a, maxR);
+  if (p === 'front') camera.position.set(midX, targetY, span * 2.5);
+  else if (p === 'side') camera.position.set(state.b + span * 2.0, targetY, 0.01);
+  else if (p === 'top') camera.position.set(midX, span * 2.8, 0.01);
+  else camera.position.set(midX + span * 1.4, targetY + span * 1.1, span * 1.6);
+  camera.lookAt(controls.target);
+  controls.update();
+}
+
+function renderUI() {
+  $('func-select').value = state.fn;
+  $('a-number').value = state.a;
+  $('a-range').value = state.a;
+  $('b-number').value = state.b;
+  $('b-range').value = state.b;
+  $('n-number').value = state.n;
+  $('n-range').value = state.n;
+  $('sweep-range').value = state.sweepAngleDeg;
+  $('sweep-readout').textContent = `${state.sweepAngleDeg}° / 360°`;
+  $('slicex-number').value = state.sliceX;
+  $('slicex-range').value = state.sliceX;
+  $('slicex-range').min = state.a;
+  $('slicex-range').max = state.b;
+  $('opacity-range').value = state.opacity;
+  $('opacity-readout').textContent = `${Math.round(state.opacity * 100)}%`;
+  $('check-profile').checked = state.showRegion2D;
+  $('check-autorotate').checked = state.autoRotate;
+
+  document.querySelectorAll('#slicemode-segmented button').forEach(b => {
+    b.setAttribute('aria-pressed', b.getAttribute('data-mode') === state.sliceMode);
+  });
+  document.querySelectorAll('#displaymode-segmented button').forEach(b => {
+    b.setAttribute('aria-pressed', b.getAttribute('data-disp') === state.displayMode);
+  });
+
+  const m = calcMetrics(state);
+  const warn = $('warning-box');
+  if (!m.isValid) {
+    warn.style.display = 'block';
+    warn.innerHTML = `<strong>입력 조건 확인:</strong> ${m.errorMessage}`;
+  } else {
+    warn.style.display = 'none';
+  }
+
+  $('delta-hint').textContent = `두께 Δx = (b − a)/n = ${fmt(m.deltaX, 3)} 단위`;
+  $('slice-hint').textContent = `x=${fmt(m.sliceX, 2)} 단면: 반지름 R=${fmt(m.sliceRadius, 3)}, 넓이 A=πR²=${fmt(m.sliceArea, 3)}`;
+
+  $('m-exact').textContent = `${fmt(m.exactVolume)} 단위³`;
+  $('m-approx').textContent = `${fmt(m.approxVolume)} 단위³`;
+  $('m-error').textContent = `${fmt(m.absError)} (${fmt(m.relErrorPercent, 2)}%)`;
+  $('m-area2d').textContent = `${fmt(m.area2D)} 단위²`;
+
+  $('m-slicex').textContent = fmt(m.sliceX, 2);
+  $('m-radius').textContent = fmt(m.sliceRadius, 3);
+  $('m-slicearea').textContent = fmt(m.sliceArea, 3);
+
+  $('load-a').disabled = !savedA;
+  $('summary-a').textContent = savedA
+    ? `${savedA.state.fn} · [${savedA.state.a.toFixed(2)}, ${savedA.state.b.toFixed(2)}] · n=${savedA.state.n} | V정확=${fmt(savedA.metrics.exactVolume)} · V근사=${fmt(savedA.metrics.approxVolume)} (오차: ${fmt(savedA.metrics.absError)})`
+    : '현재 조건을 A에 보관한 뒤 n을 2배로 늘려 보세요.';
+
+  $('load-b').disabled = !savedB;
+  $('summary-b').textContent = savedB
+    ? `${savedB.state.fn} · [${savedB.state.a.toFixed(2)}, ${savedB.state.b.toFixed(2)}] · n=${savedB.state.n} | V정확=${fmt(savedB.metrics.exactVolume)} · V근사=${fmt(savedB.metrics.approxVolume)} (오차: ${fmt(savedB.metrics.absError)})`
+    : 'B와 A의 오차 크기를 비교해 원판법의 수렴성을 확인하세요.';
+
+  $('observation-note').value = observation;
+
+  update3D(m);
+  persist();
+}
+
+function persist() {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({ state, savedA, savedB, observation }));
+  } catch (e) {
+    $('status').textContent = '로컬 저장소가 차단되었습니다. JSON으로 보관하세요.';
+  }
+}
+
+// Event Listeners
+$('func-select').onchange = e => { state.fn = e.target.value; renderUI(); };
+$('a-range').oninput = e => { state.a = parseFloat(e.target.value); if (state.sliceX < state.a) state.sliceX = state.a; renderUI(); };
+$('a-number').onchange = e => { state.a = parseFloat(e.target.value) || 0; if (state.sliceX < state.a) state.sliceX = state.a; renderUI(); };
+$('b-range').oninput = e => { state.b = parseFloat(e.target.value); if (state.sliceX > state.b) state.sliceX = state.b; renderUI(); };
+$('b-number').onchange = e => { state.b = parseFloat(e.target.value) || 1; if (state.sliceX > state.b) state.sliceX = state.b; renderUI(); };
+$('n-range').oninput = e => { state.n = parseInt(e.target.value, 10); renderUI(); };
+$('n-number').onchange = e => { state.n = parseInt(e.target.value, 10) || 8; renderUI(); };
+$('sweep-range').oninput = e => { state.sweepAngleDeg = parseInt(e.target.value, 10); renderUI(); };
+$('slicex-range').oninput = e => { state.sliceX = parseFloat(e.target.value); renderUI(); };
+$('slicex-number').onchange = e => { state.sliceX = parseFloat(e.target.value) || state.a; renderUI(); };
+$('opacity-range').oninput = e => { state.opacity = parseFloat(e.target.value); renderUI(); };
+$('check-profile').onchange = e => { state.showRegion2D = e.target.checked; renderUI(); };
+$('check-autorotate').onchange = e => { state.autoRotate = e.target.checked; renderUI(); };
+
+document.querySelectorAll('[data-preset-n]').forEach(b => {
+  b.onclick = () => { state.n = parseInt(b.getAttribute('data-preset-n'), 10); renderUI(); };
+});
+
+document.querySelectorAll('#slicemode-segmented button').forEach(b => {
+  b.onclick = () => { state.sliceMode = b.getAttribute('data-mode'); renderUI(); };
+});
+
+document.querySelectorAll('#displaymode-segmented button').forEach(b => {
+  b.onclick = () => { state.displayMode = b.getAttribute('data-disp'); renderUI(); };
+});
+
+let sweepTimer = null;
+$('btn-play-sweep').onclick = () => {
+  if (sweepTimer) {
+    clearInterval(sweepTimer);
+    sweepTimer = null;
+    $('btn-play-sweep').textContent = '회전 전개 애니메이션';
+  } else {
+    $('btn-play-sweep').textContent = '회전 일시정지';
+    sweepTimer = setInterval(() => {
+      state.sweepAngleDeg = state.sweepAngleDeg >= 360 ? 10 : state.sweepAngleDeg + 5;
+      renderUI();
+    }, 50);
+  }
+};
+$('btn-sweep-360').onclick = () => { state.sweepAngleDeg = 360; renderUI(); };
+$('btn-sweep-180').onclick = () => { state.sweepAngleDeg = 180; renderUI(); };
+
+$('cam-default').onclick = () => setPreset('default');
+$('cam-front').onclick = () => setPreset('front');
+$('cam-side').onclick = () => setPreset('side');
+$('cam-top').onclick = () => setPreset('top');
+$('cam-fit').onclick = () => fitCamera();
+$('cam-reset').onclick = () => setPreset('reset');
+
+$('save-a').onclick = () => { savedA = { state: { ...state }, metrics: calcMetrics(state), savedAt: new Date().toLocaleTimeString('ko-KR') }; renderUI(); $('status').textContent = 'A에 저장했습니다.'; };
+$('save-b').onclick = () => { savedB = { state: { ...state }, metrics: calcMetrics(state), savedAt: new Date().toLocaleTimeString('ko-KR') }; renderUI(); $('status').textContent = 'B에 저장했습니다.'; };
+$('load-a').onclick = () => { if (savedA) { state = { ...savedA.state }; renderUI(); $('status').textContent = 'A를 불러왔습니다.'; } };
+$('load-b').onclick = () => { if (savedB) { state = { ...savedB.state }; renderUI(); $('status').textContent = 'B를 불러왔습니다.'; } };
+
+$('observation-note').oninput = e => { observation = e.target.value; persist(); };
+
+$('btn-export').onclick = () => {
+  const data = {
+    appId: 'accumulation',
+    title: '회전하는 단면, 쌓이는 부피',
+    subject: '수학 · 미적분',
+    exportedAt: new Date().toISOString(),
+    state,
+    metrics: calcMetrics(state),
+    savedA,
+    savedB,
+    observation,
+    credits: '기획·구성: 금평초 김상흠 · AI 지원 구현. 제작: Google AI Studio',
+  };
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `accumulation-3d-experiment-${Date.now()}.json`;
+  a.click();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+  $('status').textContent = '실험 JSON을 내보냈습니다.';
+};
+
+// Global tests and diagnostics
+window.runSelfTests = () => {
+  const res = [];
+  const chk = (name, act, exp, tol = 1e-6, note = '') => {
+    const pass = typeof act === 'number' && typeof exp === 'number' ? Math.abs(act - exp) <= tol : act === exp;
+    res.push({ name, pass, actual: act, expected: exp, note });
+  };
+  chk('f(x)=x 구간 [0,1] 부피 = π/3', FUNCTIONS.linear.exactVolume(0, 1), Math.PI / 3, 1e-6);
+  chk('f(x)=x² 구간 [0,1] f(x)=x² 회전체 부피 = π/5', FUNCTIONS.quadratic.exactVolume(0, 1), Math.PI / 5, 1e-6, 'f(x)=x² 회전체 V = π∫x⁴dx = π/5');
+  chk('f(x)=√x 구간 [0,1] 회전포물면/포물면체 부피 = π/2', FUNCTIONS.sqrt.exactVolume(0, 1), Math.PI / 2, 1e-6, '회전포물면/포물면체 V = π∫xdx = π/2');
+  chk('2D 넓이와 3D 부피 구분 (0.5 ≠ π/3)', FUNCTIONS.linear.exactArea(0, 1) !== FUNCTIONS.linear.exactVolume(0, 1), true);
+  const n4 = computeRiemann('linear', 0, 1, 4, 'midpoint').approxVolume;
+  const n16 = computeRiemann('linear', 0, 1, 16, 'midpoint').approxVolume;
+  const n64 = computeRiemann('linear', 0, 1, 64, 'midpoint').approxVolume;
+  chk('구분구적법 n=16 오차 < n=4 오차', Math.abs(n16 - Math.PI / 3) < Math.abs(n4 - Math.PI / 3), true);
+  chk('구분구적법 n=64 오차 < n=16 오차', Math.abs(n64 - Math.PI / 3) < Math.abs(n16 - Math.PI / 3), true);
+  chk('구간 역전 (a=2, b=1) 검증 오류 포착', validateInterval(2, 1).isValid, false);
+  chk('0폭 구간 (a=1, b=1) 검증 오류 포착', validateInterval(1, 1).isValid, false);
+  return res;
+};
+
+window.appDiagnostics = () => {
+  let mCount = 0;
+  scene.traverse(o => { if (o instanceof THREE.Mesh) mCount++; });
+  return {
+    ready: true,
+    threeVersion: THREE.REVISION,
+    meshCount: mCount,
+    sceneObjectsCount: scene.children.length,
+    camera: { x: Number(camera.position.x.toFixed(3)), y: Number(camera.position.y.toFixed(3)), z: Number(camera.position.z.toFixed(3)) },
+    currentParameters: { ...state },
+    metrics: calcMetrics(state),
+  };
+};
+
+$('btn-run-tests').onclick = () => {
+  const tests = window.runSelfTests();
+  const passes = tests.filter(t => t.pass).length;
+  $('test-output').textContent = `${passes}/${tests.length} 항목 통과\n` + tests.map(t => `${t.pass ? '통과' : '실패'} · ${t.name}\n  실제값: ${JSON.stringify(t.actual)} / 기대값: ${JSON.stringify(t.expected)}${t.note ? ` (${t.note})` : ''}`).join('\n');
+};
+
+// Loop
+function animate() {
+  requestAnimationFrame(animate);
+  if (state.autoRotate) {
+    solidGroup.rotation.x += 0.005;
+    disksGroup.rotation.x += 0.005;
+  } else {
+    solidGroup.rotation.x = 0;
+    disksGroup.rotation.x = 0;
+  }
+  controls.update();
+  renderer.render(scene, camera);
+}
+
+window.addEventListener('resize', () => {
+  const w = container.clientWidth, h = container.clientHeight;
+  if (w > 0 && h > 0) {
+    camera.aspect = w / h;
+    camera.updateProjectionMatrix();
+    renderer.setSize(w, h);
+  }
+});
+
+buildAxes();
+renderUI();
+animate();
 </script>
-</body></html>
+</body>
+</html>

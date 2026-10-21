@@ -1,4608 +1,800 @@
 {
-  "meiosis": [
-    {
-      "name": "G1 세포당 계수",
-      "pass": true,
-      "actual": {
-        "chromosomes": 4,
-        "dna": 4
+  "release": "R4-partial-2026-10-22",
+  "scope": "이번 배포의 AI Studio 3D5종만",
+  "environment": "실제 Three.js/WebGL, 브라우저 srcdoc390px; 저장 영속성은 공개HTTPS에서 재확인",
+  "apps": {
+    "meiosis": {
+      "frameCount": 1,
+      "width": 390,
+      "overflow": false,
+      "canvasRect": {
+        "x": 46,
+        "y": 933.5625,
+        "width": 283,
+        "height": 438,
+        "top": 933.5625,
+        "right": 329,
+        "bottom": 1371.5625,
+        "left": 46
       },
-      "expected": {
-        "chromosomes": 4,
-        "dna": 4
-      }
-    },
-    {
-      "name": "복제 후 세포당 계수",
-      "pass": true,
-      "actual": {
-        "chromosomes": 4,
-        "dna": 8
-      },
-      "expected": {
-        "chromosomes": 4,
-        "dna": 8
-      }
-    },
-    {
-      "name": "중기 I 계수",
-      "pass": true,
-      "actual": {
-        "chromosomes": 4,
-        "dna": 8
-      },
-      "expected": {
-        "chromosomes": 4,
-        "dna": 8
-      }
-    },
-    {
-      "name": "분열 I 후 세포당 계수",
-      "pass": true,
-      "actual": {
-        "chromosomes": 2,
-        "dna": 4
-      },
-      "expected": {
-        "chromosomes": 2,
-        "dna": 4
-      }
-    },
-    {
-      "name": "분열 II 후 세포당 계수",
-      "pass": true,
-      "actual": {
-        "chromosomes": 2,
-        "dna": 2
-      },
-      "expected": {
-        "chromosomes": 2,
-        "dna": 2
-      }
-    },
-    {
-      "name": "독립 같은 방향 한 번의 다중집합",
-      "pass": true,
-      "actual": {
-        "AB": 2,
-        "Ab": 0,
-        "aB": 0,
-        "ab": 2
-      },
-      "expected": {
-        "AB": 2,
-        "Ab": 0,
-        "aB": 0,
-        "ab": 2
-      }
-    },
-    {
-      "name": "독립 반대 방향 한 번의 다중집합",
-      "pass": true,
-      "actual": {
-        "AB": 0,
-        "Ab": 2,
-        "aB": 2,
-        "ab": 0
-      },
-      "expected": {
-        "AB": 0,
-        "Ab": 2,
-        "aB": 2,
-        "ab": 0
-      }
-    },
-    {
-      "name": "독립 네 방향을 합치면 네 유형 같은 비율",
-      "pass": true,
-      "actual": {
-        "AB": 4,
-        "Ab": 4,
-        "aB": 4,
-        "ab": 4
-      },
-      "expected": {
-        "AB": 4,
-        "Ab": 4,
-        "aB": 4,
-        "ab": 4
-      }
-    },
-    {
-      "name": "독립 매번 두 유형 각 2개",
-      "pass": true,
-      "actual": true,
-      "expected": true
-    },
-    {
-      "name": "연관 모든 방향 AB와 ab만",
-      "pass": true,
-      "actual": {
-        "AB": 8,
-        "Ab": 0,
-        "aB": 0,
-        "ab": 8
-      },
-      "expected": {
-        "AB": 8,
-        "Ab": 0,
-        "aB": 0,
-        "ab": 8
-      }
-    },
-    {
-      "name": "연관 무표지 쌍을 뒤집어도 같은 유전자형",
-      "pass": true,
-      "actual": [
-        "AB",
-        "AB",
-        "ab",
-        "ab"
-      ],
-      "expected": [
-        "AB",
-        "AB",
-        "ab",
-        "ab"
-      ]
-    },
-    {
-      "name": "기대비 총합 1",
-      "pass": true,
-      "actual": [
-        1,
-        1
-      ],
-      "expected": [
-        1,
-        1
-      ]
-    },
-    {
-      "name": "영회 누적: 음수·NaN 없음",
-      "pass": true,
-      "actual": true,
-      "expected": true
-    },
-    {
-      "name": "누적 총합은 분열 횟수의 네 배",
-      "pass": true,
-      "actual": 16,
-      "expected": 16
-    },
-    {
-      "name": "수동·무작위 혼합 누적 정합성",
-      "pass": true,
-      "actual": true,
-      "expected": true
-    },
-    {
-      "name": "잘못된 음수 자료 거부",
-      "pass": true,
-      "actual": false,
-      "expected": false
-    },
-    {
-      "name": "저장 스냅숏은 원본에서 분리됨",
-      "pass": true,
-      "actual": true,
-      "expected": true
-    },
-    {
-      "name": "대칭·총합이 맞아도 홀수 배우자 자료 거부",
-      "pass": true,
-      "actual": false,
-      "expected": false
-    },
-    {
-      "name": "독립 모형의 유효한 반대 방향 누적 허용",
-      "pass": true,
-      "actual": true,
-      "expected": true
-    },
-    {
-      "name": "연관 모형의 Ab·aB 누적 거부",
-      "pass": true,
-      "actual": false,
-      "expected": false
-    },
-    {
-      "name": "연관 스냅숏도 유전자형 제약 검사",
-      "pass": true,
-      "actual": false,
-      "expected": false
-    },
-    {
-      "name": "홀수 누적 스냅숏 거부",
-      "pass": true,
-      "actual": false,
-      "expected": false
-    },
-    {
-      "name": "유효한 연관 스냅숏 허용",
-      "pass": true,
-      "actual": true,
-      "expected": true
-    },
-    {
-      "name": "저장 실패는 false 반환",
-      "pass": true,
-      "actual": false,
-      "expected": false
-    },
-    {
-      "name": "성공 문구 뒤에도 저장 실패 경고 유지",
-      "pass": true,
-      "actual": "배우자를 누적했다. 로컬 보관에 실패해 현재 변경은 이 화면에만 남아 있다. JSON을 내보내 별도 보관해 주세요.",
-      "expected": "배우자를 누적했다. 로컬 보관에 실패해 현재 변경은 이 화면에만 남아 있다. JSON을 내보내 별도 보관해 주세요."
-    },
-    {
-      "name": "저장 성공 반환과 JSON 직렬화",
-      "pass": true,
-      "actual": true,
-      "expected": true
-    },
-    {
-      "name": "저장 성공 시 불필요한 경고 없음",
-      "pass": true,
-      "actual": "보존했다.",
-      "expected": "보존했다."
-    }
-  ],
-  "accumulation": [
-    {
-      "name": "2t, a=0: F(1.7)=1.7²",
-      "pass": true,
-      "actual": 2.8899999999999997,
-      "expected": 2.89
-    },
-    {
-      "name": "t²−1, a=0: F(1)=−2/3",
-      "pass": true,
-      "actual": -0.6666666666666667,
-      "expected": -0.6666666666666666
-    },
-    {
-      "name": "음의 방향: ∫₂¹ 2t = −3",
-      "pass": true,
-      "actual": -3,
-      "expected": -3
-    },
-    {
-      "name": "방향 반전의 합은 0",
-      "pass": true,
-      "actual": 0,
-      "expected": 0
-    },
-    {
-      "name": "출발점에서 누적은 0",
-      "pass": true,
-      "actual": 0,
-      "expected": 0
-    },
-    {
-      "name": "sin, 0→π/2 누적",
-      "pass": true,
-      "actual": 0.9999999999999999,
-      "expected": 1
-    },
-    {
-      "name": "sin, −π→π의 기하학적 넓이",
-      "pass": true,
-      "actual": 4,
-      "expected": 4
-    },
-    {
-      "name": "t²−1, −2→2 부호 누적",
-      "pass": true,
-      "actual": 1.333333333333333,
-      "expected": 1.3333333333333333
-    },
-    {
-      "name": "t²−1, −2→2 기하학적 넓이",
-      "pass": true,
-      "actual": 4,
-      "expected": 4
-    },
-    {
-      "name": "기하학적 넓이는 방향 불변",
-      "pass": true,
-      "actual": 4,
-      "expected": 4
-    },
-    {
-      "name": "양의 h 평균 변화율",
-      "pass": true,
-      "actual": 2.5,
-      "expected": 2.5
-    },
-    {
-      "name": "음의 h 평균 변화율",
-      "pass": true,
-      "actual": 1.5,
-      "expected": 1.5
-    },
-    {
-      "name": "h=0 계산은 null 반환",
-      "pass": true,
-      "actual": null,
-      "expected": null
-    },
-    {
-      "name": "0 입력의 양 방향 보호",
-      "pass": true,
-      "actual": 0.01,
-      "expected": 0.01
-    },
-    {
-      "name": "0 입력의 음 방향 보호",
-      "pass": true,
-      "actual": -0.01,
-      "expected": -0.01
-    },
-    {
-      "name": "F의 수치 도함수 = t²−1 at 1.4",
-      "pass": true,
-      "actual": 0.9600000000498098,
-      "expected": 0.96
-    },
-    {
-      "name": "F의 수치 도함수 = sin(0.7)",
-      "pass": true,
-      "actual": 0.6442176872289984,
-      "expected": 0.644217687237691
-    },
-    {
-      "name": "a가 달라도 같은 x의 할선은 동일",
-      "pass": true,
-      "actual": 0,
-      "expected": 0
-    },
-    {
-      "name": "음의 h 추가 누적과 평균변화율 일치",
-      "pass": true,
-      "actual": -0.18087585254320737,
-      "expected": -0.1808758525432074
-    },
-    {
-      "name": "구간 덧셈: F(x+h)−F(x)=∫ₓˣ⁺ʰ f",
-      "pass": true,
-      "actual": 0.4320000000000004,
-      "expected": 0.4320000000000004
-    }
-  ],
-  "induction": [
-    {
-      "name": "바깥: 겹친 면적 0",
-      "pass": true,
-      "actual": 0,
-      "expected": 0
-    },
-    {
-      "name": "왼쪽 경계 중심: 절반 면적",
-      "pass": true,
-      "actual": 0.0192,
-      "expected": 0.0192
-    },
-    {
-      "name": "완전히 안쪽: 전체 면적",
-      "pass": true,
-      "actual": 0.0384,
-      "expected": 0.0384
-    },
-    {
-      "name": "오른쪽 끝 접촉: 면적 0",
-      "pass": true,
-      "actual": 0,
-      "expected": 0
-    },
-    {
-      "name": "진입 +B: 음의 기전력",
-      "pass": true,
-      "actual": -0.256,
-      "expected": -0.256
-    },
-    {
-      "name": "안쪽 이동: 기전력 0",
-      "pass": true,
-      "actual": 0,
-      "expected": 0
-    },
-    {
-      "name": "이탈 +B: 양의 기전력",
-      "pass": true,
-      "actual": 0.256,
-      "expected": 0.256
-    },
-    {
-      "name": "경계 정지: 기전력 0",
-      "pass": true,
-      "actual": 0,
-      "expected": 0
-    },
-    {
-      "name": "이동 반전: 부호 반전",
-      "pass": true,
-      "actual": 0.256,
-      "expected": 0.256
-    },
-    {
-      "name": "자기장 반전: 부호 반전",
-      "pass": true,
-      "actual": 0.256,
-      "expected": 0.256
-    },
-    {
-      "name": "면적×NB: 쇄교 선속",
-      "pass": true,
-      "actual": 0.3072,
-      "expected": 0.3072
-    },
-    {
-      "name": "드래그 정지 구간: 0",
-      "pass": true,
-      "actual": 0,
-      "expected": 0
-    },
-    {
-      "name": "드래그 시간 0: 안전한 0",
-      "pass": true,
-      "actual": 0,
-      "expected": 0
-    },
-    {
-      "name": "드래그 구간 평균: 실제 시간 사용",
-      "pass": true,
-      "actual": -0.2560000000000001,
-      "expected": -0.256
-    },
-    {
-      "name": "음의 기전력: 정면 시계 방향",
-      "pass": true,
-      "actual": "시계 ↻ (−)",
-      "expected": "시계 ↻ (−)"
-    },
-    {
-      "name": "경계 통과 시각용 교점 수",
-      "pass": true,
-      "actual": 2,
-      "expected": 2
-    },
-    {
-      "name": "전체 통과 순선속 변화 0",
-      "pass": true,
-      "actual": 0,
-      "expected": 0
-    },
-    {
-      "name": "감은 수 2배: 기전력 2배",
-      "pass": true,
-      "actual": -0.512,
-      "expected": -0.512
-    },
-    {
-      "name": "회귀: 0→0.02 m / 0.05 s 평균",
-      "pass": true,
-      "actual": -0.5120000000000002,
-      "expected": -0.512
-    },
-    {
-      "name": "회귀: 수동 EMF 구간 시작 0초",
-      "pass": true,
-      "actual": 0,
-      "expected": 0
-    },
-    {
-      "name": "회귀: 수동 EMF 구간 끝 0.05초",
-      "pass": true,
-      "actual": 0.05,
-      "expected": 0.05
-    },
-    {
-      "name": "회귀: 후속 0.10초 정지 EMF 0",
-      "pass": true,
-      "actual": 0,
-      "expected": 0
-    },
-    {
-      "name": "회귀: EMF 적분은 −Δ선속, 지연·2배 없음",
-      "pass": true,
-      "actual": -0.02560000000000001,
-      "expected": -0.02560000000000001
-    },
-    {
-      "name": "회귀: 전체 그래프 0.15초",
-      "pass": true,
-      "actual": 0.15,
-      "expected": 0.15
-    },
-    {
-      "name": "키보드 고정 모델시간 0.20초",
-      "pass": true,
-      "actual": 0.2,
-      "expected": 0.2
-    },
-    {
-      "name": "키보드 고정 시간 평균 EMF",
-      "pass": true,
-      "actual": -0.12800000000000006,
-      "expected": -0.128
-    },
-    {
-      "name": "회귀: 30초 초과 이동 거부",
-      "pass": true,
-      "actual": false,
-      "expected": false
-    },
-    {
-      "name": "회귀: 초과 이동의 위치 불변",
-      "pass": true,
-      "actual": 0,
-      "expected": 0
-    },
-    {
-      "name": "회귀: 거부 계산의 시간 불변",
-      "pass": true,
-      "actual": 29.9,
-      "expected": 29.9
-    },
-    {
-      "name": "30초에 정확히 도달한 이동 허용",
-      "pass": true,
-      "actual": true,
-      "expected": true
-    },
-    {
-      "name": "30초 도달 구간 적분 일치",
-      "pass": true,
-      "actual": -0.025600000000000008,
-      "expected": -0.02560000000000001
-    },
-    {
-      "name": "재생 순간값은 원래 구간에서 유지",
-      "pass": true,
-      "actual": -0.256,
-      "expected": -0.256
-    },
-    {
-      "name": "재생 정지 이후 구간은 0",
-      "pass": true,
-      "actual": 0,
-      "expected": 0
-    }
-  ],
-  "equilibrium": [
-    {
-      "name": "기준 평형 B/A = 2",
-      "pass": true,
-      "actual": 1.9999999999996494,
-      "expected": 2
-    },
-    {
-      "name": "기준해 질량 보존",
-      "pass": true,
-      "actual": 240,
-      "expected": 240
-    },
-    {
-      "name": "촉매 ×5: 같은 조성에 1/5 시간",
-      "pass": true,
-      "actual": 82.73237224472925,
-      "expected": 82.73237224472923
-    },
-    {
-      "name": "촉매는 평형 조성을 바꾸지 않음",
-      "pass": true,
-      "actual": 80,
-      "expected": 80.00000000000003
-    },
-    {
-      "name": "확률적 사건마다 총 입자 수 보존",
-      "pass": true,
-      "actual": 240,
-      "expected": 240
-    },
-    {
-      "name": "시간 분할에 독립인 동일 사건열",
-      "pass": true,
-      "actual": [
-        77,
-        163,
-        [
-          [
-            138,
-            53
+      "webgl": true,
+      "tests": [
+        {
+          "name": "G1 세포당 계수",
+          "pass": true,
+          "actual": {
+            "chromosomes": 4,
+            "dna": 4
+          },
+          "expected": {
+            "chromosomes": 4,
+            "dna": 4
+          }
+        },
+        {
+          "name": "복제 후 세포당 계수",
+          "pass": true,
+          "actual": {
+            "chromosomes": 4,
+            "dna": 8
+          },
+          "expected": {
+            "chromosomes": 4,
+            "dna": 8
+          }
+        },
+        {
+          "name": "중기 I 계수",
+          "pass": true,
+          "actual": {
+            "chromosomes": 4,
+            "dna": 8
+          },
+          "expected": {
+            "chromosomes": 4,
+            "dna": 8
+          }
+        },
+        {
+          "name": "분열 I 후 세포당 계수",
+          "pass": true,
+          "actual": {
+            "chromosomes": 2,
+            "dna": 4
+          },
+          "expected": {
+            "chromosomes": 2,
+            "dna": 4
+          }
+        },
+        {
+          "name": "분열 II 후 세포당 계수",
+          "pass": true,
+          "actual": {
+            "chromosomes": 2,
+            "dna": 2
+          },
+          "expected": {
+            "chromosomes": 2,
+            "dna": 2
+          }
+        },
+        {
+          "name": "독립 같은 방향 한 번의 다중집합",
+          "pass": true,
+          "actual": {
+            "AB": 2,
+            "Ab": 0,
+            "aB": 0,
+            "ab": 2
+          },
+          "expected": {
+            "AB": 2,
+            "Ab": 0,
+            "aB": 0,
+            "ab": 2
+          }
+        },
+        {
+          "name": "독립 반대 방향 한 번의 다중집합",
+          "pass": true,
+          "actual": {
+            "AB": 0,
+            "Ab": 2,
+            "aB": 2,
+            "ab": 0
+          },
+          "expected": {
+            "AB": 0,
+            "Ab": 2,
+            "aB": 2,
+            "ab": 0
+          }
+        },
+        {
+          "name": "독립 네 방향을 합치면 네 유형 같은 비율",
+          "pass": true,
+          "actual": {
+            "AB": 4,
+            "Ab": 4,
+            "aB": 4,
+            "ab": 4
+          },
+          "expected": {
+            "AB": 4,
+            "Ab": 4,
+            "aB": 4,
+            "ab": 4
+          }
+        },
+        {
+          "name": "독립 매번 두 유형 각 2개",
+          "pass": true,
+          "actual": true,
+          "expected": true
+        },
+        {
+          "name": "연관 모든 방향 AB와 ab만",
+          "pass": true,
+          "actual": {
+            "AB": 8,
+            "Ab": 0,
+            "aB": 0,
+            "ab": 8
+          },
+          "expected": {
+            "AB": 8,
+            "Ab": 0,
+            "aB": 0,
+            "ab": 8
+          }
+        },
+        {
+          "name": "연관 무표지 쌍을 뒤집어도 같은 유전자형",
+          "pass": true,
+          "actual": [
+            "AB",
+            "AB",
+            "ab",
+            "ab"
           ],
-          [
-            61,
-            51
-          ],
-          [
-            62,
-            76
-          ],
-          [
-            69,
-            61
-          ],
-          [
-            70,
-            68
-          ],
-          [
-            69,
-            57
+          "expected": [
+            "AB",
+            "AB",
+            "ab",
+            "ab"
           ]
-        ]
-      ],
-      "expected": [
-        77,
-        163,
-        [
-          [
-            138,
-            53
+        },
+        {
+          "name": "기대비 총합 1",
+          "pass": true,
+          "actual": [
+            1,
+            1
           ],
-          [
-            61,
-            51
-          ],
-          [
-            62,
-            76
-          ],
-          [
-            69,
-            61
-          ],
-          [
-            70,
-            68
-          ],
-          [
-            69,
-            57
+          "expected": [
+            1,
+            1
           ]
-        ]
-      ]
-    },
-    {
-      "name": "A 추가만큼 질량 증가·추가 기록",
-      "pass": true,
-      "actual": 260,
-      "expected": 260
-    },
-    {
-      "name": "300개 상한 초과 추가 거부",
-      "pass": true,
-      "actual": false,
-      "expected": false
-    },
-    {
-      "name": "같은 4초 창의 사건수로 속도 계산",
-      "pass": true,
-      "actual": [
-        0.345,
-        0.1325
+        },
+        {
+          "name": "영회 누적: 음수·NaN 없음",
+          "pass": true,
+          "actual": true,
+          "expected": true
+        },
+        {
+          "name": "누적 총합은 분열 횟수의 네 배",
+          "pass": true,
+          "actual": 16,
+          "expected": 16
+        },
+        {
+          "name": "수동·무작위 혼합 누적 정합성",
+          "pass": true,
+          "actual": true,
+          "expected": true
+        },
+        {
+          "name": "잘못된 음수 자료 거부",
+          "pass": true,
+          "actual": false,
+          "expected": false
+        },
+        {
+          "name": "대칭·총합이 맞아도 홀수 배우자 자료 거부",
+          "pass": true,
+          "actual": false,
+          "expected": false
+        },
+        {
+          "name": "독립 모형의 유효한 반대 방향 누적 허용",
+          "pass": true,
+          "actual": true,
+          "expected": true
+        },
+        {
+          "name": "연관 모형의 Ab·aB 누적 거부",
+          "pass": true,
+          "actual": false,
+          "expected": false
+        },
+        {
+          "name": "저장 실패는 false 반환",
+          "pass": true,
+          "actual": false,
+          "expected": false
+        },
+        {
+          "name": "성공 문구 뒤에도 저장 실패 경고 유지",
+          "pass": true,
+          "actual": "배우자를 누적했다. 로컬 보관에 실패해 현재 변경은 이 화면에만 남아 있습니다. JSON을 내보내 별도 보관해 주세요.",
+          "expected": "배우자를 누적했다. 로컬 보관에 실패해 현재 변경은 이 화면에만 남아 있습니다. JSON을 내보내 별도 보관해 주세요."
+        },
+        {
+          "name": "저장 성공 시 불필요한 경고 없음",
+          "pass": true,
+          "actual": "보존했다.",
+          "expected": "보존했다."
+        }
       ],
-      "expected": [
-        0.345,
-        0.1325
-      ]
-    },
-    {
-      "name": "0초와 A=0 경계 처리",
-      "pass": true,
-      "actual": [
-        0,
-        240,
-        0,
-        0
-      ],
-      "expected": [
-        0,
-        240,
-        0,
-        0
-      ]
-    },
-    {
-      "name": "여러 실현의 평형 평균: B≈160개",
-      "pass": true,
-      "actual": 160.45625,
-      "expected": "160 ± 3개"
-    },
-    {
-      "name": "평형 기준 정·역 구간 평균 속도 동일",
-      "pass": true,
-      "actual": [
-        0.16,
-        0.16
-      ],
-      "expected": [
-        0.16,
-        0.16
-      ]
-    }
-  ],
-  "projection": [
-    {
-      "name": "mercator 투영·역변환 위도 -75",
-      "pass": true,
-      "actual": -1.3089969389957472,
-      "expected": -1.3089969389957472
-    },
-    {
-      "name": "mercator 투영·역변환 경도 -75",
-      "pass": true,
-      "actual": 0.8,
-      "expected": 0.8
-    },
-    {
-      "name": "mercator 투영·역변환 위도 0",
-      "pass": true,
-      "actual": 0,
-      "expected": 0
-    },
-    {
-      "name": "mercator 투영·역변환 경도 0",
-      "pass": true,
-      "actual": 0.8,
-      "expected": 0.8
-    },
-    {
-      "name": "mercator 투영·역변환 위도 60",
-      "pass": true,
-      "actual": 1.0471975511965974,
-      "expected": 1.0471975511965976
-    },
-    {
-      "name": "mercator 투영·역변환 경도 60",
-      "pass": true,
-      "actual": 0.8,
-      "expected": 0.8
-    },
-    {
-      "name": "mercator 투영·역변환 위도 75",
-      "pass": true,
-      "actual": 1.3089969389957474,
-      "expected": 1.3089969389957472
-    },
-    {
-      "name": "mercator 투영·역변환 경도 75",
-      "pass": true,
-      "actual": 0.8,
-      "expected": 0.8
-    },
-    {
-      "name": "equal 투영·역변환 위도 -75",
-      "pass": true,
-      "actual": -1.3089969389957472,
-      "expected": -1.3089969389957472
-    },
-    {
-      "name": "equal 투영·역변환 경도 -75",
-      "pass": true,
-      "actual": 0.8,
-      "expected": 0.8
-    },
-    {
-      "name": "equal 투영·역변환 위도 0",
-      "pass": true,
-      "actual": 0,
-      "expected": 0
-    },
-    {
-      "name": "equal 투영·역변환 경도 0",
-      "pass": true,
-      "actual": 0.8,
-      "expected": 0.8
-    },
-    {
-      "name": "equal 투영·역변환 위도 60",
-      "pass": true,
-      "actual": 1.0471975511965976,
-      "expected": 1.0471975511965976
-    },
-    {
-      "name": "equal 투영·역변환 경도 60",
-      "pass": true,
-      "actual": 0.8,
-      "expected": 0.8
-    },
-    {
-      "name": "equal 투영·역변환 위도 75",
-      "pass": true,
-      "actual": 1.3089969389957472,
-      "expected": 1.3089969389957472
-    },
-    {
-      "name": "equal 투영·역변환 경도 75",
-      "pass": true,
-      "actual": 0.8,
-      "expected": 0.8
-    },
-    {
-      "name": "메르카토르 적도 국소 배율",
-      "pass": true,
-      "actual": 1,
-      "expected": 1
-    },
-    {
-      "name": "메르카토르 60° 국소 배율",
-      "pass": true,
-      "actual": 3.9999999999999982,
-      "expected": 4
-    },
-    {
-      "name": "정적 75° 국소 배율",
-      "pass": true,
-      "actual": 1,
-      "expected": 1
-    },
-    {
-      "name": "구면 원 반경 불변 -75",
-      "pass": true,
-      "actual": 1.0547118733938987e-15,
-      "expected": 0
-    },
-    {
-      "name": "정적 구면 면적 불변 -75",
-      "pass": true,
-      "actual": 0.9999968269048852,
-      "expected": 1
-    },
-    {
-      "name": "표시 경계 유한 mercator -75",
-      "pass": true,
-      "actual": true,
-      "expected": true
-    },
-    {
-      "name": "표시 경계 유한 equal -75",
-      "pass": true,
-      "actual": true,
-      "expected": true
-    },
-    {
-      "name": "구면 원 반경 불변 0",
-      "pass": true,
-      "actual": 4.163336342344337e-16,
-      "expected": 0
-    },
-    {
-      "name": "정적 구면 면적 불변 0",
-      "pass": true,
-      "actual": 0.9999968269048964,
-      "expected": 1
-    },
-    {
-      "name": "표시 경계 유한 mercator 0",
-      "pass": true,
-      "actual": true,
-      "expected": true
-    },
-    {
-      "name": "표시 경계 유한 equal 0",
-      "pass": true,
-      "actual": true,
-      "expected": true
-    },
-    {
-      "name": "구면 원 반경 불변 60",
-      "pass": true,
-      "actual": 8.604228440844963e-16,
-      "expected": 0
-    },
-    {
-      "name": "정적 구면 면적 불변 60",
-      "pass": true,
-      "actual": 0.9999968269048953,
-      "expected": 1
-    },
-    {
-      "name": "표시 경계 유한 mercator 60",
-      "pass": true,
-      "actual": true,
-      "expected": true
-    },
-    {
-      "name": "표시 경계 유한 equal 60",
-      "pass": true,
-      "actual": true,
-      "expected": true
-    },
-    {
-      "name": "구면 원 반경 불변 75",
-      "pass": true,
-      "actual": 1.0547118733938987e-15,
-      "expected": 0
-    },
-    {
-      "name": "정적 구면 면적 불변 75",
-      "pass": true,
-      "actual": 0.999996826904887,
-      "expected": 1
-    },
-    {
-      "name": "표시 경계 유한 mercator 75",
-      "pass": true,
-      "actual": true,
-      "expected": true
-    },
-    {
-      "name": "표시 경계 유한 equal 75",
-      "pass": true,
-      "actual": true,
-      "expected": true
-    },
-    {
-      "name": "메르카토르 60° 기준 좌표",
-      "pass": true,
-      "actual": 1.316957896924816,
-      "expected": 1.3169578969248166
-    },
-    {
-      "name": "정적 60° 기준 좌표",
-      "pass": true,
-      "actual": 0.8660254037844386,
-      "expected": 0.8660254037844386
-    },
-    {
-      "name": "두 투영 공통 경도 척도",
-      "pass": true,
-      "actual": 2.0943951023931953,
-      "expected": 2.0943951023931953
-    },
-    {
-      "name": "적도 원의 동쪽 경계",
-      "pass": true,
-      "actual": 0.17453292519943295,
-      "expected": 0.17453292519943295
-    },
-    {
-      "name": "적도는 y=0 (메르카토르)",
-      "pass": true,
-      "actual": -1.1102230246251565e-16,
-      "expected": 0
-    },
-    {
-      "name": "적도는 y=0 (정적)",
-      "pass": true,
-      "actual": 0,
-      "expected": 0
-    },
-    {
-      "name": "원 북단의 위도",
-      "pass": true,
-      "actual": 1.2217304763960306,
-      "expected": 1.2217304763960306
-    },
-    {
-      "name": "원 남단의 위도",
-      "pass": true,
-      "actual": 0.8726646259971648,
-      "expected": 0.8726646259971648
-    },
-    {
-      "name": "유한 원과 중심 국소 배율 구분",
-      "pass": true,
-      "actual": true,
-      "expected": true
-    },
-    {
-      "name": "메르카토르 남북 대칭",
-      "pass": true,
-      "actual": 1,
-      "expected": 1
-    },
-    {
-      "name": "북위 75° 원 최고 위도",
-      "pass": true,
-      "actual": 84.99999999999994,
-      "expected": 85
-    }
-  ],
-  "timbre": [
-    {
-      "name": "정규화의 삼각부등식 피크 상한",
-      "pass": true,
-      "actual": 0.1,
-      "expected": 0.1
-    },
-    {
-      "name": "합성 표본의 피크 상한",
-      "pass": true,
-      "actual": 0.07166245211403972,
-      "expected": "≤0.1"
-    },
-    {
-      "name": "8개 정수배 주파수",
-      "pass": true,
-      "actual": [
-        523,
-        1046,
-        1569,
-        2092,
-        2615,
-        3138,
-        3661,
-        4184
-      ],
-      "expected": [
-        523,
-        1046,
-        1569,
-        2092,
-        2615,
-        3138,
-        3661,
-        4184
-      ]
-    },
-    {
-      "name": "ADSR 구간 경계 연속",
-      "pass": true,
-      "actual": [
-        6.999999990764394e-8,
-        2.9999999928698173e-8,
-        1.3333333215292953e-8
-      ],
-      "expected": "각 차이 < 0.000001"
-    },
-    {
-      "name": "릴리스 종료 이후 0",
-      "pass": true,
-      "actual": [
-        0,
-        0
-      ],
-      "expected": [
-        0,
-        0
-      ]
-    },
-    {
-      "name": "포락선 변경 시 스펙트럼 불변",
-      "pass": true,
-      "actual": [
-        0.062111801242236024,
-        0.021739130434782608,
-        0.009316770186335404,
-        0.004347826086956522,
-        0.001863354037267081,
-        0.0006211180124223603,
-        0,
-        0
-      ],
-      "expected": [
-        0.062111801242236024,
-        0.021739130434782608,
-        0.009316770186335404,
-        0.004347826086956522,
-        0.001863354037267081,
-        0.0006211180124223603,
-        0,
-        0
-      ]
-    },
-    {
-      "name": "배음만 비교 시 포락선 고정",
-      "pass": true,
-      "actual": {
-        "a": 0.08,
-        "d": 0.2,
-        "s": 0.65,
-        "r": 0.3
-      },
-      "expected": {
-        "a": 0.08,
-        "d": 0.2,
-        "s": 0.65,
-        "r": 0.3
+      "diagnostics": {
+        "ready": true,
+        "threeVersion": "0.160.1",
+        "meshCount": 15,
+        "cameraPosition": {
+          "x": 0.31,
+          "y": 9.33,
+          "z": 58.31
+        },
+        "currentStage": 0,
+        "mode": "independent",
+        "bits": [
+          true,
+          true
+        ],
+        "sceneChildrenCount": 7
       }
     },
-    {
-      "name": "비교 계산의 원본 비변형",
-      "pass": true,
-      "actual": "{\"A\":{\"h\":[100,35,15,7,3,1,0,0],\"e\":{\"a\":0.08,\"d\":0.2,\"s\":0.65,\"r\":0.3}},\"B\":{\"h\":[100,65,40,25,15,8,4,2],\"e\":{\"a\":0.015,\"d\":0.48,\"s\":0.12,\"r\":0.18}},\"mode\":\"harmonics\"}",
-      "expected": "{\"A\":{\"h\":[100,35,15,7,3,1,0,0],\"e\":{\"a\":0.08,\"d\":0.2,\"s\":0.65,\"r\":0.3}},\"B\":{\"h\":[100,65,40,25,15,8,4,2],\"e\":{\"a\":0.015,\"d\":0.48,\"s\":0.12,\"r\":0.18}},\"mode\":\"harmonics\"}"
-    },
-    {
-      "name": "모든 가중치 0이면 무음",
-      "pass": true,
-      "actual": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
+    "induction": {
+      "width": 390,
+      "overflow": false,
+      "webgl": true,
+      "canvasRect": {
+        "x": 30,
+        "y": 954.84375,
+        "width": 315,
+        "height": 258,
+        "top": 954.84375,
+        "right": 345,
+        "bottom": 1212.84375,
+        "left": 30
+      },
+      "tests": [
+        {
+          "name": "바깥: 겹친 면적 0",
+          "pass": true,
+          "actual": 0,
+          "expected": 0
+        },
+        {
+          "name": "왼쪽 경계 중심: 절반 면적",
+          "pass": true,
+          "actual": 0.0192,
+          "expected": 0.0192
+        },
+        {
+          "name": "완전히 안쪽: 전체 면적",
+          "pass": true,
+          "actual": 0.0384,
+          "expected": 0.0384
+        },
+        {
+          "name": "오른쪽 끝 접촉: 면적 0",
+          "pass": true,
+          "actual": 0,
+          "expected": 0
+        },
+        {
+          "name": "진입 +B: 음의 기전력",
+          "pass": true,
+          "actual": -0.256,
+          "expected": -0.256
+        },
+        {
+          "name": "안쪽 이동: 기전력 0",
+          "pass": true,
+          "actual": 0,
+          "expected": 0
+        },
+        {
+          "name": "이탈 +B: 양의 기전력",
+          "pass": true,
+          "actual": 0.256,
+          "expected": 0.256
+        },
+        {
+          "name": "경계 정지: 기전력 0",
+          "pass": true,
+          "actual": 0,
+          "expected": 0
+        },
+        {
+          "name": "이동 반전: 부호 반전",
+          "pass": true,
+          "actual": 0.256,
+          "expected": 0.256
+        },
+        {
+          "name": "자기장 반전: 부호 반전",
+          "pass": true,
+          "actual": 0.256,
+          "expected": 0.256
+        },
+        {
+          "name": "면적×NB: 쇄교 선속",
+          "pass": true,
+          "actual": 0.3072,
+          "expected": 0.3072
+        },
+        {
+          "name": "드래그 정지 구간: 0",
+          "pass": true,
+          "actual": 0,
+          "expected": 0
+        },
+        {
+          "name": "드래그 시간 0: 안전한 0",
+          "pass": true,
+          "actual": 0,
+          "expected": 0
+        },
+        {
+          "name": "드래그 구간 평균: 실제 시간 사용",
+          "pass": true,
+          "actual": -0.2560000000000001,
+          "expected": -0.256
+        },
+        {
+          "name": "음의 기전력: 정면 시계 방향",
+          "pass": true,
+          "actual": "시계 ↻ (−)",
+          "expected": "시계 ↻ (−)"
+        },
+        {
+          "name": "경계 통과 시각용 교점 수",
+          "pass": true,
+          "actual": 2,
+          "expected": 2
+        },
+        {
+          "name": "전체 통과 순선속 변화 0",
+          "pass": true,
+          "actual": 0,
+          "expected": 0
+        },
+        {
+          "name": "감은 수 2배: 기전력 2배",
+          "pass": true,
+          "actual": -0.512,
+          "expected": -0.512
+        },
+        {
+          "name": "회귀: 0→0.02 m / 0.05 s 평균",
+          "pass": true,
+          "actual": -0.5120000000000002,
+          "expected": -0.512
+        },
+        {
+          "name": "회귀: 수동 EMF 구간 시작 0초",
+          "pass": true,
+          "actual": 0,
+          "expected": 0
+        },
+        {
+          "name": "회귀: 수동 EMF 구간 끝 0.05초",
+          "pass": true,
+          "actual": 0.05,
+          "expected": 0.05
+        },
+        {
+          "name": "회귀: 후속 0.10초 정지 EMF 0",
+          "pass": true,
+          "actual": 0,
+          "expected": 0
+        },
+        {
+          "name": "회귀: EMF 적분은 −Δ선속, 지연·2배 없음",
+          "pass": true,
+          "actual": true,
+          "expected": true
+        },
+        {
+          "name": "회귀: 전체 그래프 0.15초",
+          "pass": true,
+          "actual": 0.15,
+          "expected": 0.15
+        },
+        {
+          "name": "키보드 고정 모델시간 0.20초",
+          "pass": true,
+          "actual": 0.2,
+          "expected": 0.2
+        },
+        {
+          "name": "키보드 고정 시간 평균 EMF",
+          "pass": true,
+          "actual": -0.12800000000000006,
+          "expected": -0.128
+        },
+        {
+          "name": "회귀: 30초 초과 이동 거부",
+          "pass": true,
+          "actual": false,
+          "expected": false
+        },
+        {
+          "name": "회귀: 초과 이동의 위치 불변",
+          "pass": true,
+          "actual": 0,
+          "expected": 0
+        },
+        {
+          "name": "회귀: 거부 계산의 시간 불변",
+          "pass": true,
+          "actual": 29.9,
+          "expected": 29.9
+        },
+        {
+          "name": "30초에 정확히 도달한 이동 허용",
+          "pass": true,
+          "actual": true,
+          "expected": true
+        },
+        {
+          "name": "30초 도달 구간 적분 일치",
+          "pass": true,
+          "actual": true,
+          "expected": true
+        },
+        {
+          "name": "재생 순간값은 원래 구간에서 유지",
+          "pass": true,
+          "actual": -0.256,
+          "expected": -0.256
+        },
+        {
+          "name": "재생 정지 이후 구간은 0",
+          "pass": true,
+          "actual": 0,
+          "expected": 0
+        }
       ],
-      "expected": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ]
+      "diagnostics": {
+        "ready": true,
+        "threeVersion": "0.160.1",
+        "meshCount": 60,
+        "cameraPosition": {
+          "x": 0.4,
+          "y": 0,
+          "z": 1.35
+        },
+        "params": {
+          "B": 0.4,
+          "N": 20,
+          "speed": 0.2,
+          "x": -0.18,
+          "v": 0,
+          "e": 0,
+          "dir": 1,
+          "playing": false
+        },
+        "sceneChildrenCount": 23,
+        "renderer": {
+          "pixelRatio": 1,
+          "toneMapping": 4,
+          "outputColorSpace": "srgb"
+        }
+      }
     },
-    {
-      "name": "총 길이에 AD·유지·R 포함",
-      "pass": true,
-      "actual": 1.3,
-      "expected": 1.3
-    },
-    {
-      "name": "0초 A/D 경계가 유한함",
-      "pass": true,
-      "actual": [
-        0.5,
-        0
+    "accumulation": {
+      "width": 390,
+      "overflow": false,
+      "canvasRect": {
+        "x": 21,
+        "y": 339.796875,
+        "width": 333,
+        "height": 380,
+        "top": 339.796875,
+        "right": 354,
+        "bottom": 719.796875,
+        "left": 21
+      },
+      "webgl": true,
+      "tests": [
+        {
+          "name": "f(x)=x 구간 [0,1] 부피 = π/3",
+          "pass": true,
+          "actual": 1.0471975511965976,
+          "expected": 1.0471975511965976,
+          "note": ""
+        },
+        {
+          "name": "f(x)=x² 구간 [0,1] f(x)=x² 회전체 부피 = π/5",
+          "pass": true,
+          "actual": 0.6283185307179586,
+          "expected": 0.6283185307179586,
+          "note": "f(x)=x² 회전체 V = π∫x⁴dx = π/5"
+        },
+        {
+          "name": "f(x)=√x 구간 [0,1] 회전포물면/포물면체 부피 = π/2",
+          "pass": true,
+          "actual": 1.5707963267948966,
+          "expected": 1.5707963267948966,
+          "note": "회전포물면/포물면체 V = π∫xdx = π/2"
+        },
+        {
+          "name": "2D 넓이와 3D 부피 구분 (0.5 ≠ π/3)",
+          "pass": true,
+          "actual": true,
+          "expected": true,
+          "note": ""
+        },
+        {
+          "name": "구분구적법 n=16 오차 < n=4 오차",
+          "pass": true,
+          "actual": true,
+          "expected": true,
+          "note": ""
+        },
+        {
+          "name": "구분구적법 n=64 오차 < n=16 오차",
+          "pass": true,
+          "actual": true,
+          "expected": true,
+          "note": ""
+        },
+        {
+          "name": "구간 역전 (a=2, b=1) 검증 오류 포착",
+          "pass": true,
+          "actual": false,
+          "expected": false,
+          "note": ""
+        },
+        {
+          "name": "0폭 구간 (a=1, b=1) 검증 오류 포착",
+          "pass": true,
+          "actual": false,
+          "expected": false,
+          "note": ""
+        }
       ],
-      "expected": [
-        0.5,
-        0
-      ]
+      "diagnostics": {
+        "ready": true,
+        "threeVersion": "160",
+        "meshCount": 18,
+        "sceneObjectsCount": 9,
+        "camera": {
+          "x": 4.5,
+          "y": 3.2,
+          "z": 4.8
+        },
+        "currentParameters": {
+          "fn": "linear",
+          "a": 0,
+          "b": 1,
+          "n": 8,
+          "sliceMode": "midpoint",
+          "displayMode": "both",
+          "sweepAngleDeg": 360,
+          "sliceX": 0.6,
+          "opacity": 0.75,
+          "showRegion2D": true,
+          "autoRotate": false
+        },
+        "metrics": {
+          "isValid": true,
+          "exactVolume": 1.0471975511965976,
+          "approxVolume": 1.043106935762236,
+          "absError": 0.004090615434361622,
+          "relErrorPercent": 0.3906249999999916,
+          "area2D": 0.5,
+          "deltaX": 0.125,
+          "sliceX": 0.6,
+          "sliceRadius": 0.6,
+          "sliceArea": 1.1309733552923256
+        }
+      },
+      "storageTestEnvironment": "opaque-origin srcdoc; expected storage-block warning"
     },
-    {
-      "name": "모든 교육용 프리셋 유효",
-      "pass": true,
-      "actual": true,
-      "expected": true
+    "equilibrium": {
+      "width": 390,
+      "overflow": false,
+      "webgl": true,
+      "canvasRect": {
+        "x": 20,
+        "y": 243.78125,
+        "width": 335,
+        "height": 308,
+        "top": 243.78125,
+        "right": 355,
+        "bottom": 551.78125,
+        "left": 20
+      },
+      "tests": {
+        "total": 9,
+        "passed": 9,
+        "failed": 0,
+        "results": [
+          {
+            "test": "CO2 실제 좌표 결합각 180.0° 일치 여부",
+            "pass": true,
+            "val": "180.00°"
+          },
+          {
+            "test": "H2O 실제 좌표 결합각 약 104.5° 일치 여부",
+            "pass": true,
+            "val": "104.50°"
+          },
+          {
+            "test": "CH4 실제 좌표 결합각 약 109.47°(109.5°) 일치 여부",
+            "pass": true,
+            "val": "109.47°"
+          },
+          {
+            "test": "NH3 실제 좌표 결합각 약 107.0° 일치 여부",
+            "pass": true,
+            "val": "107.00°"
+          },
+          {
+            "test": "CO2 결합쌍극자 벡터합 = 0 (무극성 분자)",
+            "pass": true,
+            "val": "0.00000"
+          },
+          {
+            "test": "CH4 정사면체 결합쌍극자 벡터합 = 0 (무극성 분자)",
+            "pass": true,
+            "val": "0.00000"
+          },
+          {
+            "test": "H2O 굽은형 결합쌍극자 벡터합 != 0 (극성 분자)",
+            "pass": true,
+            "val": "1.5183"
+          },
+          {
+            "test": "NH3 삼각뿔 결합쌍극자 벡터합 != 0 (극성 분자)",
+            "pass": true,
+            "val": "0.9376"
+          },
+          {
+            "test": "로컬 스토리지 독립 분리 키 준수",
+            "pass": true,
+            "val": "gallery3d-equilibrium-v1"
+          }
+        ]
+      },
+      "diagnostics": {
+        "is3dReady": true,
+        "threeVersion": "0.160.1",
+        "currentMolecule": "CO2",
+        "meshCount": 10,
+        "sceneObjectCount": 16,
+        "cameraPosition": [
+          3.2,
+          2.5,
+          4
+        ],
+        "netVector": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "length": 0
+        },
+        "storageKey": "gallery3d-equilibrium-v1"
+      }
     },
-    {
-      "name": "안전 페이드 범위와 양 끝",
-      "pass": true,
-      "actual": [
-        0,
-        1,
-        0
+    "projection": {
+      "width": 390,
+      "overflow": false,
+      "webgl": true,
+      "canvasRect": {
+        "x": 25,
+        "y": 272.296875,
+        "width": 325,
+        "height": 418,
+        "top": 272.296875,
+        "right": 350,
+        "bottom": 690.296875,
+        "left": 25
+      },
+      "tests": [
+        {
+          "name": "메르카토르 적도 국소 배율",
+          "pass": true,
+          "actual": 1,
+          "expected": 1
+        },
+        {
+          "name": "메르카토르 60° 국소 배율 (sec²60°=4)",
+          "pass": true,
+          "actual": 3.9999999999999982,
+          "expected": 4
+        },
+        {
+          "name": "정적도법 60° 국소 배율",
+          "pass": true,
+          "actual": 1,
+          "expected": 1
+        },
+        {
+          "name": "정적도법 적도 국소 배율",
+          "pass": true,
+          "actual": 1,
+          "expected": 1
+        },
+        {
+          "name": "메르카토르 역변환 위도 일치 -60°",
+          "pass": true,
+          "actual": -59.99999999999999,
+          "expected": -60
+        },
+        {
+          "name": "정적도법 역변환 위도 일치 -60°",
+          "pass": true,
+          "actual": -59.99999999999999,
+          "expected": -60
+        },
+        {
+          "name": "메르카토르 역변환 위도 일치 0°",
+          "pass": true,
+          "actual": 0,
+          "expected": 0
+        },
+        {
+          "name": "정적도법 역변환 위도 일치 0°",
+          "pass": true,
+          "actual": 0,
+          "expected": 0
+        },
+        {
+          "name": "메르카토르 역변환 위도 일치 60°",
+          "pass": true,
+          "actual": 59.99999999999998,
+          "expected": 60
+        },
+        {
+          "name": "정적도법 역변환 위도 일치 60°",
+          "pass": true,
+          "actual": 59.99999999999999,
+          "expected": 60
+        },
+        {
+          "name": "정적도법 60° 면적 보존율 (~1.0)",
+          "pass": true,
+          "actual": 0.9999492312032894,
+          "expected": 1
+        },
+        {
+          "name": "메르카토르 60° 유한 원 배율 > 4.0",
+          "pass": true,
+          "actual": true,
+          "expected": true
+        }
       ],
-      "expected": [
-        0,
-        1,
-        0
-      ]
+      "diagnostics": {
+        "isReady": true,
+        "threeVersion": "0.160.1",
+        "meshCount": 7,
+        "cameraPos": {
+          "x": 0,
+          "y": 1.8000000000000003,
+          "z": 12.200000000000006
+        },
+        "condition": {
+          "latitude": 60,
+          "projection": "mercator"
+        }
+      }
     }
-  ],
-  "algorithm": [
-    {
-      "name": "선택 비교 고정 n=8 sorted",
-      "pass": true,
-      "actual": 28,
-      "expected": 28
-    },
-    {
-      "name": "선택 비교 고정 n=8 reverse",
-      "pass": true,
-      "actual": 28,
-      "expected": 28
-    },
-    {
-      "name": "선택 비교 고정 n=8 random",
-      "pass": true,
-      "actual": 28,
-      "expected": 28
-    },
-    {
-      "name": "선택 비교 고정 n=8 duplicates",
-      "pass": true,
-      "actual": 28,
-      "expected": 28
-    },
-    {
-      "name": "선택 비교 고정 n=16 sorted",
-      "pass": true,
-      "actual": 120,
-      "expected": 120
-    },
-    {
-      "name": "선택 비교 고정 n=16 reverse",
-      "pass": true,
-      "actual": 120,
-      "expected": 120
-    },
-    {
-      "name": "선택 비교 고정 n=16 random",
-      "pass": true,
-      "actual": 120,
-      "expected": 120
-    },
-    {
-      "name": "선택 비교 고정 n=16 duplicates",
-      "pass": true,
-      "actual": 120,
-      "expected": 120
-    },
-    {
-      "name": "선택 비교 고정 n=128 sorted",
-      "pass": true,
-      "actual": 8128,
-      "expected": 8128
-    },
-    {
-      "name": "선택 비교 고정 n=128 reverse",
-      "pass": true,
-      "actual": 8128,
-      "expected": 8128
-    },
-    {
-      "name": "선택 비교 고정 n=128 random",
-      "pass": true,
-      "actual": 8128,
-      "expected": 8128
-    },
-    {
-      "name": "선택 비교 고정 n=128 duplicates",
-      "pass": true,
-      "actual": 8128,
-      "expected": 8128
-    },
-    {
-      "name": "선택 비교 고정 n=256 sorted",
-      "pass": true,
-      "actual": 32640,
-      "expected": 32640
-    },
-    {
-      "name": "선택 비교 고정 n=256 reverse",
-      "pass": true,
-      "actual": 32640,
-      "expected": 32640
-    },
-    {
-      "name": "선택 비교 고정 n=256 random",
-      "pass": true,
-      "actual": 32640,
-      "expected": 32640
-    },
-    {
-      "name": "선택 비교 고정 n=256 duplicates",
-      "pass": true,
-      "actual": 32640,
-      "expected": 32640
-    },
-    {
-      "name": "삽입 정렬 입력 n=8",
-      "pass": true,
-      "actual": 7,
-      "expected": 7
-    },
-    {
-      "name": "버블 조기 종료 n=8",
-      "pass": true,
-      "actual": 7,
-      "expected": 7
-    },
-    {
-      "name": "bubble 역순 비교 n=8",
-      "pass": true,
-      "actual": 28,
-      "expected": 28
-    },
-    {
-      "name": "insertion 역순 비교 n=8",
-      "pass": true,
-      "actual": 28,
-      "expected": 28
-    },
-    {
-      "name": "역순 버블 교환 n=8",
-      "pass": true,
-      "actual": 28,
-      "expected": 28
-    },
-    {
-      "name": "역순 삽입 쓰기 n=8",
-      "pass": true,
-      "actual": 35,
-      "expected": 35
-    },
-    {
-      "name": "삽입 정렬 입력 n=128",
-      "pass": true,
-      "actual": 127,
-      "expected": 127
-    },
-    {
-      "name": "버블 조기 종료 n=128",
-      "pass": true,
-      "actual": 127,
-      "expected": 127
-    },
-    {
-      "name": "bubble 역순 비교 n=128",
-      "pass": true,
-      "actual": 8128,
-      "expected": 8128
-    },
-    {
-      "name": "insertion 역순 비교 n=128",
-      "pass": true,
-      "actual": 8128,
-      "expected": 8128
-    },
-    {
-      "name": "역순 버블 교환 n=128",
-      "pass": true,
-      "actual": 8128,
-      "expected": 8128
-    },
-    {
-      "name": "역순 삽입 쓰기 n=128",
-      "pass": true,
-      "actual": 8255,
-      "expected": 8255
-    },
-    {
-      "name": "삽입 정렬 입력 n=256",
-      "pass": true,
-      "actual": 255,
-      "expected": 255
-    },
-    {
-      "name": "버블 조기 종료 n=256",
-      "pass": true,
-      "actual": 255,
-      "expected": 255
-    },
-    {
-      "name": "bubble 역순 비교 n=256",
-      "pass": true,
-      "actual": 32640,
-      "expected": 32640
-    },
-    {
-      "name": "insertion 역순 비교 n=256",
-      "pass": true,
-      "actual": 32640,
-      "expected": 32640
-    },
-    {
-      "name": "역순 버블 교환 n=256",
-      "pass": true,
-      "actual": 32640,
-      "expected": 32640
-    },
-    {
-      "name": "역순 삽입 쓰기 n=256",
-      "pass": true,
-      "actual": 32895,
-      "expected": 32895
-    },
-    {
-      "name": "bubble 정렬·순열 보존 n=8 1",
-      "pass": true,
-      "actual": true,
-      "expected": true
-    },
-    {
-      "name": "bubble 원본 불변 n=8 1",
-      "pass": true,
-      "actual": "[{\"value\":1,\"id\":\"a\"},{\"value\":2,\"id\":\"b\"},{\"value\":3,\"id\":\"c\"},{\"value\":4,\"id\":\"d\"},{\"value\":5,\"id\":\"e\"},{\"value\":6,\"id\":\"f\"},{\"value\":7,\"id\":\"g\"},{\"value\":8,\"id\":\"h\"}]",
-      "expected": "[{\"value\":1,\"id\":\"a\"},{\"value\":2,\"id\":\"b\"},{\"value\":3,\"id\":\"c\"},{\"value\":4,\"id\":\"d\"},{\"value\":5,\"id\":\"e\"},{\"value\":6,\"id\":\"f\"},{\"value\":7,\"id\":\"g\"},{\"value\":8,\"id\":\"h\"}]"
-    },
-    {
-      "name": "selection 정렬·순열 보존 n=8 1",
-      "pass": true,
-      "actual": true,
-      "expected": true
-    },
-    {
-      "name": "selection 원본 불변 n=8 1",
-      "pass": true,
-      "actual": "[{\"value\":1,\"id\":\"a\"},{\"value\":2,\"id\":\"b\"},{\"value\":3,\"id\":\"c\"},{\"value\":4,\"id\":\"d\"},{\"value\":5,\"id\":\"e\"},{\"value\":6,\"id\":\"f\"},{\"value\":7,\"id\":\"g\"},{\"value\":8,\"id\":\"h\"}]",
-      "expected": "[{\"value\":1,\"id\":\"a\"},{\"value\":2,\"id\":\"b\"},{\"value\":3,\"id\":\"c\"},{\"value\":4,\"id\":\"d\"},{\"value\":5,\"id\":\"e\"},{\"value\":6,\"id\":\"f\"},{\"value\":7,\"id\":\"g\"},{\"value\":8,\"id\":\"h\"}]"
-    },
-    {
-      "name": "insertion 정렬·순열 보존 n=8 1",
-      "pass": true,
-      "actual": true,
-      "expected": true
-    },
-    {
-      "name": "insertion 원본 불변 n=8 1",
-      "pass": true,
-      "actual": "[{\"value\":1,\"id\":\"a\"},{\"value\":2,\"id\":\"b\"},{\"value\":3,\"id\":\"c\"},{\"value\":4,\"id\":\"d\"},{\"value\":5,\"id\":\"e\"},{\"value\":6,\"id\":\"f\"},{\"value\":7,\"id\":\"g\"},{\"value\":8,\"id\":\"h\"}]",
-      "expected": "[{\"value\":1,\"id\":\"a\"},{\"value\":2,\"id\":\"b\"},{\"value\":3,\"id\":\"c\"},{\"value\":4,\"id\":\"d\"},{\"value\":5,\"id\":\"e\"},{\"value\":6,\"id\":\"f\"},{\"value\":7,\"id\":\"g\"},{\"value\":8,\"id\":\"h\"}]"
-    },
-    {
-      "name": "bubble 정렬·순열 보존 n=8 8",
-      "pass": true,
-      "actual": true,
-      "expected": true
-    },
-    {
-      "name": "bubble 원본 불변 n=8 8",
-      "pass": true,
-      "actual": "[{\"value\":8,\"id\":\"a\"},{\"value\":7,\"id\":\"b\"},{\"value\":6,\"id\":\"c\"},{\"value\":5,\"id\":\"d\"},{\"value\":4,\"id\":\"e\"},{\"value\":3,\"id\":\"f\"},{\"value\":2,\"id\":\"g\"},{\"value\":1,\"id\":\"h\"}]",
-      "expected": "[{\"value\":8,\"id\":\"a\"},{\"value\":7,\"id\":\"b\"},{\"value\":6,\"id\":\"c\"},{\"value\":5,\"id\":\"d\"},{\"value\":4,\"id\":\"e\"},{\"value\":3,\"id\":\"f\"},{\"value\":2,\"id\":\"g\"},{\"value\":1,\"id\":\"h\"}]"
-    },
-    {
-      "name": "selection 정렬·순열 보존 n=8 8",
-      "pass": true,
-      "actual": true,
-      "expected": true
-    },
-    {
-      "name": "selection 원본 불변 n=8 8",
-      "pass": true,
-      "actual": "[{\"value\":8,\"id\":\"a\"},{\"value\":7,\"id\":\"b\"},{\"value\":6,\"id\":\"c\"},{\"value\":5,\"id\":\"d\"},{\"value\":4,\"id\":\"e\"},{\"value\":3,\"id\":\"f\"},{\"value\":2,\"id\":\"g\"},{\"value\":1,\"id\":\"h\"}]",
-      "expected": "[{\"value\":8,\"id\":\"a\"},{\"value\":7,\"id\":\"b\"},{\"value\":6,\"id\":\"c\"},{\"value\":5,\"id\":\"d\"},{\"value\":4,\"id\":\"e\"},{\"value\":3,\"id\":\"f\"},{\"value\":2,\"id\":\"g\"},{\"value\":1,\"id\":\"h\"}]"
-    },
-    {
-      "name": "insertion 정렬·순열 보존 n=8 8",
-      "pass": true,
-      "actual": true,
-      "expected": true
-    },
-    {
-      "name": "insertion 원본 불변 n=8 8",
-      "pass": true,
-      "actual": "[{\"value\":8,\"id\":\"a\"},{\"value\":7,\"id\":\"b\"},{\"value\":6,\"id\":\"c\"},{\"value\":5,\"id\":\"d\"},{\"value\":4,\"id\":\"e\"},{\"value\":3,\"id\":\"f\"},{\"value\":2,\"id\":\"g\"},{\"value\":1,\"id\":\"h\"}]",
-      "expected": "[{\"value\":8,\"id\":\"a\"},{\"value\":7,\"id\":\"b\"},{\"value\":6,\"id\":\"c\"},{\"value\":5,\"id\":\"d\"},{\"value\":4,\"id\":\"e\"},{\"value\":3,\"id\":\"f\"},{\"value\":2,\"id\":\"g\"},{\"value\":1,\"id\":\"h\"}]"
-    },
-    {
-      "name": "bubble 정렬·순열 보존 n=17 2",
-      "pass": true,
-      "actual": true,
-      "expected": true
-    },
-    {
-      "name": "bubble 원본 불변 n=17 2",
-      "pass": true,
-      "actual": "[{\"value\":2,\"id\":\"a\"},{\"value\":14,\"id\":\"b\"},{\"value\":8,\"id\":\"c\"},{\"value\":11,\"id\":\"d\"},{\"value\":3,\"id\":\"e\"},{\"value\":12,\"id\":\"f\"},{\"value\":6,\"id\":\"g\"},{\"value\":1,\"id\":\"h\"},{\"value\":9,\"id\":\"i\"},{\"value\":13,\"id\":\"j\"},{\"value\":4,\"id\":\"k\"},{\"value\":7,\"id\":\"l\"},{\"value\":10,\"id\":\"m\"},{\"value\":16,\"id\":\"n\"},{\"value\":15,\"id\":\"o\"},{\"value\":17,\"id\":\"p\"},{\"value\":5,\"id\":\"q\"}]",
-      "expected": "[{\"value\":2,\"id\":\"a\"},{\"value\":14,\"id\":\"b\"},{\"value\":8,\"id\":\"c\"},{\"value\":11,\"id\":\"d\"},{\"value\":3,\"id\":\"e\"},{\"value\":12,\"id\":\"f\"},{\"value\":6,\"id\":\"g\"},{\"value\":1,\"id\":\"h\"},{\"value\":9,\"id\":\"i\"},{\"value\":13,\"id\":\"j\"},{\"value\":4,\"id\":\"k\"},{\"value\":7,\"id\":\"l\"},{\"value\":10,\"id\":\"m\"},{\"value\":16,\"id\":\"n\"},{\"value\":15,\"id\":\"o\"},{\"value\":17,\"id\":\"p\"},{\"value\":5,\"id\":\"q\"}]"
-    },
-    {
-      "name": "selection 정렬·순열 보존 n=17 2",
-      "pass": true,
-      "actual": true,
-      "expected": true
-    },
-    {
-      "name": "selection 원본 불변 n=17 2",
-      "pass": true,
-      "actual": "[{\"value\":2,\"id\":\"a\"},{\"value\":14,\"id\":\"b\"},{\"value\":8,\"id\":\"c\"},{\"value\":11,\"id\":\"d\"},{\"value\":3,\"id\":\"e\"},{\"value\":12,\"id\":\"f\"},{\"value\":6,\"id\":\"g\"},{\"value\":1,\"id\":\"h\"},{\"value\":9,\"id\":\"i\"},{\"value\":13,\"id\":\"j\"},{\"value\":4,\"id\":\"k\"},{\"value\":7,\"id\":\"l\"},{\"value\":10,\"id\":\"m\"},{\"value\":16,\"id\":\"n\"},{\"value\":15,\"id\":\"o\"},{\"value\":17,\"id\":\"p\"},{\"value\":5,\"id\":\"q\"}]",
-      "expected": "[{\"value\":2,\"id\":\"a\"},{\"value\":14,\"id\":\"b\"},{\"value\":8,\"id\":\"c\"},{\"value\":11,\"id\":\"d\"},{\"value\":3,\"id\":\"e\"},{\"value\":12,\"id\":\"f\"},{\"value\":6,\"id\":\"g\"},{\"value\":1,\"id\":\"h\"},{\"value\":9,\"id\":\"i\"},{\"value\":13,\"id\":\"j\"},{\"value\":4,\"id\":\"k\"},{\"value\":7,\"id\":\"l\"},{\"value\":10,\"id\":\"m\"},{\"value\":16,\"id\":\"n\"},{\"value\":15,\"id\":\"o\"},{\"value\":17,\"id\":\"p\"},{\"value\":5,\"id\":\"q\"}]"
-    },
-    {
-      "name": "insertion 정렬·순열 보존 n=17 2",
-      "pass": true,
-      "actual": true,
-      "expected": true
-    },
-    {
-      "name": "insertion 원본 불변 n=17 2",
-      "pass": true,
-      "actual": "[{\"value\":2,\"id\":\"a\"},{\"value\":14,\"id\":\"b\"},{\"value\":8,\"id\":\"c\"},{\"value\":11,\"id\":\"d\"},{\"value\":3,\"id\":\"e\"},{\"value\":12,\"id\":\"f\"},{\"value\":6,\"id\":\"g\"},{\"value\":1,\"id\":\"h\"},{\"value\":9,\"id\":\"i\"},{\"value\":13,\"id\":\"j\"},{\"value\":4,\"id\":\"k\"},{\"value\":7,\"id\":\"l\"},{\"value\":10,\"id\":\"m\"},{\"value\":16,\"id\":\"n\"},{\"value\":15,\"id\":\"o\"},{\"value\":17,\"id\":\"p\"},{\"value\":5,\"id\":\"q\"}]",
-      "expected": "[{\"value\":2,\"id\":\"a\"},{\"value\":14,\"id\":\"b\"},{\"value\":8,\"id\":\"c\"},{\"value\":11,\"id\":\"d\"},{\"value\":3,\"id\":\"e\"},{\"value\":12,\"id\":\"f\"},{\"value\":6,\"id\":\"g\"},{\"value\":1,\"id\":\"h\"},{\"value\":9,\"id\":\"i\"},{\"value\":13,\"id\":\"j\"},{\"value\":4,\"id\":\"k\"},{\"value\":7,\"id\":\"l\"},{\"value\":10,\"id\":\"m\"},{\"value\":16,\"id\":\"n\"},{\"value\":15,\"id\":\"o\"},{\"value\":17,\"id\":\"p\"},{\"value\":5,\"id\":\"q\"}]"
-    },
-    {
-      "name": "bubble 정렬·순열 보존 n=32 1",
-      "pass": true,
-      "actual": true,
-      "expected": true
-    },
-    {
-      "name": "bubble 원본 불변 n=32 1",
-      "pass": true,
-      "actual": "[{\"value\":1,\"id\":\"a\"},{\"value\":2,\"id\":\"b\"},{\"value\":1,\"id\":\"c\"},{\"value\":3,\"id\":\"d\"},{\"value\":3,\"id\":\"e\"},{\"value\":1,\"id\":\"f\"},{\"value\":1,\"id\":\"g\"},{\"value\":2,\"id\":\"h\"},{\"value\":3,\"id\":\"i\"},{\"value\":3,\"id\":\"j\"},{\"value\":3,\"id\":\"k\"},{\"value\":1,\"id\":\"l\"},{\"value\":3,\"id\":\"m\"},{\"value\":4,\"id\":\"n\"},{\"value\":2,\"id\":\"o\"},{\"value\":2,\"id\":\"p\"},{\"value\":1,\"id\":\"q\"},{\"value\":2,\"id\":\"r\"},{\"value\":4,\"id\":\"s\"},{\"value\":2,\"id\":\"t\"},{\"value\":4,\"id\":\"u\"},{\"value\":3,\"id\":\"v\"},{\"value\":3,\"id\":\"w\"},{\"value\":2,\"id\":\"x\"},{\"value\":1,\"id\":\"y\"},{\"value\":1,\"id\":\"z\"},{\"value\":1,\"id\":\"aa\"},{\"value\":1,\"id\":\"ab\"},{\"value\":1,\"id\":\"ac\"},{\"value\":2,\"id\":\"ad\"},{\"value\":3,\"id\":\"ae\"},{\"value\":2,\"id\":\"af\"}]",
-      "expected": "[{\"value\":1,\"id\":\"a\"},{\"value\":2,\"id\":\"b\"},{\"value\":1,\"id\":\"c\"},{\"value\":3,\"id\":\"d\"},{\"value\":3,\"id\":\"e\"},{\"value\":1,\"id\":\"f\"},{\"value\":1,\"id\":\"g\"},{\"value\":2,\"id\":\"h\"},{\"value\":3,\"id\":\"i\"},{\"value\":3,\"id\":\"j\"},{\"value\":3,\"id\":\"k\"},{\"value\":1,\"id\":\"l\"},{\"value\":3,\"id\":\"m\"},{\"value\":4,\"id\":\"n\"},{\"value\":2,\"id\":\"o\"},{\"value\":2,\"id\":\"p\"},{\"value\":1,\"id\":\"q\"},{\"value\":2,\"id\":\"r\"},{\"value\":4,\"id\":\"s\"},{\"value\":2,\"id\":\"t\"},{\"value\":4,\"id\":\"u\"},{\"value\":3,\"id\":\"v\"},{\"value\":3,\"id\":\"w\"},{\"value\":2,\"id\":\"x\"},{\"value\":1,\"id\":\"y\"},{\"value\":1,\"id\":\"z\"},{\"value\":1,\"id\":\"aa\"},{\"value\":1,\"id\":\"ab\"},{\"value\":1,\"id\":\"ac\"},{\"value\":2,\"id\":\"ad\"},{\"value\":3,\"id\":\"ae\"},{\"value\":2,\"id\":\"af\"}]"
-    },
-    {
-      "name": "selection 정렬·순열 보존 n=32 1",
-      "pass": true,
-      "actual": true,
-      "expected": true
-    },
-    {
-      "name": "selection 원본 불변 n=32 1",
-      "pass": true,
-      "actual": "[{\"value\":1,\"id\":\"a\"},{\"value\":2,\"id\":\"b\"},{\"value\":1,\"id\":\"c\"},{\"value\":3,\"id\":\"d\"},{\"value\":3,\"id\":\"e\"},{\"value\":1,\"id\":\"f\"},{\"value\":1,\"id\":\"g\"},{\"value\":2,\"id\":\"h\"},{\"value\":3,\"id\":\"i\"},{\"value\":3,\"id\":\"j\"},{\"value\":3,\"id\":\"k\"},{\"value\":1,\"id\":\"l\"},{\"value\":3,\"id\":\"m\"},{\"value\":4,\"id\":\"n\"},{\"value\":2,\"id\":\"o\"},{\"value\":2,\"id\":\"p\"},{\"value\":1,\"id\":\"q\"},{\"value\":2,\"id\":\"r\"},{\"value\":4,\"id\":\"s\"},{\"value\":2,\"id\":\"t\"},{\"value\":4,\"id\":\"u\"},{\"value\":3,\"id\":\"v\"},{\"value\":3,\"id\":\"w\"},{\"value\":2,\"id\":\"x\"},{\"value\":1,\"id\":\"y\"},{\"value\":1,\"id\":\"z\"},{\"value\":1,\"id\":\"aa\"},{\"value\":1,\"id\":\"ab\"},{\"value\":1,\"id\":\"ac\"},{\"value\":2,\"id\":\"ad\"},{\"value\":3,\"id\":\"ae\"},{\"value\":2,\"id\":\"af\"}]",
-      "expected": "[{\"value\":1,\"id\":\"a\"},{\"value\":2,\"id\":\"b\"},{\"value\":1,\"id\":\"c\"},{\"value\":3,\"id\":\"d\"},{\"value\":3,\"id\":\"e\"},{\"value\":1,\"id\":\"f\"},{\"value\":1,\"id\":\"g\"},{\"value\":2,\"id\":\"h\"},{\"value\":3,\"id\":\"i\"},{\"value\":3,\"id\":\"j\"},{\"value\":3,\"id\":\"k\"},{\"value\":1,\"id\":\"l\"},{\"value\":3,\"id\":\"m\"},{\"value\":4,\"id\":\"n\"},{\"value\":2,\"id\":\"o\"},{\"value\":2,\"id\":\"p\"},{\"value\":1,\"id\":\"q\"},{\"value\":2,\"id\":\"r\"},{\"value\":4,\"id\":\"s\"},{\"value\":2,\"id\":\"t\"},{\"value\":4,\"id\":\"u\"},{\"value\":3,\"id\":\"v\"},{\"value\":3,\"id\":\"w\"},{\"value\":2,\"id\":\"x\"},{\"value\":1,\"id\":\"y\"},{\"value\":1,\"id\":\"z\"},{\"value\":1,\"id\":\"aa\"},{\"value\":1,\"id\":\"ab\"},{\"value\":1,\"id\":\"ac\"},{\"value\":2,\"id\":\"ad\"},{\"value\":3,\"id\":\"ae\"},{\"value\":2,\"id\":\"af\"}]"
-    },
-    {
-      "name": "insertion 정렬·순열 보존 n=32 1",
-      "pass": true,
-      "actual": true,
-      "expected": true
-    },
-    {
-      "name": "insertion 원본 불변 n=32 1",
-      "pass": true,
-      "actual": "[{\"value\":1,\"id\":\"a\"},{\"value\":2,\"id\":\"b\"},{\"value\":1,\"id\":\"c\"},{\"value\":3,\"id\":\"d\"},{\"value\":3,\"id\":\"e\"},{\"value\":1,\"id\":\"f\"},{\"value\":1,\"id\":\"g\"},{\"value\":2,\"id\":\"h\"},{\"value\":3,\"id\":\"i\"},{\"value\":3,\"id\":\"j\"},{\"value\":3,\"id\":\"k\"},{\"value\":1,\"id\":\"l\"},{\"value\":3,\"id\":\"m\"},{\"value\":4,\"id\":\"n\"},{\"value\":2,\"id\":\"o\"},{\"value\":2,\"id\":\"p\"},{\"value\":1,\"id\":\"q\"},{\"value\":2,\"id\":\"r\"},{\"value\":4,\"id\":\"s\"},{\"value\":2,\"id\":\"t\"},{\"value\":4,\"id\":\"u\"},{\"value\":3,\"id\":\"v\"},{\"value\":3,\"id\":\"w\"},{\"value\":2,\"id\":\"x\"},{\"value\":1,\"id\":\"y\"},{\"value\":1,\"id\":\"z\"},{\"value\":1,\"id\":\"aa\"},{\"value\":1,\"id\":\"ab\"},{\"value\":1,\"id\":\"ac\"},{\"value\":2,\"id\":\"ad\"},{\"value\":3,\"id\":\"ae\"},{\"value\":2,\"id\":\"af\"}]",
-      "expected": "[{\"value\":1,\"id\":\"a\"},{\"value\":2,\"id\":\"b\"},{\"value\":1,\"id\":\"c\"},{\"value\":3,\"id\":\"d\"},{\"value\":3,\"id\":\"e\"},{\"value\":1,\"id\":\"f\"},{\"value\":1,\"id\":\"g\"},{\"value\":2,\"id\":\"h\"},{\"value\":3,\"id\":\"i\"},{\"value\":3,\"id\":\"j\"},{\"value\":3,\"id\":\"k\"},{\"value\":1,\"id\":\"l\"},{\"value\":3,\"id\":\"m\"},{\"value\":4,\"id\":\"n\"},{\"value\":2,\"id\":\"o\"},{\"value\":2,\"id\":\"p\"},{\"value\":1,\"id\":\"q\"},{\"value\":2,\"id\":\"r\"},{\"value\":4,\"id\":\"s\"},{\"value\":2,\"id\":\"t\"},{\"value\":4,\"id\":\"u\"},{\"value\":3,\"id\":\"v\"},{\"value\":3,\"id\":\"w\"},{\"value\":2,\"id\":\"x\"},{\"value\":1,\"id\":\"y\"},{\"value\":1,\"id\":\"z\"},{\"value\":1,\"id\":\"aa\"},{\"value\":1,\"id\":\"ab\"},{\"value\":1,\"id\":\"ac\"},{\"value\":2,\"id\":\"ad\"},{\"value\":3,\"id\":\"ae\"},{\"value\":2,\"id\":\"af\"}]"
-    },
-    {
-      "name": "bubble 정렬·순열 보존 n=8 1",
-      "pass": true,
-      "actual": true,
-      "expected": true
-    },
-    {
-      "name": "bubble 원본 불변 n=8 1",
-      "pass": true,
-      "actual": "[{\"value\":1,\"id\":\"a\"},{\"value\":3,\"id\":\"b\"},{\"value\":2,\"id\":\"c\"},{\"value\":4,\"id\":\"d\"},{\"value\":5,\"id\":\"e\"},{\"value\":6,\"id\":\"f\"},{\"value\":7,\"id\":\"g\"},{\"value\":8,\"id\":\"h\"}]",
-      "expected": "[{\"value\":1,\"id\":\"a\"},{\"value\":3,\"id\":\"b\"},{\"value\":2,\"id\":\"c\"},{\"value\":4,\"id\":\"d\"},{\"value\":5,\"id\":\"e\"},{\"value\":6,\"id\":\"f\"},{\"value\":7,\"id\":\"g\"},{\"value\":8,\"id\":\"h\"}]"
-    },
-    {
-      "name": "selection 정렬·순열 보존 n=8 1",
-      "pass": true,
-      "actual": true,
-      "expected": true
-    },
-    {
-      "name": "selection 원본 불변 n=8 1",
-      "pass": true,
-      "actual": "[{\"value\":1,\"id\":\"a\"},{\"value\":3,\"id\":\"b\"},{\"value\":2,\"id\":\"c\"},{\"value\":4,\"id\":\"d\"},{\"value\":5,\"id\":\"e\"},{\"value\":6,\"id\":\"f\"},{\"value\":7,\"id\":\"g\"},{\"value\":8,\"id\":\"h\"}]",
-      "expected": "[{\"value\":1,\"id\":\"a\"},{\"value\":3,\"id\":\"b\"},{\"value\":2,\"id\":\"c\"},{\"value\":4,\"id\":\"d\"},{\"value\":5,\"id\":\"e\"},{\"value\":6,\"id\":\"f\"},{\"value\":7,\"id\":\"g\"},{\"value\":8,\"id\":\"h\"}]"
-    },
-    {
-      "name": "insertion 정렬·순열 보존 n=8 1",
-      "pass": true,
-      "actual": true,
-      "expected": true
-    },
-    {
-      "name": "insertion 원본 불변 n=8 1",
-      "pass": true,
-      "actual": "[{\"value\":1,\"id\":\"a\"},{\"value\":3,\"id\":\"b\"},{\"value\":2,\"id\":\"c\"},{\"value\":4,\"id\":\"d\"},{\"value\":5,\"id\":\"e\"},{\"value\":6,\"id\":\"f\"},{\"value\":7,\"id\":\"g\"},{\"value\":8,\"id\":\"h\"}]",
-      "expected": "[{\"value\":1,\"id\":\"a\"},{\"value\":3,\"id\":\"b\"},{\"value\":2,\"id\":\"c\"},{\"value\":4,\"id\":\"d\"},{\"value\":5,\"id\":\"e\"},{\"value\":6,\"id\":\"f\"},{\"value\":7,\"id\":\"g\"},{\"value\":8,\"id\":\"h\"}]"
-    },
-    {
-      "name": "bubble 정렬·순열 보존 n=256 256",
-      "pass": true,
-      "actual": true,
-      "expected": true
-    },
-    {
-      "name": "bubble 원본 불변 n=256 256",
-      "pass": true,
-      "actual": "[{\"value\":256,\"id\":\"a\"},{\"value\":255,\"id\":\"b\"},{\"value\":254,\"id\":\"c\"},{\"value\":253,\"id\":\"d\"},{\"value\":252,\"id\":\"e\"},{\"value\":251,\"id\":\"f\"},{\"value\":250,\"id\":\"g\"},{\"value\":249,\"id\":\"h\"},{\"value\":248,\"id\":\"i\"},{\"value\":247,\"id\":\"j\"},{\"value\":246,\"id\":\"k\"},{\"value\":245,\"id\":\"l\"},{\"value\":244,\"id\":\"m\"},{\"value\":243,\"id\":\"n\"},{\"value\":242,\"id\":\"o\"},{\"value\":241,\"id\":\"p\"},{\"value\":240,\"id\":\"q\"},{\"value\":239,\"id\":\"r\"},{\"value\":238,\"id\":\"s\"},{\"value\":237,\"id\":\"t\"},{\"value\":236,\"id\":\"u\"},{\"value\":235,\"id\":\"v\"},{\"value\":234,\"id\":\"w\"},{\"value\":233,\"id\":\"x\"},{\"value\":232,\"id\":\"y\"},{\"value\":231,\"id\":\"z\"},{\"value\":230,\"id\":\"aa\"},{\"value\":229,\"id\":\"ab\"},{\"value\":228,\"id\":\"ac\"},{\"value\":227,\"id\":\"ad\"},{\"value\":226,\"id\":\"ae\"},{\"value\":225,\"id\":\"af\"},{\"value\":224,\"id\":\"ag\"},{\"value\":223,\"id\":\"ah\"},{\"value\":222,\"id\":\"ai\"},{\"value\":221,\"id\":\"aj\"},{\"value\":220,\"id\":\"ak\"},{\"value\":219,\"id\":\"al\"},{\"value\":218,\"id\":\"am\"},{\"value\":217,\"id\":\"an\"},{\"value\":216,\"id\":\"ao\"},{\"value\":215,\"id\":\"ap\"},{\"value\":214,\"id\":\"aq\"},{\"value\":213,\"id\":\"ar\"},{\"value\":212,\"id\":\"as\"},{\"value\":211,\"id\":\"at\"},{\"value\":210,\"id\":\"au\"},{\"value\":209,\"id\":\"av\"},{\"value\":208,\"id\":\"aw\"},{\"value\":207,\"id\":\"ax\"},{\"value\":206,\"id\":\"ay\"},{\"value\":205,\"id\":\"az\"},{\"value\":204,\"id\":\"ba\"},{\"value\":203,\"id\":\"bb\"},{\"value\":202,\"id\":\"bc\"},{\"value\":201,\"id\":\"bd\"},{\"value\":200,\"id\":\"be\"},{\"value\":199,\"id\":\"bf\"},{\"value\":198,\"id\":\"bg\"},{\"value\":197,\"id\":\"bh\"},{\"value\":196,\"id\":\"bi\"},{\"value\":195,\"id\":\"bj\"},{\"value\":194,\"id\":\"bk\"},{\"value\":193,\"id\":\"bl\"},{\"value\":192,\"id\":\"bm\"},{\"value\":191,\"id\":\"bn\"},{\"value\":190,\"id\":\"bo\"},{\"value\":189,\"id\":\"bp\"},{\"value\":188,\"id\":\"bq\"},{\"value\":187,\"id\":\"br\"},{\"value\":186,\"id\":\"bs\"},{\"value\":185,\"id\":\"bt\"},{\"value\":184,\"id\":\"bu\"},{\"value\":183,\"id\":\"bv\"},{\"value\":182,\"id\":\"bw\"},{\"value\":181,\"id\":\"bx\"},{\"value\":180,\"id\":\"by\"},{\"value\":179,\"id\":\"bz\"},{\"value\":178,\"id\":\"ca\"},{\"value\":177,\"id\":\"cb\"},{\"value\":176,\"id\":\"cc\"},{\"value\":175,\"id\":\"cd\"},{\"value\":174,\"id\":\"ce\"},{\"value\":173,\"id\":\"cf\"},{\"value\":172,\"id\":\"cg\"},{\"value\":171,\"id\":\"ch\"},{\"value\":170,\"id\":\"ci\"},{\"value\":169,\"id\":\"cj\"},{\"value\":168,\"id\":\"ck\"},{\"value\":167,\"id\":\"cl\"},{\"value\":166,\"id\":\"cm\"},{\"value\":165,\"id\":\"cn\"},{\"value\":164,\"id\":\"co\"},{\"value\":163,\"id\":\"cp\"},{\"value\":162,\"id\":\"cq\"},{\"value\":161,\"id\":\"cr\"},{\"value\":160,\"id\":\"cs\"},{\"value\":159,\"id\":\"ct\"},{\"value\":158,\"id\":\"cu\"},{\"value\":157,\"id\":\"cv\"},{\"value\":156,\"id\":\"cw\"},{\"value\":155,\"id\":\"cx\"},{\"value\":154,\"id\":\"cy\"},{\"value\":153,\"id\":\"cz\"},{\"value\":152,\"id\":\"da\"},{\"value\":151,\"id\":\"db\"},{\"value\":150,\"id\":\"dc\"},{\"value\":149,\"id\":\"dd\"},{\"value\":148,\"id\":\"de\"},{\"value\":147,\"id\":\"df\"},{\"value\":146,\"id\":\"dg\"},{\"value\":145,\"id\":\"dh\"},{\"value\":144,\"id\":\"di\"},{\"value\":143,\"id\":\"dj\"},{\"value\":142,\"id\":\"dk\"},{\"value\":141,\"id\":\"dl\"},{\"value\":140,\"id\":\"dm\"},{\"value\":139,\"id\":\"dn\"},{\"value\":138,\"id\":\"do\"},{\"value\":137,\"id\":\"dp\"},{\"value\":136,\"id\":\"dq\"},{\"value\":135,\"id\":\"dr\"},{\"value\":134,\"id\":\"ds\"},{\"value\":133,\"id\":\"dt\"},{\"value\":132,\"id\":\"du\"},{\"value\":131,\"id\":\"dv\"},{\"value\":130,\"id\":\"dw\"},{\"value\":129,\"id\":\"dx\"},{\"value\":128,\"id\":\"dy\"},{\"value\":127,\"id\":\"dz\"},{\"value\":126,\"id\":\"ea\"},{\"value\":125,\"id\":\"eb\"},{\"value\":124,\"id\":\"ec\"},{\"value\":123,\"id\":\"ed\"},{\"value\":122,\"id\":\"ee\"},{\"value\":121,\"id\":\"ef\"},{\"value\":120,\"id\":\"eg\"},{\"value\":119,\"id\":\"eh\"},{\"value\":118,\"id\":\"ei\"},{\"value\":117,\"id\":\"ej\"},{\"value\":116,\"id\":\"ek\"},{\"value\":115,\"id\":\"el\"},{\"value\":114,\"id\":\"em\"},{\"value\":113,\"id\":\"en\"},{\"value\":112,\"id\":\"eo\"},{\"value\":111,\"id\":\"ep\"},{\"value\":110,\"id\":\"eq\"},{\"value\":109,\"id\":\"er\"},{\"value\":108,\"id\":\"es\"},{\"value\":107,\"id\":\"et\"},{\"value\":106,\"id\":\"eu\"},{\"value\":105,\"id\":\"ev\"},{\"value\":104,\"id\":\"ew\"},{\"value\":103,\"id\":\"ex\"},{\"value\":102,\"id\":\"ey\"},{\"value\":101,\"id\":\"ez\"},{\"value\":100,\"id\":\"fa\"},{\"value\":99,\"id\":\"fb\"},{\"value\":98,\"id\":\"fc\"},{\"value\":97,\"id\":\"fd\"},{\"value\":96,\"id\":\"fe\"},{\"value\":95,\"id\":\"ff\"},{\"value\":94,\"id\":\"fg\"},{\"value\":93,\"id\":\"fh\"},{\"value\":92,\"id\":\"fi\"},{\"value\":91,\"id\":\"fj\"},{\"value\":90,\"id\":\"fk\"},{\"value\":89,\"id\":\"fl\"},{\"value\":88,\"id\":\"fm\"},{\"value\":87,\"id\":\"fn\"},{\"value\":86,\"id\":\"fo\"},{\"value\":85,\"id\":\"fp\"},{\"value\":84,\"id\":\"fq\"},{\"value\":83,\"id\":\"fr\"},{\"value\":82,\"id\":\"fs\"},{\"value\":81,\"id\":\"ft\"},{\"value\":80,\"id\":\"fu\"},{\"value\":79,\"id\":\"fv\"},{\"value\":78,\"id\":\"fw\"},{\"value\":77,\"id\":\"fx\"},{\"value\":76,\"id\":\"fy\"},{\"value\":75,\"id\":\"fz\"},{\"value\":74,\"id\":\"ga\"},{\"value\":73,\"id\":\"gb\"},{\"value\":72,\"id\":\"gc\"},{\"value\":71,\"id\":\"gd\"},{\"value\":70,\"id\":\"ge\"},{\"value\":69,\"id\":\"gf\"},{\"value\":68,\"id\":\"gg\"},{\"value\":67,\"id\":\"gh\"},{\"value\":66,\"id\":\"gi\"},{\"value\":65,\"id\":\"gj\"},{\"value\":64,\"id\":\"gk\"},{\"value\":63,\"id\":\"gl\"},{\"value\":62,\"id\":\"gm\"},{\"value\":61,\"id\":\"gn\"},{\"value\":60,\"id\":\"go\"},{\"value\":59,\"id\":\"gp\"},{\"value\":58,\"id\":\"gq\"},{\"value\":57,\"id\":\"gr\"},{\"value\":56,\"id\":\"gs\"},{\"value\":55,\"id\":\"gt\"},{\"value\":54,\"id\":\"gu\"},{\"value\":53,\"id\":\"gv\"},{\"value\":52,\"id\":\"gw\"},{\"value\":51,\"id\":\"gx\"},{\"value\":50,\"id\":\"gy\"},{\"value\":49,\"id\":\"gz\"},{\"value\":48,\"id\":\"ha\"},{\"value\":47,\"id\":\"hb\"},{\"value\":46,\"id\":\"hc\"},{\"value\":45,\"id\":\"hd\"},{\"value\":44,\"id\":\"he\"},{\"value\":43,\"id\":\"hf\"},{\"value\":42,\"id\":\"hg\"},{\"value\":41,\"id\":\"hh\"},{\"value\":40,\"id\":\"hi\"},{\"value\":39,\"id\":\"hj\"},{\"value\":38,\"id\":\"hk\"},{\"value\":37,\"id\":\"hl\"},{\"value\":36,\"id\":\"hm\"},{\"value\":35,\"id\":\"hn\"},{\"value\":34,\"id\":\"ho\"},{\"value\":33,\"id\":\"hp\"},{\"value\":32,\"id\":\"hq\"},{\"value\":31,\"id\":\"hr\"},{\"value\":30,\"id\":\"hs\"},{\"value\":29,\"id\":\"ht\"},{\"value\":28,\"id\":\"hu\"},{\"value\":27,\"id\":\"hv\"},{\"value\":26,\"id\":\"hw\"},{\"value\":25,\"id\":\"hx\"},{\"value\":24,\"id\":\"hy\"},{\"value\":23,\"id\":\"hz\"},{\"value\":22,\"id\":\"ia\"},{\"value\":21,\"id\":\"ib\"},{\"value\":20,\"id\":\"ic\"},{\"value\":19,\"id\":\"id\"},{\"value\":18,\"id\":\"ie\"},{\"value\":17,\"id\":\"if\"},{\"value\":16,\"id\":\"ig\"},{\"value\":15,\"id\":\"ih\"},{\"value\":14,\"id\":\"ii\"},{\"value\":13,\"id\":\"ij\"},{\"value\":12,\"id\":\"ik\"},{\"value\":11,\"id\":\"il\"},{\"value\":10,\"id\":\"im\"},{\"value\":9,\"id\":\"in\"},{\"value\":8,\"id\":\"io\"},{\"value\":7,\"id\":\"ip\"},{\"value\":6,\"id\":\"iq\"},{\"value\":5,\"id\":\"ir\"},{\"value\":4,\"id\":\"is\"},{\"value\":3,\"id\":\"it\"},{\"value\":2,\"id\":\"iu\"},{\"value\":1,\"id\":\"iv\"}]",
-      "expected": "[{\"value\":256,\"id\":\"a\"},{\"value\":255,\"id\":\"b\"},{\"value\":254,\"id\":\"c\"},{\"value\":253,\"id\":\"d\"},{\"value\":252,\"id\":\"e\"},{\"value\":251,\"id\":\"f\"},{\"value\":250,\"id\":\"g\"},{\"value\":249,\"id\":\"h\"},{\"value\":248,\"id\":\"i\"},{\"value\":247,\"id\":\"j\"},{\"value\":246,\"id\":\"k\"},{\"value\":245,\"id\":\"l\"},{\"value\":244,\"id\":\"m\"},{\"value\":243,\"id\":\"n\"},{\"value\":242,\"id\":\"o\"},{\"value\":241,\"id\":\"p\"},{\"value\":240,\"id\":\"q\"},{\"value\":239,\"id\":\"r\"},{\"value\":238,\"id\":\"s\"},{\"value\":237,\"id\":\"t\"},{\"value\":236,\"id\":\"u\"},{\"value\":235,\"id\":\"v\"},{\"value\":234,\"id\":\"w\"},{\"value\":233,\"id\":\"x\"},{\"value\":232,\"id\":\"y\"},{\"value\":231,\"id\":\"z\"},{\"value\":230,\"id\":\"aa\"},{\"value\":229,\"id\":\"ab\"},{\"value\":228,\"id\":\"ac\"},{\"value\":227,\"id\":\"ad\"},{\"value\":226,\"id\":\"ae\"},{\"value\":225,\"id\":\"af\"},{\"value\":224,\"id\":\"ag\"},{\"value\":223,\"id\":\"ah\"},{\"value\":222,\"id\":\"ai\"},{\"value\":221,\"id\":\"aj\"},{\"value\":220,\"id\":\"ak\"},{\"value\":219,\"id\":\"al\"},{\"value\":218,\"id\":\"am\"},{\"value\":217,\"id\":\"an\"},{\"value\":216,\"id\":\"ao\"},{\"value\":215,\"id\":\"ap\"},{\"value\":214,\"id\":\"aq\"},{\"value\":213,\"id\":\"ar\"},{\"value\":212,\"id\":\"as\"},{\"value\":211,\"id\":\"at\"},{\"value\":210,\"id\":\"au\"},{\"value\":209,\"id\":\"av\"},{\"value\":208,\"id\":\"aw\"},{\"value\":207,\"id\":\"ax\"},{\"value\":206,\"id\":\"ay\"},{\"value\":205,\"id\":\"az\"},{\"value\":204,\"id\":\"ba\"},{\"value\":203,\"id\":\"bb\"},{\"value\":202,\"id\":\"bc\"},{\"value\":201,\"id\":\"bd\"},{\"value\":200,\"id\":\"be\"},{\"value\":199,\"id\":\"bf\"},{\"value\":198,\"id\":\"bg\"},{\"value\":197,\"id\":\"bh\"},{\"value\":196,\"id\":\"bi\"},{\"value\":195,\"id\":\"bj\"},{\"value\":194,\"id\":\"bk\"},{\"value\":193,\"id\":\"bl\"},{\"value\":192,\"id\":\"bm\"},{\"value\":191,\"id\":\"bn\"},{\"value\":190,\"id\":\"bo\"},{\"value\":189,\"id\":\"bp\"},{\"value\":188,\"id\":\"bq\"},{\"value\":187,\"id\":\"br\"},{\"value\":186,\"id\":\"bs\"},{\"value\":185,\"id\":\"bt\"},{\"value\":184,\"id\":\"bu\"},{\"value\":183,\"id\":\"bv\"},{\"value\":182,\"id\":\"bw\"},{\"value\":181,\"id\":\"bx\"},{\"value\":180,\"id\":\"by\"},{\"value\":179,\"id\":\"bz\"},{\"value\":178,\"id\":\"ca\"},{\"value\":177,\"id\":\"cb\"},{\"value\":176,\"id\":\"cc\"},{\"value\":175,\"id\":\"cd\"},{\"value\":174,\"id\":\"ce\"},{\"value\":173,\"id\":\"cf\"},{\"value\":172,\"id\":\"cg\"},{\"value\":171,\"id\":\"ch\"},{\"value\":170,\"id\":\"ci\"},{\"value\":169,\"id\":\"cj\"},{\"value\":168,\"id\":\"ck\"},{\"value\":167,\"id\":\"cl\"},{\"value\":166,\"id\":\"cm\"},{\"value\":165,\"id\":\"cn\"},{\"value\":164,\"id\":\"co\"},{\"value\":163,\"id\":\"cp\"},{\"value\":162,\"id\":\"cq\"},{\"value\":161,\"id\":\"cr\"},{\"value\":160,\"id\":\"cs\"},{\"value\":159,\"id\":\"ct\"},{\"value\":158,\"id\":\"cu\"},{\"value\":157,\"id\":\"cv\"},{\"value\":156,\"id\":\"cw\"},{\"value\":155,\"id\":\"cx\"},{\"value\":154,\"id\":\"cy\"},{\"value\":153,\"id\":\"cz\"},{\"value\":152,\"id\":\"da\"},{\"value\":151,\"id\":\"db\"},{\"value\":150,\"id\":\"dc\"},{\"value\":149,\"id\":\"dd\"},{\"value\":148,\"id\":\"de\"},{\"value\":147,\"id\":\"df\"},{\"value\":146,\"id\":\"dg\"},{\"value\":145,\"id\":\"dh\"},{\"value\":144,\"id\":\"di\"},{\"value\":143,\"id\":\"dj\"},{\"value\":142,\"id\":\"dk\"},{\"value\":141,\"id\":\"dl\"},{\"value\":140,\"id\":\"dm\"},{\"value\":139,\"id\":\"dn\"},{\"value\":138,\"id\":\"do\"},{\"value\":137,\"id\":\"dp\"},{\"value\":136,\"id\":\"dq\"},{\"value\":135,\"id\":\"dr\"},{\"value\":134,\"id\":\"ds\"},{\"value\":133,\"id\":\"dt\"},{\"value\":132,\"id\":\"du\"},{\"value\":131,\"id\":\"dv\"},{\"value\":130,\"id\":\"dw\"},{\"value\":129,\"id\":\"dx\"},{\"value\":128,\"id\":\"dy\"},{\"value\":127,\"id\":\"dz\"},{\"value\":126,\"id\":\"ea\"},{\"value\":125,\"id\":\"eb\"},{\"value\":124,\"id\":\"ec\"},{\"value\":123,\"id\":\"ed\"},{\"value\":122,\"id\":\"ee\"},{\"value\":121,\"id\":\"ef\"},{\"value\":120,\"id\":\"eg\"},{\"value\":119,\"id\":\"eh\"},{\"value\":118,\"id\":\"ei\"},{\"value\":117,\"id\":\"ej\"},{\"value\":116,\"id\":\"ek\"},{\"value\":115,\"id\":\"el\"},{\"value\":114,\"id\":\"em\"},{\"value\":113,\"id\":\"en\"},{\"value\":112,\"id\":\"eo\"},{\"value\":111,\"id\":\"ep\"},{\"value\":110,\"id\":\"eq\"},{\"value\":109,\"id\":\"er\"},{\"value\":108,\"id\":\"es\"},{\"value\":107,\"id\":\"et\"},{\"value\":106,\"id\":\"eu\"},{\"value\":105,\"id\":\"ev\"},{\"value\":104,\"id\":\"ew\"},{\"value\":103,\"id\":\"ex\"},{\"value\":102,\"id\":\"ey\"},{\"value\":101,\"id\":\"ez\"},{\"value\":100,\"id\":\"fa\"},{\"value\":99,\"id\":\"fb\"},{\"value\":98,\"id\":\"fc\"},{\"value\":97,\"id\":\"fd\"},{\"value\":96,\"id\":\"fe\"},{\"value\":95,\"id\":\"ff\"},{\"value\":94,\"id\":\"fg\"},{\"value\":93,\"id\":\"fh\"},{\"value\":92,\"id\":\"fi\"},{\"value\":91,\"id\":\"fj\"},{\"value\":90,\"id\":\"fk\"},{\"value\":89,\"id\":\"fl\"},{\"value\":88,\"id\":\"fm\"},{\"value\":87,\"id\":\"fn\"},{\"value\":86,\"id\":\"fo\"},{\"value\":85,\"id\":\"fp\"},{\"value\":84,\"id\":\"fq\"},{\"value\":83,\"id\":\"fr\"},{\"value\":82,\"id\":\"fs\"},{\"value\":81,\"id\":\"ft\"},{\"value\":80,\"id\":\"fu\"},{\"value\":79,\"id\":\"fv\"},{\"value\":78,\"id\":\"fw\"},{\"value\":77,\"id\":\"fx\"},{\"value\":76,\"id\":\"fy\"},{\"value\":75,\"id\":\"fz\"},{\"value\":74,\"id\":\"ga\"},{\"value\":73,\"id\":\"gb\"},{\"value\":72,\"id\":\"gc\"},{\"value\":71,\"id\":\"gd\"},{\"value\":70,\"id\":\"ge\"},{\"value\":69,\"id\":\"gf\"},{\"value\":68,\"id\":\"gg\"},{\"value\":67,\"id\":\"gh\"},{\"value\":66,\"id\":\"gi\"},{\"value\":65,\"id\":\"gj\"},{\"value\":64,\"id\":\"gk\"},{\"value\":63,\"id\":\"gl\"},{\"value\":62,\"id\":\"gm\"},{\"value\":61,\"id\":\"gn\"},{\"value\":60,\"id\":\"go\"},{\"value\":59,\"id\":\"gp\"},{\"value\":58,\"id\":\"gq\"},{\"value\":57,\"id\":\"gr\"},{\"value\":56,\"id\":\"gs\"},{\"value\":55,\"id\":\"gt\"},{\"value\":54,\"id\":\"gu\"},{\"value\":53,\"id\":\"gv\"},{\"value\":52,\"id\":\"gw\"},{\"value\":51,\"id\":\"gx\"},{\"value\":50,\"id\":\"gy\"},{\"value\":49,\"id\":\"gz\"},{\"value\":48,\"id\":\"ha\"},{\"value\":47,\"id\":\"hb\"},{\"value\":46,\"id\":\"hc\"},{\"value\":45,\"id\":\"hd\"},{\"value\":44,\"id\":\"he\"},{\"value\":43,\"id\":\"hf\"},{\"value\":42,\"id\":\"hg\"},{\"value\":41,\"id\":\"hh\"},{\"value\":40,\"id\":\"hi\"},{\"value\":39,\"id\":\"hj\"},{\"value\":38,\"id\":\"hk\"},{\"value\":37,\"id\":\"hl\"},{\"value\":36,\"id\":\"hm\"},{\"value\":35,\"id\":\"hn\"},{\"value\":34,\"id\":\"ho\"},{\"value\":33,\"id\":\"hp\"},{\"value\":32,\"id\":\"hq\"},{\"value\":31,\"id\":\"hr\"},{\"value\":30,\"id\":\"hs\"},{\"value\":29,\"id\":\"ht\"},{\"value\":28,\"id\":\"hu\"},{\"value\":27,\"id\":\"hv\"},{\"value\":26,\"id\":\"hw\"},{\"value\":25,\"id\":\"hx\"},{\"value\":24,\"id\":\"hy\"},{\"value\":23,\"id\":\"hz\"},{\"value\":22,\"id\":\"ia\"},{\"value\":21,\"id\":\"ib\"},{\"value\":20,\"id\":\"ic\"},{\"value\":19,\"id\":\"id\"},{\"value\":18,\"id\":\"ie\"},{\"value\":17,\"id\":\"if\"},{\"value\":16,\"id\":\"ig\"},{\"value\":15,\"id\":\"ih\"},{\"value\":14,\"id\":\"ii\"},{\"value\":13,\"id\":\"ij\"},{\"value\":12,\"id\":\"ik\"},{\"value\":11,\"id\":\"il\"},{\"value\":10,\"id\":\"im\"},{\"value\":9,\"id\":\"in\"},{\"value\":8,\"id\":\"io\"},{\"value\":7,\"id\":\"ip\"},{\"value\":6,\"id\":\"iq\"},{\"value\":5,\"id\":\"ir\"},{\"value\":4,\"id\":\"is\"},{\"value\":3,\"id\":\"it\"},{\"value\":2,\"id\":\"iu\"},{\"value\":1,\"id\":\"iv\"}]"
-    },
-    {
-      "name": "selection 정렬·순열 보존 n=256 256",
-      "pass": true,
-      "actual": true,
-      "expected": true
-    },
-    {
-      "name": "selection 원본 불변 n=256 256",
-      "pass": true,
-      "actual": "[{\"value\":256,\"id\":\"a\"},{\"value\":255,\"id\":\"b\"},{\"value\":254,\"id\":\"c\"},{\"value\":253,\"id\":\"d\"},{\"value\":252,\"id\":\"e\"},{\"value\":251,\"id\":\"f\"},{\"value\":250,\"id\":\"g\"},{\"value\":249,\"id\":\"h\"},{\"value\":248,\"id\":\"i\"},{\"value\":247,\"id\":\"j\"},{\"value\":246,\"id\":\"k\"},{\"value\":245,\"id\":\"l\"},{\"value\":244,\"id\":\"m\"},{\"value\":243,\"id\":\"n\"},{\"value\":242,\"id\":\"o\"},{\"value\":241,\"id\":\"p\"},{\"value\":240,\"id\":\"q\"},{\"value\":239,\"id\":\"r\"},{\"value\":238,\"id\":\"s\"},{\"value\":237,\"id\":\"t\"},{\"value\":236,\"id\":\"u\"},{\"value\":235,\"id\":\"v\"},{\"value\":234,\"id\":\"w\"},{\"value\":233,\"id\":\"x\"},{\"value\":232,\"id\":\"y\"},{\"value\":231,\"id\":\"z\"},{\"value\":230,\"id\":\"aa\"},{\"value\":229,\"id\":\"ab\"},{\"value\":228,\"id\":\"ac\"},{\"value\":227,\"id\":\"ad\"},{\"value\":226,\"id\":\"ae\"},{\"value\":225,\"id\":\"af\"},{\"value\":224,\"id\":\"ag\"},{\"value\":223,\"id\":\"ah\"},{\"value\":222,\"id\":\"ai\"},{\"value\":221,\"id\":\"aj\"},{\"value\":220,\"id\":\"ak\"},{\"value\":219,\"id\":\"al\"},{\"value\":218,\"id\":\"am\"},{\"value\":217,\"id\":\"an\"},{\"value\":216,\"id\":\"ao\"},{\"value\":215,\"id\":\"ap\"},{\"value\":214,\"id\":\"aq\"},{\"value\":213,\"id\":\"ar\"},{\"value\":212,\"id\":\"as\"},{\"value\":211,\"id\":\"at\"},{\"value\":210,\"id\":\"au\"},{\"value\":209,\"id\":\"av\"},{\"value\":208,\"id\":\"aw\"},{\"value\":207,\"id\":\"ax\"},{\"value\":206,\"id\":\"ay\"},{\"value\":205,\"id\":\"az\"},{\"value\":204,\"id\":\"ba\"},{\"value\":203,\"id\":\"bb\"},{\"value\":202,\"id\":\"bc\"},{\"value\":201,\"id\":\"bd\"},{\"value\":200,\"id\":\"be\"},{\"value\":199,\"id\":\"bf\"},{\"value\":198,\"id\":\"bg\"},{\"value\":197,\"id\":\"bh\"},{\"value\":196,\"id\":\"bi\"},{\"value\":195,\"id\":\"bj\"},{\"value\":194,\"id\":\"bk\"},{\"value\":193,\"id\":\"bl\"},{\"value\":192,\"id\":\"bm\"},{\"value\":191,\"id\":\"bn\"},{\"value\":190,\"id\":\"bo\"},{\"value\":189,\"id\":\"bp\"},{\"value\":188,\"id\":\"bq\"},{\"value\":187,\"id\":\"br\"},{\"value\":186,\"id\":\"bs\"},{\"value\":185,\"id\":\"bt\"},{\"value\":184,\"id\":\"bu\"},{\"value\":183,\"id\":\"bv\"},{\"value\":182,\"id\":\"bw\"},{\"value\":181,\"id\":\"bx\"},{\"value\":180,\"id\":\"by\"},{\"value\":179,\"id\":\"bz\"},{\"value\":178,\"id\":\"ca\"},{\"value\":177,\"id\":\"cb\"},{\"value\":176,\"id\":\"cc\"},{\"value\":175,\"id\":\"cd\"},{\"value\":174,\"id\":\"ce\"},{\"value\":173,\"id\":\"cf\"},{\"value\":172,\"id\":\"cg\"},{\"value\":171,\"id\":\"ch\"},{\"value\":170,\"id\":\"ci\"},{\"value\":169,\"id\":\"cj\"},{\"value\":168,\"id\":\"ck\"},{\"value\":167,\"id\":\"cl\"},{\"value\":166,\"id\":\"cm\"},{\"value\":165,\"id\":\"cn\"},{\"value\":164,\"id\":\"co\"},{\"value\":163,\"id\":\"cp\"},{\"value\":162,\"id\":\"cq\"},{\"value\":161,\"id\":\"cr\"},{\"value\":160,\"id\":\"cs\"},{\"value\":159,\"id\":\"ct\"},{\"value\":158,\"id\":\"cu\"},{\"value\":157,\"id\":\"cv\"},{\"value\":156,\"id\":\"cw\"},{\"value\":155,\"id\":\"cx\"},{\"value\":154,\"id\":\"cy\"},{\"value\":153,\"id\":\"cz\"},{\"value\":152,\"id\":\"da\"},{\"value\":151,\"id\":\"db\"},{\"value\":150,\"id\":\"dc\"},{\"value\":149,\"id\":\"dd\"},{\"value\":148,\"id\":\"de\"},{\"value\":147,\"id\":\"df\"},{\"value\":146,\"id\":\"dg\"},{\"value\":145,\"id\":\"dh\"},{\"value\":144,\"id\":\"di\"},{\"value\":143,\"id\":\"dj\"},{\"value\":142,\"id\":\"dk\"},{\"value\":141,\"id\":\"dl\"},{\"value\":140,\"id\":\"dm\"},{\"value\":139,\"id\":\"dn\"},{\"value\":138,\"id\":\"do\"},{\"value\":137,\"id\":\"dp\"},{\"value\":136,\"id\":\"dq\"},{\"value\":135,\"id\":\"dr\"},{\"value\":134,\"id\":\"ds\"},{\"value\":133,\"id\":\"dt\"},{\"value\":132,\"id\":\"du\"},{\"value\":131,\"id\":\"dv\"},{\"value\":130,\"id\":\"dw\"},{\"value\":129,\"id\":\"dx\"},{\"value\":128,\"id\":\"dy\"},{\"value\":127,\"id\":\"dz\"},{\"value\":126,\"id\":\"ea\"},{\"value\":125,\"id\":\"eb\"},{\"value\":124,\"id\":\"ec\"},{\"value\":123,\"id\":\"ed\"},{\"value\":122,\"id\":\"ee\"},{\"value\":121,\"id\":\"ef\"},{\"value\":120,\"id\":\"eg\"},{\"value\":119,\"id\":\"eh\"},{\"value\":118,\"id\":\"ei\"},{\"value\":117,\"id\":\"ej\"},{\"value\":116,\"id\":\"ek\"},{\"value\":115,\"id\":\"el\"},{\"value\":114,\"id\":\"em\"},{\"value\":113,\"id\":\"en\"},{\"value\":112,\"id\":\"eo\"},{\"value\":111,\"id\":\"ep\"},{\"value\":110,\"id\":\"eq\"},{\"value\":109,\"id\":\"er\"},{\"value\":108,\"id\":\"es\"},{\"value\":107,\"id\":\"et\"},{\"value\":106,\"id\":\"eu\"},{\"value\":105,\"id\":\"ev\"},{\"value\":104,\"id\":\"ew\"},{\"value\":103,\"id\":\"ex\"},{\"value\":102,\"id\":\"ey\"},{\"value\":101,\"id\":\"ez\"},{\"value\":100,\"id\":\"fa\"},{\"value\":99,\"id\":\"fb\"},{\"value\":98,\"id\":\"fc\"},{\"value\":97,\"id\":\"fd\"},{\"value\":96,\"id\":\"fe\"},{\"value\":95,\"id\":\"ff\"},{\"value\":94,\"id\":\"fg\"},{\"value\":93,\"id\":\"fh\"},{\"value\":92,\"id\":\"fi\"},{\"value\":91,\"id\":\"fj\"},{\"value\":90,\"id\":\"fk\"},{\"value\":89,\"id\":\"fl\"},{\"value\":88,\"id\":\"fm\"},{\"value\":87,\"id\":\"fn\"},{\"value\":86,\"id\":\"fo\"},{\"value\":85,\"id\":\"fp\"},{\"value\":84,\"id\":\"fq\"},{\"value\":83,\"id\":\"fr\"},{\"value\":82,\"id\":\"fs\"},{\"value\":81,\"id\":\"ft\"},{\"value\":80,\"id\":\"fu\"},{\"value\":79,\"id\":\"fv\"},{\"value\":78,\"id\":\"fw\"},{\"value\":77,\"id\":\"fx\"},{\"value\":76,\"id\":\"fy\"},{\"value\":75,\"id\":\"fz\"},{\"value\":74,\"id\":\"ga\"},{\"value\":73,\"id\":\"gb\"},{\"value\":72,\"id\":\"gc\"},{\"value\":71,\"id\":\"gd\"},{\"value\":70,\"id\":\"ge\"},{\"value\":69,\"id\":\"gf\"},{\"value\":68,\"id\":\"gg\"},{\"value\":67,\"id\":\"gh\"},{\"value\":66,\"id\":\"gi\"},{\"value\":65,\"id\":\"gj\"},{\"value\":64,\"id\":\"gk\"},{\"value\":63,\"id\":\"gl\"},{\"value\":62,\"id\":\"gm\"},{\"value\":61,\"id\":\"gn\"},{\"value\":60,\"id\":\"go\"},{\"value\":59,\"id\":\"gp\"},{\"value\":58,\"id\":\"gq\"},{\"value\":57,\"id\":\"gr\"},{\"value\":56,\"id\":\"gs\"},{\"value\":55,\"id\":\"gt\"},{\"value\":54,\"id\":\"gu\"},{\"value\":53,\"id\":\"gv\"},{\"value\":52,\"id\":\"gw\"},{\"value\":51,\"id\":\"gx\"},{\"value\":50,\"id\":\"gy\"},{\"value\":49,\"id\":\"gz\"},{\"value\":48,\"id\":\"ha\"},{\"value\":47,\"id\":\"hb\"},{\"value\":46,\"id\":\"hc\"},{\"value\":45,\"id\":\"hd\"},{\"value\":44,\"id\":\"he\"},{\"value\":43,\"id\":\"hf\"},{\"value\":42,\"id\":\"hg\"},{\"value\":41,\"id\":\"hh\"},{\"value\":40,\"id\":\"hi\"},{\"value\":39,\"id\":\"hj\"},{\"value\":38,\"id\":\"hk\"},{\"value\":37,\"id\":\"hl\"},{\"value\":36,\"id\":\"hm\"},{\"value\":35,\"id\":\"hn\"},{\"value\":34,\"id\":\"ho\"},{\"value\":33,\"id\":\"hp\"},{\"value\":32,\"id\":\"hq\"},{\"value\":31,\"id\":\"hr\"},{\"value\":30,\"id\":\"hs\"},{\"value\":29,\"id\":\"ht\"},{\"value\":28,\"id\":\"hu\"},{\"value\":27,\"id\":\"hv\"},{\"value\":26,\"id\":\"hw\"},{\"value\":25,\"id\":\"hx\"},{\"value\":24,\"id\":\"hy\"},{\"value\":23,\"id\":\"hz\"},{\"value\":22,\"id\":\"ia\"},{\"value\":21,\"id\":\"ib\"},{\"value\":20,\"id\":\"ic\"},{\"value\":19,\"id\":\"id\"},{\"value\":18,\"id\":\"ie\"},{\"value\":17,\"id\":\"if\"},{\"value\":16,\"id\":\"ig\"},{\"value\":15,\"id\":\"ih\"},{\"value\":14,\"id\":\"ii\"},{\"value\":13,\"id\":\"ij\"},{\"value\":12,\"id\":\"ik\"},{\"value\":11,\"id\":\"il\"},{\"value\":10,\"id\":\"im\"},{\"value\":9,\"id\":\"in\"},{\"value\":8,\"id\":\"io\"},{\"value\":7,\"id\":\"ip\"},{\"value\":6,\"id\":\"iq\"},{\"value\":5,\"id\":\"ir\"},{\"value\":4,\"id\":\"is\"},{\"value\":3,\"id\":\"it\"},{\"value\":2,\"id\":\"iu\"},{\"value\":1,\"id\":\"iv\"}]",
-      "expected": "[{\"value\":256,\"id\":\"a\"},{\"value\":255,\"id\":\"b\"},{\"value\":254,\"id\":\"c\"},{\"value\":253,\"id\":\"d\"},{\"value\":252,\"id\":\"e\"},{\"value\":251,\"id\":\"f\"},{\"value\":250,\"id\":\"g\"},{\"value\":249,\"id\":\"h\"},{\"value\":248,\"id\":\"i\"},{\"value\":247,\"id\":\"j\"},{\"value\":246,\"id\":\"k\"},{\"value\":245,\"id\":\"l\"},{\"value\":244,\"id\":\"m\"},{\"value\":243,\"id\":\"n\"},{\"value\":242,\"id\":\"o\"},{\"value\":241,\"id\":\"p\"},{\"value\":240,\"id\":\"q\"},{\"value\":239,\"id\":\"r\"},{\"value\":238,\"id\":\"s\"},{\"value\":237,\"id\":\"t\"},{\"value\":236,\"id\":\"u\"},{\"value\":235,\"id\":\"v\"},{\"value\":234,\"id\":\"w\"},{\"value\":233,\"id\":\"x\"},{\"value\":232,\"id\":\"y\"},{\"value\":231,\"id\":\"z\"},{\"value\":230,\"id\":\"aa\"},{\"value\":229,\"id\":\"ab\"},{\"value\":228,\"id\":\"ac\"},{\"value\":227,\"id\":\"ad\"},{\"value\":226,\"id\":\"ae\"},{\"value\":225,\"id\":\"af\"},{\"value\":224,\"id\":\"ag\"},{\"value\":223,\"id\":\"ah\"},{\"value\":222,\"id\":\"ai\"},{\"value\":221,\"id\":\"aj\"},{\"value\":220,\"id\":\"ak\"},{\"value\":219,\"id\":\"al\"},{\"value\":218,\"id\":\"am\"},{\"value\":217,\"id\":\"an\"},{\"value\":216,\"id\":\"ao\"},{\"value\":215,\"id\":\"ap\"},{\"value\":214,\"id\":\"aq\"},{\"value\":213,\"id\":\"ar\"},{\"value\":212,\"id\":\"as\"},{\"value\":211,\"id\":\"at\"},{\"value\":210,\"id\":\"au\"},{\"value\":209,\"id\":\"av\"},{\"value\":208,\"id\":\"aw\"},{\"value\":207,\"id\":\"ax\"},{\"value\":206,\"id\":\"ay\"},{\"value\":205,\"id\":\"az\"},{\"value\":204,\"id\":\"ba\"},{\"value\":203,\"id\":\"bb\"},{\"value\":202,\"id\":\"bc\"},{\"value\":201,\"id\":\"bd\"},{\"value\":200,\"id\":\"be\"},{\"value\":199,\"id\":\"bf\"},{\"value\":198,\"id\":\"bg\"},{\"value\":197,\"id\":\"bh\"},{\"value\":196,\"id\":\"bi\"},{\"value\":195,\"id\":\"bj\"},{\"value\":194,\"id\":\"bk\"},{\"value\":193,\"id\":\"bl\"},{\"value\":192,\"id\":\"bm\"},{\"value\":191,\"id\":\"bn\"},{\"value\":190,\"id\":\"bo\"},{\"value\":189,\"id\":\"bp\"},{\"value\":188,\"id\":\"bq\"},{\"value\":187,\"id\":\"br\"},{\"value\":186,\"id\":\"bs\"},{\"value\":185,\"id\":\"bt\"},{\"value\":184,\"id\":\"bu\"},{\"value\":183,\"id\":\"bv\"},{\"value\":182,\"id\":\"bw\"},{\"value\":181,\"id\":\"bx\"},{\"value\":180,\"id\":\"by\"},{\"value\":179,\"id\":\"bz\"},{\"value\":178,\"id\":\"ca\"},{\"value\":177,\"id\":\"cb\"},{\"value\":176,\"id\":\"cc\"},{\"value\":175,\"id\":\"cd\"},{\"value\":174,\"id\":\"ce\"},{\"value\":173,\"id\":\"cf\"},{\"value\":172,\"id\":\"cg\"},{\"value\":171,\"id\":\"ch\"},{\"value\":170,\"id\":\"ci\"},{\"value\":169,\"id\":\"cj\"},{\"value\":168,\"id\":\"ck\"},{\"value\":167,\"id\":\"cl\"},{\"value\":166,\"id\":\"cm\"},{\"value\":165,\"id\":\"cn\"},{\"value\":164,\"id\":\"co\"},{\"value\":163,\"id\":\"cp\"},{\"value\":162,\"id\":\"cq\"},{\"value\":161,\"id\":\"cr\"},{\"value\":160,\"id\":\"cs\"},{\"value\":159,\"id\":\"ct\"},{\"value\":158,\"id\":\"cu\"},{\"value\":157,\"id\":\"cv\"},{\"value\":156,\"id\":\"cw\"},{\"value\":155,\"id\":\"cx\"},{\"value\":154,\"id\":\"cy\"},{\"value\":153,\"id\":\"cz\"},{\"value\":152,\"id\":\"da\"},{\"value\":151,\"id\":\"db\"},{\"value\":150,\"id\":\"dc\"},{\"value\":149,\"id\":\"dd\"},{\"value\":148,\"id\":\"de\"},{\"value\":147,\"id\":\"df\"},{\"value\":146,\"id\":\"dg\"},{\"value\":145,\"id\":\"dh\"},{\"value\":144,\"id\":\"di\"},{\"value\":143,\"id\":\"dj\"},{\"value\":142,\"id\":\"dk\"},{\"value\":141,\"id\":\"dl\"},{\"value\":140,\"id\":\"dm\"},{\"value\":139,\"id\":\"dn\"},{\"value\":138,\"id\":\"do\"},{\"value\":137,\"id\":\"dp\"},{\"value\":136,\"id\":\"dq\"},{\"value\":135,\"id\":\"dr\"},{\"value\":134,\"id\":\"ds\"},{\"value\":133,\"id\":\"dt\"},{\"value\":132,\"id\":\"du\"},{\"value\":131,\"id\":\"dv\"},{\"value\":130,\"id\":\"dw\"},{\"value\":129,\"id\":\"dx\"},{\"value\":128,\"id\":\"dy\"},{\"value\":127,\"id\":\"dz\"},{\"value\":126,\"id\":\"ea\"},{\"value\":125,\"id\":\"eb\"},{\"value\":124,\"id\":\"ec\"},{\"value\":123,\"id\":\"ed\"},{\"value\":122,\"id\":\"ee\"},{\"value\":121,\"id\":\"ef\"},{\"value\":120,\"id\":\"eg\"},{\"value\":119,\"id\":\"eh\"},{\"value\":118,\"id\":\"ei\"},{\"value\":117,\"id\":\"ej\"},{\"value\":116,\"id\":\"ek\"},{\"value\":115,\"id\":\"el\"},{\"value\":114,\"id\":\"em\"},{\"value\":113,\"id\":\"en\"},{\"value\":112,\"id\":\"eo\"},{\"value\":111,\"id\":\"ep\"},{\"value\":110,\"id\":\"eq\"},{\"value\":109,\"id\":\"er\"},{\"value\":108,\"id\":\"es\"},{\"value\":107,\"id\":\"et\"},{\"value\":106,\"id\":\"eu\"},{\"value\":105,\"id\":\"ev\"},{\"value\":104,\"id\":\"ew\"},{\"value\":103,\"id\":\"ex\"},{\"value\":102,\"id\":\"ey\"},{\"value\":101,\"id\":\"ez\"},{\"value\":100,\"id\":\"fa\"},{\"value\":99,\"id\":\"fb\"},{\"value\":98,\"id\":\"fc\"},{\"value\":97,\"id\":\"fd\"},{\"value\":96,\"id\":\"fe\"},{\"value\":95,\"id\":\"ff\"},{\"value\":94,\"id\":\"fg\"},{\"value\":93,\"id\":\"fh\"},{\"value\":92,\"id\":\"fi\"},{\"value\":91,\"id\":\"fj\"},{\"value\":90,\"id\":\"fk\"},{\"value\":89,\"id\":\"fl\"},{\"value\":88,\"id\":\"fm\"},{\"value\":87,\"id\":\"fn\"},{\"value\":86,\"id\":\"fo\"},{\"value\":85,\"id\":\"fp\"},{\"value\":84,\"id\":\"fq\"},{\"value\":83,\"id\":\"fr\"},{\"value\":82,\"id\":\"fs\"},{\"value\":81,\"id\":\"ft\"},{\"value\":80,\"id\":\"fu\"},{\"value\":79,\"id\":\"fv\"},{\"value\":78,\"id\":\"fw\"},{\"value\":77,\"id\":\"fx\"},{\"value\":76,\"id\":\"fy\"},{\"value\":75,\"id\":\"fz\"},{\"value\":74,\"id\":\"ga\"},{\"value\":73,\"id\":\"gb\"},{\"value\":72,\"id\":\"gc\"},{\"value\":71,\"id\":\"gd\"},{\"value\":70,\"id\":\"ge\"},{\"value\":69,\"id\":\"gf\"},{\"value\":68,\"id\":\"gg\"},{\"value\":67,\"id\":\"gh\"},{\"value\":66,\"id\":\"gi\"},{\"value\":65,\"id\":\"gj\"},{\"value\":64,\"id\":\"gk\"},{\"value\":63,\"id\":\"gl\"},{\"value\":62,\"id\":\"gm\"},{\"value\":61,\"id\":\"gn\"},{\"value\":60,\"id\":\"go\"},{\"value\":59,\"id\":\"gp\"},{\"value\":58,\"id\":\"gq\"},{\"value\":57,\"id\":\"gr\"},{\"value\":56,\"id\":\"gs\"},{\"value\":55,\"id\":\"gt\"},{\"value\":54,\"id\":\"gu\"},{\"value\":53,\"id\":\"gv\"},{\"value\":52,\"id\":\"gw\"},{\"value\":51,\"id\":\"gx\"},{\"value\":50,\"id\":\"gy\"},{\"value\":49,\"id\":\"gz\"},{\"value\":48,\"id\":\"ha\"},{\"value\":47,\"id\":\"hb\"},{\"value\":46,\"id\":\"hc\"},{\"value\":45,\"id\":\"hd\"},{\"value\":44,\"id\":\"he\"},{\"value\":43,\"id\":\"hf\"},{\"value\":42,\"id\":\"hg\"},{\"value\":41,\"id\":\"hh\"},{\"value\":40,\"id\":\"hi\"},{\"value\":39,\"id\":\"hj\"},{\"value\":38,\"id\":\"hk\"},{\"value\":37,\"id\":\"hl\"},{\"value\":36,\"id\":\"hm\"},{\"value\":35,\"id\":\"hn\"},{\"value\":34,\"id\":\"ho\"},{\"value\":33,\"id\":\"hp\"},{\"value\":32,\"id\":\"hq\"},{\"value\":31,\"id\":\"hr\"},{\"value\":30,\"id\":\"hs\"},{\"value\":29,\"id\":\"ht\"},{\"value\":28,\"id\":\"hu\"},{\"value\":27,\"id\":\"hv\"},{\"value\":26,\"id\":\"hw\"},{\"value\":25,\"id\":\"hx\"},{\"value\":24,\"id\":\"hy\"},{\"value\":23,\"id\":\"hz\"},{\"value\":22,\"id\":\"ia\"},{\"value\":21,\"id\":\"ib\"},{\"value\":20,\"id\":\"ic\"},{\"value\":19,\"id\":\"id\"},{\"value\":18,\"id\":\"ie\"},{\"value\":17,\"id\":\"if\"},{\"value\":16,\"id\":\"ig\"},{\"value\":15,\"id\":\"ih\"},{\"value\":14,\"id\":\"ii\"},{\"value\":13,\"id\":\"ij\"},{\"value\":12,\"id\":\"ik\"},{\"value\":11,\"id\":\"il\"},{\"value\":10,\"id\":\"im\"},{\"value\":9,\"id\":\"in\"},{\"value\":8,\"id\":\"io\"},{\"value\":7,\"id\":\"ip\"},{\"value\":6,\"id\":\"iq\"},{\"value\":5,\"id\":\"ir\"},{\"value\":4,\"id\":\"is\"},{\"value\":3,\"id\":\"it\"},{\"value\":2,\"id\":\"iu\"},{\"value\":1,\"id\":\"iv\"}]"
-    },
-    {
-      "name": "insertion 정렬·순열 보존 n=256 256",
-      "pass": true,
-      "actual": true,
-      "expected": true
-    },
-    {
-      "name": "insertion 원본 불변 n=256 256",
-      "pass": true,
-      "actual": "[{\"value\":256,\"id\":\"a\"},{\"value\":255,\"id\":\"b\"},{\"value\":254,\"id\":\"c\"},{\"value\":253,\"id\":\"d\"},{\"value\":252,\"id\":\"e\"},{\"value\":251,\"id\":\"f\"},{\"value\":250,\"id\":\"g\"},{\"value\":249,\"id\":\"h\"},{\"value\":248,\"id\":\"i\"},{\"value\":247,\"id\":\"j\"},{\"value\":246,\"id\":\"k\"},{\"value\":245,\"id\":\"l\"},{\"value\":244,\"id\":\"m\"},{\"value\":243,\"id\":\"n\"},{\"value\":242,\"id\":\"o\"},{\"value\":241,\"id\":\"p\"},{\"value\":240,\"id\":\"q\"},{\"value\":239,\"id\":\"r\"},{\"value\":238,\"id\":\"s\"},{\"value\":237,\"id\":\"t\"},{\"value\":236,\"id\":\"u\"},{\"value\":235,\"id\":\"v\"},{\"value\":234,\"id\":\"w\"},{\"value\":233,\"id\":\"x\"},{\"value\":232,\"id\":\"y\"},{\"value\":231,\"id\":\"z\"},{\"value\":230,\"id\":\"aa\"},{\"value\":229,\"id\":\"ab\"},{\"value\":228,\"id\":\"ac\"},{\"value\":227,\"id\":\"ad\"},{\"value\":226,\"id\":\"ae\"},{\"value\":225,\"id\":\"af\"},{\"value\":224,\"id\":\"ag\"},{\"value\":223,\"id\":\"ah\"},{\"value\":222,\"id\":\"ai\"},{\"value\":221,\"id\":\"aj\"},{\"value\":220,\"id\":\"ak\"},{\"value\":219,\"id\":\"al\"},{\"value\":218,\"id\":\"am\"},{\"value\":217,\"id\":\"an\"},{\"value\":216,\"id\":\"ao\"},{\"value\":215,\"id\":\"ap\"},{\"value\":214,\"id\":\"aq\"},{\"value\":213,\"id\":\"ar\"},{\"value\":212,\"id\":\"as\"},{\"value\":211,\"id\":\"at\"},{\"value\":210,\"id\":\"au\"},{\"value\":209,\"id\":\"av\"},{\"value\":208,\"id\":\"aw\"},{\"value\":207,\"id\":\"ax\"},{\"value\":206,\"id\":\"ay\"},{\"value\":205,\"id\":\"az\"},{\"value\":204,\"id\":\"ba\"},{\"value\":203,\"id\":\"bb\"},{\"value\":202,\"id\":\"bc\"},{\"value\":201,\"id\":\"bd\"},{\"value\":200,\"id\":\"be\"},{\"value\":199,\"id\":\"bf\"},{\"value\":198,\"id\":\"bg\"},{\"value\":197,\"id\":\"bh\"},{\"value\":196,\"id\":\"bi\"},{\"value\":195,\"id\":\"bj\"},{\"value\":194,\"id\":\"bk\"},{\"value\":193,\"id\":\"bl\"},{\"value\":192,\"id\":\"bm\"},{\"value\":191,\"id\":\"bn\"},{\"value\":190,\"id\":\"bo\"},{\"value\":189,\"id\":\"bp\"},{\"value\":188,\"id\":\"bq\"},{\"value\":187,\"id\":\"br\"},{\"value\":186,\"id\":\"bs\"},{\"value\":185,\"id\":\"bt\"},{\"value\":184,\"id\":\"bu\"},{\"value\":183,\"id\":\"bv\"},{\"value\":182,\"id\":\"bw\"},{\"value\":181,\"id\":\"bx\"},{\"value\":180,\"id\":\"by\"},{\"value\":179,\"id\":\"bz\"},{\"value\":178,\"id\":\"ca\"},{\"value\":177,\"id\":\"cb\"},{\"value\":176,\"id\":\"cc\"},{\"value\":175,\"id\":\"cd\"},{\"value\":174,\"id\":\"ce\"},{\"value\":173,\"id\":\"cf\"},{\"value\":172,\"id\":\"cg\"},{\"value\":171,\"id\":\"ch\"},{\"value\":170,\"id\":\"ci\"},{\"value\":169,\"id\":\"cj\"},{\"value\":168,\"id\":\"ck\"},{\"value\":167,\"id\":\"cl\"},{\"value\":166,\"id\":\"cm\"},{\"value\":165,\"id\":\"cn\"},{\"value\":164,\"id\":\"co\"},{\"value\":163,\"id\":\"cp\"},{\"value\":162,\"id\":\"cq\"},{\"value\":161,\"id\":\"cr\"},{\"value\":160,\"id\":\"cs\"},{\"value\":159,\"id\":\"ct\"},{\"value\":158,\"id\":\"cu\"},{\"value\":157,\"id\":\"cv\"},{\"value\":156,\"id\":\"cw\"},{\"value\":155,\"id\":\"cx\"},{\"value\":154,\"id\":\"cy\"},{\"value\":153,\"id\":\"cz\"},{\"value\":152,\"id\":\"da\"},{\"value\":151,\"id\":\"db\"},{\"value\":150,\"id\":\"dc\"},{\"value\":149,\"id\":\"dd\"},{\"value\":148,\"id\":\"de\"},{\"value\":147,\"id\":\"df\"},{\"value\":146,\"id\":\"dg\"},{\"value\":145,\"id\":\"dh\"},{\"value\":144,\"id\":\"di\"},{\"value\":143,\"id\":\"dj\"},{\"value\":142,\"id\":\"dk\"},{\"value\":141,\"id\":\"dl\"},{\"value\":140,\"id\":\"dm\"},{\"value\":139,\"id\":\"dn\"},{\"value\":138,\"id\":\"do\"},{\"value\":137,\"id\":\"dp\"},{\"value\":136,\"id\":\"dq\"},{\"value\":135,\"id\":\"dr\"},{\"value\":134,\"id\":\"ds\"},{\"value\":133,\"id\":\"dt\"},{\"value\":132,\"id\":\"du\"},{\"value\":131,\"id\":\"dv\"},{\"value\":130,\"id\":\"dw\"},{\"value\":129,\"id\":\"dx\"},{\"value\":128,\"id\":\"dy\"},{\"value\":127,\"id\":\"dz\"},{\"value\":126,\"id\":\"ea\"},{\"value\":125,\"id\":\"eb\"},{\"value\":124,\"id\":\"ec\"},{\"value\":123,\"id\":\"ed\"},{\"value\":122,\"id\":\"ee\"},{\"value\":121,\"id\":\"ef\"},{\"value\":120,\"id\":\"eg\"},{\"value\":119,\"id\":\"eh\"},{\"value\":118,\"id\":\"ei\"},{\"value\":117,\"id\":\"ej\"},{\"value\":116,\"id\":\"ek\"},{\"value\":115,\"id\":\"el\"},{\"value\":114,\"id\":\"em\"},{\"value\":113,\"id\":\"en\"},{\"value\":112,\"id\":\"eo\"},{\"value\":111,\"id\":\"ep\"},{\"value\":110,\"id\":\"eq\"},{\"value\":109,\"id\":\"er\"},{\"value\":108,\"id\":\"es\"},{\"value\":107,\"id\":\"et\"},{\"value\":106,\"id\":\"eu\"},{\"value\":105,\"id\":\"ev\"},{\"value\":104,\"id\":\"ew\"},{\"value\":103,\"id\":\"ex\"},{\"value\":102,\"id\":\"ey\"},{\"value\":101,\"id\":\"ez\"},{\"value\":100,\"id\":\"fa\"},{\"value\":99,\"id\":\"fb\"},{\"value\":98,\"id\":\"fc\"},{\"value\":97,\"id\":\"fd\"},{\"value\":96,\"id\":\"fe\"},{\"value\":95,\"id\":\"ff\"},{\"value\":94,\"id\":\"fg\"},{\"value\":93,\"id\":\"fh\"},{\"value\":92,\"id\":\"fi\"},{\"value\":91,\"id\":\"fj\"},{\"value\":90,\"id\":\"fk\"},{\"value\":89,\"id\":\"fl\"},{\"value\":88,\"id\":\"fm\"},{\"value\":87,\"id\":\"fn\"},{\"value\":86,\"id\":\"fo\"},{\"value\":85,\"id\":\"fp\"},{\"value\":84,\"id\":\"fq\"},{\"value\":83,\"id\":\"fr\"},{\"value\":82,\"id\":\"fs\"},{\"value\":81,\"id\":\"ft\"},{\"value\":80,\"id\":\"fu\"},{\"value\":79,\"id\":\"fv\"},{\"value\":78,\"id\":\"fw\"},{\"value\":77,\"id\":\"fx\"},{\"value\":76,\"id\":\"fy\"},{\"value\":75,\"id\":\"fz\"},{\"value\":74,\"id\":\"ga\"},{\"value\":73,\"id\":\"gb\"},{\"value\":72,\"id\":\"gc\"},{\"value\":71,\"id\":\"gd\"},{\"value\":70,\"id\":\"ge\"},{\"value\":69,\"id\":\"gf\"},{\"value\":68,\"id\":\"gg\"},{\"value\":67,\"id\":\"gh\"},{\"value\":66,\"id\":\"gi\"},{\"value\":65,\"id\":\"gj\"},{\"value\":64,\"id\":\"gk\"},{\"value\":63,\"id\":\"gl\"},{\"value\":62,\"id\":\"gm\"},{\"value\":61,\"id\":\"gn\"},{\"value\":60,\"id\":\"go\"},{\"value\":59,\"id\":\"gp\"},{\"value\":58,\"id\":\"gq\"},{\"value\":57,\"id\":\"gr\"},{\"value\":56,\"id\":\"gs\"},{\"value\":55,\"id\":\"gt\"},{\"value\":54,\"id\":\"gu\"},{\"value\":53,\"id\":\"gv\"},{\"value\":52,\"id\":\"gw\"},{\"value\":51,\"id\":\"gx\"},{\"value\":50,\"id\":\"gy\"},{\"value\":49,\"id\":\"gz\"},{\"value\":48,\"id\":\"ha\"},{\"value\":47,\"id\":\"hb\"},{\"value\":46,\"id\":\"hc\"},{\"value\":45,\"id\":\"hd\"},{\"value\":44,\"id\":\"he\"},{\"value\":43,\"id\":\"hf\"},{\"value\":42,\"id\":\"hg\"},{\"value\":41,\"id\":\"hh\"},{\"value\":40,\"id\":\"hi\"},{\"value\":39,\"id\":\"hj\"},{\"value\":38,\"id\":\"hk\"},{\"value\":37,\"id\":\"hl\"},{\"value\":36,\"id\":\"hm\"},{\"value\":35,\"id\":\"hn\"},{\"value\":34,\"id\":\"ho\"},{\"value\":33,\"id\":\"hp\"},{\"value\":32,\"id\":\"hq\"},{\"value\":31,\"id\":\"hr\"},{\"value\":30,\"id\":\"hs\"},{\"value\":29,\"id\":\"ht\"},{\"value\":28,\"id\":\"hu\"},{\"value\":27,\"id\":\"hv\"},{\"value\":26,\"id\":\"hw\"},{\"value\":25,\"id\":\"hx\"},{\"value\":24,\"id\":\"hy\"},{\"value\":23,\"id\":\"hz\"},{\"value\":22,\"id\":\"ia\"},{\"value\":21,\"id\":\"ib\"},{\"value\":20,\"id\":\"ic\"},{\"value\":19,\"id\":\"id\"},{\"value\":18,\"id\":\"ie\"},{\"value\":17,\"id\":\"if\"},{\"value\":16,\"id\":\"ig\"},{\"value\":15,\"id\":\"ih\"},{\"value\":14,\"id\":\"ii\"},{\"value\":13,\"id\":\"ij\"},{\"value\":12,\"id\":\"ik\"},{\"value\":11,\"id\":\"il\"},{\"value\":10,\"id\":\"im\"},{\"value\":9,\"id\":\"in\"},{\"value\":8,\"id\":\"io\"},{\"value\":7,\"id\":\"ip\"},{\"value\":6,\"id\":\"iq\"},{\"value\":5,\"id\":\"ir\"},{\"value\":4,\"id\":\"is\"},{\"value\":3,\"id\":\"it\"},{\"value\":2,\"id\":\"iu\"},{\"value\":1,\"id\":\"iv\"}]",
-      "expected": "[{\"value\":256,\"id\":\"a\"},{\"value\":255,\"id\":\"b\"},{\"value\":254,\"id\":\"c\"},{\"value\":253,\"id\":\"d\"},{\"value\":252,\"id\":\"e\"},{\"value\":251,\"id\":\"f\"},{\"value\":250,\"id\":\"g\"},{\"value\":249,\"id\":\"h\"},{\"value\":248,\"id\":\"i\"},{\"value\":247,\"id\":\"j\"},{\"value\":246,\"id\":\"k\"},{\"value\":245,\"id\":\"l\"},{\"value\":244,\"id\":\"m\"},{\"value\":243,\"id\":\"n\"},{\"value\":242,\"id\":\"o\"},{\"value\":241,\"id\":\"p\"},{\"value\":240,\"id\":\"q\"},{\"value\":239,\"id\":\"r\"},{\"value\":238,\"id\":\"s\"},{\"value\":237,\"id\":\"t\"},{\"value\":236,\"id\":\"u\"},{\"value\":235,\"id\":\"v\"},{\"value\":234,\"id\":\"w\"},{\"value\":233,\"id\":\"x\"},{\"value\":232,\"id\":\"y\"},{\"value\":231,\"id\":\"z\"},{\"value\":230,\"id\":\"aa\"},{\"value\":229,\"id\":\"ab\"},{\"value\":228,\"id\":\"ac\"},{\"value\":227,\"id\":\"ad\"},{\"value\":226,\"id\":\"ae\"},{\"value\":225,\"id\":\"af\"},{\"value\":224,\"id\":\"ag\"},{\"value\":223,\"id\":\"ah\"},{\"value\":222,\"id\":\"ai\"},{\"value\":221,\"id\":\"aj\"},{\"value\":220,\"id\":\"ak\"},{\"value\":219,\"id\":\"al\"},{\"value\":218,\"id\":\"am\"},{\"value\":217,\"id\":\"an\"},{\"value\":216,\"id\":\"ao\"},{\"value\":215,\"id\":\"ap\"},{\"value\":214,\"id\":\"aq\"},{\"value\":213,\"id\":\"ar\"},{\"value\":212,\"id\":\"as\"},{\"value\":211,\"id\":\"at\"},{\"value\":210,\"id\":\"au\"},{\"value\":209,\"id\":\"av\"},{\"value\":208,\"id\":\"aw\"},{\"value\":207,\"id\":\"ax\"},{\"value\":206,\"id\":\"ay\"},{\"value\":205,\"id\":\"az\"},{\"value\":204,\"id\":\"ba\"},{\"value\":203,\"id\":\"bb\"},{\"value\":202,\"id\":\"bc\"},{\"value\":201,\"id\":\"bd\"},{\"value\":200,\"id\":\"be\"},{\"value\":199,\"id\":\"bf\"},{\"value\":198,\"id\":\"bg\"},{\"value\":197,\"id\":\"bh\"},{\"value\":196,\"id\":\"bi\"},{\"value\":195,\"id\":\"bj\"},{\"value\":194,\"id\":\"bk\"},{\"value\":193,\"id\":\"bl\"},{\"value\":192,\"id\":\"bm\"},{\"value\":191,\"id\":\"bn\"},{\"value\":190,\"id\":\"bo\"},{\"value\":189,\"id\":\"bp\"},{\"value\":188,\"id\":\"bq\"},{\"value\":187,\"id\":\"br\"},{\"value\":186,\"id\":\"bs\"},{\"value\":185,\"id\":\"bt\"},{\"value\":184,\"id\":\"bu\"},{\"value\":183,\"id\":\"bv\"},{\"value\":182,\"id\":\"bw\"},{\"value\":181,\"id\":\"bx\"},{\"value\":180,\"id\":\"by\"},{\"value\":179,\"id\":\"bz\"},{\"value\":178,\"id\":\"ca\"},{\"value\":177,\"id\":\"cb\"},{\"value\":176,\"id\":\"cc\"},{\"value\":175,\"id\":\"cd\"},{\"value\":174,\"id\":\"ce\"},{\"value\":173,\"id\":\"cf\"},{\"value\":172,\"id\":\"cg\"},{\"value\":171,\"id\":\"ch\"},{\"value\":170,\"id\":\"ci\"},{\"value\":169,\"id\":\"cj\"},{\"value\":168,\"id\":\"ck\"},{\"value\":167,\"id\":\"cl\"},{\"value\":166,\"id\":\"cm\"},{\"value\":165,\"id\":\"cn\"},{\"value\":164,\"id\":\"co\"},{\"value\":163,\"id\":\"cp\"},{\"value\":162,\"id\":\"cq\"},{\"value\":161,\"id\":\"cr\"},{\"value\":160,\"id\":\"cs\"},{\"value\":159,\"id\":\"ct\"},{\"value\":158,\"id\":\"cu\"},{\"value\":157,\"id\":\"cv\"},{\"value\":156,\"id\":\"cw\"},{\"value\":155,\"id\":\"cx\"},{\"value\":154,\"id\":\"cy\"},{\"value\":153,\"id\":\"cz\"},{\"value\":152,\"id\":\"da\"},{\"value\":151,\"id\":\"db\"},{\"value\":150,\"id\":\"dc\"},{\"value\":149,\"id\":\"dd\"},{\"value\":148,\"id\":\"de\"},{\"value\":147,\"id\":\"df\"},{\"value\":146,\"id\":\"dg\"},{\"value\":145,\"id\":\"dh\"},{\"value\":144,\"id\":\"di\"},{\"value\":143,\"id\":\"dj\"},{\"value\":142,\"id\":\"dk\"},{\"value\":141,\"id\":\"dl\"},{\"value\":140,\"id\":\"dm\"},{\"value\":139,\"id\":\"dn\"},{\"value\":138,\"id\":\"do\"},{\"value\":137,\"id\":\"dp\"},{\"value\":136,\"id\":\"dq\"},{\"value\":135,\"id\":\"dr\"},{\"value\":134,\"id\":\"ds\"},{\"value\":133,\"id\":\"dt\"},{\"value\":132,\"id\":\"du\"},{\"value\":131,\"id\":\"dv\"},{\"value\":130,\"id\":\"dw\"},{\"value\":129,\"id\":\"dx\"},{\"value\":128,\"id\":\"dy\"},{\"value\":127,\"id\":\"dz\"},{\"value\":126,\"id\":\"ea\"},{\"value\":125,\"id\":\"eb\"},{\"value\":124,\"id\":\"ec\"},{\"value\":123,\"id\":\"ed\"},{\"value\":122,\"id\":\"ee\"},{\"value\":121,\"id\":\"ef\"},{\"value\":120,\"id\":\"eg\"},{\"value\":119,\"id\":\"eh\"},{\"value\":118,\"id\":\"ei\"},{\"value\":117,\"id\":\"ej\"},{\"value\":116,\"id\":\"ek\"},{\"value\":115,\"id\":\"el\"},{\"value\":114,\"id\":\"em\"},{\"value\":113,\"id\":\"en\"},{\"value\":112,\"id\":\"eo\"},{\"value\":111,\"id\":\"ep\"},{\"value\":110,\"id\":\"eq\"},{\"value\":109,\"id\":\"er\"},{\"value\":108,\"id\":\"es\"},{\"value\":107,\"id\":\"et\"},{\"value\":106,\"id\":\"eu\"},{\"value\":105,\"id\":\"ev\"},{\"value\":104,\"id\":\"ew\"},{\"value\":103,\"id\":\"ex\"},{\"value\":102,\"id\":\"ey\"},{\"value\":101,\"id\":\"ez\"},{\"value\":100,\"id\":\"fa\"},{\"value\":99,\"id\":\"fb\"},{\"value\":98,\"id\":\"fc\"},{\"value\":97,\"id\":\"fd\"},{\"value\":96,\"id\":\"fe\"},{\"value\":95,\"id\":\"ff\"},{\"value\":94,\"id\":\"fg\"},{\"value\":93,\"id\":\"fh\"},{\"value\":92,\"id\":\"fi\"},{\"value\":91,\"id\":\"fj\"},{\"value\":90,\"id\":\"fk\"},{\"value\":89,\"id\":\"fl\"},{\"value\":88,\"id\":\"fm\"},{\"value\":87,\"id\":\"fn\"},{\"value\":86,\"id\":\"fo\"},{\"value\":85,\"id\":\"fp\"},{\"value\":84,\"id\":\"fq\"},{\"value\":83,\"id\":\"fr\"},{\"value\":82,\"id\":\"fs\"},{\"value\":81,\"id\":\"ft\"},{\"value\":80,\"id\":\"fu\"},{\"value\":79,\"id\":\"fv\"},{\"value\":78,\"id\":\"fw\"},{\"value\":77,\"id\":\"fx\"},{\"value\":76,\"id\":\"fy\"},{\"value\":75,\"id\":\"fz\"},{\"value\":74,\"id\":\"ga\"},{\"value\":73,\"id\":\"gb\"},{\"value\":72,\"id\":\"gc\"},{\"value\":71,\"id\":\"gd\"},{\"value\":70,\"id\":\"ge\"},{\"value\":69,\"id\":\"gf\"},{\"value\":68,\"id\":\"gg\"},{\"value\":67,\"id\":\"gh\"},{\"value\":66,\"id\":\"gi\"},{\"value\":65,\"id\":\"gj\"},{\"value\":64,\"id\":\"gk\"},{\"value\":63,\"id\":\"gl\"},{\"value\":62,\"id\":\"gm\"},{\"value\":61,\"id\":\"gn\"},{\"value\":60,\"id\":\"go\"},{\"value\":59,\"id\":\"gp\"},{\"value\":58,\"id\":\"gq\"},{\"value\":57,\"id\":\"gr\"},{\"value\":56,\"id\":\"gs\"},{\"value\":55,\"id\":\"gt\"},{\"value\":54,\"id\":\"gu\"},{\"value\":53,\"id\":\"gv\"},{\"value\":52,\"id\":\"gw\"},{\"value\":51,\"id\":\"gx\"},{\"value\":50,\"id\":\"gy\"},{\"value\":49,\"id\":\"gz\"},{\"value\":48,\"id\":\"ha\"},{\"value\":47,\"id\":\"hb\"},{\"value\":46,\"id\":\"hc\"},{\"value\":45,\"id\":\"hd\"},{\"value\":44,\"id\":\"he\"},{\"value\":43,\"id\":\"hf\"},{\"value\":42,\"id\":\"hg\"},{\"value\":41,\"id\":\"hh\"},{\"value\":40,\"id\":\"hi\"},{\"value\":39,\"id\":\"hj\"},{\"value\":38,\"id\":\"hk\"},{\"value\":37,\"id\":\"hl\"},{\"value\":36,\"id\":\"hm\"},{\"value\":35,\"id\":\"hn\"},{\"value\":34,\"id\":\"ho\"},{\"value\":33,\"id\":\"hp\"},{\"value\":32,\"id\":\"hq\"},{\"value\":31,\"id\":\"hr\"},{\"value\":30,\"id\":\"hs\"},{\"value\":29,\"id\":\"ht\"},{\"value\":28,\"id\":\"hu\"},{\"value\":27,\"id\":\"hv\"},{\"value\":26,\"id\":\"hw\"},{\"value\":25,\"id\":\"hx\"},{\"value\":24,\"id\":\"hy\"},{\"value\":23,\"id\":\"hz\"},{\"value\":22,\"id\":\"ia\"},{\"value\":21,\"id\":\"ib\"},{\"value\":20,\"id\":\"ic\"},{\"value\":19,\"id\":\"id\"},{\"value\":18,\"id\":\"ie\"},{\"value\":17,\"id\":\"if\"},{\"value\":16,\"id\":\"ig\"},{\"value\":15,\"id\":\"ih\"},{\"value\":14,\"id\":\"ii\"},{\"value\":13,\"id\":\"ij\"},{\"value\":12,\"id\":\"ik\"},{\"value\":11,\"id\":\"il\"},{\"value\":10,\"id\":\"im\"},{\"value\":9,\"id\":\"in\"},{\"value\":8,\"id\":\"io\"},{\"value\":7,\"id\":\"ip\"},{\"value\":6,\"id\":\"iq\"},{\"value\":5,\"id\":\"ir\"},{\"value\":4,\"id\":\"is\"},{\"value\":3,\"id\":\"it\"},{\"value\":2,\"id\":\"iu\"},{\"value\":1,\"id\":\"iv\"}]"
-    },
-    {
-      "name": "선택 안정성 반례",
-      "pass": true,
-      "actual": [
-        "1c",
-        "2b",
-        "2a"
-      ],
-      "expected": [
-        "1c",
-        "2b",
-        "2a"
-      ]
-    },
-    {
-      "name": "bubble 같은 값 순서 보존",
-      "pass": true,
-      "actual": [
-        "1c",
-        "2a",
-        "2b"
-      ],
-      "expected": [
-        "1c",
-        "2a",
-        "2b"
-      ]
-    },
-    {
-      "name": "insertion 같은 값 순서 보존",
-      "pass": true,
-      "actual": [
-        "1c",
-        "2a",
-        "2b"
-      ],
-      "expected": [
-        "1c",
-        "2a",
-        "2b"
-      ]
-    },
-    {
-      "name": "삽입 실패 비교 포함",
-      "pass": true,
-      "actual": 3,
-      "expected": 3
-    },
-    {
-      "name": "시드 재현성",
-      "pass": true,
-      "actual": [
-        {
-          "value": 12,
-          "id": "a"
-        },
-        {
-          "value": 28,
-          "id": "b"
-        },
-        {
-          "value": 8,
-          "id": "c"
-        },
-        {
-          "value": 22,
-          "id": "d"
-        },
-        {
-          "value": 13,
-          "id": "e"
-        },
-        {
-          "value": 26,
-          "id": "f"
-        },
-        {
-          "value": 18,
-          "id": "g"
-        },
-        {
-          "value": 7,
-          "id": "h"
-        },
-        {
-          "value": 27,
-          "id": "i"
-        },
-        {
-          "value": 3,
-          "id": "j"
-        },
-        {
-          "value": 10,
-          "id": "k"
-        },
-        {
-          "value": 9,
-          "id": "l"
-        },
-        {
-          "value": 21,
-          "id": "m"
-        },
-        {
-          "value": 5,
-          "id": "n"
-        },
-        {
-          "value": 30,
-          "id": "o"
-        },
-        {
-          "value": 16,
-          "id": "p"
-        },
-        {
-          "value": 25,
-          "id": "q"
-        },
-        {
-          "value": 11,
-          "id": "r"
-        },
-        {
-          "value": 6,
-          "id": "s"
-        },
-        {
-          "value": 15,
-          "id": "t"
-        },
-        {
-          "value": 24,
-          "id": "u"
-        },
-        {
-          "value": 32,
-          "id": "v"
-        },
-        {
-          "value": 23,
-          "id": "w"
-        },
-        {
-          "value": 4,
-          "id": "x"
-        },
-        {
-          "value": 29,
-          "id": "y"
-        },
-        {
-          "value": 17,
-          "id": "z"
-        },
-        {
-          "value": 14,
-          "id": "aa"
-        },
-        {
-          "value": 19,
-          "id": "ab"
-        },
-        {
-          "value": 20,
-          "id": "ac"
-        },
-        {
-          "value": 31,
-          "id": "ad"
-        },
-        {
-          "value": 2,
-          "id": "ae"
-        },
-        {
-          "value": 1,
-          "id": "af"
-        }
-      ],
-      "expected": [
-        {
-          "value": 12,
-          "id": "a"
-        },
-        {
-          "value": 28,
-          "id": "b"
-        },
-        {
-          "value": 8,
-          "id": "c"
-        },
-        {
-          "value": 22,
-          "id": "d"
-        },
-        {
-          "value": 13,
-          "id": "e"
-        },
-        {
-          "value": 26,
-          "id": "f"
-        },
-        {
-          "value": 18,
-          "id": "g"
-        },
-        {
-          "value": 7,
-          "id": "h"
-        },
-        {
-          "value": 27,
-          "id": "i"
-        },
-        {
-          "value": 3,
-          "id": "j"
-        },
-        {
-          "value": 10,
-          "id": "k"
-        },
-        {
-          "value": 9,
-          "id": "l"
-        },
-        {
-          "value": 21,
-          "id": "m"
-        },
-        {
-          "value": 5,
-          "id": "n"
-        },
-        {
-          "value": 30,
-          "id": "o"
-        },
-        {
-          "value": 16,
-          "id": "p"
-        },
-        {
-          "value": 25,
-          "id": "q"
-        },
-        {
-          "value": 11,
-          "id": "r"
-        },
-        {
-          "value": 6,
-          "id": "s"
-        },
-        {
-          "value": 15,
-          "id": "t"
-        },
-        {
-          "value": 24,
-          "id": "u"
-        },
-        {
-          "value": 32,
-          "id": "v"
-        },
-        {
-          "value": 23,
-          "id": "w"
-        },
-        {
-          "value": 4,
-          "id": "x"
-        },
-        {
-          "value": 29,
-          "id": "y"
-        },
-        {
-          "value": 17,
-          "id": "z"
-        },
-        {
-          "value": 14,
-          "id": "aa"
-        },
-        {
-          "value": 19,
-          "id": "ab"
-        },
-        {
-          "value": 20,
-          "id": "ac"
-        },
-        {
-          "value": 31,
-          "id": "ad"
-        },
-        {
-          "value": 2,
-          "id": "ae"
-        },
-        {
-          "value": 1,
-          "id": "af"
-        }
-      ]
-    },
-    {
-      "name": "잘못된 n 거절: 8.5",
-      "pass": true,
-      "actual": true,
-      "expected": true
-    },
-    {
-      "name": "잘못된 n 거절: 1e2",
-      "pass": true,
-      "actual": true,
-      "expected": true
-    },
-    {
-      "name": "잘못된 n 거절: 9007199254740992",
-      "pass": true,
-      "actual": true,
-      "expected": true
-    },
-    {
-      "name": "잘못된 n 거절: -8",
-      "pass": true,
-      "actual": true,
-      "expected": true
-    },
-    {
-      "name": "잘못된 n 거절: 빈값",
-      "pass": true,
-      "actual": true,
-      "expected": true
-    },
-    {
-      "name": "잘못된 n 거절: 257",
-      "pass": true,
-      "actual": true,
-      "expected": true
-    },
-    {
-      "name": "bubble 추적 재생 일치 n=8 1",
-      "pass": true,
-      "actual": [
-        {
-          "value": 1,
-          "id": "a"
-        },
-        {
-          "value": 2,
-          "id": "b"
-        },
-        {
-          "value": 3,
-          "id": "c"
-        },
-        {
-          "value": 4,
-          "id": "d"
-        },
-        {
-          "value": 5,
-          "id": "e"
-        },
-        {
-          "value": 6,
-          "id": "f"
-        },
-        {
-          "value": 7,
-          "id": "g"
-        },
-        {
-          "value": 8,
-          "id": "h"
-        }
-      ],
-      "expected": [
-        {
-          "value": 1,
-          "id": "a"
-        },
-        {
-          "value": 2,
-          "id": "b"
-        },
-        {
-          "value": 3,
-          "id": "c"
-        },
-        {
-          "value": 4,
-          "id": "d"
-        },
-        {
-          "value": 5,
-          "id": "e"
-        },
-        {
-          "value": 6,
-          "id": "f"
-        },
-        {
-          "value": 7,
-          "id": "g"
-        },
-        {
-          "value": 8,
-          "id": "h"
-        }
-      ]
-    },
-    {
-      "name": "bubble 비교 이벤트 일치 n=8 1",
-      "pass": true,
-      "actual": 7,
-      "expected": 7
-    },
-    {
-      "name": "bubble 마지막 든 원소 비움 n=8 1",
-      "pass": true,
-      "actual": null,
-      "expected": null
-    },
-    {
-      "name": "selection 추적 재생 일치 n=8 1",
-      "pass": true,
-      "actual": [
-        {
-          "value": 1,
-          "id": "a"
-        },
-        {
-          "value": 2,
-          "id": "b"
-        },
-        {
-          "value": 3,
-          "id": "c"
-        },
-        {
-          "value": 4,
-          "id": "d"
-        },
-        {
-          "value": 5,
-          "id": "e"
-        },
-        {
-          "value": 6,
-          "id": "f"
-        },
-        {
-          "value": 7,
-          "id": "g"
-        },
-        {
-          "value": 8,
-          "id": "h"
-        }
-      ],
-      "expected": [
-        {
-          "value": 1,
-          "id": "a"
-        },
-        {
-          "value": 2,
-          "id": "b"
-        },
-        {
-          "value": 3,
-          "id": "c"
-        },
-        {
-          "value": 4,
-          "id": "d"
-        },
-        {
-          "value": 5,
-          "id": "e"
-        },
-        {
-          "value": 6,
-          "id": "f"
-        },
-        {
-          "value": 7,
-          "id": "g"
-        },
-        {
-          "value": 8,
-          "id": "h"
-        }
-      ]
-    },
-    {
-      "name": "selection 비교 이벤트 일치 n=8 1",
-      "pass": true,
-      "actual": 28,
-      "expected": 28
-    },
-    {
-      "name": "selection 마지막 든 원소 비움 n=8 1",
-      "pass": true,
-      "actual": null,
-      "expected": null
-    },
-    {
-      "name": "insertion 추적 재생 일치 n=8 1",
-      "pass": true,
-      "actual": [
-        {
-          "value": 1,
-          "id": "a"
-        },
-        {
-          "value": 2,
-          "id": "b"
-        },
-        {
-          "value": 3,
-          "id": "c"
-        },
-        {
-          "value": 4,
-          "id": "d"
-        },
-        {
-          "value": 5,
-          "id": "e"
-        },
-        {
-          "value": 6,
-          "id": "f"
-        },
-        {
-          "value": 7,
-          "id": "g"
-        },
-        {
-          "value": 8,
-          "id": "h"
-        }
-      ],
-      "expected": [
-        {
-          "value": 1,
-          "id": "a"
-        },
-        {
-          "value": 2,
-          "id": "b"
-        },
-        {
-          "value": 3,
-          "id": "c"
-        },
-        {
-          "value": 4,
-          "id": "d"
-        },
-        {
-          "value": 5,
-          "id": "e"
-        },
-        {
-          "value": 6,
-          "id": "f"
-        },
-        {
-          "value": 7,
-          "id": "g"
-        },
-        {
-          "value": 8,
-          "id": "h"
-        }
-      ]
-    },
-    {
-      "name": "insertion 비교 이벤트 일치 n=8 1",
-      "pass": true,
-      "actual": 7,
-      "expected": 7
-    },
-    {
-      "name": "insertion 마지막 든 원소 비움 n=8 1",
-      "pass": true,
-      "actual": null,
-      "expected": null
-    },
-    {
-      "name": "bubble 추적 재생 일치 n=8 8",
-      "pass": true,
-      "actual": [
-        {
-          "value": 1,
-          "id": "h"
-        },
-        {
-          "value": 2,
-          "id": "g"
-        },
-        {
-          "value": 3,
-          "id": "f"
-        },
-        {
-          "value": 4,
-          "id": "e"
-        },
-        {
-          "value": 5,
-          "id": "d"
-        },
-        {
-          "value": 6,
-          "id": "c"
-        },
-        {
-          "value": 7,
-          "id": "b"
-        },
-        {
-          "value": 8,
-          "id": "a"
-        }
-      ],
-      "expected": [
-        {
-          "value": 1,
-          "id": "h"
-        },
-        {
-          "value": 2,
-          "id": "g"
-        },
-        {
-          "value": 3,
-          "id": "f"
-        },
-        {
-          "value": 4,
-          "id": "e"
-        },
-        {
-          "value": 5,
-          "id": "d"
-        },
-        {
-          "value": 6,
-          "id": "c"
-        },
-        {
-          "value": 7,
-          "id": "b"
-        },
-        {
-          "value": 8,
-          "id": "a"
-        }
-      ]
-    },
-    {
-      "name": "bubble 비교 이벤트 일치 n=8 8",
-      "pass": true,
-      "actual": 28,
-      "expected": 28
-    },
-    {
-      "name": "bubble 마지막 든 원소 비움 n=8 8",
-      "pass": true,
-      "actual": null,
-      "expected": null
-    },
-    {
-      "name": "selection 추적 재생 일치 n=8 8",
-      "pass": true,
-      "actual": [
-        {
-          "value": 1,
-          "id": "h"
-        },
-        {
-          "value": 2,
-          "id": "g"
-        },
-        {
-          "value": 3,
-          "id": "f"
-        },
-        {
-          "value": 4,
-          "id": "e"
-        },
-        {
-          "value": 5,
-          "id": "d"
-        },
-        {
-          "value": 6,
-          "id": "c"
-        },
-        {
-          "value": 7,
-          "id": "b"
-        },
-        {
-          "value": 8,
-          "id": "a"
-        }
-      ],
-      "expected": [
-        {
-          "value": 1,
-          "id": "h"
-        },
-        {
-          "value": 2,
-          "id": "g"
-        },
-        {
-          "value": 3,
-          "id": "f"
-        },
-        {
-          "value": 4,
-          "id": "e"
-        },
-        {
-          "value": 5,
-          "id": "d"
-        },
-        {
-          "value": 6,
-          "id": "c"
-        },
-        {
-          "value": 7,
-          "id": "b"
-        },
-        {
-          "value": 8,
-          "id": "a"
-        }
-      ]
-    },
-    {
-      "name": "selection 비교 이벤트 일치 n=8 8",
-      "pass": true,
-      "actual": 28,
-      "expected": 28
-    },
-    {
-      "name": "selection 마지막 든 원소 비움 n=8 8",
-      "pass": true,
-      "actual": null,
-      "expected": null
-    },
-    {
-      "name": "insertion 추적 재생 일치 n=8 8",
-      "pass": true,
-      "actual": [
-        {
-          "value": 1,
-          "id": "h"
-        },
-        {
-          "value": 2,
-          "id": "g"
-        },
-        {
-          "value": 3,
-          "id": "f"
-        },
-        {
-          "value": 4,
-          "id": "e"
-        },
-        {
-          "value": 5,
-          "id": "d"
-        },
-        {
-          "value": 6,
-          "id": "c"
-        },
-        {
-          "value": 7,
-          "id": "b"
-        },
-        {
-          "value": 8,
-          "id": "a"
-        }
-      ],
-      "expected": [
-        {
-          "value": 1,
-          "id": "h"
-        },
-        {
-          "value": 2,
-          "id": "g"
-        },
-        {
-          "value": 3,
-          "id": "f"
-        },
-        {
-          "value": 4,
-          "id": "e"
-        },
-        {
-          "value": 5,
-          "id": "d"
-        },
-        {
-          "value": 6,
-          "id": "c"
-        },
-        {
-          "value": 7,
-          "id": "b"
-        },
-        {
-          "value": 8,
-          "id": "a"
-        }
-      ]
-    },
-    {
-      "name": "insertion 비교 이벤트 일치 n=8 8",
-      "pass": true,
-      "actual": 28,
-      "expected": 28
-    },
-    {
-      "name": "insertion 마지막 든 원소 비움 n=8 8",
-      "pass": true,
-      "actual": null,
-      "expected": null
-    },
-    {
-      "name": "bubble 추적 재생 일치 n=17 2",
-      "pass": true,
-      "actual": [
-        {
-          "value": 1,
-          "id": "h"
-        },
-        {
-          "value": 2,
-          "id": "a"
-        },
-        {
-          "value": 3,
-          "id": "e"
-        },
-        {
-          "value": 4,
-          "id": "k"
-        },
-        {
-          "value": 5,
-          "id": "q"
-        },
-        {
-          "value": 6,
-          "id": "g"
-        },
-        {
-          "value": 7,
-          "id": "l"
-        },
-        {
-          "value": 8,
-          "id": "c"
-        },
-        {
-          "value": 9,
-          "id": "i"
-        },
-        {
-          "value": 10,
-          "id": "m"
-        },
-        {
-          "value": 11,
-          "id": "d"
-        },
-        {
-          "value": 12,
-          "id": "f"
-        },
-        {
-          "value": 13,
-          "id": "j"
-        },
-        {
-          "value": 14,
-          "id": "b"
-        },
-        {
-          "value": 15,
-          "id": "o"
-        },
-        {
-          "value": 16,
-          "id": "n"
-        },
-        {
-          "value": 17,
-          "id": "p"
-        }
-      ],
-      "expected": [
-        {
-          "value": 1,
-          "id": "h"
-        },
-        {
-          "value": 2,
-          "id": "a"
-        },
-        {
-          "value": 3,
-          "id": "e"
-        },
-        {
-          "value": 4,
-          "id": "k"
-        },
-        {
-          "value": 5,
-          "id": "q"
-        },
-        {
-          "value": 6,
-          "id": "g"
-        },
-        {
-          "value": 7,
-          "id": "l"
-        },
-        {
-          "value": 8,
-          "id": "c"
-        },
-        {
-          "value": 9,
-          "id": "i"
-        },
-        {
-          "value": 10,
-          "id": "m"
-        },
-        {
-          "value": 11,
-          "id": "d"
-        },
-        {
-          "value": 12,
-          "id": "f"
-        },
-        {
-          "value": 13,
-          "id": "j"
-        },
-        {
-          "value": 14,
-          "id": "b"
-        },
-        {
-          "value": 15,
-          "id": "o"
-        },
-        {
-          "value": 16,
-          "id": "n"
-        },
-        {
-          "value": 17,
-          "id": "p"
-        }
-      ]
-    },
-    {
-      "name": "bubble 비교 이벤트 일치 n=17 2",
-      "pass": true,
-      "actual": 130,
-      "expected": 130
-    },
-    {
-      "name": "bubble 마지막 든 원소 비움 n=17 2",
-      "pass": true,
-      "actual": null,
-      "expected": null
-    },
-    {
-      "name": "selection 추적 재생 일치 n=17 2",
-      "pass": true,
-      "actual": [
-        {
-          "value": 1,
-          "id": "h"
-        },
-        {
-          "value": 2,
-          "id": "a"
-        },
-        {
-          "value": 3,
-          "id": "e"
-        },
-        {
-          "value": 4,
-          "id": "k"
-        },
-        {
-          "value": 5,
-          "id": "q"
-        },
-        {
-          "value": 6,
-          "id": "g"
-        },
-        {
-          "value": 7,
-          "id": "l"
-        },
-        {
-          "value": 8,
-          "id": "c"
-        },
-        {
-          "value": 9,
-          "id": "i"
-        },
-        {
-          "value": 10,
-          "id": "m"
-        },
-        {
-          "value": 11,
-          "id": "d"
-        },
-        {
-          "value": 12,
-          "id": "f"
-        },
-        {
-          "value": 13,
-          "id": "j"
-        },
-        {
-          "value": 14,
-          "id": "b"
-        },
-        {
-          "value": 15,
-          "id": "o"
-        },
-        {
-          "value": 16,
-          "id": "n"
-        },
-        {
-          "value": 17,
-          "id": "p"
-        }
-      ],
-      "expected": [
-        {
-          "value": 1,
-          "id": "h"
-        },
-        {
-          "value": 2,
-          "id": "a"
-        },
-        {
-          "value": 3,
-          "id": "e"
-        },
-        {
-          "value": 4,
-          "id": "k"
-        },
-        {
-          "value": 5,
-          "id": "q"
-        },
-        {
-          "value": 6,
-          "id": "g"
-        },
-        {
-          "value": 7,
-          "id": "l"
-        },
-        {
-          "value": 8,
-          "id": "c"
-        },
-        {
-          "value": 9,
-          "id": "i"
-        },
-        {
-          "value": 10,
-          "id": "m"
-        },
-        {
-          "value": 11,
-          "id": "d"
-        },
-        {
-          "value": 12,
-          "id": "f"
-        },
-        {
-          "value": 13,
-          "id": "j"
-        },
-        {
-          "value": 14,
-          "id": "b"
-        },
-        {
-          "value": 15,
-          "id": "o"
-        },
-        {
-          "value": 16,
-          "id": "n"
-        },
-        {
-          "value": 17,
-          "id": "p"
-        }
-      ]
-    },
-    {
-      "name": "selection 비교 이벤트 일치 n=17 2",
-      "pass": true,
-      "actual": 136,
-      "expected": 136
-    },
-    {
-      "name": "selection 마지막 든 원소 비움 n=17 2",
-      "pass": true,
-      "actual": null,
-      "expected": null
-    },
-    {
-      "name": "insertion 추적 재생 일치 n=17 2",
-      "pass": true,
-      "actual": [
-        {
-          "value": 1,
-          "id": "h"
-        },
-        {
-          "value": 2,
-          "id": "a"
-        },
-        {
-          "value": 3,
-          "id": "e"
-        },
-        {
-          "value": 4,
-          "id": "k"
-        },
-        {
-          "value": 5,
-          "id": "q"
-        },
-        {
-          "value": 6,
-          "id": "g"
-        },
-        {
-          "value": 7,
-          "id": "l"
-        },
-        {
-          "value": 8,
-          "id": "c"
-        },
-        {
-          "value": 9,
-          "id": "i"
-        },
-        {
-          "value": 10,
-          "id": "m"
-        },
-        {
-          "value": 11,
-          "id": "d"
-        },
-        {
-          "value": 12,
-          "id": "f"
-        },
-        {
-          "value": 13,
-          "id": "j"
-        },
-        {
-          "value": 14,
-          "id": "b"
-        },
-        {
-          "value": 15,
-          "id": "o"
-        },
-        {
-          "value": 16,
-          "id": "n"
-        },
-        {
-          "value": 17,
-          "id": "p"
-        }
-      ],
-      "expected": [
-        {
-          "value": 1,
-          "id": "h"
-        },
-        {
-          "value": 2,
-          "id": "a"
-        },
-        {
-          "value": 3,
-          "id": "e"
-        },
-        {
-          "value": 4,
-          "id": "k"
-        },
-        {
-          "value": 5,
-          "id": "q"
-        },
-        {
-          "value": 6,
-          "id": "g"
-        },
-        {
-          "value": 7,
-          "id": "l"
-        },
-        {
-          "value": 8,
-          "id": "c"
-        },
-        {
-          "value": 9,
-          "id": "i"
-        },
-        {
-          "value": 10,
-          "id": "m"
-        },
-        {
-          "value": 11,
-          "id": "d"
-        },
-        {
-          "value": 12,
-          "id": "f"
-        },
-        {
-          "value": 13,
-          "id": "j"
-        },
-        {
-          "value": 14,
-          "id": "b"
-        },
-        {
-          "value": 15,
-          "id": "o"
-        },
-        {
-          "value": 16,
-          "id": "n"
-        },
-        {
-          "value": 17,
-          "id": "p"
-        }
-      ]
-    },
-    {
-      "name": "insertion 비교 이벤트 일치 n=17 2",
-      "pass": true,
-      "actual": 66,
-      "expected": 66
-    },
-    {
-      "name": "insertion 마지막 든 원소 비움 n=17 2",
-      "pass": true,
-      "actual": null,
-      "expected": null
-    },
-    {
-      "name": "bubble 추적 재생 일치 n=32 1",
-      "pass": true,
-      "actual": [
-        {
-          "value": 1,
-          "id": "a"
-        },
-        {
-          "value": 1,
-          "id": "c"
-        },
-        {
-          "value": 1,
-          "id": "f"
-        },
-        {
-          "value": 1,
-          "id": "g"
-        },
-        {
-          "value": 1,
-          "id": "l"
-        },
-        {
-          "value": 1,
-          "id": "q"
-        },
-        {
-          "value": 1,
-          "id": "y"
-        },
-        {
-          "value": 1,
-          "id": "z"
-        },
-        {
-          "value": 1,
-          "id": "aa"
-        },
-        {
-          "value": 1,
-          "id": "ab"
-        },
-        {
-          "value": 1,
-          "id": "ac"
-        },
-        {
-          "value": 2,
-          "id": "b"
-        },
-        {
-          "value": 2,
-          "id": "h"
-        },
-        {
-          "value": 2,
-          "id": "o"
-        },
-        {
-          "value": 2,
-          "id": "p"
-        },
-        {
-          "value": 2,
-          "id": "r"
-        },
-        {
-          "value": 2,
-          "id": "t"
-        },
-        {
-          "value": 2,
-          "id": "x"
-        },
-        {
-          "value": 2,
-          "id": "ad"
-        },
-        {
-          "value": 2,
-          "id": "af"
-        },
-        {
-          "value": 3,
-          "id": "d"
-        },
-        {
-          "value": 3,
-          "id": "e"
-        },
-        {
-          "value": 3,
-          "id": "i"
-        },
-        {
-          "value": 3,
-          "id": "j"
-        },
-        {
-          "value": 3,
-          "id": "k"
-        },
-        {
-          "value": 3,
-          "id": "m"
-        },
-        {
-          "value": 3,
-          "id": "v"
-        },
-        {
-          "value": 3,
-          "id": "w"
-        },
-        {
-          "value": 3,
-          "id": "ae"
-        },
-        {
-          "value": 4,
-          "id": "n"
-        },
-        {
-          "value": 4,
-          "id": "s"
-        },
-        {
-          "value": 4,
-          "id": "u"
-        }
-      ],
-      "expected": [
-        {
-          "value": 1,
-          "id": "a"
-        },
-        {
-          "value": 1,
-          "id": "c"
-        },
-        {
-          "value": 1,
-          "id": "f"
-        },
-        {
-          "value": 1,
-          "id": "g"
-        },
-        {
-          "value": 1,
-          "id": "l"
-        },
-        {
-          "value": 1,
-          "id": "q"
-        },
-        {
-          "value": 1,
-          "id": "y"
-        },
-        {
-          "value": 1,
-          "id": "z"
-        },
-        {
-          "value": 1,
-          "id": "aa"
-        },
-        {
-          "value": 1,
-          "id": "ab"
-        },
-        {
-          "value": 1,
-          "id": "ac"
-        },
-        {
-          "value": 2,
-          "id": "b"
-        },
-        {
-          "value": 2,
-          "id": "h"
-        },
-        {
-          "value": 2,
-          "id": "o"
-        },
-        {
-          "value": 2,
-          "id": "p"
-        },
-        {
-          "value": 2,
-          "id": "r"
-        },
-        {
-          "value": 2,
-          "id": "t"
-        },
-        {
-          "value": 2,
-          "id": "x"
-        },
-        {
-          "value": 2,
-          "id": "ad"
-        },
-        {
-          "value": 2,
-          "id": "af"
-        },
-        {
-          "value": 3,
-          "id": "d"
-        },
-        {
-          "value": 3,
-          "id": "e"
-        },
-        {
-          "value": 3,
-          "id": "i"
-        },
-        {
-          "value": 3,
-          "id": "j"
-        },
-        {
-          "value": 3,
-          "id": "k"
-        },
-        {
-          "value": 3,
-          "id": "m"
-        },
-        {
-          "value": 3,
-          "id": "v"
-        },
-        {
-          "value": 3,
-          "id": "w"
-        },
-        {
-          "value": 3,
-          "id": "ae"
-        },
-        {
-          "value": 4,
-          "id": "n"
-        },
-        {
-          "value": 4,
-          "id": "s"
-        },
-        {
-          "value": 4,
-          "id": "u"
-        }
-      ]
-    },
-    {
-      "name": "bubble 비교 이벤트 일치 n=32 1",
-      "pass": true,
-      "actual": 418,
-      "expected": 418
-    },
-    {
-      "name": "bubble 마지막 든 원소 비움 n=32 1",
-      "pass": true,
-      "actual": null,
-      "expected": null
-    },
-    {
-      "name": "selection 추적 재생 일치 n=32 1",
-      "pass": true,
-      "actual": [
-        {
-          "value": 1,
-          "id": "a"
-        },
-        {
-          "value": 1,
-          "id": "c"
-        },
-        {
-          "value": 1,
-          "id": "f"
-        },
-        {
-          "value": 1,
-          "id": "g"
-        },
-        {
-          "value": 1,
-          "id": "l"
-        },
-        {
-          "value": 1,
-          "id": "q"
-        },
-        {
-          "value": 1,
-          "id": "y"
-        },
-        {
-          "value": 1,
-          "id": "z"
-        },
-        {
-          "value": 1,
-          "id": "aa"
-        },
-        {
-          "value": 1,
-          "id": "ab"
-        },
-        {
-          "value": 1,
-          "id": "ac"
-        },
-        {
-          "value": 2,
-          "id": "o"
-        },
-        {
-          "value": 2,
-          "id": "p"
-        },
-        {
-          "value": 2,
-          "id": "b"
-        },
-        {
-          "value": 2,
-          "id": "r"
-        },
-        {
-          "value": 2,
-          "id": "t"
-        },
-        {
-          "value": 2,
-          "id": "x"
-        },
-        {
-          "value": 2,
-          "id": "h"
-        },
-        {
-          "value": 2,
-          "id": "ad"
-        },
-        {
-          "value": 2,
-          "id": "af"
-        },
-        {
-          "value": 3,
-          "id": "v"
-        },
-        {
-          "value": 3,
-          "id": "w"
-        },
-        {
-          "value": 3,
-          "id": "d"
-        },
-        {
-          "value": 3,
-          "id": "e"
-        },
-        {
-          "value": 3,
-          "id": "i"
-        },
-        {
-          "value": 3,
-          "id": "j"
-        },
-        {
-          "value": 3,
-          "id": "k"
-        },
-        {
-          "value": 3,
-          "id": "ae"
-        },
-        {
-          "value": 3,
-          "id": "m"
-        },
-        {
-          "value": 4,
-          "id": "s"
-        },
-        {
-          "value": 4,
-          "id": "n"
-        },
-        {
-          "value": 4,
-          "id": "u"
-        }
-      ],
-      "expected": [
-        {
-          "value": 1,
-          "id": "a"
-        },
-        {
-          "value": 1,
-          "id": "c"
-        },
-        {
-          "value": 1,
-          "id": "f"
-        },
-        {
-          "value": 1,
-          "id": "g"
-        },
-        {
-          "value": 1,
-          "id": "l"
-        },
-        {
-          "value": 1,
-          "id": "q"
-        },
-        {
-          "value": 1,
-          "id": "y"
-        },
-        {
-          "value": 1,
-          "id": "z"
-        },
-        {
-          "value": 1,
-          "id": "aa"
-        },
-        {
-          "value": 1,
-          "id": "ab"
-        },
-        {
-          "value": 1,
-          "id": "ac"
-        },
-        {
-          "value": 2,
-          "id": "o"
-        },
-        {
-          "value": 2,
-          "id": "p"
-        },
-        {
-          "value": 2,
-          "id": "b"
-        },
-        {
-          "value": 2,
-          "id": "r"
-        },
-        {
-          "value": 2,
-          "id": "t"
-        },
-        {
-          "value": 2,
-          "id": "x"
-        },
-        {
-          "value": 2,
-          "id": "h"
-        },
-        {
-          "value": 2,
-          "id": "ad"
-        },
-        {
-          "value": 2,
-          "id": "af"
-        },
-        {
-          "value": 3,
-          "id": "v"
-        },
-        {
-          "value": 3,
-          "id": "w"
-        },
-        {
-          "value": 3,
-          "id": "d"
-        },
-        {
-          "value": 3,
-          "id": "e"
-        },
-        {
-          "value": 3,
-          "id": "i"
-        },
-        {
-          "value": 3,
-          "id": "j"
-        },
-        {
-          "value": 3,
-          "id": "k"
-        },
-        {
-          "value": 3,
-          "id": "ae"
-        },
-        {
-          "value": 3,
-          "id": "m"
-        },
-        {
-          "value": 4,
-          "id": "s"
-        },
-        {
-          "value": 4,
-          "id": "n"
-        },
-        {
-          "value": 4,
-          "id": "u"
-        }
-      ]
-    },
-    {
-      "name": "selection 비교 이벤트 일치 n=32 1",
-      "pass": true,
-      "actual": 496,
-      "expected": 496
-    },
-    {
-      "name": "selection 마지막 든 원소 비움 n=32 1",
-      "pass": true,
-      "actual": null,
-      "expected": null
-    },
-    {
-      "name": "insertion 추적 재생 일치 n=32 1",
-      "pass": true,
-      "actual": [
-        {
-          "value": 1,
-          "id": "a"
-        },
-        {
-          "value": 1,
-          "id": "c"
-        },
-        {
-          "value": 1,
-          "id": "f"
-        },
-        {
-          "value": 1,
-          "id": "g"
-        },
-        {
-          "value": 1,
-          "id": "l"
-        },
-        {
-          "value": 1,
-          "id": "q"
-        },
-        {
-          "value": 1,
-          "id": "y"
-        },
-        {
-          "value": 1,
-          "id": "z"
-        },
-        {
-          "value": 1,
-          "id": "aa"
-        },
-        {
-          "value": 1,
-          "id": "ab"
-        },
-        {
-          "value": 1,
-          "id": "ac"
-        },
-        {
-          "value": 2,
-          "id": "b"
-        },
-        {
-          "value": 2,
-          "id": "h"
-        },
-        {
-          "value": 2,
-          "id": "o"
-        },
-        {
-          "value": 2,
-          "id": "p"
-        },
-        {
-          "value": 2,
-          "id": "r"
-        },
-        {
-          "value": 2,
-          "id": "t"
-        },
-        {
-          "value": 2,
-          "id": "x"
-        },
-        {
-          "value": 2,
-          "id": "ad"
-        },
-        {
-          "value": 2,
-          "id": "af"
-        },
-        {
-          "value": 3,
-          "id": "d"
-        },
-        {
-          "value": 3,
-          "id": "e"
-        },
-        {
-          "value": 3,
-          "id": "i"
-        },
-        {
-          "value": 3,
-          "id": "j"
-        },
-        {
-          "value": 3,
-          "id": "k"
-        },
-        {
-          "value": 3,
-          "id": "m"
-        },
-        {
-          "value": 3,
-          "id": "v"
-        },
-        {
-          "value": 3,
-          "id": "w"
-        },
-        {
-          "value": 3,
-          "id": "ae"
-        },
-        {
-          "value": 4,
-          "id": "n"
-        },
-        {
-          "value": 4,
-          "id": "s"
-        },
-        {
-          "value": 4,
-          "id": "u"
-        }
-      ],
-      "expected": [
-        {
-          "value": 1,
-          "id": "a"
-        },
-        {
-          "value": 1,
-          "id": "c"
-        },
-        {
-          "value": 1,
-          "id": "f"
-        },
-        {
-          "value": 1,
-          "id": "g"
-        },
-        {
-          "value": 1,
-          "id": "l"
-        },
-        {
-          "value": 1,
-          "id": "q"
-        },
-        {
-          "value": 1,
-          "id": "y"
-        },
-        {
-          "value": 1,
-          "id": "z"
-        },
-        {
-          "value": 1,
-          "id": "aa"
-        },
-        {
-          "value": 1,
-          "id": "ab"
-        },
-        {
-          "value": 1,
-          "id": "ac"
-        },
-        {
-          "value": 2,
-          "id": "b"
-        },
-        {
-          "value": 2,
-          "id": "h"
-        },
-        {
-          "value": 2,
-          "id": "o"
-        },
-        {
-          "value": 2,
-          "id": "p"
-        },
-        {
-          "value": 2,
-          "id": "r"
-        },
-        {
-          "value": 2,
-          "id": "t"
-        },
-        {
-          "value": 2,
-          "id": "x"
-        },
-        {
-          "value": 2,
-          "id": "ad"
-        },
-        {
-          "value": 2,
-          "id": "af"
-        },
-        {
-          "value": 3,
-          "id": "d"
-        },
-        {
-          "value": 3,
-          "id": "e"
-        },
-        {
-          "value": 3,
-          "id": "i"
-        },
-        {
-          "value": 3,
-          "id": "j"
-        },
-        {
-          "value": 3,
-          "id": "k"
-        },
-        {
-          "value": 3,
-          "id": "m"
-        },
-        {
-          "value": 3,
-          "id": "v"
-        },
-        {
-          "value": 3,
-          "id": "w"
-        },
-        {
-          "value": 3,
-          "id": "ae"
-        },
-        {
-          "value": 4,
-          "id": "n"
-        },
-        {
-          "value": 4,
-          "id": "s"
-        },
-        {
-          "value": 4,
-          "id": "u"
-        }
-      ]
-    },
-    {
-      "name": "insertion 비교 이벤트 일치 n=32 1",
-      "pass": true,
-      "actual": 220,
-      "expected": 220
-    },
-    {
-      "name": "insertion 마지막 든 원소 비움 n=32 1",
-      "pass": true,
-      "actual": null,
-      "expected": null
-    },
-    {
-      "name": "bubble 추적 재생 일치 n=8 1",
-      "pass": true,
-      "actual": [
-        {
-          "value": 1,
-          "id": "a"
-        },
-        {
-          "value": 2,
-          "id": "c"
-        },
-        {
-          "value": 3,
-          "id": "b"
-        },
-        {
-          "value": 4,
-          "id": "d"
-        },
-        {
-          "value": 5,
-          "id": "e"
-        },
-        {
-          "value": 6,
-          "id": "f"
-        },
-        {
-          "value": 7,
-          "id": "g"
-        },
-        {
-          "value": 8,
-          "id": "h"
-        }
-      ],
-      "expected": [
-        {
-          "value": 1,
-          "id": "a"
-        },
-        {
-          "value": 2,
-          "id": "c"
-        },
-        {
-          "value": 3,
-          "id": "b"
-        },
-        {
-          "value": 4,
-          "id": "d"
-        },
-        {
-          "value": 5,
-          "id": "e"
-        },
-        {
-          "value": 6,
-          "id": "f"
-        },
-        {
-          "value": 7,
-          "id": "g"
-        },
-        {
-          "value": 8,
-          "id": "h"
-        }
-      ]
-    },
-    {
-      "name": "bubble 비교 이벤트 일치 n=8 1",
-      "pass": true,
-      "actual": 13,
-      "expected": 13
-    },
-    {
-      "name": "bubble 마지막 든 원소 비움 n=8 1",
-      "pass": true,
-      "actual": null,
-      "expected": null
-    },
-    {
-      "name": "selection 추적 재생 일치 n=8 1",
-      "pass": true,
-      "actual": [
-        {
-          "value": 1,
-          "id": "a"
-        },
-        {
-          "value": 2,
-          "id": "c"
-        },
-        {
-          "value": 3,
-          "id": "b"
-        },
-        {
-          "value": 4,
-          "id": "d"
-        },
-        {
-          "value": 5,
-          "id": "e"
-        },
-        {
-          "value": 6,
-          "id": "f"
-        },
-        {
-          "value": 7,
-          "id": "g"
-        },
-        {
-          "value": 8,
-          "id": "h"
-        }
-      ],
-      "expected": [
-        {
-          "value": 1,
-          "id": "a"
-        },
-        {
-          "value": 2,
-          "id": "c"
-        },
-        {
-          "value": 3,
-          "id": "b"
-        },
-        {
-          "value": 4,
-          "id": "d"
-        },
-        {
-          "value": 5,
-          "id": "e"
-        },
-        {
-          "value": 6,
-          "id": "f"
-        },
-        {
-          "value": 7,
-          "id": "g"
-        },
-        {
-          "value": 8,
-          "id": "h"
-        }
-      ]
-    },
-    {
-      "name": "selection 비교 이벤트 일치 n=8 1",
-      "pass": true,
-      "actual": 28,
-      "expected": 28
-    },
-    {
-      "name": "selection 마지막 든 원소 비움 n=8 1",
-      "pass": true,
-      "actual": null,
-      "expected": null
-    },
-    {
-      "name": "insertion 추적 재생 일치 n=8 1",
-      "pass": true,
-      "actual": [
-        {
-          "value": 1,
-          "id": "a"
-        },
-        {
-          "value": 2,
-          "id": "c"
-        },
-        {
-          "value": 3,
-          "id": "b"
-        },
-        {
-          "value": 4,
-          "id": "d"
-        },
-        {
-          "value": 5,
-          "id": "e"
-        },
-        {
-          "value": 6,
-          "id": "f"
-        },
-        {
-          "value": 7,
-          "id": "g"
-        },
-        {
-          "value": 8,
-          "id": "h"
-        }
-      ],
-      "expected": [
-        {
-          "value": 1,
-          "id": "a"
-        },
-        {
-          "value": 2,
-          "id": "c"
-        },
-        {
-          "value": 3,
-          "id": "b"
-        },
-        {
-          "value": 4,
-          "id": "d"
-        },
-        {
-          "value": 5,
-          "id": "e"
-        },
-        {
-          "value": 6,
-          "id": "f"
-        },
-        {
-          "value": 7,
-          "id": "g"
-        },
-        {
-          "value": 8,
-          "id": "h"
-        }
-      ]
-    },
-    {
-      "name": "insertion 비교 이벤트 일치 n=8 1",
-      "pass": true,
-      "actual": 8,
-      "expected": 8
-    },
-    {
-      "name": "insertion 마지막 든 원소 비움 n=8 1",
-      "pass": true,
-      "actual": null,
-      "expected": null
-    },
-    {
-      "name": "최대 시드 허용",
-      "pass": true,
-      "actual": 4294967295,
-      "expected": 4294967295
-    }
-  ],
-  "history-evidence": [
-    {
-      "name": "공식 자료 URL 5개: HTTPS·국사편찬위원회 도메인",
-      "pass": true,
-      "actual": true,
-      "expected": true
-    },
-    {
-      "name": "모든 자료의 시점·유형·작성정보 존재",
-      "pass": true,
-      "actual": true,
-      "expected": true
-    },
-    {
-      "name": "요약 문단 ID와 내용 무결성",
-      "pass": true,
-      "actual": true,
-      "expected": true
-    },
-    {
-      "name": "법령과 사회현실 연구의 메타데이터 분리",
-      "pass": true,
-      "actual": true,
-      "expected": true
-    },
-    {
-      "name": "연결 사본 수정이 원자료에 영향 없음",
-      "pass": true,
-      "actual": true,
-      "expected": true
-    },
-    {
-      "name": "저장 시점 사본 유지",
-      "pass": true,
-      "actual": "주장 A",
-      "expected": "주장 A"
-    },
-    {
-      "name": "A/B 근거 독립",
-      "pass": true,
-      "actual": 0,
-      "expected": 0
-    },
-    {
-      "name": "내보내기 사본 변경이 초안·자료에 영향 없음",
-      "pass": true,
-      "actual": true,
-      "expected": true
-    },
-    {
-      "name": "JSON 왕복 주장·근거·미해결 질문 보존",
-      "pass": true,
-      "actual": true,
-      "expected": true
-    },
-    {
-      "name": "존재하지 않는 문단 연결 거부",
-      "pass": true,
-      "actual": true,
-      "expected": true
-    }
-  ],
-  "narrative": [
-    {
-      "name": "세계 사실 ID 12개 유일",
-      "pass": true,
-      "actual": 12,
-      "expected": 12
-    },
-    {
-      "name": "모든 서술 문장의 원본 사실 ID 존재",
-      "pass": true,
-      "actual": true,
-      "expected": true
-    },
-    {
-      "name": "각 서술의 사실 ID 중복 없음",
-      "pass": true,
-      "actual": true,
-      "expected": true
-    },
-    {
-      "name": "모든 행동과 순서가 세 서술에서 동일",
-      "pass": true,
-      "actual": [
-        "F01,F02,F03,F04,F05,F06,F07,F08",
-        "F01,F02,F03,F04,F05,F06,F07,F08",
-        "F01,F02,F03,F04,F05,F06,F07,F08"
-      ],
-      "expected": [
-        "F01,F02,F03,F04,F05,F06,F07,F08",
-        "F01,F02,F03,F04,F05,F06,F07,F08",
-        "F01,F02,F03,F04,F05,F06,F07,F08"
-      ]
-    },
-    {
-      "name": "1인칭은 타인의 내면에 접근하지 않음",
-      "pass": true,
-      "actual": true,
-      "expected": true
-    },
-    {
-      "name": "외부 관찰자의 내면 사실 수",
-      "pass": true,
-      "actual": 0,
-      "expected": 0
-    },
-    {
-      "name": "전지적은 모든 세계 사실 제공",
-      "pass": true,
-      "actual": [
-        "F01",
-        "F02",
-        "F03",
-        "F04",
-        "F05",
-        "F06",
-        "F07",
-        "F08",
-        "F09",
-        "F10",
-        "F11",
-        "F12"
-      ],
-      "expected": [
-        "F01",
-        "F02",
-        "F03",
-        "F04",
-        "F05",
-        "F06",
-        "F07",
-        "F08",
-        "F09",
-        "F10",
-        "F11",
-        "F12"
-      ]
-    },
-    {
-      "name": "접근 경계: 유진 내면은 1인칭·관찰자 불가",
-      "pass": true,
-      "actual": [
-        false,
-        false,
-        true
-      ],
-      "expected": [
-        false,
-        false,
-        true
-      ]
-    },
-    {
-      "name": "내보내기 A/B와 원본의 독립성",
-      "pass": true,
-      "actual": [
-        "A의 독립 판단",
-        "B의 독립 판단",
-        0
-      ],
-      "expected": [
-        "A의 독립 판단",
-        "B의 독립 판단",
-        0
-      ]
-    },
-    {
-      "name": "처음 저장본의 근거는 이후 편집과 독립",
-      "pass": true,
-      "actual": "의심은 사실과 다르다",
-      "expected": "의심은 사실과 다르다"
-    },
-    {
-      "name": "단계 공개 3개는 타인의 내면만",
-      "pass": true,
-      "actual": true,
-      "expected": true
-    },
-    {
-      "name": "내보내기에 자연어 자동판정 없음 명시",
-      "pass": true,
-      "actual": true,
-      "expected": true
-    },
-    {
-      "name": "동일 서술 조건은 정보 차이가 없음",
-      "pass": true,
-      "actual": 0,
-      "expected": 0
-    }
-  ],
-  "discourse": [
-    {
-      "name": "library word count 120–160",
-      "pass": true,
-      "actual": true,
-      "expected": true
-    },
-    {
-      "name": "library sentence IDs unique",
-      "pass": true,
-      "actual": 7,
-      "expected": 7
-    },
-    {
-      "name": "library evidence IDs unique",
-      "pass": true,
-      "actual": 21,
-      "expected": 21
-    },
-    {
-      "name": "library references resolve",
-      "pass": true,
-      "actual": true,
-      "expected": true
-    },
-    {
-      "name": "library all role annotations covered",
-      "pass": true,
-      "actual": [
-        "claim",
-        "conclusion",
-        "counterpoint",
-        "evidence",
-        "example"
-      ],
-      "expected": [
-        "claim",
-        "conclusion",
-        "counterpoint",
-        "evidence",
-        "example"
-      ]
-    },
-    {
-      "name": "library annotation anchor IDs resolve",
-      "pass": true,
-      "actual": true,
-      "expected": true
-    },
-    {
-      "name": "library alternative is permutation",
-      "pass": true,
-      "actual": [
-        "L1",
-        "L2",
-        "L3",
-        "L4",
-        "L5",
-        "L6",
-        "L7"
-      ],
-      "expected": [
-        "L1",
-        "L2",
-        "L3",
-        "L4",
-        "L5",
-        "L6",
-        "L7"
-      ]
-    },
-    {
-      "name": "library alternative satisfies all stated constraints",
-      "pass": true,
-      "actual": 0,
-      "expected": 0
-    },
-    {
-      "name": "library original satisfies all stated constraints",
-      "pass": true,
-      "actual": 0,
-      "expected": 0
-    },
-    {
-      "name": "library reversed sequence exposes referent constraints",
-      "pass": true,
-      "actual": true,
-      "expected": true
-    },
-    {
-      "name": "library masking preserves every nonconnector segment",
-      "pass": true,
-      "actual": true,
-      "expected": true
-    },
-    {
-      "name": "library unmasked text equals original",
-      "pass": true,
-      "actual": true,
-      "expected": true
-    },
-    {
-      "name": "library masking really changes connectors",
-      "pass": true,
-      "actual": true,
-      "expected": true
-    },
-    {
-      "name": "library reorder input immutable",
-      "pass": true,
-      "actual": [
-        "L1",
-        "L2",
-        "L3",
-        "L4",
-        "L5",
-        "L6",
-        "L7"
-      ],
-      "expected": [
-        "L1",
-        "L2",
-        "L3",
-        "L4",
-        "L5",
-        "L6",
-        "L7"
-      ]
-    },
-    {
-      "name": "library move swaps selected position",
-      "pass": true,
-      "actual": [
-        "L2",
-        "L1"
-      ],
-      "expected": [
-        "L2",
-        "L1"
-      ]
-    },
-    {
-      "name": "library upper boundary stable",
-      "pass": true,
-      "actual": [
-        "L1",
-        "L2",
-        "L3",
-        "L4",
-        "L5",
-        "L6",
-        "L7"
-      ],
-      "expected": [
-        "L1",
-        "L2",
-        "L3",
-        "L4",
-        "L5",
-        "L6",
-        "L7"
-      ]
-    },
-    {
-      "name": "library lower boundary stable",
-      "pass": true,
-      "actual": [
-        "L1",
-        "L2",
-        "L3",
-        "L4",
-        "L5",
-        "L6",
-        "L7"
-      ],
-      "expected": [
-        "L1",
-        "L2",
-        "L3",
-        "L4",
-        "L5",
-        "L6",
-        "L7"
-      ]
-    },
-    {
-      "name": "library A/B snapshot independence",
-      "pass": true,
-      "actual": [
-        "L1",
-        "L2",
-        "L3",
-        "L4",
-        "L5",
-        "L6",
-        "L7"
-      ],
-      "expected": [
-        "L1",
-        "L2",
-        "L3",
-        "L4",
-        "L5",
-        "L6",
-        "L7"
-      ]
-    },
-    {
-      "name": "roof word count 120–160",
-      "pass": true,
-      "actual": true,
-      "expected": true
-    },
-    {
-      "name": "roof sentence IDs unique",
-      "pass": true,
-      "actual": 7,
-      "expected": 7
-    },
-    {
-      "name": "roof evidence IDs unique",
-      "pass": true,
-      "actual": 22,
-      "expected": 22
-    },
-    {
-      "name": "roof references resolve",
-      "pass": true,
-      "actual": true,
-      "expected": true
-    },
-    {
-      "name": "roof all role annotations covered",
-      "pass": true,
-      "actual": [
-        "claim",
-        "conclusion",
-        "counterpoint",
-        "evidence",
-        "example"
-      ],
-      "expected": [
-        "claim",
-        "conclusion",
-        "counterpoint",
-        "evidence",
-        "example"
-      ]
-    },
-    {
-      "name": "roof annotation anchor IDs resolve",
-      "pass": true,
-      "actual": true,
-      "expected": true
-    },
-    {
-      "name": "roof alternative is permutation",
-      "pass": true,
-      "actual": [
-        "R1",
-        "R2",
-        "R3",
-        "R4",
-        "R5",
-        "R6",
-        "R7"
-      ],
-      "expected": [
-        "R1",
-        "R2",
-        "R3",
-        "R4",
-        "R5",
-        "R6",
-        "R7"
-      ]
-    },
-    {
-      "name": "roof alternative satisfies all stated constraints",
-      "pass": true,
-      "actual": 0,
-      "expected": 0
-    },
-    {
-      "name": "roof original satisfies all stated constraints",
-      "pass": true,
-      "actual": 0,
-      "expected": 0
-    },
-    {
-      "name": "roof reversed sequence exposes referent constraints",
-      "pass": true,
-      "actual": true,
-      "expected": true
-    },
-    {
-      "name": "roof masking preserves every nonconnector segment",
-      "pass": true,
-      "actual": true,
-      "expected": true
-    },
-    {
-      "name": "roof unmasked text equals original",
-      "pass": true,
-      "actual": true,
-      "expected": true
-    },
-    {
-      "name": "roof masking really changes connectors",
-      "pass": true,
-      "actual": true,
-      "expected": true
-    },
-    {
-      "name": "roof reorder input immutable",
-      "pass": true,
-      "actual": [
-        "R1",
-        "R2",
-        "R3",
-        "R4",
-        "R5",
-        "R6",
-        "R7"
-      ],
-      "expected": [
-        "R1",
-        "R2",
-        "R3",
-        "R4",
-        "R5",
-        "R6",
-        "R7"
-      ]
-    },
-    {
-      "name": "roof move swaps selected position",
-      "pass": true,
-      "actual": [
-        "R2",
-        "R1"
-      ],
-      "expected": [
-        "R2",
-        "R1"
-      ]
-    },
-    {
-      "name": "roof upper boundary stable",
-      "pass": true,
-      "actual": [
-        "R1",
-        "R2",
-        "R3",
-        "R4",
-        "R5",
-        "R6",
-        "R7"
-      ],
-      "expected": [
-        "R1",
-        "R2",
-        "R3",
-        "R4",
-        "R5",
-        "R6",
-        "R7"
-      ]
-    },
-    {
-      "name": "roof lower boundary stable",
-      "pass": true,
-      "actual": [
-        "R1",
-        "R2",
-        "R3",
-        "R4",
-        "R5",
-        "R6",
-        "R7"
-      ],
-      "expected": [
-        "R1",
-        "R2",
-        "R3",
-        "R4",
-        "R5",
-        "R6",
-        "R7"
-      ]
-    },
-    {
-      "name": "roof A/B snapshot independence",
-      "pass": true,
-      "actual": [
-        "R1",
-        "R2",
-        "R3",
-        "R4",
-        "R5",
-        "R6",
-        "R7"
-      ],
-      "expected": [
-        "R1",
-        "R2",
-        "R3",
-        "R4",
-        "R5",
-        "R6",
-        "R7"
-      ]
-    }
-  ]
+  }
 }

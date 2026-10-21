@@ -1,0 +1,631 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>지도 투영 3D 탐구 | 같은 땅, 다른 넓이</title>
+<meta name="description" content="3D 지구본과 투영 지도를 직접 조작하며 위도별 면적 왜곡과 메르카토르·원통 등적 도법의 차이를 비교하는 3D 지리 탐구 도구.">
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.160.1/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.1/examples/jsm/"
+  }
+}
+</script>
+<style>
+:root{--bg:#f4f2ed;--paper:#ffffff;--ink:#182830;--muted:#637174;--line:#dce2df;--teal:#116d69;--teal-dark:#0c4f4c;--amber:#b96839;--dark:#0e171b}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Pretendard,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.5}
+header,main,footer{max-width:1240px;margin:auto;padding-left:24px;padding-right:24px}
+.app-header{padding:18px 0;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);font-size:12px}
+.subject{font-size:11px;letter-spacing:.12em;font-weight:800;color:var(--teal)}
+.intro{padding:20px 0 16px;display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px;border-bottom:1px solid var(--line)}
+.eyebrow{font-size:12px;color:var(--teal);font-weight:700;margin:0 0 6px}
+h1{font-size:clamp(24px,3vw,34px);letter-spacing:-.04em;line-height:1.2;margin:0 0 6px}
+.question{color:var(--muted);font-size:14px;margin:0}
+.tag{font-size:11px;color:var(--teal);background:#e7f3f1;border:1px solid #c2ded9;padding:4px 9px;border-radius:6px;font-weight:600}
+.viewport-wrap{width:100%;height:500px;background:var(--dark);border:1px solid #23353e;border-radius:16px;overflow:hidden;position:relative;margin-top:18px;box-shadow:0 8px 24px rgba(0,0,0,0.15)}
+#webgl-canvas{width:100%;height:100%;display:block}
+.overlay-hint{position:absolute;top:14px;left:14px;background:rgba(14,23,27,0.85);backdrop-filter:blur(4px);color:#b3c8cc;font-size:11px;padding:8px 12px;border-radius:8px;border:1px solid rgba(255,255,255,0.1);pointer-events:none}
+.view-presets{position:absolute;top:14px;right:14px;display:flex;gap:4px;background:rgba(14,23,27,0.88);padding:4px;border-radius:10px;border:1px solid rgba(255,255,255,0.12)}
+.view-btn{background:transparent;border:0;color:#c0d2d6;font-size:11px;font-weight:600;padding:6px 10px;border-radius:6px;cursor:pointer}
+.view-btn[aria-pressed=true]{background:var(--teal);color:#fff}
+.controls-dock{background:#fff;border:1px solid var(--line);border-radius:14px;margin-top:16px;padding:16px 20px;box-shadow:0 2px 6px rgba(0,0,0,0.03)}
+.control-grid{display:grid;grid-template-columns:1fr 1.2fr auto;gap:24px;align-items:center}
+.ctrl-label{font-size:12px;font-weight:700;margin-bottom:8px;display:flex;justify-content:space-between;color:var(--ink)}
+.ctrl-label output{color:var(--teal);font-size:16px;font-variant-numeric:tabular-nums}
+.segment{display:flex;background:#edf2f0;padding:4px;border-radius:8px;gap:4px}
+.segment button{border:0;background:transparent;padding:8px 12px;flex:1;color:var(--muted);border-radius:6px;font-size:12px;font-weight:600;cursor:pointer}
+.segment button[aria-pressed=true]{background:var(--teal);color:#fff}
+.range-wrap{display:flex;align-items:center;gap:10px}
+.range-wrap span{color:var(--muted);font-size:11px;white-space:nowrap}
+input[type=range]{accent-color:var(--teal);width:100%;cursor:ew-resize}
+.quick-btns{display:flex;gap:4px;margin-top:6px;flex-wrap:wrap}
+.quick-btn{font-size:10px;padding:3px 7px;background:#f0f3f2;border:1px solid #d5dfdb;border-radius:4px;color:var(--muted);cursor:pointer}
+.quick-btn:hover{color:var(--ink);border-color:var(--teal)}
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
+.metric{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 18px}
+.metric .label{font-size:11px;color:var(--muted);display:block;margin-bottom:4px}
+.metric .value{font-size:24px;font-weight:800;letter-spacing:-.03em;font-variant-numeric:tabular-nums;color:var(--ink)}
+.metric:first-child .value{color:var(--teal)}
+.metric:nth-child(2) .value{color:var(--amber)}
+.metric .unit{font-size:12px;font-weight:500;color:var(--muted);margin-left:4px}
+.metric p{font-size:11px;color:var(--muted);margin:4px 0 0}
+.insight{margin:14px 0;padding:12px 16px;background:#fff8f2;border-left:4px solid var(--amber);border-radius:0 8px 8px 0;font-size:12px;color:#5c4738;line-height:1.6}
+.insight strong{color:var(--ink)}
+.bottom{display:grid;grid-template-columns:1.2fr 1fr;gap:18px;margin-top:14px}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px}
+.card-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.card-head h2{font-size:13px;font-weight:700;margin:0}
+.slots{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.slot{border:1px solid #e1e7e4;background:#fafbf9;border-radius:10px;padding:12px}
+.slot-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.slot-top strong{font-size:12px;color:var(--teal)}
+.btn-sm{font-size:11px;font-weight:600;padding:4px 8px;background:#fff;border:1px solid #ccd6d2;border-radius:5px;cursor:pointer}
+.btn-sm:hover{border-color:var(--teal);color:var(--teal)}
+.slot dl{font-size:11px;margin:0;display:grid;grid-template-columns:auto 1fr;gap:4px 8px}
+.slot dd{margin:0;text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
+.slot dt{color:var(--muted)}
+.restore-btn{width:100%;margin-top:8px;font-size:11px;padding:5px;background:#edf5f3;border:1px solid #c2ded9;color:var(--teal);border-radius:6px;cursor:pointer;font-weight:600}
+textarea{width:100%;height:84px;border:1px solid var(--line);border-radius:8px;padding:10px;font-size:12px;resize:vertical;line-height:1.6}
+.note-foot{display:flex;justify-content:space-between;align-items:center;margin-top:8px}
+details{margin-top:20px;border-top:1px solid var(--line);padding:14px 0}
+summary{font-size:13px;font-weight:700;cursor:pointer;color:var(--ink)}
+.details-body{font-size:12px;color:#4c5e62;line-height:1.7;padding-top:10px}
+.formula{background:#fff;border:1px solid var(--line);padding:12px;border-radius:8px;font-family:monospace;margin:10px 0;font-size:11px;line-height:1.8}
+.test-table{width:100%;border-collapse:collapse;font-size:11px;margin-top:10px}
+.test-table th,.test-table td{padding:6px 8px;border:1px solid var(--line);text-align:left}
+.test-pass{color:var(--teal);font-weight:700}
+.test-fail{color:#b33527;font-weight:700}
+footer{padding:24px 0;font-size:11px;color:var(--muted);border-top:1px solid var(--line);margin-top:24px;display:flex;justify-content:space-between}
+@media(max-width:860px){
+  .control-grid{grid-template-columns:1fr;gap:16px}
+  .metrics{grid-template-columns:1fr}
+  .bottom{grid-template-columns:1fr}
+  .viewport-wrap{height:420px}
+}
+</style>
+</head>
+<body>
+<header class="app-header">
+  <span class="subject">GEOGRAPHY / 지도와 공간</span>
+  <span>기획·구성: 금평초 김상흠 · AI 지원 구현 (Google AI Studio)</span>
+</header>
+<main>
+  <section class="intro">
+    <div>
+      <p class="eyebrow">01 · 3D 지도 투영 실험실</p>
+      <h1>같은 땅인데, 왜 더 커 보일까?</h1>
+      <p class="question">동일한 지표면 영역을 고위도로 옮기면, 지도 투영법에 따라 어떻게 달라질까?</p>
+    </div>
+    <span class="tag">Three.js 0.160.1 · 3D 연계 모형</span>
+  </section>
+
+  <div class="viewport-wrap">
+    <div id="webgl-canvas"></div>
+    <div class="overlay-hint">
+      3D 뷰포트 조작: 좌클릭 드래그(회전) · 우클릭(이동) · 휠(확대/축소)<br>
+      지구본 또는 지도 위 표식을 직접 클릭하여 위도를 변경할 수 있습니다.
+    </div>
+    <div class="view-presets">
+      <button class="view-btn" id="viewDual" aria-pressed="true">입체 연결</button>
+      <button class="view-btn" id="viewGlobe" aria-pressed="false">지구본</button>
+      <button class="view-btn" id="viewMap" aria-pressed="false">투영 평면</button>
+      <button class="view-btn" id="viewReset">초기화</button>
+    </div>
+  </div>
+
+  <section class="controls-dock">
+    <div class="control-grid">
+      <div>
+        <div class="ctrl-label"><span>지도 투영법</span></div>
+        <div class="segment">
+          <button id="btnMercator" aria-pressed="true">메르카토르 (정각)</button>
+          <button id="btnEqual" aria-pressed="false">람베르트 원통 (정적)</button>
+        </div>
+      </div>
+      <div>
+        <div class="ctrl-label">
+          <label for="latRange">영역 중심 위도</label>
+          <output id="latText">북위 60°</output>
+        </div>
+        <div class="range-wrap">
+          <span>남위 75°</span>
+          <input type="range" id="latRange" min="-75" max="75" step="1" value="60">
+          <span>북위 75°</span>
+        </div>
+        <div class="quick-btns">
+          <button class="quick-btn" data-lat="0">적도 0°</button>
+          <button class="quick-btn" data-lat="30">북위 30°</button>
+          <button class="quick-btn" data-lat="60">북위 60° (4배)</button>
+          <button class="quick-btn" data-lat="75">북위 75°</button>
+          <button class="quick-btn" data-lat="-60">남위 60°</button>
+        </div>
+      </div>
+      <div>
+        <div class="ctrl-label"><span>비교 표식</span></div>
+        <button id="toggleMulti" class="btn-sm" style="padding:8px 12px" aria-pressed="false">
+          3중 위도 동시 비교
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="metrics" aria-live="polite">
+    <div class="metric">
+      <span class="label">실제 구면 면적 (불변)</span>
+      <div class="value"><span id="actualArea">386.5</span><span class="unit">만 km²</span></div>
+      <p>지구 반지름 6,371 km · 각반지름 10°의 구면 캡</p>
+    </div>
+    <div class="metric">
+      <span class="label">영역 전체의 지도 면적비</span>
+      <div class="value"><span id="finiteRatio">4.082</span><span class="unit">배</span></div>
+      <p id="plottedText">공통 척도 환산 면적 1,577.6만 km²</p>
+    </div>
+    <div class="metric">
+      <span class="label">중심점의 국소 면적 배율</span>
+      <div class="value"><span id="localFactor">4.000</span><span class="unit">배</span></div>
+      <p id="localFormula">중심점 sec²φ 배율 (위도 60°: 4.0배)</p>
+    </div>
+  </section>
+
+  <p class="insight" id="insightBox"></p>
+
+  <section class="bottom">
+    <div class="card">
+      <div class="card-head">
+        <h2>두 조건을 나란히 남겨 비교하기</h2>
+        <span style="font-size:11px;color:var(--muted)">저장 후 조건을 바꿔 비교</span>
+      </div>
+      <div class="slots">
+        <div class="slot">
+          <div class="slot-top">
+            <strong>조건 A</strong>
+            <button class="btn-sm" id="btnSaveA">A에 담기</button>
+          </div>
+          <div id="slotContentA" style="font-size:11px;color:var(--muted)">저장된 조건 없음</div>
+        </div>
+        <div class="slot">
+          <div class="slot-top">
+            <strong>조건 B</strong>
+            <button class="btn-sm" id="btnSaveB">B에 담기</button>
+          </div>
+          <div id="slotContentB" style="font-size:11px;color:var(--muted)">예: 북위 60° 조건을 저장</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <h2><label for="obsInput">관찰과 근거 기록장</label></h2>
+        <span style="font-size:11px;color:var(--muted)">정답 자동 판정 없음</span>
+      </div>
+      <textarea id="obsInput" placeholder="어떤 조건을 바꿨나요? 실제 면적과 지도 면적비를 근거로 지도에 어울리는 목적을 적어 보세요."></textarea>
+      <div class="note-foot">
+        <span style="font-size:11px;color:var(--muted)" id="storageStatus">저장소: gallery3d-projection-v1</span>
+        <button class="btn-sm" id="btnExportJson">기록 JSON 저장</button>
+      </div>
+    </div>
+  </section>
+
+  <details>
+    <summary>왜 이런 차이가 날까? · 수학적 원리, 모형의 한계, 자체 검증</summary>
+    <div class="details-body">
+      <p><strong>1. 국소 배율과 유한 영역 면적비의 구분</strong><br>
+      국소 배율은 중심점 주변의 무한소 면적 요소에 적용되는 미분비($\sec^2 \phi$)입니다. 여기서 움직이는 원은 각반지름 10°(실제 지표 반경 약 1,112 km)인 유한 영역입니다. 메르카토르에서는 북쪽으로 갈수록 위선 간격이 더 가파르게 넓어지므로, 원의 북쪽 절반이 남쪽 절반보다 더 크게 팽창하여 전체 면적비가 중심점 국소 배율(4.0배)보다 약간 더 큽니다.</p>
+      
+      <div class="formula">
+        λ, φ: 경도 및 위도 (라디안), 원점: 경도 0° · 적도<br>
+        메르카토르: x = λ, y = ln tan(π/4 + φ/2) | 역변환: φ = 2 atan(exp(y)) − π/2<br>
+        람베르트 원통 정적: x = λ, y = sin φ | 역변환: φ = asin(y)<br>
+        국소 면적 배율: 메르카토르 = sec²φ, 정적도법 = 1.0 (항등)<br>
+        실제 구면 원 면적: A = 2π R² (1 − cos α), α = 10°, R = 6,371 km<br>
+        지도 면적비 = [R² × 투영 다각형 Shoelace 면적] / A
+      </div>
+
+      <div style="margin:12px 0">
+        <button class="btn-sm" id="btnRunTests" style="padding:6px 12px;background:var(--teal);color:#fff">자체 검증 실행 (window.runSelfTests)</button>
+        <span id="testSummary" style="margin-left:8px;font-weight:600"></span>
+      </div>
+      <table class="test-table" id="testTable" style="display:none">
+        <thead><tr><th>결과</th><th>검증 항목</th><th>계산값</th><th>기대값</th></tr></thead>
+        <tbody id="testTableBody"></tbody>
+      </table>
+    </div>
+  </details>
+</main>
+
+<footer>
+  <span>기획·구성: 금평초 김상흠 · AI 지원 구현 (Google AI Studio)</span>
+  <span>독립 3D WebGL 탐구 모듈</span>
+</footer>
+
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+const PI = Math.PI, DEG = PI / 180, R = 6371, ALPHA = 10 * DEG;
+const clamp = (v, min, max) => Math.min(max, Math.max(min, v));
+
+function project(lon, lat, type) {
+  const cLat = clamp(lat, -85 * DEG, 85 * DEG);
+  return {
+    x: lon,
+    y: type === 'mercator' ? Math.log(Math.tan(PI / 4 + cLat / 2)) : Math.sin(cLat)
+  };
+}
+
+function inverse(x, y, type) {
+  return {
+    lon: x,
+    lat: type === 'mercator' ? 2 * Math.atan(Math.exp(y)) - PI / 2 : Math.asin(clamp(y, -1, 1))
+  };
+}
+
+function destination(centerLat, theta, alpha = ALPHA) {
+  const sLat = Math.sin(centerLat), cLat = Math.cos(centerLat);
+  const sA = Math.sin(alpha), cA = Math.cos(alpha);
+  const latP = Math.asin(clamp(sLat * cA + cLat * sA * Math.cos(theta), -1, 1));
+  const lonP = Math.atan2(Math.sin(theta) * sA * cLat, cA - sLat * Math.sin(latP));
+  return { lon: lonP, lat: latP };
+}
+
+function generateCircle(centerLat, n = 180) {
+  return Array.from({ length: n }, (_, i) => destination(centerLat, i * 2 * PI / n));
+}
+
+function sphericalArea(alpha = ALPHA) {
+  return 2 * PI * R * R * (1 - Math.cos(alpha));
+}
+
+function polygonArea(points) {
+  let sum = 0;
+  for (let i = 0; i < points.length; i++) {
+    const a = points[i], b = points[(i + 1) % points.length];
+    sum += a.x * b.y - b.x * a.y;
+  }
+  return Math.abs(sum) / 2;
+}
+
+function projectedArea(centerLat, type, n = 360) {
+  const pts = generateCircle(centerLat, n).map(p => project(p.lon, p.lat, type));
+  return polygonArea(pts) * R * R;
+}
+
+function localFactor(lat, type) {
+  return type === 'mercator' ? 1 / (Math.cos(lat) ** 2) : 1.0;
+}
+
+// Global runSelfTests
+window.runSelfTests = function() {
+  const tests = [];
+  const test = (name, actual, expected, tol = 1e-5) => {
+    const pass = typeof expected === 'boolean' ? actual === expected : Math.abs(actual - expected) <= tol;
+    tests.push({ name, pass, actual, expected });
+  };
+
+  test('메르카토르 적도 국소 배율', localFactor(0, 'mercator'), 1.0);
+  test('메르카토르 60° 국소 배율 (sec²60°=4)', localFactor(60 * DEG, 'mercator'), 4.0);
+  test('정적도법 60° 국소 배율', localFactor(60 * DEG, 'equal'), 1.0);
+  test('정적도법 적도 국소 배율', localFactor(0, 'equal'), 1.0);
+
+  for (const lat of [-60, 0, 60]) {
+    const pM = project(0.5, lat * DEG, 'mercator'), qM = inverse(pM.x, pM.y, 'mercator');
+    test('메르카토르 역변환 위도 일치 ' + lat + '°', qM.lat / DEG, lat);
+    const pE = project(0.5, lat * DEG, 'equal'), qE = inverse(pE.x, pE.y, 'equal');
+    test('정적도법 역변환 위도 일치 ' + lat + '°', qE.lat / DEG, lat);
+  }
+
+  test('정적도법 60° 면적 보존율 (~1.0)', projectedArea(60 * DEG, 'equal') / sphericalArea(), 1.0, 1e-3);
+  test('메르카토르 60° 유한 원 배율 > 4.0', projectedArea(60 * DEG, 'mercator') / sphericalArea() > 4.0, true);
+
+  return tests;
+};
+
+// State
+const state = {
+  latitude: 60,
+  projection: 'mercator',
+  showMulti: false,
+  preset: 'dual'
+};
+const slots = { A: null, B: null };
+const STORAGE_KEY = 'gallery3d-projection-v1';
+
+// DOM Elements
+const $ = id => document.getElementById(id);
+
+// 3D Scene Setup
+const container = $('webgl-canvas');
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x0e171b);
+scene.fog = new THREE.FogExp2(0x0e171b, 0.025);
+
+const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 100);
+camera.position.set(0, 1.8, 12.2);
+
+const renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: 'high-performance' });
+renderer.setSize(container.clientWidth, container.clientHeight);
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+container.appendChild(renderer.domElement);
+
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true;
+controls.dampingFactor = 0.08;
+
+// Lighting
+scene.add(new THREE.AmbientLight(0xffffff, 0.85));
+const hemi = new THREE.HemisphereLight(0xc2e2ed, 0x142028, 0.9);
+scene.add(hemi);
+const dirLight = new THREE.DirectionalLight(0xfff5ea, 1.6);
+dirLight.position.set(-6, 9, 8);
+scene.add(dirLight);
+
+// Floor grid
+const grid = new THREE.GridHelper(24, 24, 0x1e363c, 0x14252a);
+grid.position.y = -3.2;
+scene.add(grid);
+
+// 3D Globe
+const GLOBE_POS = new THREE.Vector3(-4.2, 0, 0);
+const GLOBE_R = 2.3;
+const globeGroup = new THREE.Group();
+globeGroup.position.copy(GLOBE_POS);
+scene.add(globeGroup);
+
+// Earth Texture Generation
+function makeEarthCanvas() {
+  const c = document.createElement('canvas'); c.width = 1024; c.height = 512;
+  const ctx = c.getContext('2d');
+  ctx.fillStyle = '#142c40'; ctx.fillRect(0, 0, 1024, 512);
+  // Grid lines
+  ctx.strokeStyle = 'rgba(255,255,255,0.12)'; ctx.lineWidth = 1;
+  for(let x=0; x<=1024; x+=85){ ctx.beginPath(); ctx.moveTo(x,0); ctx.lineTo(x,512); ctx.stroke(); }
+  for(let y=0; y<=512; y+=42){ ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(1024,y); ctx.stroke(); }
+  // Equator
+  ctx.strokeStyle = '#1ec1b7'; ctx.lineWidth = 2.5;
+  ctx.beginPath(); ctx.moveTo(0,256); ctx.lineTo(1024,256); ctx.stroke();
+  const tex = new THREE.CanvasTexture(c);
+  tex.colorSpace = THREE.SRGBColorSpace;
+  return tex;
+}
+
+const globeMesh = new THREE.Mesh(
+  new THREE.SphereGeometry(GLOBE_R, 48, 36),
+  new THREE.MeshStandardMaterial({ map: makeEarthCanvas(), roughness: 0.6, metalness: 0.1 })
+);
+globeGroup.add(globeMesh);
+
+// 3D Map Plane
+const MAP_POS = new THREE.Vector3(4.2, 0, 0);
+const MAP_W = 7.0, MAP_H = 5.2;
+const mapGroup = new THREE.Group();
+mapGroup.position.copy(MAP_POS);
+scene.add(mapGroup);
+
+function makeMapCanvas(type) {
+  const c = document.createElement('canvas'); c.width = 1024; c.height = 768;
+  const ctx = c.getContext('2d');
+  ctx.fillStyle = '#f8faf9'; ctx.fillRect(0,0,1024,768);
+  ctx.strokeStyle = '#9cb8ae'; ctx.lineWidth = 3; ctx.strokeRect(20,20,984,728);
+  ctx.strokeStyle = '#d7e2de'; ctx.lineWidth = 1;
+  for(let x=20; x<=1004; x+=82){ ctx.beginPath(); ctx.moveTo(x,20); ctx.lineTo(x,748); ctx.stroke(); }
+  ctx.strokeStyle = '#116d69'; ctx.lineWidth = 2.5;
+  ctx.beginPath(); ctx.moveTo(20,384); ctx.lineTo(1004,384); ctx.stroke();
+  const tex = new THREE.CanvasTexture(c);
+  tex.colorSpace = THREE.SRGBColorSpace;
+  return tex;
+}
+
+const mapMat = new THREE.MeshBasicMaterial({ map: makeMapCanvas(state.projection), side: THREE.DoubleSide });
+const mapMesh = new THREE.Mesh(new THREE.PlaneGeometry(MAP_W, MAP_H), mapMat);
+mapGroup.add(mapMesh);
+
+// Dynamic Visuals
+const globeCapGroup = new THREE.Group(); globeGroup.add(globeCapGroup);
+const mapCapGroup = new THREE.Group(); mapGroup.add(mapCapGroup);
+const raysGroup = new THREE.Group(); scene.add(raysGroup);
+
+function geoToGlobe(lon, lat, r = GLOBE_R * 1.005) {
+  return new THREE.Vector3(r * Math.cos(lat) * Math.sin(lon), r * Math.sin(lat), r * Math.cos(lat) * Math.cos(lon));
+}
+
+function planarToMap(px, py, proj) {
+  const normX = (px / PI) * (MAP_W / 2) * 0.92;
+  const maxPy = proj === 'mercator' ? 2.45 : 1.0;
+  const normY = (py / maxPy) * (MAP_H / 2) * 0.86;
+  return new THREE.Vector3(normX, normY, 0.03);
+}
+
+function update3D() {
+  // Clear dynamic groups
+  while(globeCapGroup.children.length) globeCapGroup.remove(globeCapGroup.children[0]);
+  while(mapCapGroup.children.length) mapCapGroup.remove(mapCapGroup.children[0]);
+  while(raysGroup.children.length) raysGroup.remove(raysGroup.children[0]);
+
+  // Update map canvas texture
+  mapMat.map?.dispose();
+  mapMat.map = makeMapCanvas(state.projection);
+  mapMat.needsUpdate = true;
+
+  const lats = state.showMulti ? [0, 30, 60, state.latitude].filter((v,i,a)=>a.indexOf(v)===i) : [state.latitude];
+  const rayPts = [];
+
+  lats.forEach(latDeg => {
+    const isActive = latDeg === state.latitude;
+    const latRad = latDeg * DEG;
+    const color = isActive ? 0xb96839 : 0x488a80;
+
+    const circlePts = generateCircle(latRad, 120);
+    const globeVecs = circlePts.map(p => geoToGlobe(p.lon, p.lat));
+    const loopGeo = new THREE.BufferGeometry().setFromPoints(globeVecs);
+    globeCapGroup.add(new THREE.LineLoop(loopGeo, new THREE.LineBasicMaterial({ color, linewidth: isActive?2.5:1 })));
+
+    // Map projected loop
+    const projPts = circlePts.map(p => project(p.lon, p.lat, state.projection));
+    const mapVecs = projPts.map(p => planarToMap(p.x, p.y, state.projection));
+    const mapLoopGeo = new THREE.BufferGeometry().setFromPoints(mapVecs);
+    mapCapGroup.add(new THREE.LineLoop(mapLoopGeo, new THREE.LineBasicMaterial({ color, linewidth: isActive?3:1 })));
+
+    if (isActive) {
+      for(let i=0; i<circlePts.length; i+=8) {
+        const pG = globeVecs[i].clone().add(GLOBE_POS);
+        const pM = mapVecs[i].clone().add(MAP_POS);
+        rayPts.push(pG.x, pG.y, pG.z, pM.x, pM.y, pM.z);
+      }
+    }
+  });
+
+  if (rayPts.length) {
+    const rGeo = new THREE.BufferGeometry();
+    rGeo.setAttribute('position', new THREE.Float32BufferAttribute(rayPts, 3));
+    raysGroup.add(new THREE.LineSegments(rGeo, new THREE.LineBasicMaterial({ color: 0xe29468, transparent: true, opacity: 0.45 })));
+  }
+}
+
+// UI Updating
+function renderUI() {
+  const actualKm = sphericalArea();
+  const plotKm = projectedArea(state.latitude * DEG, state.projection);
+  const ratio = plotKm / actualKm;
+  const factor = localFactor(state.latitude * DEG, state.projection);
+
+  $('latText').textContent = (state.latitude===0?'적도 0°':(state.latitude>0?'북위 ':'남위 ')+Math.abs(state.latitude)+'°');
+  $('latRange').value = state.latitude;
+  $('btnMercator').setAttribute('aria-pressed', state.projection === 'mercator');
+  $('btnEqual').setAttribute('aria-pressed', state.projection === 'equal');
+  $('toggleMulti').setAttribute('aria-pressed', state.showMulti);
+
+  $('actualArea').textContent = (actualKm / 10000).toFixed(1);
+  $('finiteRatio').textContent = ratio.toFixed(3);
+  $('localFactor').textContent = factor.toFixed(3);
+  $('plottedText').textContent = '공통 척도 환산 면적 ' + (plotKm / 10000).toFixed(1) + '만 km²';
+
+  if (state.projection === 'mercator') {
+    $('localFormula').textContent = '중심점 sec²φ 배율 (' + (state.latitude===0?'적도 1.0배':'위도 ' + Math.abs(state.latitude) + '°: ' + factor.toFixed(2) + '배') + ')';
+    $('insightBox').innerHTML = '<strong>실제 면적은 386.5만 km²로 같지만 지도에서는 ' + ratio.toFixed(2) + '배로 확대됩니다.</strong> 중심점 국소 배율과 영역 전체 배율의 미세한 차이를 확인하세요.';
+  } else {
+    $('localFormula').textContent = '중심점 배율 항상 1.0배 (면적 보존)';
+    $('insightBox').innerHTML = '<strong>위도를 바꿔도 면적비는 1.000배로 일정합니다.</strong> 대신 고위도에서 동서 신장, 남북 압축의 모양 왜곡이 발생합니다.';
+  }
+
+  update3D();
+}
+
+// Events
+$('btnMercator').onclick = () => { state.projection = 'mercator'; renderUI(); };
+$('btnEqual').onclick = () => { state.projection = 'equal'; renderUI(); };
+$('latRange').oninput = e => { state.latitude = +e.target.value; renderUI(); };
+$('toggleMulti').onclick = () => { state.showMulti = !state.showMulti; renderUI(); };
+
+document.querySelectorAll('.quick-btn').forEach(b => {
+  b.onclick = () => { state.latitude = +b.dataset.lat; renderUI(); };
+});
+
+const camTargets = {
+  dual: { pos: [0, 1.8, 12.2], look: [0, 0, 0] },
+  globe: { pos: [-4.2, 0.6, 6.2], look: [-4.2, 0, 0] },
+  map: { pos: [4.2, 0.4, 6.5], look: [4.2, 0, 0] }
+};
+
+function setView(name) {
+  state.preset = name;
+  ['viewDual','viewGlobe','viewMap'].forEach(id => $(id)?.setAttribute('aria-pressed', false));
+  if (name==='dual') $('viewDual').setAttribute('aria-pressed', true);
+  if (name==='globe') $('viewGlobe').setAttribute('aria-pressed', true);
+  if (name==='map') $('viewMap').setAttribute('aria-pressed', true);
+  const t = camTargets[name];
+  camera.position.set(...t.pos);
+  controls.target.set(...t.look);
+}
+
+$('viewDual').onclick = () => setView('dual');
+$('viewGlobe').onclick = () => setView('globe');
+$('viewMap').onclick = () => setView('map');
+$('viewReset').onclick = () => setView('dual');
+
+// Slots
+function updateSlot(key) {
+  const c = slots[key];
+  $(key==='A'?'slotContentA':'slotContentB').innerHTML = c ? `
+    <dl><dt>위도/도법</dt><dd>${c.lat}° (${c.proj==='mercator'?'메르카토르':'정적'})</dd>
+    <dt>지도면적</dt><dd>${(c.plotted/10000).toFixed(1)}만 km²</dd>
+    <dt>전체배율</dt><dd>${c.ratio.toFixed(2)}배</dd></dl>
+    <button class="restore-btn" id="restore${key}">이 조건 복원</button>
+  ` : '저장된 조건 없음';
+  if (c) {
+    $('restore' + key).onclick = () => {
+      state.latitude = c.lat; state.projection = c.proj; renderUI();
+    };
+  }
+}
+
+$('btnSaveA').onclick = () => {
+  slots.A = { lat: state.latitude, proj: state.projection, plotted: projectedArea(state.latitude*DEG, state.projection), ratio: projectedArea(state.latitude*DEG, state.projection)/sphericalArea() };
+  updateSlot('A');
+};
+$('btnSaveB').onclick = () => {
+  slots.B = { lat: state.latitude, proj: state.projection, plotted: projectedArea(state.latitude*DEG, state.projection), ratio: projectedArea(state.latitude*DEG, state.projection)/sphericalArea() };
+  updateSlot('B');
+};
+
+// JSON Export
+$('btnExportJson').onclick = () => {
+  const data = {
+    app: '지도 투영 3D 탐구',
+    version: '1.0.0',
+    date: new Date().toISOString(),
+    current: { latitude: state.latitude, projection: state.projection },
+    slots,
+    observation: $('obsInput').value
+  };
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a'); a.href = url; a.download = '지도투영_3D탐구기록.json'; a.click();
+};
+
+// Self test button
+$('btnRunTests').onclick = () => {
+  const res = window.runSelfTests();
+  const tbody = $('testTableBody');
+  tbody.innerHTML = '';
+  res.forEach(t => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td class="${t.pass?'test-pass':'test-fail'}">${t.pass?'PASS':'FAIL'}</td><td>${t.name}</td><td>${typeof t.actual==='number'?t.actual.toFixed(4):t.actual}</td><td>${typeof t.expected==='number'?t.expected.toFixed(4):t.expected}</td>`;
+    tbody.appendChild(tr);
+  });
+  $('testTable').style.display = 'table';
+  $('testSummary').textContent = `${res.filter(r=>r.pass).length}/${res.length} 통과`;
+};
+
+// Diagnostics
+window.appDiagnostics = function() {
+  return {
+    isReady: true,
+    threeVersion: '0.160.1',
+    meshCount: scene.children.length,
+    cameraPos: camera.position,
+    condition: { latitude: state.latitude, projection: state.projection }
+  };
+};
+
+// Animate loop
+function animate() {
+  requestAnimationFrame(animate);
+  controls.update();
+  renderer.render(scene, camera);
+}
+animate();
+
+window.onresize = () => {
+  camera.aspect = container.clientWidth / container.clientHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(container.clientWidth, container.clientHeight);
+};
+
+renderUI();
+</script>
+</body>
+</html>

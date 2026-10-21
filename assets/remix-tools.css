@@ -5,3 +5,9 @@
 @media(max-width:420px){.builder-start{grid-template-columns:1fr}.site-header nav button{font-size:10px}.purpose-list button{padding:8px 10px;font-size:11px}.remix-body{padding:15px}.builder-form,.builder-output{padding:16px}.tool-intro{font-size:13px}.comparison-input{padding:18px}}
 
 .model-preview{display:block;margin:16px 0 0;text-decoration:none}.model-preview img{display:block;width:100%;height:150px;object-fit:contain;background:#f2f4ef;border:1px solid #e0e6da;border-radius:8px}.model-preview small{display:block;margin:7px 0;font-size:10px;color:#698065}.status-needs-improvement{background:#f0e5d8;color:#885d38}
+
+/* R4 compact provenance */
+.app-provenance{display:flex;flex-wrap:wrap;gap:5px;margin:8px 0}.app-provenance span{font-size:.7rem;line-height:1.4;padding:3px 7px;border:1px solid var(--line,#dfe3df);border-radius:5px;color:var(--muted,#52615a);background:var(--paper,#f6f8f5)}.card-source-links{display:flex;flex-wrap:wrap;gap:12px;margin-top:12px;font-size:.75rem}.card-source-links a{color:inherit;text-underline-offset:3px}.archive-note .inline-links{display:flex;flex-wrap:wrap;gap:12px}
+
+/* Current-publication provenance, including exact exported-source corrections. */
+.app-release-note{font-size:11px;line-height:1.7;color:var(--muted,#52615a);margin:7px 0 12px;overflow-wrap:anywhere}.material-body>.app-provenance,#materials-provenance{margin-bottom:14px}.context-strip .app-provenance{margin-top:0}.hero-count #release-counts{font-style:normal;white-space:normal}

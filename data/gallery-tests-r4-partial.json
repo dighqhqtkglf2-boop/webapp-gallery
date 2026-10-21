@@ -1,0 +1,204 @@
+{
+  "gallery": [
+    {
+      "name": "독립 탐구 10종",
+      "pass": true
+    },
+    {
+      "name": "메인 탐구 12종",
+      "pass": true
+    },
+    {
+      "name": "메인 ID 중복 없음",
+      "pass": true
+    },
+    {
+      "name": "기존 작품 2종 보존",
+      "pass": true
+    },
+    {
+      "name": "현재 앱과 보존 앱 원본 구분",
+      "pass": true
+    }
+  ],
+  "r3": [
+    {
+      "name": "10개 앱 모두 프리셋 있음",
+      "pass": true
+    },
+    {
+      "name": "7개 친근한 기본 항목",
+      "pass": true
+    },
+    {
+      "name": "프리셋 기본값 비어 있지 않음",
+      "pass": true
+    },
+    {
+      "name": "세부 항목 6개",
+      "pass": true
+    },
+    {
+      "name": "수정 목적 5개",
+      "pass": true
+    },
+    {
+      "name": "목적별 문항은 2~3개",
+      "pass": true
+    },
+    {
+      "name": "리믹스는 앱 이름·개념·기능 포함",
+      "pass": true
+    },
+    {
+      "name": "입력값이 즉시 템플릿에 반영",
+      "pass": true
+    },
+    {
+      "name": "모든 수정 목적 생성 가능",
+      "pass": true
+    },
+    {
+      "name": "오류 원인 자동 진단 주장 없음",
+      "pass": true
+    },
+    {
+      "name": "기존 프로젝트 복제와 첨부 안내",
+      "pass": true
+    },
+    {
+      "name": "원본 소스·프롬프트 보존",
+      "pass": true
+    },
+    {
+      "name": "새 앱과 기존 앱 수정 요청 구별",
+      "pass": true
+    },
+    {
+      "name": "공개본 차원 기본값과 3D 대체 안내 보존",
+      "pass": true
+    },
+    {
+      "name": "3D 선택에 필요성 조건 포함",
+      "pass": true
+    },
+    {
+      "name": "verified+URL일 때만 데모",
+      "pass": true
+    },
+    {
+      "name": "위험 URL 차단",
+      "pass": true
+    },
+    {
+      "name": "HTML 입력 이스케이프",
+      "pass": true
+    },
+    {
+      "name": "현재 비교 스키마 일관성",
+      "pass": true
+    },
+    {
+      "name": "메인 10종에 기존 작품 AI Studio 링크 재사용 없음",
+      "pass": true
+    },
+    {
+      "name": "공통 출처 표시",
+      "pass": true
+    }
+  ],
+  "r4": [
+    {
+      "name": "메인 12개",
+      "pass": true
+    },
+    {
+      "name": "메인 12개 고유 ID",
+      "pass": true
+    },
+    {
+      "name": "빌더 10개만 유지",
+      "pass": true
+    },
+    {
+      "name": "과학 4개",
+      "pass": true
+    },
+    {
+      "name": "수학 2개",
+      "pass": true
+    },
+    {
+      "name": "언어사회 4개",
+      "pass": true
+    },
+    {
+      "name": "예술정보 2개",
+      "pass": true
+    },
+    {
+      "name": "기존 DNA 정확한 원본",
+      "pass": true
+    },
+    {
+      "name": "기존 미적분 정확한 원본",
+      "pass": true
+    },
+    {
+      "name": "기존 앱 프롬프트 링크 창작 없음",
+      "pass": true
+    },
+    {
+      "name": "사용자 Claude 작품 메인 혼입 없음",
+      "pass": true
+    },
+    {
+      "name": "실제 프로젝트가 없으면 링크 생성 안 함",
+      "pass": true
+    },
+    {
+      "name": "다른 앱의 AI Studio 원본 재사용 안 함",
+      "pass": true
+    },
+    {
+      "name": "자체 완결 앱에는 공유 CSS 링크 없음",
+      "pass": true
+    },
+    {
+      "name": "명시된 CSS만 연결",
+      "pass": true
+    },
+    {
+      "name": "10개 프리셋 7기본항목 충족",
+      "pass": true
+    },
+    {
+      "name": "3D 5종·기존 2D 5종 기본값",
+      "pass": true
+    },
+    {
+      "name": "공개본 기능·질문·표현 이유 보유",
+      "pass": true
+    },
+    {
+      "name": "분자 구조만 새 주제·기존 2D 독해와 정렬 보존",
+      "pass": true
+    },
+    {
+      "name": "기존 2D 사료·독해 한계 보존",
+      "pass": true
+    },
+    {
+      "name": "보존 비교 파일럿 Claude 사용자 자리 유지",
+      "pass": true
+    },
+    {
+      "name": "레거시 출처와 현재 앱 프로젝트 중복 없음",
+      "pass": true
+    }
+  ],
+  "cards": 12,
+  "checkedAt": "2026-10-21T17:17:58.302Z",
+  "source": "browser inline harness before deployment",
+  "retainedSourceByteEqual": true
+}

@@ -1,0 +1,108 @@
+{
+  "checkedAt": "2026-10-18T21:51:50.246Z",
+  "status": "implementation-verified",
+  "backup": {
+    "branch": "backup-before-inquiry-2026-10-18",
+    "commit": "ad4e835",
+    "url": "https://github.com/dighqhqtkglf2-boop/webapp-gallery/tree/backup-before-inquiry-2026-10-18"
+  },
+  "scope": {
+    "newIndependentApps": 10,
+    "preservedLegacyApps": 2,
+    "toolComparison": false,
+    "implementation": "Aside AI 지원 독립 구현. Gemini Canvas·AI Studio 동일 입력 비교 아님."
+  },
+  "selfTests": {
+    "total": 337,
+    "passed": 337,
+    "file": "runtime-tests.json",
+    "meaning": "계산·표본·자료 무결성·상태 회귀검사. 교과 전문 감수나 수업 효과 검증 아님."
+  },
+  "mobile": {
+    "method": "실제 390px srcdoc iframe, 원본 HTML/CSS 실행 후 innerWidth/scrollWidth 측정",
+    "results": [
+      {
+        "id": "meiosis",
+        "ready": "complete",
+        "viewport": 390,
+        "width": 375,
+        "pass": true
+      },
+      {
+        "id": "induction",
+        "ready": "complete",
+        "viewport": 390,
+        "width": 375,
+        "pass": true
+      },
+      {
+        "id": "accumulation",
+        "ready": "complete",
+        "viewport": 390,
+        "width": 375,
+        "pass": true
+      },
+      {
+        "id": "equilibrium",
+        "ready": "complete",
+        "viewport": 390,
+        "width": 375,
+        "pass": true
+      },
+      {
+        "id": "projection",
+        "ready": "complete",
+        "viewport": 390,
+        "width": 375,
+        "pass": true
+      },
+      {
+        "id": "algorithm",
+        "ready": "complete",
+        "viewport": 390,
+        "width": 375,
+        "pass": true
+      },
+      {
+        "id": "timbre",
+        "ready": "complete",
+        "viewport": 390,
+        "width": 375,
+        "pass": true
+      },
+      {
+        "id": "narrative",
+        "ready": "complete",
+        "viewport": 390,
+        "width": 375,
+        "pass": true
+      },
+      {
+        "id": "discourse",
+        "ready": "complete",
+        "viewport": 390,
+        "width": 375,
+        "pass": true
+      },
+      {
+        "id": "history-evidence",
+        "ready": "complete",
+        "viewport": 390,
+        "width": 375,
+        "pass": true
+      }
+    ],
+    "nativePhone": false
+  },
+  "reviews": {
+    "science": "감수분열·유도·평형·수학·지도 투영·음향 계산 독립 검토. 수동 유도 그래프 시간구간과 저장값 검증 보정.",
+    "language": "국어 세계 사실표와 3시점 서술의 정보 범위, 영어 두 글과 지시 관계·대안 배열을 부모가 직접 읽어 점검.",
+    "history": "공식 자료 5개, 원문 링크·학습용 요약·정책과 사회관행의 차이 명시."
+  },
+  "thumbnailMethod": "브라우저 실행 화면과 동일한 데스크톱 CSS의 인쇄 렌더 혼용. 모형·텍스트는 실제 앱 실행 결과. 목업 아님.",
+  "limits": [
+    "교과 전문 감수·학습 효과 실측·실제 교실 적용 미실시",
+    "실제 휴대폰 기기와 물리적 오디오 청취·출력음량 검증 미실시",
+    "기존 3D 작품은 일부 대학 수준 내용 및 외부 CDN 의존 포함"
+  ]
+}

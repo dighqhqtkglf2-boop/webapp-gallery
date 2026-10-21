@@ -1,72 +1,76 @@
-[
-  {
-    "id": "meiosis",
-    "ready": "complete",
-    "viewport": 390,
-    "width": 375,
-    "pass": true
-  },
-  {
-    "id": "induction",
-    "ready": "complete",
-    "viewport": 390,
-    "width": 375,
-    "pass": true
-  },
-  {
-    "id": "accumulation",
-    "ready": "complete",
-    "viewport": 390,
-    "width": 375,
-    "pass": true
-  },
-  {
-    "id": "equilibrium",
-    "ready": "complete",
-    "viewport": 390,
-    "width": 375,
-    "pass": true
-  },
-  {
-    "id": "projection",
-    "ready": "complete",
-    "viewport": 390,
-    "width": 375,
-    "pass": true
-  },
-  {
-    "id": "algorithm",
-    "ready": "complete",
-    "viewport": 390,
-    "width": 375,
-    "pass": true
-  },
-  {
-    "id": "timbre",
-    "ready": "complete",
-    "viewport": 390,
-    "width": 375,
-    "pass": true
-  },
-  {
-    "id": "narrative",
-    "ready": "complete",
-    "viewport": 390,
-    "width": 375,
-    "pass": true
-  },
-  {
-    "id": "discourse",
-    "ready": "complete",
-    "viewport": 390,
-    "width": 375,
-    "pass": true
-  },
-  {
-    "id": "history-evidence",
-    "ready": "complete",
-    "viewport": 390,
-    "width": 375,
-    "pass": true
+{
+  "scope": "이번 배포의 AI Studio 3D5종만",
+  "environment": "실제 Three.js/WebGL, 브라우저 srcdoc390px; 저장 영속성은 공개HTTPS에서 재확인",
+  "checks": {
+    "meiosis": {
+      "width": 390,
+      "canvas": {
+        "x": 46,
+        "y": 933.5625,
+        "width": 283,
+        "height": 438,
+        "top": 933.5625,
+        "right": 329,
+        "bottom": 1371.5625,
+        "left": 46
+      },
+      "webgl": true
+    },
+    "induction": {
+      "width": 390,
+      "canvas": {
+        "x": 30,
+        "y": 954.84375,
+        "width": 315,
+        "height": 258,
+        "top": 954.84375,
+        "right": 345,
+        "bottom": 1212.84375,
+        "left": 30
+      },
+      "webgl": true
+    },
+    "accumulation": {
+      "width": 390,
+      "canvas": {
+        "x": 21,
+        "y": 339.796875,
+        "width": 333,
+        "height": 380,
+        "top": 339.796875,
+        "right": 354,
+        "bottom": 719.796875,
+        "left": 21
+      },
+      "webgl": true
+    },
+    "equilibrium": {
+      "width": 390,
+      "canvas": {
+        "x": 20,
+        "y": 243.78125,
+        "width": 335,
+        "height": 308,
+        "top": 243.78125,
+        "right": 355,
+        "bottom": 551.78125,
+        "left": 20
+      },
+      "webgl": true
+    },
+    "projection": {
+      "width": 390,
+      "canvas": {
+        "x": 25,
+        "y": 272.296875,
+        "width": 325,
+        "height": 418,
+        "top": 272.296875,
+        "right": 350,
+        "bottom": 690.296875,
+        "left": 25
+      },
+      "webgl": true
+    }
   }
-]
+}
